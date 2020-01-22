@@ -70,6 +70,7 @@ PROGRAMAS_PARA_INSTALAR=(
   apt-transport-https
   beignet
   curl
+  flashplugin-installer
   git
   gparted
   lsb
