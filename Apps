@@ -1,0 +1,321 @@
+	*Guia de inicialização Ubuntu*
+	
+ - 'Minimize on Click'
+--------------------
+	1.
+		gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Tema
+--------------------
+	Yaru - Software Ubuntu
+	1.
+		sudo add-apt-repository ppa:communitheme/ppa
+	2.
+		sudo apt update
+	3.
+		sudo apt install ubuntu-communitheme-session
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Icones
+--------------------
+	Suru
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Aplicativos
+--------------------
+	Gnome Tweak Tool
+	1.
+		sudo apt-get install gnome-tweak-tool
+	3.
+		sudo apt-get install -f
+--------------------
+	Chrome
+	1.
+		wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	2.
+		sudo dpkg -i google-chrome-stable_current_amd64.deb
+--------------------
+	Spotify
+	1.
+		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+	2.
+		echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+	3.
+		sudo apt-get update
+	4.
+		sudo apt-get install spotify-client
+--------------------
+	Odio
+	1.
+		sudo snap install odio
+	2.
+		sudo apt update
+	3.
+		(https://snapcraft.io/odio)	
+--------------------
+	Sublime
+	1.
+		echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+	2.
+		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+	3.
+		sudo apt-get update
+	4.
+		sudo apt-get install sublime-text
+--------------------
+	Gimp
+	1.
+		sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+	2.
+		sudo apt-get update
+	3.
+		sudo apt-get install gimp	
+--------------------
+	MuseScore
+	1.
+		sudo add-apt-repository ppa:mscore-ubuntu/mscore3-stable
+	2.
+		sudo apt-get update
+	3.
+		sudo apt install musescore3
+--------------------
+--------------------	
+	VLC
+	1.
+		sudo add-apt-repository ppa:videolan/master-daily
+	2.
+		sudo apt update
+	3.
+		sudo apt install vlc
+--------------------
+	Google Earth Pro
+	(https://www.google.com/earth/download/gep/agree.html)
+	1.
+		wget -O google-earth64.deb http://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb
+	2.
+		sudo dpkg -i google-earth64.deb
+	3.
+		rm google-earth64.deb
+--------------------
+	FileZilla
+	1.
+		sudo apt-get update
+	2.
+		sudo apt-get install filezilla
+--------------------
+	Oracle VB
+--------------------
+	Stacer
+	1.
+		sudo add-apt-repository ppa:oguzhaninan/stacer -y
+	2.
+		sudo apt-get update
+	3.
+		sudo apt-get install stacer -y
+
+
+	1.
+		wget https://github.com/oguzhaninan/Stacer/releases/download/v1.1.0/stacer_1.1.0_amd64.deb -O stacer.deb
+	2.
+		sudo dpkg -i stacer.deb
+	3.
+		sudo apt-get install -f
+--------------------
+	Stellarium
+	1.
+		sudo add-apt-repository ppa:stellarium/stellarium-releases
+	2.
+		sudo apt-get update
+	3.
+		sudo apt-get install stellarium
+--------------------
+	Git
+	1.
+		sudo apt install git
+--------------------
+	XSane
+--------------------
+	Ukuu
+--------------------
+	Ubuntu Cleaner
+--------------------
+	gparted
+--------------------
+	Okular
+--------------------
+	Skype
+	1.
+		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skype-stable.list
+	2.
+		wget https://repo.skype.com/data/SKYPE-GPG-KEY
+	3.
+		sudo apt-key add SKYPE-GPG-KEY
+	4.
+		sudo apt install apt-transport-https
+	5.
+		sudo apt update
+	6.
+		sudo apt install skypeforlinux
+--------------------
+	WPS Office
+	(http://wps-community.org/download.html)
+	1.
+		wget http://kdl.cc.ksosoft.com/wps-community/download/6757/wps-office_10.1.0.6757_amd64.deb -O wps-office.deb
+	2.
+		wget http://kdl.cc.ksosoft.com/wps-community/download/8372/wps-office_11.1.0.8372_amd64.deb -O web-office-fonts.deb
+	3.
+		sudo dpkg -i wps-office*.deb
+	4.
+		sudo apt-get install -f
+	5.
+		sudo apt update
+--------------------
+	Rambox
+--------------------
+	Franz
+	(https://meetfranz.com/#download)
+--------------------	
+	Synaptic
+	1.
+		sudo apt-get update
+	2.
+		sudo apt-get install synaptic
+	3.
+		ubuntu-restricted-extras
+--------------------
+	UFW (Firewall)
+	1.
+		sudo apt-get install ufw
+	2.
+		sudo ufw enable
+--------------------
+	RCLONE BROWSER
+	1.
+		sudo add-apt-repository ppa:nilarimogard/webupd8
+	2.
+		sudo apt-get update
+	3.
+		sudo apt-get install rclone-browser
+--------------------
+	SciDAVis
+	1. 
+		sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/hpcoder1/xUbuntu_19.04/ /' > /etc/apt/sources.list.d/home:hpcoder1.list"
+	2.
+		wget -nv https://download.opensuse.org/repositories/home:hpcoder1/xUbuntu_19.04/Release.key -O Release.key
+	3.
+		sudo apt-key add - < Release.key
+	4.
+		sudo apt-get update
+	5.	
+		sudo apt-get install scidavis
+--------------------
+	TimeShift
+	1.
+		sudo add-apt-repository -y ppa:teejee2008/ppa
+		xkz1234*fl
+	2.
+		sudo apt-get update
+	3.
+		sudo apt-get install timeshift
+
+	(https://www.youtube.com/watch?v=tQY5IHOnK9E)
+--------------------
+	LAMP
+	1. Apache
+		sudo apt install -y apache2
+	2.
+		sudo ufw app list
+	3.
+		sudo ufw allow in 'Apache Full'
+		sudo ufw allow in 'OpenSSH'
+	4. MySQL
+		sudo apt install -y mysql-server
+	5.
+		sudo mysql_secure_installation
+		y
+		2
+		'new password'
+		're-enter new password'
+		y
+		y
+		y
+		y
+		y
+	6. PHP
+		sudo apt install -y php libapache2-mod-php php-mysql
+	7.
+		sudo nano /etc/apache2/mods-enabled/dir.conf
+	8.
+		sudo systemctl restart apache2
+		sudo systemctl status apache2
+	9. PHPMyAdmin
+		sudo apt install -y phpmyadmin
+		apache2
+		sim
+
+	https://www.techsupportpk.com/2019/04/how-to-install-lamp-stack-ubuntu-1904.html
+	https://support.rackspace.com/how-to/install-mysql-server-on-the-ubuntu-operating-system/
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Extenções
+--------------------
+	GNOME Shell Extensions
+	1.
+		//sudo apt install gnome-shell-extensions
+	2.
+		sudo apt install chrome-gnome-shell
+--------------------
+	Coverflow alt-tab
+	CustomCorner
+	Dash to Dock
+	Desktop Icons
+	Dynamic panel transparency
+	//GSConnect
+	//native window placement
+	//netspeed
+	Openweather
+	refresh wifi connections
+	//removable drive menu 
+	Sound Input & output deice chooser
+	suspend button
+	user themes
+	//Volume Mixer
+	WindowOverlay Icons
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Barra de Favoritos
+--------------------
+	1. Arquivos
+	2. Chrome
+	3. Firefox
+	4. Spotify
+	5. Odio
+	6. Sublime
+	7. Musescore
+	8. Gimp 
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Impressoras
+--------------------
+	LSB
+	1.
+		sudo apt-get install lsb
+--------------------
+	EPSON L375
+	1.
+		http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX
+
+
+
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Fontes
+--------------------
+	Fontes Microsoft
+	1.
+		sudo apt install ttf-mscorefonts-installer
+--------------------
+	(https://raw.githubusercontent.com/hotice/webupd8/master/install-google-fonts)
+----------------------------------------------------------------------------------------------------
