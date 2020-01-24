@@ -26,9 +26,6 @@ PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 ## MuseScore ##
 PPA_MUSESCORE="ppa:mscore-ubuntu/mscore3-stable"
 
-## Neofetch ##
-PPA_NEOFETCH="ppa:dawidd0811/neofetch"
-
 ## Spotify ##
 URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey.gpg"
 URL_SPOTIFY_PPA="http://repository.spotify.com"
@@ -73,6 +70,7 @@ PROGRAMAS_PARA_INSTALAR=(
   flashplugin-installer
   git
   gparted
+  laptop-mode-tools
   lsb
   lsb-core
   ubuntu-restricted-extras
@@ -203,9 +201,6 @@ sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
 ## MuseScore ##
 sudo apt-add-repository "$PPA_MUSESCORE" -y
 
-## Neofetch ##
-sudo apt-add-repository "PPA_NEOFETCH" -y
-
 ## Stacer ##
 ## sudo apt-add-repository "$PPA_STACER" -y
 
@@ -259,13 +254,13 @@ done
 
 
 ## ----- Instalando pacotes Flatpak ---- -##
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 ## Gimp ##
 flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
 
 ## WPS Office ##
-flatpak install flathub com.wps.Office -y
+## flatpak install flathub com.wps.Office -y
 
 
 ## ----- Instalando pacotes Snap ----- ##
@@ -287,6 +282,10 @@ sudo ufw enable
 
 ## Drivers ##
 sudo ubuntu-drivers autoinstall
+
+## Repositorio parceiros canonical ##
+sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
+
 
 ## ----- Finalização, atualização e limpeza ----- ##
 sudo apt update && sudo apt dist-upgrade -y
