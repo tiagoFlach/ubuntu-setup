@@ -306,9 +306,6 @@
 	1.
 		http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX
 
-
-
-
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------
  - Fontes
@@ -318,4 +315,15 @@
 		sudo apt install ttf-mscorefonts-installer
 --------------------
 	(https://raw.githubusercontent.com/hotice/webupd8/master/install-google-fonts)
+----------------------------------------------------------------------------------------------------
+
+ - Local da pasta /home
+
+ 	1.
+ 		abrir local onde quer que seja a /home
+ 	2.
+ 		criar links
+ 		sudo ln -sr * ~/
+
+ 	https://linuxdicasesuporte.blogspot.com/2017/11/usando-mesma-particao-de-dados-para.html
 ----------------------------------------------------------------------------------------------------
