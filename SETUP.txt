@@ -66,6 +66,7 @@ HDD
 --------------------
 WINDOWS
 
+	Adobe Reader
 	Firefox
 	Google Chrome
 	Google Earth Pro
