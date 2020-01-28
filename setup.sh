@@ -68,11 +68,13 @@ PROGRAMAS_PARA_INSTALAR=(
   beignet
   curl
   flashplugin-installer
+  gcc
   git
   gparted
   laptop-mode-tools
   lsb
   lsb-core
+  make
   ubuntu-restricted-extras
 
   ## gstreamer
