@@ -266,6 +266,9 @@ flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
 
 
 ## ----- Instalando pacotes Snap ----- ##
+## Discord ##
+sudo snap install discord
+
 ## Odio ##
 sudo snap install odio
 ## sudo snap install spotify ##
