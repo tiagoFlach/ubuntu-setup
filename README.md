@@ -8,7 +8,7 @@ This is a setup for Ubuntu 20.04 LTS.
 
 This script automatically installs the following softwares:
 
-- Programs:
+- Main:
 	- Discord
 	- Firefox
 	- Google Chrome
