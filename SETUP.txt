@@ -1,6 +1,6 @@
 
 ----------------------------------------------------------------------------------------------------
-		SETUP	Windows + Ubuntu
+		SETUP	Dell G5-5590	Windows + Ubuntu
 ----------------------------------------------------------------------------------------------------
 
 
@@ -22,11 +22,31 @@ Bateria de 4 células e 60Wh (integrada)
 
 R$ 8.800,00 por R$ 6.100,00
 
-(https://www.dell.com/pt-br/shop/notebooks-dell/dell-g5-15/spd/g-series-15-5590-laptop/cg5590w7048brw)
-(https://www.dell.com/support/home/br/pt/brdhs1/product-support/product/g-series-15-5590-laptop/overview)
+Página - (https://www.dell.com/pt-br/shop/notebooks-dell/dell-g5-15/spd/g-series-15-5590-laptop/cg5590w7048brw)
+Suporte - (https://www.dell.com/support/home/br/pt/brdhs1/product-support/product/g-series-15-5590-laptop/overview)
+Drivers - (https://www.dell.com/support/home/br/pt/brdhs1/product-support/product/g-series-15-5590-laptop/drivers)
 
 (https://www.youtube.com/watch?v=BfszKYC2Fus)
 
+
+
+
+
+--------------------
+	Alienware Advanced Gaming Mouse – AW558
+--------------------
+3 configurações dinâmicas de DPI
+Resolução de 200 a 5000 DPI
+Velocidade de 100 IPS
+Aceleração de 20 G
+Taxa de amostragem de 1000 Hz (1 ms)
+10 milhões de cliques Omron
+9 botões totalmente programáveis
+
+R$ 328,00 por
+
+Página - (https://www.dell.com/pt-br/shop/accessories/apd/275-bbcs)
+Drivers - (https://www.dell.com/support/home/br/pt/brdhs1/product-support/product/alienware-advanced-gaming-mouse-aw558/drivers)
 
 
 
@@ -65,27 +85,28 @@ HDD
 	Softwares
 --------------------
 WINDOWS
-
-	Adobe Reader
+	
+	Adobe Rreader
+	Adobe Lightroom
 	Discord
 	Firefox
 	Google Chrome
 	Google Earth Pro
 	Gimp
 	LibreOffice
+	Microsoft Office
 	MuseScore
 	Netflix
-	Office
 	Skype
 	Spotify
 	Steam
 	Sublime Text
 	VLC
-	WPS Office
 	(virtualBox)
 
 
 UBUNTU
+
 	Discord
 	FileZilla
 	Firefox
@@ -105,8 +126,3 @@ UBUNTU
 	TimeShift
 	VLC
 	WPS Office
-	
-
-
-
-

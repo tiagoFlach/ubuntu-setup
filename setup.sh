@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+# Script created by Tiago Flach for personal use.
+# https://github.com/tiagoFlach
 
 
 
@@ -8,7 +10,96 @@
 # Define colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+BOLDBLUE='\033[1;34m'
+NC='\033[0m'        # No Color
+
+## Informações do sistema ##
+system="`lsb_release -sd`"
+machine="`uname -m`"
+
+arch="amd64"
+arch2="x64"
+arch3="64"
+if [ "$machine" != "x86_64" ]
+then
+	arch="i386"
+	arch2="ia32"
+	arch3="32"
+fi
+
+## ---------- Tela Inicial ---------- ##
+COLS="`tput cols`"
+SPACES1="	"
+SPACES2="		"
+SPACES3="			"
+LINE1=""
+LINE2=""
+LINE3=""
+LINE4=""
+LINE5=""
+LINE6=""
+LINE7=""
+LINE8=""
+
+# ----------
+
+for (( i = 0; i < $COLS; i++ )); do
+	LINE1+="-"
+done
+echo -e "${BLUE}"$LINE1
+echo $LINE1
+
+# ----------
+# 29
+# 31
+
+for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
+	LINE2+="-"
+done
+
+LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 20.04${BLUE} "
+
+for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
+	LINE2+="-"
+done
+echo -e "${SPACES1}"$LINE2
+
+# ----------
+
+echo $LINE1
+
+# ----------
+# 25
+# 27
+
+for (( i = 0; i < ((($COLS - 27)/2)-16); i++ )); do
+	LINE3+="-"
+done
+
+LINE3+=" ${NC}Author: Tiago Lucas Flach${BLUE} "
+
+for (( i = 0; i < ((($COLS - 27)/2)-16); i++ )); do
+	LINE3+="-"
+done
+echo -e "${SPACES2}"$LINE3
+
+# ----------
+
+for (( i = 0; i < ($COLS - 48); i++ )); do
+	LINE4+="-"
+done
+echo -e "${SPACES3}"$LINE4"${NC}\n"
+
+# ----------
+
+echo -e "${BOLDBLUE}System: ${NC}$system"
+echo -e "${BOLDBLUE}Architecture: ${NC}$arch"
+echo -e "${BOLDBLUE}Home: ${NC}$HOME"
+echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
+
+# ----------
 # ---------------------------------------------------------------------- #
 
 
@@ -62,19 +153,20 @@ DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 
 ## ----- Prgramas a serem instalados via apt ----- ##
-PROGRAMAS_PARA_INSTALAR=(
+PROGRAMS_APT=(
   ## arquivos do sistema
   apt-transport-https
-  beignet
+  #beignet
+  #beignet-opebcl-icd
   curl
+  exfat-fuse
+  exfat-utils
   flashplugin-installer
-  gcc
   git
   gparted
   laptop-mode-tools
   lsb
   lsb-core
-  make
   ubuntu-restricted-extras
 
   ## gstreamer
@@ -94,7 +186,9 @@ PROGRAMAS_PARA_INSTALAR=(
   gstreamer1.0-pulseaudio
   
   ## fontes
-  fonts-atarissmall
+  fonts-atarismall
+  fonts-baekmuk
+  fonts-blankenburg
   fonts-cantarell
   fonts-comfortaa
   fonts-dejavu-extra
@@ -104,26 +198,28 @@ PROGRAMAS_PARA_INSTALAR=(
   fonts-glasstty
   fonts-junicode
   fonts-lato
+  fonts-league-spartan
+  fonts-lexi-gulim
   fonts-lindenhill
   fonts-lmodern
+  fonts-mplus
   fonts-nanum
   fonts-noto-color-emoji
+  fonts-oxygen
   fonts-paratype
   fonts-prociono
   fonts-roboto-slab
   fonts-tomsontalks
   fonts-ubuntu-console
   fonts-vollkorn
+  fonts-yanone-kaffeesatz
   ttf-ancient-fonts
   ttf-mscorefonts-installer
 
   ## gnome
-  gnome-calculator
-  gnome-characters
-  gnome-logs
+  gnome-clocks
   gnome-software-plugin-flatpak
-  gnome-sushi
-  gnome-system-monitor  
+  gnome-sushi 
   gnome-tweaks
 
   ## aplicativos  
@@ -139,16 +235,30 @@ PROGRAMAS_PARA_INSTALAR=(
   timeshift  
   ufw
   vlc
-  --fix-broken
-  --install-recommends
+  virtualbox
+  virtualbox-dkms
 
   ## extensões
   gnome-shell-extension-dashtodock
   gnome-shell-extension-weather
   
+)
 
+## ----- Prgramas a serem instalados via Flatpak ----- ##
+PROGRAMS_FLATPAK=(
+  org.gimp.GIMP
+)
 
-  ##virtualbox
+## ----- Prgramas a serem instalados via Snap ----- ##
+PROGRAMS_SNAP=(
+  discord
+  odio
+  simplenote
+  
+  # skype --classic
+  # slack --classic
+  # spotify
+  # wps-office-multilang
 )
 # ---------------------------------------------------------------------- #
 
@@ -156,17 +266,8 @@ PROGRAMAS_PARA_INSTALAR=(
 
 
 
-# ----------------------------- PRE-INSTALAÇÃO ----------------------------- #
-## Remover programas snap ##
-sudo snap remove gnome-calculator
-sudo snap remove gnome-characters
-sudo snap remove gnome-logs
-sudo snap remove gnome-system-monitor
-
-
+# ----------------------------- PRÉ-INSTALAÇÃO ----------------------------- #
 ## Removendo programas desnecessarios ##
-## Amazon ##
-sudo apt purge ubuntu-web-launchers -y
 ## Thunderbird ##
 sudo apt-get purge --auto-remove thunderbird -y
 ## Remmina ##
@@ -237,44 +338,53 @@ mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_EARTH_PRO"    -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_SKYPE"               -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_STACEE"              -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_STACER"              -P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 
 ## Remover o pacote do Google Earth ##
-sudo add-apt-repository http://dl.google.com/linux/earth/deb --remove
+#sudo add-apt-repository http://dl.google.com/linux/earth/deb --remove
 
 # ----- Instalar programas no apt ----- ##
-for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
+for nome_do_programa in ${PROGRAMS_APT[@]}; do
 	if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
+		echo -e "\n${YELLOW}"$LINE1
+		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
+		echo -e "${YELLOW}"$LINE1"${NC}\n"
+
 		sudo apt install "$nome_do_programa" -y
-	else
-		echo -e "${GREEN}[INSTALADO] - $nome_do_programa ${NC}"
 	fi
 done
 
 
 ## ----- Instalando pacotes Flatpak ---- -##
+sudo flatpak update -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-## Gimp ##
-flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
-
-## WPS Office ##
-## flatpak install flathub com.wps.Office -y
+for program_name in ${PROGRAMS_FLATPAK[@]}; do
+	if ! flatpak list | grep -q $program_name; then # Só instala se já não estiver instalado
+		echo -e "\n${YELLOW}"$LINE1
+		echo -e "	[INSTALANDO] - $program_name ${NC}"
+		echo -e "${YELLOW}"$LINE1"${NC}\n"
+	
+		sudo flatpak install "$program_name" -y
+	fi
+done
 
 
 ## ----- Instalando pacotes Snap ----- ##
-## Discord ##
-sudo snap install discord
+sudo snap refresh
 
-## Odio ##
-sudo snap install odio
-## sudo snap install spotify ##
-## sudo snap install slack --classic ##
-## sudo snap install skype --classic ##
-## sudo snap install photogimp ##
+for program_name in ${PROGRAMS_SNAP[@]}; do
+	if ! snap list | grep -q $program_name; then # Só instala se já não estiver instalado
+		echo -e "\n${YELLOW}"$LINE1
+		echo -e "	[INSTALANDO] - $program_name ${NC}"
+		echo -e "${YELLOW}"$LINE1"${NC}\n"
+
+		sudo snap install "$program_name"
+	fi
+done
 # ---------------------------------------------------------------------- #
 
 
@@ -282,6 +392,9 @@ sudo snap install odio
 
 
 # ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
+## Posiveis erros ##
+sudo apt install -y --fix-broken --install-recommends
+
 ## UFW ##
 sudo ufw enable
 
@@ -294,13 +407,20 @@ sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 
 ## ----- Finalização, atualização e limpeza ----- ##
 sudo apt update && sudo apt dist-upgrade -y
-flatpak update -y
+sudo flatpak update -y
+sudo flatpak repair -y
 sudo snap refresh
 sudo apt autoclean
 sudo apt autoremove -y
 
+
+## ----- Customizações ----- ##
+## Terminal ##
+# Faz com que o terminal inicie com o comando neofetch #
+echo "neofetch" >> ~/.bashrc
+
 ## Aplicativos favoritos ##
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'spotify.desktop', 'odio_odio.desktop', 'sublime_text.desktop', 'mscore3.desktop', 'org.gimp.GIMP.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'spotify.desktop', 'odio_odio.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'mscore3.desktop', 'org.gimp.GIMP.desktop']"
 
 
 ## ----- Customização das extensões ----- ##
@@ -316,6 +436,13 @@ gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'cycle-windo
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DEFAULT'
+
+## Gnome Clocks ##
+
+gsettings set org.gnome.clocks world-clocs "[{'location': <(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>}, {'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Luxembourg', 'ELLX', true, [(0.86597420301561734, 0.10850130765007832)], [(0.86588693655301752, 0.10698868314725239)])>)>}]"
+
+## Keyboard style ##
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br'), ('xkb', 'us')]"
 
 ## OpenWeather ##
 gsettings set org.gnome.shell.extensions.openweather city '-29.372474,-51.494908>Barão>-1 && -30.0324999,-51.2303767>Porto Alegre>-1'
@@ -336,7 +463,115 @@ gsettings set org.gnome.mutter dynamic-workspaces false
 
 ## Wm ##
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
-
-
-##sudo reboot
 # ---------------------------------------------------------------------- #
+
+
+
+
+
+# ----------------------------- CHECKLIST ----------------------------- #
+echo -e "\nAPT's instalados:"
+for program_name in ${PROGRAMS_APT[@]}; do
+  if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
+	echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+  else
+	echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+  fi
+done
+
+echo -e "\nFLATPAK's instalados:"
+for program_name in ${PROGRAMS_FLATPAK[@]}; do
+  if flatpak list | grep -q $program_name; then # Verifica se o programa esta istalado
+	echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+  else
+	echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+  fi
+done
+
+echo -e "\nSNAPS's instalados:"
+for program_name in ${PROGRAMS_SNAP[@]}; do
+  if snap list | grep -q $program_name; then # Verifica se o programa esta istalado
+	echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+  else
+	echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+  fi
+done
+# ---------------------------------------------------------------------- #
+
+
+
+
+# ----------------------------- FOOTER ----------------------------- #
+
+echo -e "\n\n"
+echo -e "${SPACES3}${BLUE}"$LINE4
+
+# ----------
+# 7
+# 9
+for (( i = 0; i < ((($COLS - 9)/2)-16); i++ )); do
+	LINE5+="-"
+done
+
+LINE5+=" ${NC}THE END${BLUE} "
+
+for (( i = 0; i < ((($COLS - 9)/2)-16); i++ )); do
+	LINE5+="-"
+done
+
+echo -e "${SPACES2}"$LINE5
+
+# ----------
+# 39
+# 41
+for (( i = 0; i < ((($COLS - 41)/2)-8); i++ )); do
+	LINE6+="-"
+done
+
+LINE6+=" ${NC}It is recommended to restart the system${BLUE} "
+
+for (( i = 0; i < ((($COLS - 41)/2)-8); i++ )); do
+	LINE6+="-"
+done
+
+echo -e "${SPACES1}"$LINE6
+
+# ----------
+
+echo -e "${BLUE}"$LINE1
+
+# ----------
+# 25
+# 27
+
+for (( i = 0; i < ((($COLS - 27)/2)-8); i++ )); do
+	LINE7+="-"
+done
+
+LINE7+=" Author: Tiago Lucas Flach "
+
+for (( i = 0; i < ((($COLS - 27)/2)-8); i++ )); do
+	LINE7+="-"
+done
+echo -e "${SPACES1}"$LINE7
+
+# ----------
+# 11
+# 13
+
+for (( i = 0; i < ((($COLS - 13)/2)-16); i++ )); do
+	LINE8+="-"
+done
+
+LINE8+=" @flachtiago "
+
+for (( i = 0; i < ((($COLS - 13)/2)-16); i++ )); do
+	LINE8+="-"
+done
+echo -e "${SPACES2}"$LINE8
+
+# ----------
+
+echo -e "${BLUE}"$LINE1
+
+# ----------------------------- END ----------------------------- #
