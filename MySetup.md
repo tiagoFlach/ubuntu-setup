@@ -1,8 +1,7 @@
 # SETUP
 
----
 
-## Dell G5-5590 
+### Dell G5-5590 
 ### Windows + Ubuntu
 
 ---
