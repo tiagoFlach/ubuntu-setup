@@ -104,3 +104,13 @@ This script automatically installs the following softwares:
 - Gnome extensions:
 	- gnome-shell-extension-dashtodock
 	- gnome-shell-extension-weather
+
+
+## Extras
+
+Contains scripts for the automatic installation of the following softwares:
+
+- Composer
+- Lamp
+- Laravel
+- Wps
