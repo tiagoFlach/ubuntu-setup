@@ -4,7 +4,6 @@ This is a setup for Ubuntu 20.04 LTS.
 
 
 
-
 ## Softwares
 
 This script automatically installs the following softwares:
