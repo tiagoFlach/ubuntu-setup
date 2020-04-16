@@ -154,111 +154,111 @@ DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 ## ----- Prgramas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
-  ## arquivos do sistema
-  apt-transport-https
-  #beignet
-  #beignet-opebcl-icd
-  curl
-  exfat-fuse
-  exfat-utils
-  flashplugin-installer
-  git
-  gparted
-  laptop-mode-tools
-  lsb
-  lsb-core
-  ubuntu-restricted-extras
+	## arquivos do sistema
+	apt-transport-https
+	#beignet
+	#beignet-opebcl-icd
+	curl
+	exfat-fuse
+	exfat-utils
+	flashplugin-installer
+	git
+	gparted
+	laptop-mode-tools
+	lsb
+	lsb-core
+	ubuntu-restricted-extras
 
-  ## gstreamer
-  libgstreamer1.0-0 
-  gstreamer1.0-plugins-base 
-  gstreamer1.0-plugins-good 
-  gstreamer1.0-plugins-bad 
-  gstreamer1.0-plugins-ugly 
-  gstreamer1.0-libav 
-  gstreamer1.0-doc 
-  gstreamer1.0-tools 
-  gstreamer1.0-x 
-  gstreamer1.0-alsa 
-  gstreamer1.0-gl 
-  gstreamer1.0-gtk3 
-  gstreamer1.0-qt5 
-  gstreamer1.0-pulseaudio
-  
-  ## fontes
-  fonts-atarismall
-  fonts-baekmuk
-  fonts-blankenburg
-  fonts-cantarell
-  fonts-comfortaa
-  fonts-dejavu-extra
-  fonts-fanwood
-  fonts-font-awesome
-  fonts-gamaliel
-  fonts-glasstty
-  fonts-junicode
-  fonts-lato
-  fonts-league-spartan
-  fonts-lexi-gulim
-  fonts-lindenhill
-  fonts-lmodern
-  fonts-mplus
-  fonts-nanum
-  fonts-noto-color-emoji
-  fonts-oxygen
-  fonts-paratype
-  fonts-prociono
-  fonts-roboto-slab
-  fonts-tomsontalks
-  fonts-ubuntu-console
-  fonts-vollkorn
-  fonts-yanone-kaffeesatz
-  ttf-ancient-fonts
-  ttf-mscorefonts-installer
+	## gstreamer
+	libgstreamer1.0-0 
+	gstreamer1.0-plugins-base 
+	gstreamer1.0-plugins-good 
+	gstreamer1.0-plugins-bad 
+	gstreamer1.0-plugins-ugly 
+	gstreamer1.0-libav 
+	gstreamer1.0-doc 
+	gstreamer1.0-tools 
+	gstreamer1.0-x 
+	gstreamer1.0-alsa 
+	gstreamer1.0-gl 
+	gstreamer1.0-gtk3 
+	gstreamer1.0-qt5 
+	gstreamer1.0-pulseaudio
 
-  ## gnome
-  gnome-clocks
-  gnome-software-plugin-flatpak
-  gnome-sushi 
-  gnome-tweaks
+	## fontes
+	fonts-atarismall
+	fonts-baekmuk
+	fonts-blankenburg
+	fonts-cantarell
+	fonts-comfortaa
+	fonts-dejavu-extra
+	fonts-fanwood
+	fonts-font-awesome
+	fonts-gamaliel
+	fonts-glasstty
+	fonts-junicode
+	fonts-lato
+	fonts-league-spartan
+	fonts-lexi-gulim
+	fonts-lindenhill
+	fonts-lmodern
+	fonts-mplus
+	fonts-nanum
+	fonts-noto-color-emoji
+	fonts-oxygen
+	fonts-paratype
+	fonts-prociono
+	fonts-roboto-slab
+	fonts-tomsontalks
+	fonts-ubuntu-console
+	fonts-vollkorn
+	fonts-yanone-kaffeesatz
+	ttf-ancient-fonts
+	ttf-mscorefonts-installer
 
-  ## aplicativos  
-  chrome-gnome-shell
-  flatpak
-  musescore3
-  neofetch
-  snapd
-  spotify-client
-  stellarium
-  sublime-text
-  synaptic
-  timeshift  
-  ufw
-  vlc
-  virtualbox
-  virtualbox-dkms
+	## gnome
+	chrome-gnome-shell
+	gnome-clocks
+	gnome-software-plugin-flatpak
+	gnome-sushi 
+	gnome-tweaks
 
-  ## extensões
-  gnome-shell-extension-dashtodock
-  gnome-shell-extension-weather
-  
+	## aplicativos
+	flatpak
+	musescore3
+	neofetch
+	snapd
+	spotify-client
+	stellarium
+	sublime-text
+	synaptic
+	timeshift  
+	ufw
+	virtualbox
+	virtualbox-dkms
+	vlc
+
+
+	## extensões
+	gnome-shell-extension-dashtodock
+	gnome-shell-extension-weather
 )
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(
-  org.gimp.GIMP
+	org.gimp.GIMP
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
-  discord
-  odio
-  simplenote
-  
-  # skype --classic
-  # slack --classic
-  # spotify
-  # wps-office-multilang
+	discord
+	odio
+	simplenote
+
+	# skype --classic
+	# slack --classic
+	# spotify
+	# wps-office-multilang
 )
 # ---------------------------------------------------------------------- #
 
@@ -472,29 +472,29 @@ gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
 # ----------------------------- CHECKLIST ----------------------------- #
 echo -e "\nAPT's instalados:"
 for program_name in ${PROGRAMS_APT[@]}; do
-  if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
-	echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
-  else
-	echo -e "	${RED}[FALHOU] - $program_name ${NC}"
-  fi
+	if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
+		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+	else
+		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+	fi
 done
 
 echo -e "\nFLATPAK's instalados:"
 for program_name in ${PROGRAMS_FLATPAK[@]}; do
-  if flatpak list | grep -q $program_name; then # Verifica se o programa esta istalado
-	echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
-  else
-	echo -e "	${RED}[FALHOU] - $program_name ${NC}"
-  fi
+	if flatpak list | grep -q $program_name; then # Verifica se o programa esta istalado
+		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+	else
+		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+	fi
 done
 
 echo -e "\nSNAPS's instalados:"
 for program_name in ${PROGRAMS_SNAP[@]}; do
-  if snap list | grep -q $program_name; then # Verifica se o programa esta istalado
-	echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
-  else
-	echo -e "	${RED}[FALHOU] - $program_name ${NC}"
-  fi
+	if snap list | grep -q $program_name; then # Verifica se o programa esta istalado
+		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+	else
+		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+	fi
 done
 # ---------------------------------------------------------------------- #
 
