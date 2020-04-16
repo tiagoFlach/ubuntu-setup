@@ -1,6 +1,9 @@
 # Ubuntu Setup
 
-This is a setup for Ubuntu 20.04 LTS.
+Made by [@tiagoFlach](https://github.com/tiagoFlach)
+
+This is a automatic system setup for Ubuntu 20.04 LTS.
+
 
 
 
