@@ -11,17 +11,16 @@ Made by [@tiagoFlach](https://github.com/tiagoFlach).
 This script automatically installs the following softwares:
 
 - Main:
-	- Discord
+	- Discord (snap)
 	- Firefox
 	- Google Chrome
 	- Google Earth Pro
-	- Gimp
+	- Gimp (flatpak)
 	- LibreOffice
 	- MuseScore
-	- Odio
-	- Popcorn Time
+	- Odio (snap)
 	- Skype
-	- Simplenote
+	- Simplenote (snap)
 	- Spotify
 	- Stellarium
 	- Stacer
@@ -113,4 +112,5 @@ Contains scripts for the automatic installation of the following softwares:
 - Composer
 - Lamp
 - Laravel
+- Popcorn Time
 - WPS - Office
