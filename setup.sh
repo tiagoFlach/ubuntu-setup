@@ -1,6 +1,7 @@
 #!/bin/bash
 # Script created by Tiago Flach for personal use.
 # https://github.com/tiagoFlach
+# Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
 
 
