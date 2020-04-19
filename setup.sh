@@ -112,6 +112,9 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 ## Drivers Nvidia ##
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 
+## Git ##
+PPA_GIT="ppa:git-core/ppa"
+
 ## Mesa Driver ##
 # PPA_MESA_DRIVER="ppa:paulo-miguel-dias/pkppa"
 
@@ -298,6 +301,9 @@ sudo apt update -y
 ## ----- Adicionando repositórios de terceiros ----- ##
 ## Drivers Nvidia ##
 sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
+
+## Git ##
+sudo apt-add-repository "$PPA_GIT" -y
 
 ## Mesa Driver ##
 ## sudo apt-add-repository "$PPA_MESA_DRIVER" -y
