@@ -136,7 +136,6 @@ sudo phpenmod mbstring
 # MY_QUERY
 
 
-
 ## Theme ##
 # cd /usr/share/phpmyadmin/themes/
 # sudo unzip ~/Downloads/fallen-*.zip
@@ -149,30 +148,12 @@ sudo phpenmod mbstring
 # Include /etc/phpmyadmin/apache.conf
 
 
-
 sudo service mysql restart
 sudo service apache2 restart
 
 sudo apt update
 sudo apt upgrade -y
 
-## FileZilla ##
-# sudo apt install filezilla -y
-
-## Visual Studio ##
-# sudo snap install code --classic
-
-## PHPStorm ##
-# sudo snap install phpstorm --classic
-
-## Composer ##
-# sudo apt install composer -y
-
-## Npm ##
-# sudo apt install npm -y
-
-# sudo apt update
-# sudo apt upgrade -y
 
 ## ------------------------------ ##
 ## ----------- CLEAN ------------ ##

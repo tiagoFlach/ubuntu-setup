@@ -110,7 +110,16 @@ This script automatically installs the following softwares:
 Contains scripts for the automatic installation of the following softwares:
 
 - Composer
+- Develop Apps
+	- Atom
+	- PhpStorm
+	- Sublime Merge
+	- Visual Studio Code
 - Lamp
+	- Apache
+	- PHP
+	- MySql
+	- PHP MyAdmin
 - Laravel
 - Popcorn Time
-- WPS - Office
+- WPS Office
