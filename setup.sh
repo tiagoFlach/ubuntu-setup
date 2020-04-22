@@ -1,5 +1,7 @@
 #!/bin/bash
-# Script created by Tiago Flach for personal use.
+
+# Script created for personal use.
+# author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
 # Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
@@ -339,7 +341,6 @@ sudo apt-add-repository "$PPA_TIMESHIFT" -y
 ## Atualizando o repositório depois da adição de novos repositórios ##
 sudo apt update -y
 
-
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
@@ -426,9 +427,11 @@ sudo apt autoremove -y
 # Faz com que o terminal inicie com o comando neofetch #
 echo "neofetch" >> ~/.bashrc
 
+## Bookmarks Nautilus ##
+echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
+
 ## Aplicativos favoritos ##
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'spotify.desktop', 'odio_odio.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'mscore3.desktop', 'org.gimp.GIMP.desktop']"
-
 
 ## ----- Customização das extensões ----- ##
 ## Dash to dock ##
