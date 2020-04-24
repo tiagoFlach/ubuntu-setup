@@ -137,9 +137,6 @@ PPA_STELLARIUM="ppa:stellarium/stellarium-releases"
 URL_SUBLIME_KEY="https://download.sublimetext.com/sublimehq-pub.gpg"
 URL_SUBLIME_PPA="https://download.sublimetext.com/"
 
-## TimeShift ###
-PPA_TIMESHIFT="ppa:teejee2008/ppa"
-
 
 # ----- URLs -----#
 ## Google Chrome ##
@@ -328,9 +325,6 @@ wget -nc "$URL_SPOTIFY_KEY"
 sudo apt-key add pubkey.gpg
 echo "deb $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo rm pubkey.gpg
-
-## TimeShift ##
-sudo apt-add-repository "$PPA_TIMESHIFT" -y
 # ---------------------------------------------------------------------- #
 
 
