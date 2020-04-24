@@ -127,9 +127,6 @@ PPA_MUSESCORE="ppa:mscore-ubuntu/mscore3-stable"
 URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey.gpg"
 URL_SPOTIFY_PPA="http://repository.spotify.com"
 
-## Stacer ##
-## PPA_STACER="ppa:oguzhaninan/stacer"
-
 ## Stellarium ##
 PPA_STELLARIUM="ppa:stellarium/stellarium-releases"
 
@@ -148,8 +145,6 @@ URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-
 ## Skype ##
 URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
-## Stacer ##
-URL_STACER="https://github.com/oguzhaninan/Stacer/releases/download/v1.1.0/stacer_1.1.0_amd64.deb"
 
 ## ----- Diretório de Downloads ----- ##
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
@@ -232,6 +227,7 @@ PROGRAMS_APT=(
 	neofetch
 	snapd
 	spotify-client
+	stacer
 	stellarium
 	sublime-text
 	synaptic
@@ -310,9 +306,6 @@ sudo apt-add-repository "$PPA_GIT" -y
 ## MuseScore ##
 sudo apt-add-repository "$PPA_MUSESCORE" -y
 
-## Stacer ##
-## sudo apt-add-repository "$PPA_STACER" -y
-
 ## Stellarium ##
 sudo apt-add-repository "$PPA_STELLARIUM" -y
 
@@ -340,7 +333,6 @@ mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_EARTH_PRO"    -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_SKYPE"               -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_STACER"              -P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
