@@ -367,7 +367,7 @@ sudo snap refresh
 
 for program_name in ${PROGRAMS_SNAP[@]}; do
 	if ! snap list | grep -q $program_name; then # Só instala se já não estiver instalado
-		echo -e "\n\n{YELLOW}"$LINE1
+		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
