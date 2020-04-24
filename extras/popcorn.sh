@@ -1,5 +1,7 @@
 #!/bin/bash
-# Script created by Tiago Flach for personal use.
+
+# Script created for personal use.
+# author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
 
 

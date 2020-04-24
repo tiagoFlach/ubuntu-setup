@@ -105,7 +105,6 @@ PROGRAMS_SNAP=(
   discord
   odio
   simplenote
-  
   # skype --classic
   # slack --classic
   # spotify

@@ -101,7 +101,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- Google Earth Pro
 	- Gimp
 	- LibreOffice
-	- **Microsoft Office**
+	- Microsoft Office
 	- MuseScore
 	- Netflix
 	- PopCorn Time
@@ -122,12 +122,12 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- FileZilla
 	- Firefox
 	- Google Chrome
-	- **Google Earth Pro**
+	- Google Earth Pro
 	- Gimp
 	- LibreOffice
 	- MuseScore
 	- Odio
-	- **PopCorn Time**
+	- PopCorn Time
 	- Skype
 	- Simplenote
 	- Spotify

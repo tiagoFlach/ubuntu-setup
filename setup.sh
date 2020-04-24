@@ -154,8 +154,7 @@ DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 PROGRAMS_APT=(
 	## arquivos do sistema
 	apt-transport-https
-	#beignet
-	#beignet-opebcl-icd
+	beignet-opebcl-icd
 	curl
 	exfat-fuse
 	exfat-utils
@@ -235,10 +234,8 @@ PROGRAMS_APT=(
 	ufw
 	virtualbox
 	virtualbox-dkms
-	vlc
 
-
-	## extensões
+	## extensions
 	gnome-shell-extension-dashtodock
 	gnome-shell-extension-weather
 )
@@ -253,7 +250,7 @@ PROGRAMS_SNAP=(
 	discord
 	odio
 	simplenote
-
+	vlc
 	# skype --classic
 	# slack --classic
 	# spotify
@@ -337,13 +334,11 @@ wget -c "$URL_SKYPE"               -P "$DIRETORIO_DOWNLOADS"
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 
-## Remover o pacote do Google Earth ##
-#sudo add-apt-repository http://dl.google.com/linux/earth/deb --remove
 
 # ----- Instalar programas no apt ----- ##
 for nome_do_programa in ${PROGRAMS_APT[@]}; do
 	if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
-		echo -e "\n${YELLOW}"$LINE1
+		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
@@ -358,7 +353,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 for program_name in ${PROGRAMS_FLATPAK[@]}; do
 	if ! flatpak list | grep -q $program_name; then # Só instala se já não estiver instalado
-		echo -e "\n${YELLOW}"$LINE1
+		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 	
@@ -372,7 +367,7 @@ sudo snap refresh
 
 for program_name in ${PROGRAMS_SNAP[@]}; do
 	if ! snap list | grep -q $program_name; then # Só instala se já não estiver instalado
-		echo -e "\n${YELLOW}"$LINE1
+		echo -e "\n\n{YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
@@ -483,7 +478,7 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 	fi
 done
 
-echo -e "\nSNAPS's instalados:"
+echo -e "\nSNAP's instalados:"
 for program_name in ${PROGRAMS_SNAP[@]}; do
 	if snap list | grep -q $program_name; then # Verifica se o programa esta istalado
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
