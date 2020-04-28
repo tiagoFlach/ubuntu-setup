@@ -9,7 +9,7 @@
 
 
 
-# ----------------------------- CONFIGURAÇÕES ----------------------------- #
+# ------------------------------- CONFIGURAÇÕES ------------------------------ #
 # Define colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -102,14 +102,13 @@ echo -e "${BOLDBLUE}Architecture: ${NC}$arch"
 echo -e "${BOLDBLUE}Home: ${NC}$HOME"
 echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 
-# ----------
-# ---------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 
 
 
 
-# ----------------------------- VARIÁVEIS ----------------------------- #
+# --------------------------------- VARIÁVEIS -------------------------------- #
 # ----- PPAs -----#
 ## Drivers Nvidia ##
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
@@ -167,19 +166,19 @@ PROGRAMS_APT=(
 	ubuntu-restricted-extras
 
 	## gstreamer
-	libgstreamer1.0-0 
-	gstreamer1.0-plugins-base 
-	gstreamer1.0-plugins-good 
-	gstreamer1.0-plugins-bad 
-	gstreamer1.0-plugins-ugly 
-	gstreamer1.0-libav 
-	gstreamer1.0-doc 
-	gstreamer1.0-tools 
-	gstreamer1.0-x 
-	gstreamer1.0-alsa 
-	gstreamer1.0-gl 
-	gstreamer1.0-gtk3 
-	gstreamer1.0-qt5 
+	libgstreamer1.0-0
+	gstreamer1.0-plugins-base
+	gstreamer1.0-plugins-good
+	gstreamer1.0-plugins-bad
+	gstreamer1.0-plugins-ugly
+	gstreamer1.0-libav
+	gstreamer1.0-doc
+	gstreamer1.0-tools
+	gstreamer1.0-x
+	gstreamer1.0-alsa
+	gstreamer1.0-gl
+	gstreamer1.0-gtk3
+	gstreamer1.0-qt5
 	gstreamer1.0-pulseaudio
 
 	## fontes
@@ -217,7 +216,7 @@ PROGRAMS_APT=(
 	chrome-gnome-shell
 	gnome-clocks
 	gnome-software-plugin-flatpak
-	gnome-sushi 
+	gnome-sushi
 	gnome-tweaks
 
 	## aplicativos
@@ -230,10 +229,11 @@ PROGRAMS_APT=(
 	stellarium
 	sublime-text
 	synaptic
-	timeshift  
+	timeshift
 	ufw
 	virtualbox
 	virtualbox-dkms
+	vlc
 
 	## extensions
 	gnome-shell-extension-dashtodock
@@ -250,19 +250,18 @@ PROGRAMS_SNAP=(
 	discord
 	odio
 	simplenote
-	vlc
 	# skype --classic
 	# slack --classic
 	# spotify
 	# wps-office-multilang
 )
-# ---------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 
 
 
 
-# ----------------------------- PRÉ-INSTALAÇÃO ----------------------------- #
+# -------------------------------- PRE INSTALL ------------------------------- #
 ## Removendo programas desnecessarios ##
 ## Thunderbird ##
 sudo apt-get purge --auto-remove thunderbird -y
@@ -273,13 +272,13 @@ sudo apt-get purge --auto-remove remmina -y
 ## Removendo travas eventuais do apt ##
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
-# ---------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 
 
 
 
-# ----------------------------- REQUISITOS ----------------------------- #
+# -------------------------------- REQUISITOS -------------------------------- #
 ## Adicionando/Confirmando arquitetura de 32 bits ##
 sudo dpkg --add-architecture i386
 
@@ -315,13 +314,13 @@ wget -nc "$URL_SPOTIFY_KEY"
 sudo apt-key add pubkey.gpg
 echo "deb $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo rm pubkey.gpg
-# ---------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 
 
 
 
-# ----------------------------- EXECUÇÃO ----------------------------- #
+# --------------------------------- EXECUÇÃO --------------------------------- #
 ## Atualizando o repositório depois da adição de novos repositórios ##
 sudo apt update -y
 
@@ -356,7 +355,7 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
-	
+
 		sudo flatpak install "$program_name" -y
 	fi
 done
@@ -374,13 +373,13 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 		sudo snap install "$program_name"
 	fi
 done
-# ---------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 
 
 
 
-# ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
+# ------------------------------- POST INSTALL ------------------------------- #
 ## Posiveis erros ##
 sudo apt install -y --fix-broken --install-recommends
 
@@ -401,9 +400,41 @@ sudo flatpak repair
 sudo snap refresh
 sudo apt autoclean
 sudo apt autoremove -y
+# ---------------------------------------------------------------------------- #
 
 
-## ----- Customizações ----- ##
+
+
+
+## ----------------------------- CUSTOMIZATIONS ----------------------------- ##
+## Emojis ##
+mkdir ~/.config/fontconfig
+echo -e '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+	<alias>
+		<family>serif</family>
+		<prefer>
+			<family>Noto Color Emoji</family>
+		</prefer>
+	</alias>
+
+	<alias>
+		<family>sans-serif</family>
+		<prefer>
+			<family>Noto Color Emoji</family>
+		</prefer>
+	</alias>
+
+	<alias>
+		<family>monospace</family>
+		<prefer>
+			<family>Noto Color Emoji</family>
+		</prefer>
+	</alias>
+</fontconfig>' > ~/.config/fontconfig/fonts.conf
+sudo fc-cache -f
+
 ## Terminal ##
 # Faz com que o terminal inicie com o comando neofetch #
 echo "neofetch" >> ~/.bashrc
@@ -453,13 +484,13 @@ gsettings set org.gnome.mutter dynamic-workspaces false
 
 ## Wm ##
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
-# ---------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 
 
 
 
-# ----------------------------- CHECKLIST ----------------------------- #
+# -------------------------------- CHECKLIST --------------------------------- #
 echo -e "\nAPT's instalados:"
 for program_name in ${PROGRAMS_APT[@]}; do
 	if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
@@ -486,12 +517,13 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
 	fi
 done
-# ---------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 
 
 
-# ----------------------------- FOOTER ----------------------------- #
+
+# ---------------------------------- FOOTER ---------------------------------- #
 
 echo -e "\n\n"
 echo -e "${SPACES3}${BLUE}"$LINE4
@@ -564,4 +596,4 @@ echo -e "${SPACES2}"$LINE8
 
 echo -e "${BLUE}"$LINE1
 
-# ----------------------------- END ----------------------------- #
+# ----------------------------------- END ------------------------------------ #
