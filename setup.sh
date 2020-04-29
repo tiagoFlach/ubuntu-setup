@@ -192,6 +192,7 @@ PROGRAMS_APT=(
 	fonts-font-awesome
 	fonts-gamaliel
 	fonts-glasstty
+	fonts-hack
 	fonts-junicode
 	fonts-lato
 	fonts-league-spartan
