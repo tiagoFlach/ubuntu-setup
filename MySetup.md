@@ -104,7 +104,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- Microsoft Office
 	- MuseScore
 	- Netflix
-	- PopCorn Time
+	- Popcorn Time
 	- Skype
 	- Simplenote
 	- Spotify
@@ -112,7 +112,6 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- Sublime Text
 	- TuneIn Radio
 	- VLC
-	- **VirtualBox**
 	- WhatsApp
 
 <br />
@@ -127,7 +126,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- LibreOffice
 	- MuseScore
 	- Odio
-	- PopCorn Time
+	- Popcorn Time
 	- Skype
 	- Simplenote
 	- Spotify

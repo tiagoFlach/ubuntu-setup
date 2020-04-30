@@ -9,35 +9,40 @@
 ## -------------------------------------------------------------------------- ##
 
 
-## Variables ##
+# Variables
 MYSQL_USER="tiago"
 MYSQL_PASSWORD="senha123*A"
 
 MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 PHPMYADMIN_PASSWORD="$MYSQL_ROOT_PASSWORD"
 
+## ---------------------------------- ##
 
+# Update packages
 sudo apt update
 sudo apt upgrade -y
 
-## Expect ##
+# Install Expect
 sudo apt install expect -y
 
-## ------------------------------ ##
-## ----------- Apache ----------- ##
-## ------------------------------ ##
+
+## ---------------------------------- ##
+## ------------- Apache ------------- ##
+## ---------------------------------- ##
 sudo apt install apache2 -y
 
-## ------------------------------ ##
-## ------------ Php ------------- ##
-## ------------------------------ ##
+
+## ---------------------------------- ##
+## -------------- Php --------------- ##
+## ---------------------------------- ##
 sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php -Y
 sudo apt-get update
 sudo apt install php php-cli php-common php-xdebug php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php -y
 
 
-## display_errors ##
+# Display_errors
+# sed 's/display_errors = Off/display_errors = On' [FILE]
 # sudo gedit /etc/php/7.4/apache2/php.ini
 # display_errors = On
 
@@ -46,9 +51,10 @@ sudo apt install php php-cli php-common php-xdebug php-gd php-mbstring php-intl 
 #sudo chmod -R 775 .
 #cd /
 
-## ------------------------------ ##
-## ----------- MySQL ------------ ##
-## ------------------------------ ##
+
+## ---------------------------------- ##
+## ------------- MySQL -------------- ##
+## ---------------------------------- ##
 sudo apt install mysql-server mysql-client php-mysql -y
 sudo mysql_secure_installation utility
 
@@ -117,9 +123,10 @@ MY_QUERY
 sudo ufw enable
 sudo ufw allow mysql
 
-## ------------------------------ ##
-## -------- PHP MyAdmin --------- ##
-## ------------------------------ ##
+
+## ---------------------------------- ##
+## ---------- PHP MyAdmin ----------- ##
+## ---------------------------------- ##
 sudo add-apt-repository ppa:phpmyadmin/ppa
 sudo apt-get update
 
@@ -155,9 +162,9 @@ sudo apt update
 sudo apt upgrade -y
 
 
-## ------------------------------ ##
-## ----------- CLEAN ------------ ##
-## ------------------------------ ##
+## ---------------------------------- ##
+## ------------- CLEAN -------------- ##
+## ---------------------------------- ##
 # sudo apt purge php* -y
 # sudo apt purge apache2* -y
 # sudo apt purge mysql* -y
