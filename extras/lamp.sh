@@ -9,6 +9,21 @@
 ## -------------------------------------------------------------------------- ##
 
 
+# Update packages
+sudo apt update
+sudo apt upgrade -y
+
+# Software properties
+sudo apt install software-properties-common -y
+
+# Install Expect
+sudo apt install expect -y
+
+# Mlocate
+sudo apt install mlocate -y
+
+## ---------------------------------- ##
+
 # Variables
 MYSQL_USER="tiago"
 MYSQL_PASSWORD="senha123*A"
@@ -16,14 +31,7 @@ MYSQL_PASSWORD="senha123*A"
 MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 PHPMYADMIN_PASSWORD="$MYSQL_ROOT_PASSWORD"
 
-## ---------------------------------- ##
-
-# Update packages
-sudo apt update
-sudo apt upgrade -y
-
-# Install Expect
-sudo apt install expect -y
+PHPINI="$(locate -l 1 php.ini)"
 
 
 ## ---------------------------------- ##
@@ -36,22 +44,18 @@ sudo apt install apache2 -y
 ## -------------- Php --------------- ##
 ## ---------------------------------- ##
 sudo apt install software-properties-common -y
-sudo add-apt-repository ppa:ondrej/php -Y
-sudo apt-get update
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update
 sudo apt install php php-cli php-common php-xdebug php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php -y
 
+# Display_errors = on
+sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 
-# Display_errors
-# sed 's/display_errors = Off/display_errors = On' [FILE]
-# sudo gedit /etc/php/7.4/apache2/php.ini
-# display_errors = On
+# Permissões da pasta html
+sudo chmod -R 755 /var/www/html/
+sudo chown -R $USER:$USER /var/www/html/
 
-## Permissões da pasta html ##
-#cd /var/www/html
-#sudo chmod -R 775 .
-#cd /
-
-
+exit
 ## ---------------------------------- ##
 ## ------------- MySQL -------------- ##
 ## ---------------------------------- ##
@@ -157,6 +161,8 @@ sudo phpenmod mbstring
 
 sudo service mysql restart
 sudo service apache2 restart
+
+sudo apt purge mlocate -y
 
 sudo apt update
 sudo apt upgrade -y

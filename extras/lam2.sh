@@ -14,12 +14,13 @@ MYSQL_PASSWORD="senha123*A"
 MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 PHPMYADMIN_PASSWORD="$MYSQL_ROOT_PASSWORD"
 
+PHPINI="$(locate -l 1 php.ini)"
 
-sudo apt update
-sudo apt upgrade -y
+#sudo apt update
+#sudo apt upgrade -y
 
 ## Expect ##
-sudo apt install expect -y
+#sudo apt install expect -y
 
 ## ------------------------------ ##
 ## ----------- Apache ----------- ##
@@ -35,14 +36,14 @@ sudo apt install expect -y
 # sudo apt install php php-cli php-common php-xdebug php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php -y
 
 
-## display_errors ##
-# sudo gedit /etc/php/7.4/apache2/php.ini
-# display_errors = On
+# Display_errors = on
+#sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 
-## Permissões da pasta html ##
-#cd /var/www/html
-#sudo chmod -R 775 .
-#cd /
+# Permissões da pasta html
+#sudo chmod -R 755 /var/www/html/
+#sudo chown -R $USER:$USER /var/www/html/
+
+exit
 
 ## ------------------------------ ##
 ## ----------- MySQL ------------ ##
