@@ -117,10 +117,10 @@ Contains scripts for the automatic installation of the following softwares:
 	- Sublime Merge
 	- Visual Studio Code
 - Lamp
-	- Apache
-	- PHP
-	- MySql
-	- PHP MyAdmin
+	- [x] Apache
+	- [x] PHP
+	- [ ] MySql
+	- [ ] PHP MyAdmin
 - Laravel
 - Popcorn Time
 - WPS Office
