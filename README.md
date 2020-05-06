@@ -115,6 +115,7 @@ Contains scripts for the automatic installation of the following softwares:
 	- Atom
 	- PhpStorm
 	- Sublime Merge
+	- Sublime Text
 	- Visual Studio Code
 - Lamp
 	- [x] Apache
