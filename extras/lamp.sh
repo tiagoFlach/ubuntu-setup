@@ -55,6 +55,9 @@ sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 sudo chmod -R 755 /var/www/html/
 sudo chown -R $USER:$USER /var/www/html/
 
+## Bookmarks Nautilus ##
+echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
+
 exit
 ## ---------------------------------- ##
 ## ------------- MySQL -------------- ##
