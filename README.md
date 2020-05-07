@@ -86,6 +86,7 @@ This script automatically installs the following softwares:
 	- fonts-oxygen
 	- fonts-paratype
 	- fonts-prociono
+	- fonts-roboto
 	- fonts-roboto-slab
 	- fonts-tomsontalks
 	- fonts-ubuntu-console
@@ -93,6 +94,8 @@ This script automatically installs the following softwares:
 	- fonts-yanone-kaffeesatz
 	- ttf-ancient-fonts
 	- ttf-mscorefonts-installer
+	- ttf-ubuntu-font-family
+
 	
 - Gnome:
 	- chrome-gnome-shell

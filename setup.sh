@@ -205,6 +205,7 @@ PROGRAMS_APT=(
 	fonts-oxygen
 	fonts-paratype
 	fonts-prociono
+	fonts-roboto
 	fonts-roboto-slab
 	fonts-tomsontalks
 	fonts-ubuntu-console
@@ -212,6 +213,7 @@ PROGRAMS_APT=(
 	fonts-yanone-kaffeesatz
 	ttf-ancient-fonts
 	ttf-mscorefonts-installer
+	ttf-ubuntu-font-family
 
 	## gnome
 	chrome-gnome-shell
