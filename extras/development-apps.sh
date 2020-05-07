@@ -6,6 +6,7 @@
 
 # This scrip install de following apps:
 # 	Atom;
+# 	GitKraken;
 # 	PhpStorm;
 # 	Sublime Text;
 # 	Sublime Merge;
@@ -18,7 +19,17 @@ wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 
 sudo apt update
-sudo apt-get install atom
+sudo apt install atom
+
+
+# GitKraken
+# --------------------------------------
+wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+sudo dpkg -i gitkraken-amd64.deb
+sudo apt install -f -y
+rm gitkraken-amd64.deb
+
+sudo apt update
 
 
 # Php Storm

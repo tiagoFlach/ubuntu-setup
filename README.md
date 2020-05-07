@@ -113,6 +113,7 @@ Contains scripts for the automatic installation of the following softwares:
 - Composer
 - Development Apps
 	- Atom
+	- GitKraken;
 	- PhpStorm
 	- Sublime Merge
 	- Sublime Text
