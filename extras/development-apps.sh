@@ -19,7 +19,7 @@ wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 
 sudo apt update
-sudo apt install atom
+sudo apt install atom -y
 
 
 # GitKraken
@@ -44,12 +44,12 @@ sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 sudo apt update
-sudo apt install sublime-text
+sudo apt install sublime-text -y
 
 
 # Sublime Merge
 # --------------------------------------
-sudo apt-get install sublime-merge
+sudo apt-get install sublime-merge -y
 
 
 # Visual Studio Code
