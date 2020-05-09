@@ -8,25 +8,6 @@
 ## -------------------------------------------------------------------------- ##
 
 
-# Variables
-# --------------------------------------
-
-MYSQL_USER="tiago"
-#MYSQL_PASSWORD="senha123*A"
-
-CURRENT_MYSQL_PASSWORD=''	# leave blank
-NEW_MYSQL_PASSWORD="senha123*A"
-
-MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
-PHPMYADMIN_PASSWORD="$MYSQL_ROOT_PASSWORD"
-
-PHPINI="$(locate -l 1 php.ini)"
-
-# --------------------------------------
-
-## ---------------------------------- ##
-## ------------- CLEAN -------------- ##
-## ---------------------------------- ##
 function clean {
 	sudo apt purge --remove build-essential -y
 	sudo apt purge --remove expect -y
@@ -65,21 +46,41 @@ function update {
 
 # --------------------------------------
 
-update
+#update
 
-#sudo apt update
-#sudo apt upgrade -y
 
-## Build-essential
+# Build-essential
 #sudo apt install build-essential -y
 
-## Expect ##
+# Expect
 #sudo apt install expect -y
 
-## NPM ##
+# Mlocate
+#sudo apt install mlocate -y
+
+# NPM
 #sudo apt install npm -y
 
-#sudo apt update
+#update
+
+
+
+# Variables
+# --------------------------------------
+
+MYSQL_USER_NAME="tiago"
+MYSQL_USER_PASSWORD="senha123*A"
+
+CURRENT_MYSQL_PASSWORD=''	# leave blank
+NEW_MYSQL_PASSWORD="senha123*A"
+
+MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
+
+PHPMYADMIN_PASSWORD="$MYSQL_ROOT_PASSWORD"
+
+PHPINI="$(locate -l 1 php.ini)"
+
+
 
 ## ---------------------------------- ##
 ## ------------- Apache ------------- ##
@@ -90,14 +91,15 @@ update
 #sudo ufw allow in "Apache Full"
 #sudo ufw enable
 
+
+
 ## ---------------------------------- ##
 ## -------------- Php --------------- ##
 ## ---------------------------------- ##
 #sudo apt install software-properties-common -y
-#sudo add-apt-repository ppa:ondrej/php -Y
+#sudo add-apt-repository ppa:ondrej/php -y
 #sudo apt-get update
 #sudo apt install php php-cli php-common php-xdebug php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php -y
-
 
 # Display_errors = on
 #sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
@@ -111,17 +113,93 @@ update
 ## ---------------------------------- ##
 ## ------------- MySQL -------------- ##
 ## ---------------------------------- ##
-sudo apt install mysql-server mysql-client php-mysql -y
+#sudo apt install mysql-server mysql-client php-mysql -y
 
-update
-status
+#sudo mysql_secure_installation
+
+
+
+## ---------------------------------- ##
+## ---------- PHP MyAdmin ----------- ##
+## ---------------------------------- ##
+#update
+
+sudo apt install phpmyadmin php-mbstring -y
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+
+exit
+# --------------------------------------
+
+
+mysql_secure_installation <<EOF
+
+y
+secret
+secret
+y
+y
+y
+y
+EOF
+
+
+
+
+
+
+
 exit
 
 
 
+
+mysql -e "UPDATE mysql.user SET authentication_string = PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User = 'root'"
+
+exit
+
+
+
+
+
+
+
+
+
+export MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
+
+
+
+
+
+
+
+
+
+mysql --user=root <<_EOF_
+	UPDATE mysql.user SET authentication_string = PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User = 'root';
+	UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';
+	DELETE FROM mysql.user WHERE User='';
+	DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+	DROP DATABASE IF EXISTS test;
+	DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+	FLUSH PRIVILEGES;
+_EOF_
+
+
+exit
+
+
+
+
+
+
+
 SECURE_MYSQL=$(expect -c "
+
 set timeout 3
 spawn mysql_secure_installation
+
 expect "Press y for Yes, any other key for No: "
 send "n\r"
 expect "New password:"
@@ -144,7 +222,7 @@ expect eof
 #
 echo "${SECURE_MYSQL}"
 
-
+exit
 
 
 
