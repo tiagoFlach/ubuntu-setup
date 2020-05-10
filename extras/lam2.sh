@@ -7,6 +7,10 @@
 ## -------------------------- by Tiago Lucas Flach -------------------------- ##
 ## -------------------------------------------------------------------------- ##
 
+# https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04#step-2-%E2%80%94-installing-mysql
+
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-20-04
+
 
 function clean {
 	sudo apt purge --remove build-essential -y
@@ -47,7 +51,6 @@ function update {
 # --------------------------------------
 
 update
-
 
 # Build-essential
 #sudo apt install build-essential -y
@@ -229,18 +232,30 @@ sudo chown -R $USER:$USER /var/www/html/
 
 
 
-
 ## ---------------------------------- ##
 ## ---------- PHP MyAdmin ----------- ##
 ## ---------------------------------- ##
-
-# https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-20-04
-
 sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
 
-## Select
+### Answer
+# --------------------------------------
+
+#    ┌─────────────────┤ Configurando phpmyadmin ├──────────────────┐
+#    │ Por favor escolha o servidor web que seria automaticamente   │ 
+#    │ configurado para executar phpMyAdmin.                        │ 
+#    │                                                              │ 
+#    │ Servidor web para reconfigurar automaticamente:              │ 
+#    │                                                              │ 
+#    │    [ ] apache2                                               │ 
+#    │    [ ] lighttpd                                              │ 
+#    │                                                              │ 
+#    │                                                              │ 
+#    │                            <Ok>                              │ 
+#    │                                                              │ 
+#    └──────────────────────────────────────────────────────────────┘ 
 #
-# apache2
+### [*] apache2
+### <Ok>
 
 # --------------------------------------
 
@@ -302,241 +317,87 @@ sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
 
 # --------------------------------------
 
+#  ┌────────────────────┤ Configurando phpmyadmin ├─────────────────────┐
+#  │ Um erro ocorreu durante a instalação do banco de dados:            │ 
+#  │                                                                    │ 
+#  │ mysql said: ERROR 1819 (HY000) at line 1: Your password does not   │ 
+#  │ satisfy the current policy requirements                            │ 
+#  │                                                                    │ 
+#  │ As suas opções são:                                                │ 
+#  │  * cancelar - Faz a operação falhar; você terá que rebaixar a      │ 
+#  │ versão,                                                            │ 
+#  │    reinstalar, reconfigurar este pacote, ou então intervir         │ 
+#  │ manualmente                                                        │ 
+#  │    para continuar a usá-lo. Isso também geralmente impactará na    │ 
+#  │    capacidade de instalar outros pacotes até que a falha na        │ 
+#  │ instalação                                                         │ 
+#  │    seja resolvida.                                                 │ 
+#  │  * tentar novamente - Repete todas as questões sobre configuração  │ 
+#  │    (incluindo aquelas que você pode ter perdido devido à           │ 
+#  │ configuração                                                       │ 
+#  │    de prioridade do debconf) e faz outra tentativa de executar a   │ 
+#  │    operação.                                                       │ 
+#  │  * tentar novamente (pular as questões) - Imediatamente tenta      │ 
+#  │ executar                                                           │ 
+#  │    a operação novamente, pulando todas as questões. Isso           │ 
+#  │ normalmente é                                                      │ 
+#  │    útil somente caso você tenha resolvido o problema subjacente    │ 
+#  │ desde                                                              │ 
+#  │    o momento em que o erro ocorreu.                                │ 
+#  │  * ignorar - Continua a operação ignorando os erros do             │ 
+#  │ dbconfig-common.                                                   │ 
+#  │    Isso geralmente deixará este pacote sem um banco de dados       │ 
+#  │ funcional.                                                         │ 
+#  │                                                                    │ 
+#  │ Próximo passo para a instalação do banco de dados:                 │ 
+#  │                                                                    │ 
+#  │               cancelar                                             │ 
+#  │               tentar novamente                                     │ 
+#  │               tentar novamente (pular as questões)                 │ 
+#  │               ignorar                                              │ 
+#  │                                                                    │ 
+#  │                                                                    │ 
+#  │                 <Ok>                     <Cancelar>                │ 
+#  │                                                                    │ 
+#  └────────────────────────────────────────────────────────────────────┘ 
+#
+### cancelar
 
+# --------------------------------------
 
+# sudo mysql
+#
+# UNINSTALL COMPONENT "file://component_validate_password";
+#
+# exit
 
+## sudo apt install phpmyadmin
 
+# sudo mysql
+#
+# INSTALL COMPONENT "file://component_validate_password";
+#
+# exit
 
 
 sudo phpenmod mbstring
 sudo systemctl restart apache2
 
-exit
 # --------------------------------------
 
+update
+status
 
-mysql_secure_installation <<EOF
+# --------------------------------------
 
-y
-secret
-secret
-y
-y
-y
-y
-EOF
-
-
-
-
-
-
-
-exit
-
-
-
-
-mysql -e "UPDATE mysql.user SET authentication_string = PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User = 'root'"
-
-exit
-
-
-
-
-
-
-
-
-
-export MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
-
-
-
-
-
-
-
-
-
-mysql --user=root <<_EOF_
-	UPDATE mysql.user SET authentication_string = PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User = 'root';
-	UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';
-	DELETE FROM mysql.user WHERE User='';
-	DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-	DROP DATABASE IF EXISTS test;
-	DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
-	FLUSH PRIVILEGES;
-_EOF_
-
-
-exit
-
-
-
-
-
-
-
-SECURE_MYSQL=$(expect -c "
-
-set timeout 3
-spawn mysql_secure_installation
-
-expect "Press y for Yes, any other key for No: "
-send "n\r"
-expect "New password:"
-send "$NEW_MYSQL_PASSWORD\r"
-expect "Re-enter new password:"
-send "$NEW_MYSQL_PASSWORD\r"
-expect "Remove anonymous users?"
-send "y\r"
-expect "Disallow root login remotely?"
-send "y\r"
-expect "Remove test database and access to it?"
-send "y\r"
-expect "Reload privilege tables now?"
-send "y\r"
-expect eof
-")
-
+# sudo mysql
 #
-# Execution mysql_secure_installation
+# CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED WITH caching_sha2_password BY '$MYSQL_USER_PASSWORD';
 #
-echo "${SECURE_MYSQL}"
+# GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER'@'localhost' WITH GRANT OPTION;
+#
+# exit
 
-exit
-
-
-
-
-
-
-#status
-exit
-
-
-sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<MY_QUERY
-USE mysql;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH $mysql_native_password BY '${MYSQL_ROOT_PASSWORD}';
-FLUSH PRIVILEGES;
-CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';
-GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'localhost' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-EXIT
-MY_QUERY
-exit
-
-
-
-#sudo mysql_secure_installation utility 
-export MYSQL_ROOT_PASSWORD="<$PASSWORD>"
-
-mysql -uroot << 'EOF'
-UPDATE mysql.user SET Password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User='root';
-DELETE FROM mysql.user WHERE user='root' AND host NOT IN ('localhost', '127.0.0.1', '::1');
-DELETE FROM mysql.user WHERE user='';
-DROP DATABASE test;
-FLUSH PRIVILEGES;
-EOF
-
-exit
-
-
-
-
-
-sudo mysql -e "SET PASSWORD FOR root@localhost = PASSWORD('${MYSQL_ROOT_PASSWORD}');FLUSH PRIVILEGES;"
-
-sudo mysql -e "DELETE FROM mysql.user WHERE User='';"
-
-sudo mysql -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');"
-
-sudo mysql -e "DROP DATABASE test;DELETE FROM mysql.db WHERE Db='test' OR Db='test_%';"
-
-sudo mysql -u root -psomething -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY 'something';GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'localhost';FLUSH PRIVILEGES;"
-
-
-exit
-
-
-
-
-
-
-CURRENT_MYSQL_PASSWORD=''
-SECURE_MYSQL=$(expect -c "
-
-set timeout 3
-spawn mysql_secure_installation
-
-expect \"Enter current password for root (enter for none):\"
-send \"$CURRENT_MYSQL_PASSWORD\r\"
-
-expect \"root password?\"
-send \"y\r\"
-
-expect \"New password:\"
-send \"$NEW_MYSQL_PASSWORD\r\"
-
-expect \"Re-enter new password:\"
-send \"$NEW_MYSQL_PASSWORD\r\"
-
-expect \"Remove anonymous users?\"
-send \"y\r\"
-
-expect \"Disallow root login remotely?\"
-send \"y\r\"
-
-expect \"Remove test database and access to it?\"
-send \"y\r\"
-
-expect \"Reload privilege tables now?\"
-send \"y\r\"
-
-expect eof
-")
-
-echo "${SECURE_MYSQL}"
-exit
-
-
-
-
-# y
-# 1
-# $MYSQL_ROOT_PASSWORD
-# $MYSQL_ROOT_PASSWORD
-# y
-# y
-# y
-# y
-# y
-
-
-
-sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<MY_QUERY
-USE mysql;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';
-FLUSH PRIVILEGES;
-CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';
-GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER'@'localhost' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-EXIT
-MY_QUERY
-
-
-sudo ufw enable
-sudo ufw allow mysql
-
-## ---------------------------------- ##
-## ---------- PHP MyAdmin ----------- ##
-## ---------------------------------- ##
-# sudo add-apt-repository ppa:phpmyadmin/ppa
-# sudo apt-get update
-
-# sudo apt install phpmyadmin php-mbstring php-gettext -y
-# sudo phpenmod mbstring
 
 
 # sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<MY_QUERY
@@ -550,6 +411,8 @@ sudo ufw allow mysql
 
 
 ## Theme ##
+# https://www.phpmyadmin.net/themes/
+#
 # cd /usr/share/phpmyadmin/themes/
 # sudo unzip ~/Downloads/fallen-*.zip
 # sudo unzip ~/Downloads/metro-*.zip
@@ -563,9 +426,6 @@ sudo ufw allow mysql
 
 
 
-
-
-
 ## FileZilla ##
 # sudo apt install filezilla -y
 
@@ -574,6 +434,3 @@ sudo ufw allow mysql
 
 ## Npm ##
 # sudo apt install npm -y
-
-# sudo apt update
-# sudo apt upgrade -y
