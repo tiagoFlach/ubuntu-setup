@@ -100,6 +100,9 @@ sudo ufw enable
 ## ------------- MySQL -------------- ##
 ## ---------------------------------- ##
 sudo apt install mysql-server mysql-client -y
+
+exit
+
 sudo mysql_secure_installation
 
 
