@@ -204,16 +204,7 @@ sudo mysql_secure_installation
 # --------------------------------------
 
 
-sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
 
-
-sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<EOF
-CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
-GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER_NAME'@'localhost' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-SELECT user, host, authentication_string, plugin FROM mysql.user;
-exit
-EOF
 
 # mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';"
 # sudo mysql -e "CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED WITH caching_sha2_password BY '$MYSQL_USER_PASSWORD';"
@@ -244,10 +235,10 @@ sudo apt install libapache2-mod-php -y
 sudo apt install php-mysql  -y
 
 # Php PhpMyAdmin
-sudo apt install php-mbstring php-zip php-gd php-json -y
+sudo apt install php-curl php-gd php-json php-mbstring php-zip  -y
 
 # Php other extensions
-sudo apt install php-cli php-common php-curl php-xdebug php-intl php-xml php-pear -y
+sudo apt install php-cli php-common php-xdebug php-intl php-xml php-pear -y
 
 
 # Display_errors = on
@@ -262,7 +253,7 @@ sudo chown -R $USER:$USER /var/www/html/
 ## ---------------------------------- ##
 ## ---------- PHP MyAdmin ----------- ##
 ## ---------------------------------- ##
-mysql -u root --password=$MYSQL_ROOT_PASSWORD <<EOF
+sudo mysql <<EOF
 UNINSTALL COMPONENT "file://component_validate_password";
 exit
 EOF
@@ -349,14 +340,28 @@ sudo apt install phpmyadmin -y
 
 # --------------------------------------
 
-mysql -u root --password=$MYSQL_ROOT_PASSWORD <<EOF
+sudo mysql <<EOF
 INSTALL COMPONENT "file://component_validate_password";
 exit
 EOF
 
 sudo phpenmod mbstring
+sudo systemctl restart apache2 mysql
 
 # --------------------------------------
+
+# sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
+sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '@SuperSenhaRoot*098';"
+
+sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<EOF
+CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
+GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER_NAME'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit
+EOF
+
+
+sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
 
 update
 status
