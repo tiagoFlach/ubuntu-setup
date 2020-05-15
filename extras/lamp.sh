@@ -42,6 +42,7 @@ function lamp_clean {
 }
 
 function status {
+	sudo ufw status
 	sudo systemctl restart apache2 mysql
 	sudo systemctl --no-pager status apache2 mysql
 }
@@ -73,9 +74,8 @@ PHPINI="$(locate -l 1 php.ini)"
 ## ---------------------------------- ##
 ## ------------- Apache ------------- ##
 ## ---------------------------------- ##
-sudo apt install apache2 -y
+sudo apt install apache2 apache2-utils -y
 
-sudo ufw allow OpenSSH
 sudo ufw allow in "Apache"
 sudo ufw enable
 
@@ -340,7 +340,6 @@ EOF
 # --------------------------------------
 sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
 sudo sed -i "a\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
-sudo systemctl restart apache2 mysql
 
 
 
@@ -349,6 +348,9 @@ sudo systemctl restart apache2 mysql
 # Permissões da pasta html
 sudo chmod -R 755 /var/www/html/
 sudo chown -R $USER:$USER /var/www/html/
+
+# PhpInfo
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
 
 # Bookmarks Nautilus
 echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
