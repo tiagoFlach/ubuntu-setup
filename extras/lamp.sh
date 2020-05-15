@@ -46,8 +46,6 @@ function status {
 	sudo systemctl --no-pager status apache2 mysql
 }
 
-
-
 # --------------------------------------
 
 update
@@ -56,7 +54,6 @@ update
 sudo apt install mlocate -y
 
 update
-
 
 
 # Variables
@@ -89,7 +86,6 @@ sudo ufw enable
 ## ---------------------------------- ##
 sudo apt install mysql-server mysql-client -y
 sudo mysql_secure_installation
-
 
 ### Answer
 # --------------------------------------
