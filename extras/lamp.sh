@@ -349,7 +349,6 @@ sudo systemctl restart apache2 mysql
 
 
 # Others config
-
 # --------------------------------------
 # Display_errors = on
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
