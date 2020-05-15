@@ -442,9 +442,6 @@ sudo fc-cache -f
 # Faz com que o terminal inicie com o comando neofetch #
 echo "neofetch" >> ~/.bashrc
 
-## Bookmarks Nautilus ##
-echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
-
 ## Aplicativos favoritos ##
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'spotify.desktop', 'odio_odio.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'mscore3.desktop', 'org.gimp.GIMP.desktop']"
 
