@@ -42,11 +42,10 @@ function lamp_clean {
 }
 
 function status {
+	sudo ufw status
 	sudo systemctl restart apache2 mysql
 	sudo systemctl --no-pager status apache2 mysql
 }
-
-
 
 # --------------------------------------
 
@@ -56,7 +55,6 @@ update
 sudo apt install mlocate -y
 
 update
-
 
 
 # Variables
@@ -78,7 +76,6 @@ PHPINI="$(locate -l 1 php.ini)"
 ## ---------------------------------- ##
 sudo apt install apache2 -y
 
-sudo ufw allow OpenSSH
 sudo ufw allow in "Apache"
 sudo ufw enable
 
@@ -89,7 +86,6 @@ sudo ufw enable
 ## ---------------------------------- ##
 sudo apt install mysql-server mysql-client -y
 sudo mysql_secure_installation
-
 
 ### Answer
 # --------------------------------------
@@ -226,14 +222,6 @@ sudo apt install php-curl php-gd php-json php-mbstring php-zip  -y
 sudo apt install php-cli php-common php-xdebug php-intl php-xml php-pear -y
 
 
-# Display_errors = on
-sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
-
-# Permissões da pasta html
-sudo chmod -R 755 /var/www/html/
-sudo chown -R $USER:$USER /var/www/html/
-
-
 
 ## ---------------------------------- ##
 ## ---------- PHP MyAdmin ----------- ##
@@ -337,7 +325,6 @@ sudo systemctl restart apache2 mysql
 
 # MySQL config
 # --------------------------------------
-
 sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
 
 sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<EOF
@@ -351,10 +338,23 @@ EOF
 
 # Securing PhpMyAdmin
 # --------------------------------------
-
 sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
 sudo sed -i "a\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
-sudo systemctl restart apache2 mysql
+
+
+
+# Others config
+# --------------------------------------
+# Permissões da pasta html
+sudo chmod -R 755 /var/www/html/
+sudo chown -R $USER:$USER /var/www/html/
+
+# Bookmarks Nautilus
+echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
+
+# Display_errors = on
+sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
+
 
 update
 status
