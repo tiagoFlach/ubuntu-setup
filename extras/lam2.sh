@@ -55,9 +55,6 @@ update
 # Mlocate
 sudo apt install mlocate -y
 
-# NPM
-#sudo apt install npm -y
-
 update
 
 
@@ -67,8 +64,6 @@ update
 
 MYSQL_USER_NAME="admin"
 MYSQL_USER_PASSWORD="senha123*A"
-
-NEW_MYSQL_PASSWORD="senha123*A"
 
 MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 
@@ -202,16 +197,6 @@ sudo mysql_secure_installation
 # All done!
 
 # --------------------------------------
-
-
-
-
-# mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';"
-# sudo mysql -e "CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED WITH caching_sha2_password BY '$MYSQL_USER_PASSWORD';"
-# mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER_NAME'@'localhost' WITH GRANT OPTION;"
-# mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "FLUSH PRIVILEGES;"
-# mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "SELECT user, host, authentication_string, plugin FROM mysql.user;"
-
 
 sudo ufw enable
 sudo ufw allow mysql
@@ -348,10 +333,12 @@ EOF
 sudo phpenmod mbstring
 sudo systemctl restart apache2 mysql
 
+
+
+# MySQL config
 # --------------------------------------
 
-# sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
-sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '@SuperSenhaRoot*098';"
+sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
 
 sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<EOF
 CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
@@ -361,32 +348,18 @@ exit
 EOF
 
 
+
+# Securing PhpMyAdmin
+# --------------------------------------
+
 sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
+sudo sed -i "a\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
+sudo systemctl restart apache2 mysql
 
 update
 status
 
 # --------------------------------------
-
-# sudo mysql
-#
-# CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED WITH caching_sha2_password BY '$MYSQL_USER_PASSWORD';
-#
-# GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER'@'localhost' WITH GRANT OPTION;
-#
-# exit
-
-
-
-# sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<MY_QUERY
-# USE mysql;
-# CREATE USER 'phpmyadmin'@'localhost' IDENTIFIED BY '$PHPMYADMIN_PASSWORD';
-# GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost' WITH GRANT OPTION;
-# FLUSH PRIVILEGES;
-# EXIT
-# MY_QUERY
-
-
 
 ## Theme ##
 # https://www.phpmyadmin.net/themes/
@@ -396,19 +369,4 @@ status
 # sudo unzip ~/Downloads/metro-*.zip
 # sudo unzip ~/Downloads/mhn-*.zip
 
-
-## Config ##
-# sudo gedit /etc/apache2/apache2.conf
-# Include /etc/phpmyadmin/apache.conf
-
-
-
-
-## FileZilla ##
-# sudo apt install filezilla -y
-
-## Composer ##
-# sudo apt install composer -y
-
-## Npm ##
-# sudo apt install npm -y
+# --------------------------------------

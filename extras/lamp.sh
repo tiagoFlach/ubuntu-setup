@@ -7,10 +7,15 @@
 ## -------------------------- by Tiago Lucas Flach -------------------------- ##
 ## -------------------------------------------------------------------------- ##
 
-# https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04#step-2-%E2%80%94-installing-mysql
+# https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
 
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-20-04
 
+function update {
+	sudo apt update
+	sudo apt upgrade -y
+	sudo apt autoremove -y
+}
 
 function clean {
 	sudo apt purge --remove build-essential -y
@@ -18,9 +23,9 @@ function clean {
 	sudo apt purge --remove node -y
 	sudo apt purge --remove npm -y
 	sudo apt autoremove -y
+	sudo apt autoclean -y
 
-	sudo apt update
-	sudo apt upgrade -y
+	update
 }
 
 function lamp_clean {
@@ -29,40 +34,26 @@ function lamp_clean {
 	sudo apt purge --remove apache2 -y
 	sudo apt purge --remove mysql-server -y
 	sudo apt purge --remove mysql-client -y
+	sudo apt purge --remove phpmyadmin -y
 	sudo apt autoremove -y
+	sudo apt autoclean -y
 
-	sudo apt update
-	sudo apt upgrade -y
+	update
 }
 
 function status {
-	sudo service mysql restart
-	sudo service apache2 restart
-
-	sudo service mysql status
-	sudo service apache2 status
+	sudo systemctl restart apache2 mysql
+	sudo systemctl --no-pager status apache2 mysql
 }
 
-function update {
-	sudo apt update
-	sudo apt upgrade -y
-}
+
 
 # --------------------------------------
 
 update
 
-# Build-essential
-#sudo apt install build-essential -y
-
-# Expect
-#sudo apt install expect -y
-
 # Mlocate
 sudo apt install mlocate -y
-
-# NPM
-#sudo apt install npm -y
 
 update
 
@@ -71,11 +62,8 @@ update
 # Variables
 # --------------------------------------
 
-MYSQL_USER_NAME="tiago"
+MYSQL_USER_NAME="admin"
 MYSQL_USER_PASSWORD="senha123*A"
-
-CURRENT_MYSQL_PASSWORD=''	# leave blank
-NEW_MYSQL_PASSWORD="senha123*A"
 
 MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 
@@ -221,7 +209,22 @@ sudo ufw allow mysql
 sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get update
-sudo apt install php php-cli php-common php-xdebug php-mysql php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php -y
+
+# Php
+sudo apt install php -y
+
+# Php Apache
+sudo apt install libapache2-mod-php -y
+
+# Php MySQL
+sudo apt install php-mysql  -y
+
+# Php PhpMyAdmin
+sudo apt install php-curl php-gd php-json php-mbstring php-zip  -y
+
+# Php other extensions
+sudo apt install php-cli php-common php-xdebug php-intl php-xml php-pear -y
+
 
 # Display_errors = on
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
@@ -235,7 +238,12 @@ sudo chown -R $USER:$USER /var/www/html/
 ## ---------------------------------- ##
 ## ---------- PHP MyAdmin ----------- ##
 ## ---------------------------------- ##
-sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
+sudo mysql <<EOF
+UNINSTALL COMPONENT "file://component_validate_password";
+exit
+EOF
+
+sudo apt install phpmyadmin -y
 
 ### Answer
 # --------------------------------------
@@ -317,87 +325,41 @@ sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
 
 # --------------------------------------
 
-#  ┌────────────────────┤ Configurando phpmyadmin ├─────────────────────┐
-#  │ Um erro ocorreu durante a instalação do banco de dados:            │ 
-#  │                                                                    │ 
-#  │ mysql said: ERROR 1819 (HY000) at line 1: Your password does not   │ 
-#  │ satisfy the current policy requirements                            │ 
-#  │                                                                    │ 
-#  │ As suas opções são:                                                │ 
-#  │  * cancelar - Faz a operação falhar; você terá que rebaixar a      │ 
-#  │ versão,                                                            │ 
-#  │    reinstalar, reconfigurar este pacote, ou então intervir         │ 
-#  │ manualmente                                                        │ 
-#  │    para continuar a usá-lo. Isso também geralmente impactará na    │ 
-#  │    capacidade de instalar outros pacotes até que a falha na        │ 
-#  │ instalação                                                         │ 
-#  │    seja resolvida.                                                 │ 
-#  │  * tentar novamente - Repete todas as questões sobre configuração  │ 
-#  │    (incluindo aquelas que você pode ter perdido devido à           │ 
-#  │ configuração                                                       │ 
-#  │    de prioridade do debconf) e faz outra tentativa de executar a   │ 
-#  │    operação.                                                       │ 
-#  │  * tentar novamente (pular as questões) - Imediatamente tenta      │ 
-#  │ executar                                                           │ 
-#  │    a operação novamente, pulando todas as questões. Isso           │ 
-#  │ normalmente é                                                      │ 
-#  │    útil somente caso você tenha resolvido o problema subjacente    │ 
-#  │ desde                                                              │ 
-#  │    o momento em que o erro ocorreu.                                │ 
-#  │  * ignorar - Continua a operação ignorando os erros do             │ 
-#  │ dbconfig-common.                                                   │ 
-#  │    Isso geralmente deixará este pacote sem um banco de dados       │ 
-#  │ funcional.                                                         │ 
-#  │                                                                    │ 
-#  │ Próximo passo para a instalação do banco de dados:                 │ 
-#  │                                                                    │ 
-#  │               cancelar                                             │ 
-#  │               tentar novamente                                     │ 
-#  │               tentar novamente (pular as questões)                 │ 
-#  │               ignorar                                              │ 
-#  │                                                                    │ 
-#  │                                                                    │ 
-#  │                 <Ok>                     <Cancelar>                │ 
-#  │                                                                    │ 
-#  └────────────────────────────────────────────────────────────────────┘ 
-#
-### cancelar
-
-# --------------------------------------
-
-# sudo mysql
-#
-# UNINSTALL COMPONENT "file://component_validate_password";
-#
-# exit
-
-## sudo apt install phpmyadmin
-
-# sudo mysql
-#
-# INSTALL COMPONENT "file://component_validate_password";
-#
-# exit
-
+sudo mysql <<EOF
+INSTALL COMPONENT "file://component_validate_password";
+exit
+EOF
 
 sudo phpenmod mbstring
-sudo systemctl restart apache2
+sudo systemctl restart apache2 mysql
 
+
+
+# MySQL config
 # --------------------------------------
+
+sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
+
+sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<EOF
+CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
+GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER_NAME'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit
+EOF
+
+
+
+# Securing PhpMyAdmin
+# --------------------------------------
+
+sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
+sudo sed -i "a\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
+sudo systemctl restart apache2 mysql
 
 update
 status
 
 # --------------------------------------
-
-# sudo mysql
-#
-# CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED WITH caching_sha2_password BY '$MYSQL_USER_PASSWORD';
-#
-# GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER'@'localhost' WITH GRANT OPTION;
-#
-# exit
-
 
 ## Theme ##
 # https://www.phpmyadmin.net/themes/
@@ -407,18 +369,4 @@ status
 # sudo unzip ~/Downloads/metro-*.zip
 # sudo unzip ~/Downloads/mhn-*.zip
 
-
-## Config ##
-# sudo gedit /etc/apache2/apache2.conf
-# Include /etc/phpmyadmin/apache.conf
-
 # --------------------------------------
-
-## FileZilla ##
-# sudo apt install filezilla -y
-
-## Composer ##
-# sudo apt install composer -y
-
-## Npm ##
-# sudo apt install npm -y
