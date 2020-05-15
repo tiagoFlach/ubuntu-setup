@@ -41,3 +41,6 @@ PHPMYADMIN_PASSWORD="@SuperSenhaPhpMyAdmin*099"
 
 #sudo mysql -u root -B -N -e "SHOW STATUS LIKE 'Uptime'"
 sudo mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "SELECT User, Authentication_string, Plugin FROM mysql.user"
+
+CD /var/www
+sudo chow $USER:$USER html/ -R
