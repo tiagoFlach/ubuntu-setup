@@ -319,7 +319,8 @@ exit
 EOF
 
 sudo phpenmod mbstring
-sudo systemctl restart apache2 mysql
+sudo systemctl restart apache2
+sudo systemctl restart mysql
 
 
 
@@ -338,8 +339,10 @@ EOF
 
 # Securing PhpMyAdmin
 # --------------------------------------
-sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
-sudo sed -i "a\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
+# sudo systemctl stop apache2
+# sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
+# sudo sed -i "a\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
+# sudo systemctl start apache2
 
 
 
