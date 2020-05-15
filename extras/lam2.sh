@@ -335,7 +335,8 @@ FLUSH PRIVILEGES;
 exit
 EOF
 
-
+update
+status
 exit
 # Securing PhpMyAdmin
 # --------------------------------------
