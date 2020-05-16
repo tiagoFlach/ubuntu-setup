@@ -296,7 +296,7 @@ sudo apt install phpmyadmin -y
 
 # --------------------------------------
 
-#				   ┌────┤ Configurando phpmyadmin ├─────┐
+#                  ┌────┤ Configurando phpmyadmin ├─────┐
 #                  │                                    │ 
 #                  │                                    │ 
 #                  │ Confirmação de senha:              │ 
