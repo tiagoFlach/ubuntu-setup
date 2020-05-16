@@ -235,19 +235,19 @@ sudo apt install phpmyadmin -y
 ### Answer
 # --------------------------------------
 
-#    ┌─────────────────┤ Configurando phpmyadmin ├──────────────────┐
-#    │ Por favor escolha o servidor web que seria automaticamente   │ 
-#    │ configurado para executar phpMyAdmin.                        │ 
-#    │                                                              │ 
-#    │ Servidor web para reconfigurar automaticamente:              │ 
-#    │                                                              │ 
-#    │    [ ] apache2                                               │ 
-#    │    [ ] lighttpd                                              │ 
-#    │                                                              │ 
-#    │                                                              │ 
-#    │                            <Ok>                              │ 
-#    │                                                              │ 
-#    └──────────────────────────────────────────────────────────────┘ 
+#     ┌─────────────────┤ Configurando phpmyadmin ├──────────────────┐
+#     │ Por favor escolha o servidor web que seria automaticamente   │ 
+#     │ configurado para executar phpMyAdmin.                        │ 
+#     │                                                              │ 
+#     │ Servidor web para reconfigurar automaticamente:              │ 
+#     │                                                              │ 
+#     │    [ ] apache2                                               │ 
+#     │    [ ] lighttpd                                              │ 
+#     │                                                              │ 
+#     │                                                              │ 
+#     │                            <Ok>                              │ 
+#     │                                                              │ 
+#     └──────────────────────────────────────────────────────────────┘ 
 #
 ### [*] apache2
 ### <Ok>
@@ -278,34 +278,34 @@ sudo apt install phpmyadmin -y
 
 # --------------------------------------
 
-#  ┌───────────────────┤ Configurando phpmyadmin ├────────────────────┐
-#  │ Por favor, forneça uma senha para o phpmyadmin registrar com o   │ 
-#  │ servidor de banco de dados. Se deixada em branco, uma senha      │ 
-#  │ aleatória será gerada.                                           │ 
-#  │                                                                  │ 
-#  │ Senha MySQL da aplicação para o phpmyadmin:                      │ 
-#  │                                                                  │ 
-#  │ ________________________________________________________________ │ 
-#  │                                                                  │ 
-#  │                 <Ok>                     <Cancelar>              │ 
-#  │                                                                  │ 
-#  └──────────────────────────────────────────────────────────────────┘
+#   ┌───────────────────┤ Configurando phpmyadmin ├────────────────────┐
+#   │ Por favor, forneça uma senha para o phpmyadmin registrar com o   │ 
+#   │ servidor de banco de dados. Se deixada em branco, uma senha      │ 
+#   │ aleatória será gerada.                                           │ 
+#   │                                                                  │ 
+#   │ Senha MySQL da aplicação para o phpmyadmin:                      │ 
+#   │                                                                  │ 
+#   │ ________________________________________________________________ │ 
+#   │                                                                  │ 
+#   │                 <Ok>                     <Cancelar>              │ 
+#   │                                                                  │ 
+#   └──────────────────────────────────────────────────────────────────┘
 #
 ### $PHPMYADMIN_PASSWORD
 ### <Ok>
 
 # --------------------------------------
 
-#				  ┌────┤ Configurando phpmyadmin ├─────┐
-#                 │                                    │ 
-#                 │                                    │ 
-#                 │ Confirmação de senha:              │ 
-#                 │                                    │ 
-#                 │ __________________________________ │ 
-#                 │                                    │ 
-#                 │       <Ok>           <Cancelar>    │ 
-#                 │                                    │ 
-#                 └────────────────────────────────────┘ 
+#				   ┌────┤ Configurando phpmyadmin ├─────┐
+#                  │                                    │ 
+#                  │                                    │ 
+#                  │ Confirmação de senha:              │ 
+#                  │                                    │ 
+#                  │ __________________________________ │ 
+#                  │                                    │ 
+#                  │       <Ok>           <Cancelar>    │ 
+#                  │                                    │ 
+#                  └────────────────────────────────────┘ 
 #
 ### $PHPMYADMIN_PASSWORD
 ### <Ok>

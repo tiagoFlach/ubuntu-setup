@@ -235,19 +235,19 @@ sudo apt install phpmyadmin -y
 ### Answer
 # --------------------------------------
 
-#    ┌─────────────────┤ Configurando phpmyadmin ├──────────────────┐
-#    │ Por favor escolha o servidor web que seria automaticamente   │ 
-#    │ configurado para executar phpMyAdmin.                        │ 
-#    │                                                              │ 
-#    │ Servidor web para reconfigurar automaticamente:              │ 
-#    │                                                              │ 
-#    │    [ ] apache2                                               │ 
-#    │    [ ] lighttpd                                              │ 
-#    │                                                              │ 
-#    │                                                              │ 
-#    │                            <Ok>                              │ 
-#    │                                                              │ 
-#    └──────────────────────────────────────────────────────────────┘ 
+#     ┌─────────────────┤ Configurando phpmyadmin ├──────────────────┐
+#     │ Por favor escolha o servidor web que seria automaticamente   │
+#     │ configurado para executar phpMyAdmin.                        │ 
+#     │                                                              │
+#     │ Servidor web para reconfigurar automaticamente:              │
+#     │                                                              │
+#     │    [ ] apache2                                               │
+#     │    [ ] lighttpd                                              │
+#     │                                                              │
+#     │                                                              │
+#     │                            <Ok>                              │
+#     │                                                              │
+#     └──────────────────────────────────────────────────────────────┘
 #
 ### [*] apache2
 ### <Ok>
@@ -255,57 +255,57 @@ sudo apt install phpmyadmin -y
 # --------------------------------------
 
 # ┌─────────────────────┤ Configurando phpmyadmin ├─────────────────────┐
-# │                                                                     │ 
-# │ O pacote phpmyadmin deve ter um banco de dados instalado e          │ 
-# │ configurado antes de poder ser usado. Isso pode opcionalmente ser   │ 
-# │ tratado com o dbconfig-common.                                      │ 
-# │                                                                     │ 
-# │ Se você é um administrador de bancos de dados avançado e sabe que   │ 
-# │ você quer fazer essa configuração manualmente ou se seu banco de    │ 
-# │ dados já foi instalado e configurado, você deve recusar esta        │ 
-# │ opção. Detalhes sobre o que precisa ser feito devem estar           │ 
-# │ provavelmente disponíveis em /usr/share/doc/phpmyadmin.             │ 
-# │                                                                     │ 
-# │ Se não, você deve provavelmente escolher essa opção.                │ 
-# │                                                                     │ 
-# │ Configurar banco de dados para phpmyadmin com dbconfig-common?      │ 
-# │                                                                     │ 
-# │                  <Sim>                     <Não>                    │ 
-# │                                                                     │ 
-# └─────────────────────────────────────────────────────────────────────┘ 
+# │                                                                     │
+# │ O pacote phpmyadmin deve ter um banco de dados instalado e          │
+# │ configurado antes de poder ser usado. Isso pode opcionalmente ser   │
+# │ tratado com o dbconfig-common.                                      │
+# │                                                                     │
+# │ Se você é um administrador de bancos de dados avançado e sabe que   │
+# │ você quer fazer essa configuração manualmente ou se seu banco de    │
+# │ dados já foi instalado e configurado, você deve recusar esta        │
+# │ opção. Detalhes sobre o que precisa ser feito devem estar           │
+# │ provavelmente disponíveis em /usr/share/doc/phpmyadmin.             │
+# │                                                                     │
+# │ Se não, você deve provavelmente escolher essa opção.                │
+# │                                                                     │
+# │ Configurar banco de dados para phpmyadmin com dbconfig-common?      │
+# │                                                                     │
+# │                  <Sim>                     <Não>                    │
+# │                                                                     │
+# └─────────────────────────────────────────────────────────────────────┘
 #
 ### <Sim>
 
 # --------------------------------------
 
-#  ┌───────────────────┤ Configurando phpmyadmin ├────────────────────┐
-#  │ Por favor, forneça uma senha para o phpmyadmin registrar com o   │ 
-#  │ servidor de banco de dados. Se deixada em branco, uma senha      │ 
-#  │ aleatória será gerada.                                           │ 
-#  │                                                                  │ 
-#  │ Senha MySQL da aplicação para o phpmyadmin:                      │ 
-#  │                                                                  │ 
-#  │ ________________________________________________________________ │ 
-#  │                                                                  │ 
-#  │                 <Ok>                     <Cancelar>              │ 
-#  │                                                                  │ 
-#  └──────────────────────────────────────────────────────────────────┘
+#   ┌───────────────────┤ Configurando phpmyadmin ├────────────────────┐
+#   │ Por favor, forneça uma senha para o phpmyadmin registrar com o   │
+#   │ servidor de banco de dados. Se deixada em branco, uma senha      │
+#   │ aleatória será gerada.                                           │
+#   │                                                                  │
+#   │ Senha MySQL da aplicação para o phpmyadmin:                      │
+#   │                                                                  │
+#   │ ________________________________________________________________ │
+#   │                                                                  │
+#   │                 <Ok>                     <Cancelar>              │
+#   │                                                                  │
+#   └──────────────────────────────────────────────────────────────────┘
 #
 ### $PHPMYADMIN_PASSWORD
 ### <Ok>
 
 # --------------------------------------
 
-#				  ┌────┤ Configurando phpmyadmin ├─────┐
-#                 │                                    │ 
-#                 │                                    │ 
-#                 │ Confirmação de senha:              │ 
-#                 │                                    │ 
-#                 │ __________________________________ │ 
-#                 │                                    │ 
-#                 │       <Ok>           <Cancelar>    │ 
-#                 │                                    │ 
-#                 └────────────────────────────────────┘ 
+#				   ┌────┤ Configurando phpmyadmin ├─────┐
+#                  │                                    │ 
+#                  │                                    │ 
+#                  │ Confirmação de senha:              │ 
+#                  │                                    │ 
+#                  │ __________________________________ │ 
+#                  │                                    │ 
+#                  │       <Ok>           <Cancelar>    │ 
+#                  │                                    │ 
+#                  └────────────────────────────────────┘ 
 #
 ### $PHPMYADMIN_PASSWORD
 ### <Ok>
