@@ -344,7 +344,7 @@ sudo systemctl start apache2
 
 
 
-# Others config
+# Others configs
 # --------------------------------------
 # Permissões da pasta html
 sudo chmod -R 755 /var/www/html/
