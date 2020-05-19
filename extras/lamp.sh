@@ -8,7 +8,6 @@
 ## -------------------------------------------------------------------------- ##
 
 # https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
-
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-20-04
 
 function update {
@@ -51,11 +50,6 @@ function status {
 
 update
 
-# Mlocate
-sudo apt install mlocate -y
-
-update
-
 
 # Variables
 # --------------------------------------
@@ -66,7 +60,8 @@ MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 
 PHPMYADMIN_PASSWORD="@SuperSenhaPhpMyAdmin*099"
 
-PHPINI="$(locate -l 1 php.ini)"
+LOCAL="$(php --ini | grep "Loaded Configuration File" | cut -d" " -f12)"
+PHPINI="${LOCAL/cli/apache2}" 
 
 
 
