@@ -122,10 +122,10 @@ Contains scripts for the automatic installation of the following softwares:
 	- Sublime Text
 	- Visual Studio Code
 - Lamp
-	- [x] Apache
-	- [x] PHP
-	- [ ] MySql
-	- [ ] PHP MyAdmin
+	- Apache
+	- MySql
+	- PHP
+	- PHP MyAdmin
 - Laravel
 - Popcorn Time
 - WPS Office
