@@ -344,6 +344,7 @@ sudo systemctl start apache2
 # Permissões da pasta html
 sudo chmod -R 755 /var/www/html/
 sudo chown -R $USER:$USER /var/www/html/
+sudo chown -R $USER:www-data /var/www/html/
 
 # PhpInfo
 echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
