@@ -82,6 +82,7 @@ This script automatically installs the following softwares:
 	- fonts-lato
 	- fonts-league-spartan
 	- fonts-lemonada
+	- fonts-le-murmure
 	- fonts-lexi-gulim
 	- fonts-lindenhill
 	- fonts-lmodern
@@ -89,6 +90,7 @@ This script automatically installs the following softwares:
 	- fonts-mplus
 	- fonts-nanum
 	- fonts-noto-color-emoji
+	- fonts-osifont
 	- fonts-oxygen
 	- fonts-paratype
 	- fonts-prociono

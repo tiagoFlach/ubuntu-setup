@@ -201,6 +201,7 @@ PROGRAMS_APT=(
 	fonts-lato
 	fonts-league-spartan
 	fonts-lemonada
+	fonts-le-murmure
 	fonts-lexi-gulim
 	fonts-lindenhill
 	fonts-lmodern
@@ -208,6 +209,7 @@ PROGRAMS_APT=(
 	fonts-mplus
 	fonts-nanum
 	fonts-noto-color-emoji
+	fonts-osifont
 	fonts-oxygen
 	fonts-paratype
 	fonts-prociono
