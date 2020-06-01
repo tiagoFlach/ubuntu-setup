@@ -182,8 +182,10 @@ PROGRAMS_APT=(
 	gstreamer1.0-pulseaudio
 
 	## fontes
+	fonts-apropal
 	fonts-atarismall
 	fonts-baekmuk
+	fonts-bajaderka
 	fonts-blankenburg
 	fonts-cantarell
 	fonts-comfortaa
@@ -194,12 +196,15 @@ PROGRAMS_APT=(
 	fonts-gamaliel
 	fonts-glasstty
 	fonts-hack
+	fonts-havana
 	fonts-junicode
 	fonts-lato
 	fonts-league-spartan
+	fonts-lemonada
 	fonts-lexi-gulim
 	fonts-lindenhill
 	fonts-lmodern
+	fonts-millimetre
 	fonts-mplus
 	fonts-nanum
 	fonts-noto-color-emoji

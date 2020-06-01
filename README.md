@@ -63,8 +63,10 @@ This script automatically installs the following softwares:
 	- gstreamer1.0-pulseaudio
 
 - Fonts:
+	- fonts-apropal
 	- fonts-atarismall
 	- fonts-baekmuk
+	- fonts-bajaderka
 	- fonts-blankenburg
 	- fonts-cantarell
 	- fonts-comfortaa
@@ -75,12 +77,15 @@ This script automatically installs the following softwares:
 	- fonts-gamaliel
 	- fonts-glasstty
 	- fonts-hack
+	- fonts-havana
 	- fonts-junicode
 	- fonts-lato
 	- fonts-league-spartan
+	- fonts-lemonada
 	- fonts-lexi-gulim
 	- fonts-lindenhill
 	- fonts-lmodern
+	- fonts-millimetre
 	- fonts-mplus
 	- fonts-nanum
 	- fonts-noto-color-emoji
