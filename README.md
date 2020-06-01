@@ -70,6 +70,7 @@ This script automatically installs the following softwares:
 	- fonts-comfortaa
 	- fonts-dejavu-extra
 	- fonts-fanwood
+	- fonts-firacode
 	- fonts-font-awesome
 	- fonts-gamaliel
 	- fonts-glasstty
