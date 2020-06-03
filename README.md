@@ -22,7 +22,7 @@ Or you can run an script from the directory `extras`:
 
     $ sudo ./extras/FILE.sh
 
-Replace `FILE` with the name of the file script you want.
+Replace `FILE` with the name of the script you want.
 
 
 
