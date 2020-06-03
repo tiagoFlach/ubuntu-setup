@@ -14,7 +14,7 @@ You can download ubuntu-setup just by cloning this git repository:
 
 ### Usage
 
-The following command will run de .sh script:
+The following command will run the .sh script:
 
     $ sudo ./update.sh
 
