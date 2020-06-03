@@ -5,6 +5,23 @@ This is a automatic system setup for Ubuntu 20.04 LTS.
 Made by [@tiagoFlach](https://github.com/tiagoFlach).
 
 
+## Installation
+
+You can download ubuntu-setup just by cloning this git repository:
+
+```bash
+git clone https://github.com/tiagoFlach/ubuntu-setup.git
+```
+
+### Usage
+
+The following command will run de .sh script.
+
+    $ sudo ./update.sh
+
+
+
+
 
 ## Softwares
 
