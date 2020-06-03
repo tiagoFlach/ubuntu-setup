@@ -5,22 +5,69 @@ This is a automatic system setup for Ubuntu 20.04 LTS.
 Made by [@tiagoFlach](https://github.com/tiagoFlach).
 
 
-## Installation
+
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+
+
+
+
+
+
+
+
+
+
+## Installing
 
 You can download ubuntu-setup just by cloning this git repository:
 
-	$ git clone https://github.com/tiagoFlach/ubuntu-setup.git
-
+```shell
+$ git clone https://github.com/tiagoFlach/ubuntu-setup.git
+```
 
 ### Usage
 
-The following command will run de .sh script:
+The following command will run the .sh script:
 
-    $ sudo ./update.sh
+```shell
+$ sudo ./update.sh
+```
 
 Or you can run an script from the directory `extras`:
 
-    $ sudo ./extras/FILE.sh
+```shell
+$ sudo ./extras/FILE.sh
+```
 
 Replace `FILE` with the name of the script you want.
 
