@@ -9,17 +9,20 @@ Made by [@tiagoFlach](https://github.com/tiagoFlach).
 
 You can download ubuntu-setup just by cloning this git repository:
 
-```bash
-git clone https://github.com/tiagoFlach/ubuntu-setup.git
-```
+	$ git clone https://github.com/tiagoFlach/ubuntu-setup.git
+
 
 ### Usage
 
-The following command will run de .sh script.
+The following command will run de .sh script:
 
     $ sudo ./update.sh
 
+Or you can run an script from the directory `extras`:
 
+    $ sudo ./extras/FILE.sh
+
+Replace `FILE` with the name of the file script you want.
 
 
 
