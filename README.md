@@ -1,13 +1,8 @@
 # Ubuntu Setup
 
-[![Gem Version](http://img.shields.io/gem/v/suchgem.svg)](https://rubygems.org/gems/suchgem)
-
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 This is a automatic system setup for Ubuntu 20.04 LTS.
-
-Made by [@tiagoFlach](https://github.com/tiagoFlach).
-
 
 
 
@@ -212,7 +207,16 @@ Contains scripts for the automatic installation of the following softwares:
 
 
 
+## Contact
+
+- GitHub: [@tiagoFlach](https://github.com/tiagoFlach)
+- Instagram: [@flachtiago](https://instagram.com/flachtiago)
+- LinkedIn: [Tiago Lucas Flach](https://linkedin.com/in/tiago-lucas-flach-585033121/)
+
+- Project link: [http://github.com/tiagoFlach/ubuntu-setup](http://github.com/tiagoFlach/ubuntu-setup)
+
+
 ## License
 
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2020 © [tiagoFlach](https://github.com/tiagoFlach).
+Distributed under the **[MIT license](http://opensource.org/licenses/mit-license.php)**.  
+Copyright 2020 © [tiagoFlach](https://github.com/tiagoFlach).
