@@ -1,5 +1,8 @@
 # Ubuntu Setup
 
+[![Build Status](https://travis-ci.org/doge/wow.svg)](https://travis-ci.org/doge/wow)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
 This is a automatic system setup for Ubuntu 20.04 LTS.
 
 Made by [@tiagoFlach](https://github.com/tiagoFlach).
@@ -57,7 +60,7 @@ $ git clone https://github.com/tiagoFlach/ubuntu-setup.git
 
 ### Usage
 
-The following command will run the .sh script:
+The following command will run the `setup.sh` script:
 
 ```shell
 $ sudo ./setup.sh
@@ -205,3 +208,12 @@ Contains scripts for the automatic installation of the following softwares:
 - Laravel
 - Popcorn Time
 - WPS Office
+
+
+
+## License
+
+
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2015 © <a href="http://fvcproductions.com" target="_blank">FVCproductions</a>.
