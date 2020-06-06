@@ -232,5 +232,5 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the **[MIT license](http://opensource.org/licenses/mit-license.php)**.  
+Distributed under the [MIT license](http://opensource.org/licenses/mit-license.php).  
 Copyright 2020 © [tiagoFlach](https://github.com/tiagoFlach).
