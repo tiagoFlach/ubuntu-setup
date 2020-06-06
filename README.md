@@ -207,11 +207,25 @@ Contains scripts for the automatic installation of the following softwares:
 
 
 
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
 ## Contact
 
+- Email: tiagolucas9830@gmail.com
 - GitHub: [@tiagoFlach](https://github.com/tiagoFlach)
 - Instagram: [@flachtiago](https://instagram.com/flachtiago)
 - LinkedIn: [Tiago Lucas Flach](https://linkedin.com/in/tiago-lucas-flach-585033121/)
+
 
 - Project link: [http://github.com/tiagoFlach/ubuntu-setup](http://github.com/tiagoFlach/ubuntu-setup)
 
