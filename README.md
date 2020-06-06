@@ -60,7 +60,7 @@ $ git clone https://github.com/tiagoFlach/ubuntu-setup.git
 The following command will run the .sh script:
 
 ```shell
-$ sudo ./update.sh
+$ sudo ./setup.sh
 ```
 
 Or you can run an script from the directory `extras`:
@@ -97,7 +97,7 @@ This script automatically installs the following softwares:
 	- VirtualBox
 	- VLC  
 
-- System programs: 
+- System programs:
 	- apt-transport-https
 	- beignet
 	- beignet-opebcl-icd
@@ -115,19 +115,19 @@ This script automatically installs the following softwares:
 	- ubuntu-restricted-extras
 
 - Gstreamer:
-	- libgstreamer1.0-0 
-	- gstreamer1.0-plugins-base 
-	- gstreamer1.0-plugins-good 
-	- gstreamer1.0-plugins-bad 
-	- gstreamer1.0-plugins-ugly 
-	- gstreamer1.0-libav 
-	- gstreamer1.0-doc 
-	- gstreamer1.0-tools 
-	- gstreamer1.0-x 
-	- gstreamer1.0-alsa 
-	- gstreamer1.0-gl 
-	- gstreamer1.0-gtk3 
-	- gstreamer1.0-qt5 
+	- libgstreamer1.0-0
+	- gstreamer1.0-plugins-base
+	- gstreamer1.0-plugins-good
+	- gstreamer1.0-plugins-bad
+	- gstreamer1.0-plugins-ugly
+	- gstreamer1.0-libav
+	- gstreamer1.0-doc
+	- gstreamer1.0-tools
+	- gstreamer1.0-x
+	- gstreamer1.0-alsa
+	- gstreamer1.0-gl
+	- gstreamer1.0-gtk3
+	- gstreamer1.0-qt5
 	- gstreamer1.0-pulseaudio
 
 - Fonts:
@@ -172,12 +172,12 @@ This script automatically installs the following softwares:
 	- ttf-mscorefonts-installer
 	- ttf-ubuntu-font-family
 
-	
+
 - Gnome:
 	- chrome-gnome-shell
 	- gnome-clocks
 	- gnome-software-plugin-flatpak
-	- gnome-sushi 
+	- gnome-sushi
 	- gnome-tweaks
 
 - Gnome extensions:
