@@ -163,6 +163,7 @@ PROGRAMS_APT=(
 	laptop-mode-tools
 	lsb
 	lsb-core
+	net-tools
 	ubuntu-restricted-extras
 
 	## gstreamer

@@ -111,6 +111,7 @@ This script automatically installs the following softwares:
 	- lsb
 	- lsb-core
 	- neofetch
+	- net-tools
 	- ubuntu-restricted-extras
 
 - Gstreamer:
