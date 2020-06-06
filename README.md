@@ -1,5 +1,7 @@
 # Ubuntu Setup
 
+[![Gem Version](http://img.shields.io/gem/v/suchgem.svg)](https://rubygems.org/gems/suchgem)
+
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 This is a automatic system setup for Ubuntu 20.04 LTS.
@@ -212,7 +214,5 @@ Contains scripts for the automatic installation of the following softwares:
 
 ## License
 
-
-
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2015 © <a href="http://fvcproductions.com" target="_blank">FVCproductions</a>.
+- Copyright 2020 © [tiagoFlach](https://github.com/tiagoFlach).
