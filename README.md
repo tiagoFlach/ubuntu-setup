@@ -187,7 +187,7 @@ Contributions are what make the open source community such an amazing place to b
 - Email: tiagolucas9830@gmail.com
 - GitHub: [@tiagoFlach](https://github.com/tiagoFlach)
 - Instagram: [@flachtiago](https://instagram.com/flachtiago)
-- LinkedIn: [Tiago Lucas Flach](httpss://linkedin.com/in/tiago-lucas-flach-585033121/)
+- LinkedIn: [Tiago Lucas Flach](https://linkedin.com/in/tiago-lucas-flach-585033121/)
 
 
 - Project link: [http://github.com/tiagoFlach/ubuntu-setup](https://github.com/tiagoFlach/ubuntu-setup)
