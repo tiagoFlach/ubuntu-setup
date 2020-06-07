@@ -1,4 +1,6 @@
-# Ubuntu Setup [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+# Ubuntu Setup
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 This is a automatic system setup for [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/).
 
