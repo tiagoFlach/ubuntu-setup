@@ -1,6 +1,4 @@
-# Ubuntu Setup
-
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+# Ubuntu Setup [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 This is a automatic system setup for [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/).
 
@@ -10,45 +8,10 @@ This is a automatic system setup for [Ubuntu 20.04 LTS](https://releases.ubuntu.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-
-
-
-
-
-
-
-
-
-
-## Installing
-
-You can download ubuntu-setup just by cloning this git repository:
+You can [download ubuntu-setup](https://github.com/tiagoFlach/ubuntu-setup/archive/master.zip) branch from github. Or cloning this git repository:
 
 ```shell
 $ git clone https://github.com/tiagoFlach/ubuntu-setup.git
@@ -56,13 +19,13 @@ $ git clone https://github.com/tiagoFlach/ubuntu-setup.git
 
 ### Usage
 
-The following command will run the `setup.sh` script:
+On Ubuntu, the following command will run the `setup.sh` script:
 
 ```shell
 $ sudo ./setup.sh
 ```
 
-Or you can run an script from the directory `extras`:
+Or you can run an script from the `extras` directory:
 
 ```shell
 $ sudo ./extras/FILE.sh
@@ -224,13 +187,13 @@ Contributions are what make the open source community such an amazing place to b
 - Email: tiagolucas9830@gmail.com
 - GitHub: [@tiagoFlach](https://github.com/tiagoFlach)
 - Instagram: [@flachtiago](https://instagram.com/flachtiago)
-- LinkedIn: [Tiago Lucas Flach](https://linkedin.com/in/tiago-lucas-flach-585033121/)
+- LinkedIn: [Tiago Lucas Flach](httpss://linkedin.com/in/tiago-lucas-flach-585033121/)
 
 
-- Project link: [http://github.com/tiagoFlach/ubuntu-setup](http://github.com/tiagoFlach/ubuntu-setup)
+- Project link: [http://github.com/tiagoFlach/ubuntu-setup](https://github.com/tiagoFlach/ubuntu-setup)
 
 
 ## License
 
-Distributed under the [MIT license](http://opensource.org/licenses/mit-license.php).  
+Distributed under the [MIT license](https://mit-license.org/).  
 Copyright 2020 © [tiagoFlach](https://github.com/tiagoFlach).
