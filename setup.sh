@@ -245,7 +245,6 @@ PROGRAMS_APT=(
 	ufw
 	virtualbox
 	virtualbox-dkms
-	vlc
 
 	## extensions
 	gnome-shell-extension-dashtodock
@@ -262,6 +261,7 @@ PROGRAMS_SNAP=(
 	discord
 	odio
 	simplenote
+	vlc
 	# skype --classic
 	# slack --classic
 	# spotify

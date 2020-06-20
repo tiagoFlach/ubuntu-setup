@@ -59,7 +59,7 @@ This script automatically installs the following softwares:
 	- Synaptic
 	- TimeShift
 	- VirtualBox
-	- VLC  
+	- VLC (snap)  
 
 - System programs:
 	- apt-transport-https
