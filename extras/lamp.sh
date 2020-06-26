@@ -355,6 +355,10 @@ echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
 # Display_errors = on
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 
+# Mod_rewrite
+cd /etc/apache2/mods-enabled/
+sudo a2enmod rewrite
+sudo systemctl restart apache2
 
 update
 status
