@@ -7,6 +7,8 @@
 # This scrip install de following apps:
 # 	Atom;
 # 	GitKraken;
+# 	NodeJs;
+# 	NPM;
 # 	PhpStorm;
 # 	Sublime Text;
 # 	Sublime Merge;
@@ -30,6 +32,20 @@ sudo apt install -f -y
 rm gitkraken-amd64.deb
 
 sudo apt update
+
+
+# NodeJs
+# --------------------------------------
+sudo apt install nodejs -y
+
+
+# NPM
+# --------------------------------------
+sudo apt install npm -y
+
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
 
 
 # Php Storm
@@ -63,6 +79,3 @@ sudo snap install code --classic
 
 ## Composer ##
 # sudo apt install composer -y
-
-## Npm ##
-# sudo apt install npm -y

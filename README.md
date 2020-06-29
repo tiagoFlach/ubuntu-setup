@@ -157,6 +157,8 @@ Contains scripts for the automatic installation of the following softwares:
 - Development Apps
 	- Atom
 	- GitKraken;
+	- NodeJs;
+	- NPM;
 	- PhpStorm
 	- Sublime Merge
 	- Sublime Text
