@@ -22,7 +22,7 @@ function clean {
 	sudo apt-get purge --remove node -y
 	sudo apt-get purge --remove npm -y
 	sudo apt-get autoremove -y
-	sudo apt-get autoclean -y
+	sudo apt autoclean -y
 
 	update
 }
@@ -35,7 +35,7 @@ function lamp_clean {
 	sudo apt-get purge --remove mysql-client -y
 	sudo apt-get purge --remove phpmyadmin -y
 	sudo apt-get autoremove -y
-	sudo apt-get autoclean -y
+	sudo apt autoclean -y
 
 	update
 }

@@ -410,7 +410,7 @@ sudo apt-get update && sudo apt-get dist-upgrade -y
 sudo flatpak update -y
 sudo flatpak repair
 sudo snap refresh
-sudo apt-get autoclean
+sudo apt autoclean
 sudo apt-get autoremove -y
 # ---------------------------------------------------------------------------- #
 
