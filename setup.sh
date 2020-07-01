@@ -281,7 +281,7 @@ sudo apt-get purge --auto-remove thunderbird -y
 sudo apt-get purge --auto-remove remmina -y
 
 
-## Removendo travas eventuais do apt ##
+## Removendo travas eventuais do apt-get ##
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 # ---------------------------------------------------------------------------- #
@@ -296,9 +296,9 @@ sudo dpkg --add-architecture i386
 
 ## ----- Atualizando o repositório ----- ##
 sudo add-apt-repository -y universe
-sudo apt -y update
-sudo apt -y full-upgrade
-sudo apt update -y
+sudo apt-get -y update
+sudo apt-get -y full-upgrade
+sudo apt-get update -y
 
 
 ## ----- Adicionando repositórios de terceiros ----- ##
@@ -334,7 +334,7 @@ sudo rm pubkey.gpg
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
 ## Atualizando o repositório depois da adição de novos repositórios ##
-sudo apt update -y
+sudo apt-get update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -353,7 +353,7 @@ for nome_do_programa in ${PROGRAMS_APT[@]}; do
 		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo apt install "$nome_do_programa" -y
+		sudo apt-get install "$nome_do_programa" -y
 	fi
 done
 
@@ -393,7 +393,7 @@ done
 
 # ------------------------------- POST INSTALL ------------------------------- #
 ## Posiveis erros ##
-sudo apt install -y --fix-broken --install-recommends
+sudo apt-get install -y --fix-broken --install-recommends
 
 ## UFW ##
 sudo ufw enable
@@ -406,12 +406,12 @@ sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 
 
 ## ----- Finalização, atualização e limpeza ----- ##
-sudo apt update && sudo apt dist-upgrade -y
+sudo apt-get update && sudo apt-get dist-upgrade -y
 sudo flatpak update -y
 sudo flatpak repair
 sudo snap refresh
-sudo apt autoclean
-sudo apt autoremove -y
+sudo apt-get autoclean
+sudo apt-get autoremove -y
 # ---------------------------------------------------------------------------- #
 
 

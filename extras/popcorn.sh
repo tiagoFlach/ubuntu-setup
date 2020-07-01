@@ -5,6 +5,9 @@
 # https://github.com/tiagoFlach
 
 
+# Update
+sudo apt-get update
+
 # Para instalar o Popcorn Time no Linux com arquitetura de 64 bits:
 wget -c https://get.popcorntime.app/repo/build/Popcorn-Time-0.4.4-linux64.zip -O popcorntime.zip
 

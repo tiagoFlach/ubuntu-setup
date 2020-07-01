@@ -2,13 +2,13 @@
 
 
 ## Dependencias PHP ##
-sudo apt install php-common -y
-sudo apt install php-bcmath -y
-sudo apt install php-json -y
-sudo apt install php-mbstring -y
+sudo apt-get install php-common -y
+sudo apt-get install php-bcmath -y
+sudo apt-get install php-json -y
+sudo apt-get install php-mbstring -y
 sudo phpenmod pdo_mysql
-sudo apt install php-tokenizer -y
-sudo apt install php-xml -y
+sudo apt-get install php-tokenizer -y
+sudo apt-get install php-xml -y
 
 ## Composer ##
 cd ~
