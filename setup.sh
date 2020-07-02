@@ -164,6 +164,7 @@ PROGRAMS_APT=(
 	lsb
 	lsb-core
 	net-tools
+	speedtest-cli
 	ubuntu-restricted-extras
 
 	## gstreamer

@@ -76,6 +76,7 @@ This script automatically installs the following softwares:
 	- lsb-core
 	- neofetch
 	- net-tools
+	- speedtest
 	- ubuntu-restricted-extras
 
 - Gstreamer:
@@ -135,7 +136,6 @@ This script automatically installs the following softwares:
 	- ttf-ancient-fonts
 	- ttf-mscorefonts-installer
 	- ttf-ubuntu-font-family
-
 
 - Gnome:
 	- chrome-gnome-shell
