@@ -123,6 +123,7 @@ This script automatically installs the following softwares:
 	- fonts-mplus
 	- fonts-nanum
 	- fonts-noto-color-emoji
+	- fonts-open-sans
 	- fonts-osifont
 	- fonts-oxygen
 	- fonts-paratype

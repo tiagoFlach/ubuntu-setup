@@ -211,6 +211,7 @@ PROGRAMS_APT=(
 	fonts-mplus
 	fonts-nanum
 	fonts-noto-color-emoji
+	fonts-open-sans
 	fonts-osifont
 	fonts-oxygen
 	fonts-paratype
