@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script created for personal use.
 # author: Tiago Lucas Flach
