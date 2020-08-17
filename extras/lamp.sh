@@ -31,8 +31,8 @@ function lamp_clean {
 	sudo apt-get purge --remove php -y
 	sudo apt-get purge --remove php-mysql -y
 	sudo apt-get purge --remove apache2 -y
-	sudo apt-get purge --remove mysql-server -y
-	sudo apt-get purge --remove mysql-client -y
+	sudo apt-get purge --remove mysql-server* -y
+	sudo apt-get purge --remove mysql-client* -y
 	sudo apt-get purge --remove phpmyadmin -y
 	sudo apt-get autoremove -y
 	sudo apt autoclean -y
