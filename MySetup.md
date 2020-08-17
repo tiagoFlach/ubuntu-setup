@@ -166,15 +166,65 @@ Taxa de amostragem de 1000 Hz (1 ms)
 
 - [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
 - [Custom Hot Corners](https://extensions.gnome.org/extension/1362/custom-hot-corners/)
+	- 1: Toggle overview
+	- 2: -
+	- 3: -
+	- 4: Show desktop
+		- Enable in fullscreen mode: Off
+		- Barrier size: 20
+		- Pressure Threshols: 150
 - [Customcorner](https://extensions.gnome.org/extension/1037/customcorner/)
+	- 1: GNOME Default
+	- 2:
+	- 3: Show Apps Grid
+	- 4:
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+	- Posição e Tamanho
+		- Exibir o dock: Monitor primário
+		- Mostrar em todos os monitore: On
+		- Posição na tela: Embaixo
+		- Ocultação inteligente: On
+			- Ocultação: On
+			- Esconder janela: Somente janelas maximizadas
+			- Tempo de animação [s]: 0,150
+			- Ocultar tempo limite [s]: 0,200
+			- Mostrar tempo limite [s]: 0,250
+		- Tamanho limite da dock: 90%
+		- Tamanho limite do ícone: 38px
+	- Lançadores
+		- Mostrar aplicativos favoritos: On
+		- Mostrar aplicativos em execução: On
+		- Mostrar pré-visualização de janelas abertas: On
+		- Isolar espaços de trabalho: On
+		- Exibir ícone dos Aplicativos: Off
+		- Mostrar lixeira: Off
+		- Mostrar volumes e dispositivos montados: Off
+	- Comportamento
+		- Usar atalhos do teclado para ativar aplicativos: On
+		- Ação do clique: Minimizar e mostrar pré-visualizações
+			- Ação do Shift+Clique: Minimizar janela
+			- Ação do clique do botçao do meio: Iniciar nova instância
+			- Ação do Shift+Clique do botão do meio: Iniciar nova instância
+		- Ação da rolagem: Percorrer através das janelas
+	-Aparência
+		- Usar o tema do sistema: Off
+		- Encolher o dash: On
+		- Customizar a cor do dash: Off
 - [Extension Update Notifier](https://extensions.gnome.org/extension/1166/extension-update-notifier/)
 - [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
 - [Transparent Top Panel](https://extensions.gnome.org/extension/2878/transparent-top-panel/)
 - [Transparent Window Moving](https://extensions.gnome.org/extension/1446/transparent-window-moving/)
+	- Opacity: 210
+	- Animation time: 0,10
+	- Transparent on moving: Yes
+	- Transparent on resizing: Yes
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
-- [Windowoverlay Icons](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
+- [WindowOverlay Icons](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
+	- Alinamhento: Centro
+	- Tamanho: 110
+	- Opacidade do ícone - foco: 255
+	- Opacidade do ícone - foco: 190
 - Ubuntu
 	- [Desktop Icons](https://extensions.gnome.org/extension/1465/desktop-icons/)
-	- [Ubuntu Appindicators](https://extensions.gnome.org/extension/1301/ubuntu-appindicators/)
-	- [Ubuntu Dock](https://extensions.gnome.org/extension/1300/ubuntu-dock/)
+	- [Ubuntu Appindicators](https://extensions.gnome.org/extension/1301/ubuntu-appindicators/) Off
+	- [Ubuntu Dock](https://extensions.gnome.org/extension/1300/ubuntu-dock/) Off
