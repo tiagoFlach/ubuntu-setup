@@ -61,7 +61,7 @@ MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 PHPMYADMIN_PASSWORD="@SuperSenhaPhpMyAdmin*099"
 
 LOCAL="$(php --ini | grep "Loaded Configuration File" | cut -d" " -f12)"
-PHPINI="${LOCAL/cli/apache2}" 
+PHPINI="${LOCAL/cli/apache2}"
 
 
 
@@ -126,7 +126,7 @@ sudo mysql_secure_installation
 
 # --------------------------------------
 
-# Estimated strength of the password: 100 
+# Estimated strength of the password: 100
 # Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) :
 #
 ### y
@@ -232,7 +232,7 @@ sudo apt-get install phpmyadmin -y
 
 #     ┌─────────────────┤ Configurando phpmyadmin ├──────────────────┐
 #     │ Por favor escolha o servidor web que seria automaticamente   │
-#     │ configurado para executar phpMyAdmin.                        │ 
+#     │ configurado para executar phpMyAdmin.                        │
 #     │                                                              │
 #     │ Servidor web para reconfigurar automaticamente:              │
 #     │                                                              │
@@ -292,15 +292,15 @@ sudo apt-get install phpmyadmin -y
 # --------------------------------------
 
 #                  ┌────┤ Configurando phpmyadmin ├─────┐
-#                  │                                    │ 
-#                  │                                    │ 
-#                  │ Confirmação de senha:              │ 
-#                  │                                    │ 
-#                  │ __________________________________ │ 
-#                  │                                    │ 
-#                  │       <Ok>           <Cancelar>    │ 
-#                  │                                    │ 
-#                  └────────────────────────────────────┘ 
+#                  │                                    │
+#                  │                                    │
+#                  │ Confirmação de senha:              │
+#                  │                                    │
+#                  │ __________________________________ │
+#                  │                                    │
+#                  │       <Ok>           <Cancelar>    │
+#                  │                                    │
+#                  └────────────────────────────────────┘
 #
 ### $PHPMYADMIN_PASSWORD
 ### <Ok>
@@ -353,6 +353,7 @@ echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
 echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
 
 # Display_errors = on
+## PHPINI = /etc/php/7.4/apache2/php.ini
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 
 # Mod_rewrite
