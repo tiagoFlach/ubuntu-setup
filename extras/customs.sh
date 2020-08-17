@@ -55,6 +55,13 @@ gsettings set org.gnome.mutter center-new-windows false
 ## Screencast ##
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600
 
+## Cursor ##
+git clone https://github.com/vinceliuice/Vimix-cursors.git
+sudo cp -r Vimix-cursors/dist/ /usr/share/icons/Vimix-cursors
+sudo cp -r Vimix-cursors/dist-white/ /usr/share/icons/Vimix-white-cursors
+sudo rm -rf Vimix-cursors
+gsettings set org.gnome.desktop.interface cursor-theme 'Vimix-white-cursors'
+
 ## Emojis ##
 mkdir ~/.config/fontconfig
 echo -e '<?xml version="1.0" encoding="UTF-8"?>
