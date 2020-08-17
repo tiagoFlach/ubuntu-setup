@@ -1,7 +1,7 @@
 # SETUP
 
 
-### Dell G5-5590 
+### Dell G5-5590
 ### Windows + Ubuntu
 
 ---
@@ -102,8 +102,8 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- Gimp
 	- LibreOffice
 	- Microsoft Office
-	- MuseScore
 	- Netflix
+	- OBS Studio
 	- Popcorn Time
 	- Skype
 	- Simplenote
@@ -117,18 +117,23 @@ Taxa de amostragem de 1000 Hz (1 ms)
 <br />
 
 - UBUNTU
+	- Atom
 	- Discord
 	- FileZilla
 	- Firefox
+	- Inkscape
 	- Google Chrome
 	- Google Earth Pro
 	- Gimp
+	- GitKraken
 	- LibreOffice
 	- MuseScore
+	- OBS Studio
 	- Odio
 	- Popcorn Time
 	- Skype
 	- Simplenote
+	- Skype
 	- Spotify
 	- Stellarium
 	- Stacer
@@ -137,4 +142,39 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- TimeShift
 	- VLC
 	- VirtualBox
+	- Visual Studio
 	- **WPS Office**
+
+---
+
+### Ubuntu 20.04
+
+#### Personalizações
+
+- Cursor: [Vimix](https://www.gnome-look.org/p/1358330/)
+- Fonte - Terminal: [Source Code Pro](https://fonts.google.com/specimen/Source+Code+Pro)  
+
+#### Fontes
+|                            	| Fonte original      	| Tamanho original 	| Fonte utilizada   	| Tamanho utilizado 	|
+|----------------------------	|---------------------	|------------------	|-------------------	|-------------------	|
+| Texto da interface         	| Ubuntu Regular      	| 11               	| Roboto Regular    	| 11                	|
+| Texto do documento         	| Sans Regular        	| 11               	| Cantarell Regular 	| 11                	|
+| Texto monoespaçado         	| Ubuntu Mono Regular 	| 13               	| Source Code Pro   	| 12                	|
+| Título das janelas legadas 	| Ubuntu Bold         	| 11               	| Cantarell Bold    	| 11                	|
+
+#### Extensões
+
+- [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
+- [Custom Hot Corners](https://extensions.gnome.org/extension/1362/custom-hot-corners/)
+- [Customcorner](https://extensions.gnome.org/extension/1037/customcorner/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+- [Extension Update Notifier](https://extensions.gnome.org/extension/1166/extension-update-notifier/)
+- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
+- [Transparent Top Panel](https://extensions.gnome.org/extension/2878/transparent-top-panel/)
+- [Transparent Window Moving](https://extensions.gnome.org/extension/1446/transparent-window-moving/)
+- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+- [Windowoverlay Icons](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
+- Ubuntu
+	- [Desktop Icons](https://extensions.gnome.org/extension/1465/desktop-icons/)
+	- [Ubuntu Appindicators](https://extensions.gnome.org/extension/1301/ubuntu-appindicators/)
+	- [Ubuntu Dock](https://extensions.gnome.org/extension/1300/ubuntu-dock/)

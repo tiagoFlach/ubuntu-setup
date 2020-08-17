@@ -44,11 +44,13 @@ This script automatically installs the following softwares:
 - Main:
 	- Discord (snap)
 	- Firefox
+	- Inkscape
 	- Google Chrome
 	- Google Earth Pro
 	- Gimp (flatpak)
 	- LibreOffice
 	- MuseScore
+	- OBS Studio
 	- Odio (snap)
 	- Skype
 	- Simplenote (snap)
@@ -78,6 +80,7 @@ This script automatically installs the following softwares:
 	- net-tools
 	- speedtest
 	- ubuntu-restricted-extras
+	- unrar
 
 - Gstreamer:
 	- libgstreamer1.0-0

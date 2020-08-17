@@ -119,6 +119,9 @@ PPA_GIT="ppa:git-core/ppa"
 ## Mesa Driver ##
 # PPA_MESA_DRIVER="ppa:paulo-miguel-dias/pkppa"
 
+## Inkscape ##
+PPA_INKSCAPE="ppa:inkscape.dev/stable"
+
 ## MuseScore ##
 PPA_MUSESCORE="ppa:mscore-ubuntu/mscore3-stable"
 
@@ -166,6 +169,7 @@ PROGRAMS_APT=(
 	net-tools
 	speedtest-cli
 	ubuntu-restricted-extras
+	unrar
 
 	## gstreamer
 	libgstreamer1.0-0
@@ -235,9 +239,10 @@ PROGRAMS_APT=(
 
 	## aplicativos
 	flatpak
+	inkscape
 	musescore3
 	neofetch
-	snapd
+	obs-studio
 	spotify-client
 	stacer
 	stellarium
@@ -264,7 +269,6 @@ PROGRAMS_SNAP=(
 	odio
 	simplenote
 	vlc
-	# skype --classic
 	# slack --classic
 	# spotify
 	# wps-office-multilang
@@ -312,6 +316,9 @@ sudo apt-add-repository "$PPA_GIT" -y
 
 ## Mesa Driver ##
 ## sudo apt-add-repository "$PPA_MESA_DRIVER" -y
+
+## Inkscape ##
+sudo apt-add-repository "$PPA_INKSCAPE" -y
 
 ## MuseScore ##
 sudo apt-add-repository "$PPA_MUSESCORE" -y
@@ -491,10 +498,6 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 
 ## Mutter ##
 gsettings set org.gnome.mutter center-new-windows true
-gsettings set org.gnome.mutter dynamic-workspaces false
-
-## Wm ##
-gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
 # ---------------------------------------------------------------------------- #
 
 
