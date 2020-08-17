@@ -23,6 +23,13 @@ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ 
 sudo apt-get update
 sudo apt-get install atom -y
 
+## Git
+# --------------------------------------
+sudo apt-add-repository ppa:git-core/ppa -y
+sudo apt-get install git -y
+git config --global user.email "tiagolucas9830@gmail.com"
+git config --global user.name "Tiago Lucas Flach"
+
 
 # GitKraken
 # --------------------------------------

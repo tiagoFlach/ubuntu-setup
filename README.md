@@ -65,12 +65,10 @@ This script automatically installs the following softwares:
 
 - System programs:
 	- apt-transport-https
-	- beignet
-	- beignet-opebcl-icd
+	- dconf-editor
 	- curl
 	- exfat-fuse
 	- exfat-utils
-	- flashplugin-installer
 	- git
 	- gparted
 	- laptop-mode-tools
@@ -81,6 +79,7 @@ This script automatically installs the following softwares:
 	- speedtest
 	- ubuntu-restricted-extras
 	- unrar
+	- wnctrl
 
 - Gstreamer:
 	- libgstreamer1.0-0
@@ -160,6 +159,7 @@ Contains scripts for the automatic installation of the following softwares:
 - Composer
 - Development Apps
 	- Atom
+	- Git
 	- GitKraken;
 	- NodeJs;
 	- NPM;

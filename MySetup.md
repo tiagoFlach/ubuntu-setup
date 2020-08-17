@@ -207,7 +207,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 			- Ação do clique do botçao do meio: Iniciar nova instância
 			- Ação do Shift+Clique do botão do meio: Iniciar nova instância
 		- Ação da rolagem: Percorrer através das janelas
-	-Aparência
+	- Aparência
 		- Usar o tema do sistema: Off
 		- Encolher o dash: On
 		- Customizar a cor do dash: Off
