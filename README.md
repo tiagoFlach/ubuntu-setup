@@ -52,8 +52,9 @@ This script automatically installs the following softwares:
 	- MuseScore
 	- OBS Studio
 	- Odio (snap)
-	- Skype
+	- Shortwave (flatpak)
 	- Simplenote (snap)
+	- Skype
 	- Spotify
 	- Stellarium
 	- Stacer
@@ -112,6 +113,7 @@ This script automatically installs the following softwares:
 	- fonts-gamaliel
 	- fonts-glasstty
 	- fonts-hack
+	- fonts-hack-ttf
 	- fonts-havana
 	- fonts-junicode
 	- fonts-lato

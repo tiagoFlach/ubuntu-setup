@@ -202,6 +202,7 @@ PROGRAMS_APT=(
 	fonts-gamaliel
 	fonts-glasstty
 	fonts-hack
+	fonts-hack-ttf
 	fonts-havana
 	fonts-junicode
 	fonts-lato
@@ -261,6 +262,7 @@ PROGRAMS_APT=(
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(
 	org.gimp.GIMP
+	flathub de.haeckerfelix.Shortwave
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
