@@ -10,6 +10,8 @@
 # https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-20-04
 
+# https://github.com/teddysun/lamp
+
 function update {
 	sudo apt-get update
 	sudo apt-get upgrade -y
@@ -207,10 +209,10 @@ sudo apt-get install php -y
 sudo apt-get install libapache2-mod-php -y
 
 # Php MySQL
-sudo apt-get install php-mysql  -y
+sudo apt-get install php-mysql -y
 
 # Php PhpMyAdmin
-sudo apt-get install php-curl php-gd php-json php-mbstring php-zip  -y
+sudo apt-get install php-curl php-gd php-json php-mbstring php-zip -y
 
 # Php other extensions
 sudo apt-get install php-cli php-common php-xdebug php-intl php-xml php-pear -y
