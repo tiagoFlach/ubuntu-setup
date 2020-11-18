@@ -51,7 +51,6 @@ This script automatically installs the following softwares:
 	- LibreOffice
 	- MuseScore
 	- OBS Studio
-	- Odio (snap)
 	- Shortwave (flatpak)
 	- Simplenote (snap)
 	- Skype

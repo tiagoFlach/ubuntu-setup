@@ -268,7 +268,7 @@ PROGRAMS_FLATPAK=(
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
 	discord
-	odio
+	# odio
 	simplenote
 	vlc
 	# slack --classic
