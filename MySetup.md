@@ -164,6 +164,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 
 #### Extensões
 
+- [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
 - [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
 	- Ocultar painel durante o coverflow: On
 - [Custom Hot Corners](https://extensions.gnome.org/extension/1362/custom-hot-corners/)
