@@ -236,6 +236,7 @@ PROGRAMS_APT=(
 
 	## gnome
 	chrome-gnome-shell
+	gnome-boxes
 	gnome-clocks
 	gnome-software-plugin-flatpak
 	gnome-sushi
@@ -256,10 +257,6 @@ PROGRAMS_APT=(
 	ufw
 	virtualbox
 	virtualbox-dkms
-
-	## extensions
-	gnome-shell-extension-dashtodock
-	gnome-shell-extension-weather
 )
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##

@@ -129,7 +129,6 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- LibreOffice
 	- MuseScore
 	- OBS Studio
-	- Odio
 	- Popcorn Time
 	- Skype
 	- Simplenote
