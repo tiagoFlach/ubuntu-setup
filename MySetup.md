@@ -166,7 +166,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 
 - [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
 - [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
-	- Ocultar painel durante o coverflow: On
+	- Ocultar o painel durante o coverflow: On
 - [Custom Hot Corners](https://extensions.gnome.org/extension/1362/custom-hot-corners/)
 	- 1: Toggle overview
 	- 2: -
@@ -205,7 +205,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 		- Usar atalhos do teclado para ativar aplicativos: On
 		- Ação do clique: Minimizar e mostrar pré-visualizações
 			- Ação do Shift+Clique: Minimizar janela
-			- Ação do clique do botçao do meio: Iniciar nova instância
+			- Ação do clique do botão do meio: Iniciar nova instância
 			- Ação do Shift+Clique do botão do meio: Iniciar nova instância
 		- Ação da rolagem: Percorrer através das janelas
 	- Aparência

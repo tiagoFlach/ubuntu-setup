@@ -126,7 +126,7 @@ PPA_INKSCAPE="ppa:inkscape.dev/stable"
 PPA_MUSESCORE="ppa:mscore-ubuntu/mscore3-stable"
 
 ## Spotify ##
-URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey.gpg"
+URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_0D811D58.gpg"
 URL_SPOTIFY_PPA="http://repository.spotify.com"
 
 ## Stellarium ##
@@ -166,10 +166,13 @@ PROGRAMS_APT=(
 	lsb
 	lsb-core
 	net-tools
+	rar
 	speedtest-cli
 	ubuntu-restricted-extras
 	unrar
+	unzip
 	wmctrl
+	zip
 
 	## gstreamer
 	libgstreamer1.0-0
@@ -335,10 +338,8 @@ wget -qO - $URL_SUBLIME_KEY | sudo apt-key add -
 echo "deb $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 ## Spotify ##
-wget -nc "$URL_SPOTIFY_KEY"
-sudo apt-key add pubkey.gpg
+curl -sS $URL_SPOTIFY_KEY | sudo apt-key add - 
 echo "deb $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo rm pubkey.gpg
 # ---------------------------------------------------------------------------- #
 
 

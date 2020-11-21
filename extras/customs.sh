@@ -22,6 +22,10 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DEFAULT'
 
+## Desktop Icons ##
+gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+
 ## Gnome Clocks ##
 gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>}, {'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Luxembourg', 'ELLX', true, [(0.86597420301561734, 0.10850130765007832)], [(0.86588693655301752, 0.10698868314725239)])>)>}]"
 
@@ -46,14 +50,17 @@ gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.interface font-name 'Roboto 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Cantarell 11'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro Medium 12'
+#gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro Medium 12'
 gsettings set org.gnome.desktop.interface titlebar-name 'Cantarell Bold 11'
 
 ## Mutter ##
-gsettings set org.gnome.mutter center-new-windows false
+gsettings set org.gnome.mutter center-new-windows true
 
 ## Screencast ##
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600
+
+## Wm ##
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,close'
 
 ## Cursor ##
 git clone https://github.com/vinceliuice/Vimix-cursors.git
