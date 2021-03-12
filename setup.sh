@@ -236,6 +236,7 @@ PROGRAMS_APT=(
 
 	## gnome
 	chrome-gnome-shell
+	gnome-backgrounds
 	gnome-boxes
 	gnome-clocks
 	gnome-software-plugin-flatpak
@@ -262,7 +263,8 @@ PROGRAMS_APT=(
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(
 	org.gimp.GIMP
-	flathub de.haeckerfelix.Shortwave
+	de.haeckerfelix.Shortwave
+	com.gitlab.newsflash
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
@@ -271,6 +273,7 @@ PROGRAMS_SNAP=(
 	# odio
 	simplenote
 	vlc
+	youtube-dl
 	# slack --classic
 	# spotify
 	# wps-office-multilang
@@ -379,7 +382,7 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo flatpak install "$program_name" -y
+		sudo flatpak install flathub "$program_name" -y
 	fi
 done
 

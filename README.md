@@ -50,6 +50,7 @@ This script automatically installs the following softwares:
 	- Gimp (flatpak)
 	- LibreOffice
 	- MuseScore
+	- NewsFlash
 	- OBS Studio
 	- Shortwave (flatpak)
 	- Simplenote (snap)
@@ -79,6 +80,7 @@ This script automatically installs the following softwares:
 	- speedtest
 	- ubuntu-restricted-extras
 	- unrar
+	- youtube-dl (snap)
 	- wnctrl
 
 - Gstreamer:
@@ -143,6 +145,7 @@ This script automatically installs the following softwares:
 
 - Gnome:
 	- chrome-gnome-shell
+	- gnome-backgrounds
 	- gnome-boxes
 	- gnome-clocks
 	- gnome-software-plugin-flatpak

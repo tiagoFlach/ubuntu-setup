@@ -215,7 +215,7 @@ sudo apt-get install php-mysql -y
 sudo apt-get install php-curl php-gd php-json php-mbstring php-zip -y
 
 # Php other extensions
-sudo apt-get install php-cli php-common php-xdebug php-intl php-xml php-pear -y
+sudo apt-get install php-{cli.common.xdebug.intl.xml.pear.readline.bz2.pear} -y
 
 
 
@@ -349,7 +349,7 @@ sudo chown -R $USER:$USER /var/www/html/
 sudo chown -R $USER:www-data /var/www/html/
 
 # PhpInfo
-echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
+echo "<?php phpinfo(); ?>" | tee /var/www/html/phpinfo.php
 
 # Bookmarks Nautilus
 echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
@@ -357,6 +357,17 @@ echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
 # Display_errors = on
 ## PHPINI = /etc/php/7.4/apache2/php.ini
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
+
+# Apache 
+# sudo sed -i 's/<Directory /var/www/>
+# 	Options Indexes FollowSymLinks
+# 	AllowOverride None
+# 	Require all granted
+# </Directory>/<Directory /var/www/>
+# 	Options Indexes FollowSymLinks
+# 	AllowOverride All
+# 	Require all granted
+# </Directory>/' /etc/apache2/apache2.conf
 
 # Mod_rewrite
 cd /etc/apache2/mods-enabled/
