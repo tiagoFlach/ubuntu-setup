@@ -147,17 +147,14 @@ URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-
 ## Skype ##
 URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
-
 ## ----- Diretório de Downloads ----- ##
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
-
 
 ## ----- Prgramas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
 	## arquivos do sistema
 	apt-transport-https
 	curl
-	dconf-editor
 	exfat-fuse
 	exfat-utils
 	git
@@ -167,7 +164,6 @@ PROGRAMS_APT=(
 	lsb-core
 	net-tools
 	rar
-	speedtest-cli
 	ubuntu-restricted-extras
 	unrar
 	unzip
@@ -202,7 +198,7 @@ PROGRAMS_APT=(
 	fonts-fanwood
 	fonts-firacode
 	fonts-font-awesome
-	fonts-gamaliel
+	fonts-gamcurl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bashaliel
 	fonts-glasstty
 	fonts-hack
 	fonts-hack-ttf
@@ -236,6 +232,7 @@ PROGRAMS_APT=(
 
 	## gnome
 	chrome-gnome-shell
+	dconf-editor
 	gnome-backgrounds
 	gnome-boxes
 	gnome-clocks
@@ -253,6 +250,7 @@ PROGRAMS_APT=(
 	stacer
 	stellarium
 	sublime-text
+	speedtest
 	synaptic
 	timeshift
 	ufw
@@ -272,9 +270,10 @@ PROGRAMS_SNAP=(
 	discord
 	# odio
 	simplenote
+	slack --classic
+	telegram-desktop
 	vlc
 	youtube-dl
-	# slack --classic
 	# spotify
 	# wps-office-multilang
 )
@@ -336,6 +335,9 @@ sudo apt-add-repository "$PPA_STELLARIUM" -y
 ## Sublime ##
 wget -qO - $URL_SUBLIME_KEY | sudo apt-key add -
 echo "deb $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+## Speedtest ##
+curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 
 ## Spotify ##
 curl -sS $URL_SPOTIFY_KEY | sudo apt-key add - 

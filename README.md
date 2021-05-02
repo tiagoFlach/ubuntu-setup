@@ -50,37 +50,40 @@ This script automatically installs the following softwares:
 	- Gimp (flatpak)
 	- LibreOffice
 	- MuseScore
-	- NewsFlash
+	- NewsFlash (flatpak)
 	- OBS Studio
 	- Shortwave (flatpak)
 	- Simplenote (snap)
+	- Slack (snap)
 	- Skype
 	- Spotify
 	- Stellarium
 	- Stacer
 	- Sublime Text
 	- Synaptic
+	- Telegram (snap)
 	- TimeShift
 	- VirtualBox
 	- VLC (snap)  
 
-- System programs:
+- CLI:
+	- git
+	- neofetch
+	- speedtest
+	- youtube-dl (snap)
+
+- System:
 	- apt-transport-https
-	- dconf-editor
 	- curl
 	- exfat-fuse
 	- exfat-utils
-	- git
 	- gparted
 	- laptop-mode-tools
 	- lsb
 	- lsb-core
-	- neofetch
 	- net-tools
-	- speedtest
 	- ubuntu-restricted-extras
 	- unrar
-	- youtube-dl (snap)
 	- wnctrl
 
 - Gstreamer:
@@ -145,6 +148,7 @@ This script automatically installs the following softwares:
 
 - Gnome:
 	- chrome-gnome-shell
+	- dconf-editor
 	- gnome-backgrounds
 	- gnome-boxes
 	- gnome-clocks
