@@ -150,11 +150,12 @@ URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ## ----- Diretório de Downloads ----- ##
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
-## ----- Prgramas a serem instalados via apt ----- ##
+## ----- Pré-requisitos ----- ##
+sudo apt-get install apt-transport-https curl ubuntu-restricted-extras -y
+
+## ----- Programas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
 	## arquivos do sistema
-	apt-transport-https
-	curl
 	exfat-fuse
 	exfat-utils
 	git
@@ -163,7 +164,6 @@ PROGRAMS_APT=(
 	lsb-core
 	net-tools
 	rar
-	ubuntu-restricted-extras
 	unrar
 	unzip
 	wmctrl
@@ -197,7 +197,7 @@ PROGRAMS_APT=(
 	fonts-fanwood
 	fonts-firacode
 	fonts-font-awesome
-	fonts-gamcurl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bashaliel
+	fonts-gamaliel
 	fonts-glasstty
 	fonts-hack
 	fonts-hack-ttf
@@ -270,7 +270,7 @@ PROGRAMS_SNAP=(
 	discord
 	# odio
 	simplenote
-	slack --classic
+	# slack --classic
 	telegram-desktop
 	vlc
 	youtube-dl
@@ -311,7 +311,7 @@ sudo add-apt-repository -y universe
 sudo apt-get -y update
 sudo apt-get -y full-upgrade
 sudo apt-get update -y
-
+sudo apt-get install -y --fix-broken --install-recommends
 
 ## ----- Adicionando repositórios de terceiros ----- ##
 ## Drivers Nvidia ##
@@ -360,6 +360,7 @@ wget -c "$URL_SKYPE"               -P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
+sudo apt-get install -y --fix-broken --install-recommends
 
 
 # ----- Instalar programas no apt ----- ##
@@ -372,6 +373,7 @@ for nome_do_programa in ${PROGRAMS_APT[@]}; do
 		sudo apt-get install "$nome_do_programa" -y
 	fi
 done
+sudo apt-get install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Flatpak ---- -##
@@ -387,6 +389,7 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		sudo flatpak install flathub "$program_name" -y
 	fi
 done
+sudo apt-get install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Snap ----- ##
@@ -401,6 +404,7 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 		sudo snap install "$program_name"
 	fi
 done
+sudo apt-get install -y --fix-broken --install-recommends
 # ---------------------------------------------------------------------------- #
 
 

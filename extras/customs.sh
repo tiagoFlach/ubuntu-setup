@@ -18,11 +18,11 @@ gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DEFAULT
 gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
 
 # version LEFT
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
-gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 24
+# gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+# gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
+# gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
+# gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
+# gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 24
 
 # version BOTTOM
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false

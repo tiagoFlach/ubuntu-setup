@@ -199,8 +199,8 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- Lançadores
 		- Mostrar aplicativos favoritos: On
 		- Mostrar aplicativos em execução: On
-		- Mostrar pré-visualização de janelas abertas: On
-		- Isolar espaços de trabalho: On
+			- Mostrar pré-visualização de janelas abertas: On
+			- Isolar espaços de trabalho: On
 		- Exibir ícone dos Aplicativos: Off
 		- Mostrar lixeira: Off
 		- Mostrar volumes e dispositivos montados: Off
@@ -226,7 +226,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 - [WindowOverlay Icons](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
 	- Alinamhento: Centro
-	- Tamanho: 110
+	- Tamanho: 120
 	- Opacidade do ícone - foco: 255
 	- Opacidade do ícone - foco: 190
 - Ubuntu
