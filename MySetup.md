@@ -128,21 +128,24 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- GitKraken
 	- LibreOffice
 	- MuseScore
+	- News Flash
 	- OBS Studio
 	- Popcorn Time
-	- Skype
+	- Shortwave
 	- Simplenote
 	- Skype
+	- Slack
 	- Spotify
-	- Stellarium
 	- Stacer
+	- Stellarium
 	- Sublime Text
 	- Synaptic
-	- TimeShift
+	- ~~TimeShift~~
+	- Telegram
 	- VLC
 	- VirtualBox
 	- Visual Studio
-	- **WPS Office**
+	- ~~WPS Office~~
 
 ---
 
@@ -172,6 +175,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- 3: -
 	- 4: Show desktop
 		- Enable in fullscreen mode: Off
+		- Click to activate: Off
 		- Barrier size: 20
 		- Pressure Threshols: 150
 - [Customcorner](https://extensions.gnome.org/extension/1037/customcorner/)

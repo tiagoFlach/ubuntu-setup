@@ -6,21 +6,30 @@
 echo "neofetch" >> ~/.bashrc
 
 ## Aplicativos favoritos ##
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'spotify.desktop', 'odio_odio.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'mscore3.desktop', 'org.gimp.GIMP.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'slack_slack.desktop', 'spotify.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'org.gimp.GIMP.desktop']"
 
 ## ----- Customização das extensões ----- ##
 ## Dash to dock ##
-gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 24
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
-gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
-gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'cycle-windows'
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
+gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'cycle-windows'
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DEFAULT'
+gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
+
+# version LEFT
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
+gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 24
+
+# version BOTTOM
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme false
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 38
 
 ## Desktop Icons ##
 gsettings set org.gnome.shell.extensions.desktop-icons show-home false
@@ -77,7 +86,8 @@ gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600
 
 ## Wm ##
-gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,close'
+gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'minimize'
+gsettings set org.gnome.desktop.wm.preferences button-layout ':close'
 
 ## Cursor ##
 git clone https://github.com/vinceliuice/Vimix-cursors.git

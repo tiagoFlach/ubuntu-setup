@@ -158,7 +158,6 @@ PROGRAMS_APT=(
 	exfat-fuse
 	exfat-utils
 	git
-	gparted
 	laptop-mode-tools
 	lsb
 	lsb-core
@@ -239,6 +238,7 @@ PROGRAMS_APT=(
 	gnome-software-plugin-flatpak
 	gnome-sushi
 	gnome-tweaks
+	gparted
 
 	## aplicativos
 	flatpak
@@ -261,8 +261,8 @@ PROGRAMS_APT=(
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(
 	org.gimp.GIMP
-	de.haeckerfelix.Shortwave
 	com.gitlab.newsflash
+	de.haeckerfelix.Shortwave
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##

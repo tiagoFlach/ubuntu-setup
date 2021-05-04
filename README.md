@@ -77,7 +77,6 @@ This script automatically installs the following softwares:
 	- curl
 	- exfat-fuse
 	- exfat-utils
-	- gparted
 	- laptop-mode-tools
 	- lsb
 	- lsb-core
@@ -155,6 +154,7 @@ This script automatically installs the following softwares:
 	- gnome-software-plugin-flatpak
 	- gnome-sushi
 	- gnome-tweaks
+	- gparted
 
 
 ## Extras
