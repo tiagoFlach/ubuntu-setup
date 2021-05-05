@@ -4,9 +4,17 @@
 ## Terminal ##
 # Faz com que o terminal inicie com o comando neofetch #
 echo "neofetch" >> ~/.bashrc
+sed -i '1ineofetch' ~/.zshrc
 
 ## Aplicativos favoritos ##
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'slack_slack.desktop', 'spotify.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'org.gimp.GIMP.desktop']"
+
+## Apagar tela ##
+gsettings set org.gnome.desktop.session idle-delay 900
+gsettings set org.gnome.desktop.screensaver lock-delay 60
+
+## Extensões desativadas ##
+gsettings set org.gnome.shell disabled-extensions "['ubuntu-dock@ubuntu.com']"
 
 ## ----- Customização das extensões ----- ##
 ## Dash to dock ##
