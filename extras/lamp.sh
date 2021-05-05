@@ -359,15 +359,7 @@ echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 
 # Apache 
-# sudo sed -i 's/<Directory /var/www/>
-# 	Options Indexes FollowSymLinks
-# 	AllowOverride None
-# 	Require all granted
-# </Directory>/<Directory /var/www/>
-# 	Options Indexes FollowSymLinks
-# 	AllowOverride All
-# 	Require all granted
-# </Directory>/' /etc/apache2/apache2.conf
+sudo sed -i ':a;N;$!ba;s/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride None\n	Require all granted\n<\/Directory>/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride All\n	Require all granted\n<\/Directory>/g' /etc/apache2/apache2.conf
 
 # Mod_rewrite
 cd /etc/apache2/mods-enabled/
