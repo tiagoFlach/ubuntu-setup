@@ -151,7 +151,7 @@ URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 ## ----- Pré-requisitos ----- ##
-sudo apt-get install apt-transport-https curl ubuntu-restricted-extras -y
+sudo apt-get install apt-transport-https curl -y
 
 ## ----- Programas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
@@ -164,6 +164,7 @@ PROGRAMS_APT=(
 	lsb-core
 	net-tools
 	rar
+	ubuntu-restricted-extras
 	unrar
 	unzip
 	wmctrl
@@ -337,7 +338,7 @@ wget -qO - $URL_SUBLIME_KEY | sudo apt-key add -
 echo "deb $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 ## Speedtest ##
-curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
+wget -q -O - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash 
 
 ## Spotify ##
 curl -sS $URL_SPOTIFY_KEY | sudo apt-key add - 
