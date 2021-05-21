@@ -260,9 +260,11 @@ PROGRAMS_APT=(
 )
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
-PROGRAMS_FLATPAK=(
+PROGRAMS_FLATPAK=(	
 	org.gimp.GIMP
 	com.gitlab.newsflash
+	org.gnome.gitlab.somas.Apostrophe
+	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	de.haeckerfelix.Shortwave
 )
 
