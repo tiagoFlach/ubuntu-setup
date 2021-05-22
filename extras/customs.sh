@@ -49,6 +49,9 @@ gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('San Fr
 ## Gedit ##
 gsettings set org.gnome.gedit.preferences.editor display-right-margin true
 
+## Gnome System Monitor ##
+gsettings set org.gnome.gnome-system-monitor cpu-colors "[(0, 'rgb(153,193,241)'), (1, 'rgb(143,240,164)'), (2, 'rgb(255,190,111)'), (3, 'rgb(249,240,107)'), (4, 'rgb(53,132,228)'), (5, 'rgb(51,209,122)'), (6, 'rgb(255,120,0)'), (7, 'rgb(246,211,45)'), (8, 'rgb(26,95,180)'), (9, 'rgb(38,162,105)'), (10, 'rgb(198,70,0)'), (11, 'rgb(229,165,10)'), (12, '#aaffc3'), (13, '#469990'), (14, '#000075'), (15, '#e6beff')]"
+
 ## Gnome Terminal ##
 GNOME_TERMINAL_PROFILE='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
@@ -84,7 +87,7 @@ gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.interface font-name 'Roboto 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Cantarell 11'
-#gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro Medium 12'
+# gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro Medium 12'
 gsettings set org.gnome.desktop.interface titlebar-name 'Cantarell Bold 11'
 
 ## Mutter ##
