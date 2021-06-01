@@ -125,6 +125,9 @@ PPA_INKSCAPE="ppa:inkscape.dev/stable"
 ## MuseScore ##
 PPA_MUSESCORE="ppa:mscore-ubuntu/mscore3-stable"
 
+## OBS Studio ##
+PPA_OBS="ppa:obsproject/obs-studio"
+
 ## Spotify ##
 URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_0D811D58.gpg"
 URL_SPOTIFY_PPA="http://repository.spotify.com"
@@ -333,6 +336,9 @@ sudo apt-add-repository "$PPA_INKSCAPE" -y
 
 ## MuseScore ##
 sudo apt-add-repository "$PPA_MUSESCORE" -y
+
+## OBS Studio ##
+sudo apt-add-repository "$PPA_OBS" -y
 
 ## Stellarium ##
 sudo apt-add-repository "$PPA_STELLARIUM" -y
