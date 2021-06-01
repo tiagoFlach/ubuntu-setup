@@ -78,12 +78,14 @@ This script automatically installs the following softwares:
 	- curl
 	- exfat-fuse
 	- exfat-utils
+	- ffmpeg
 	- laptop-mode-tools
 	- lsb
 	- lsb-core
 	- net-tools
 	- ubuntu-restricted-extras
 	- unrar
+	- v4l2loopback-dkms
 	- wnctrl
 
 - Gstreamer:

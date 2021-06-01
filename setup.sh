@@ -158,6 +158,7 @@ PROGRAMS_APT=(
 	## arquivos do sistema
 	exfat-fuse
 	exfat-utils
+	ffmpeg
 	git
 	laptop-mode-tools
 	lsb
@@ -167,6 +168,7 @@ PROGRAMS_APT=(
 	ubuntu-restricted-extras
 	unrar
 	unzip
+	v4l2loopback-dkms
 	wmctrl
 	zip
 
