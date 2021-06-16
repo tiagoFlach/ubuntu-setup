@@ -122,6 +122,9 @@ PPA_GIT="ppa:git-core/ppa"
 ## Inkscape ##
 PPA_INKSCAPE="ppa:inkscape.dev/stable"
 
+## LibreOffice Fresh ##
+PPA_LIBREOFFICE="ppa:libreoffice/ppa"
+
 ## MuseScore ##
 PPA_MUSESCORE="ppa:mscore-ubuntu/mscore3-stable"
 
@@ -333,6 +336,9 @@ sudo apt-add-repository "$PPA_GIT" -y
 
 ## Inkscape ##
 sudo apt-add-repository "$PPA_INKSCAPE" -y
+
+## LibreOffice Fresh ##
+sudo apt-add-repository "$PPA_LIBREOFFICE" -y
 
 ## MuseScore ##
 sudo apt-add-repository "$PPA_MUSESCORE" -y

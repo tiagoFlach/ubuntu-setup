@@ -358,6 +358,9 @@ echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
 ## PHPINI = /etc/php/7.4/apache2/php.ini
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 
+# Upload_max_filesize = 64M
+sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 64M/' $PHPINI
+
 # Apache 
 sudo sed -i ':a;N;$!ba;s/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride None\n	Require all granted\n<\/Directory>/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride All\n	Require all granted\n<\/Directory>/g' /etc/apache2/apache2.conf
 
