@@ -50,6 +50,7 @@ This script automatically installs the following softwares:
 	- Google Earth Pro
 	- Gimp (flatpak)
 	- LibreOffice
+	- Microsoft Teams
 	- MuseScore
 	- NewsFlash (flatpak)
 	- OBS Studio

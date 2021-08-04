@@ -315,8 +315,7 @@ exit
 EOF
 
 sudo phpenmod mbstring
-sudo systemctl restart apache2
-sudo systemctl restart mysql
+sudo systemctl restart apache2 mysql
 
 
 

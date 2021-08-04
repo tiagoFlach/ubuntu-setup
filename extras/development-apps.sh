@@ -46,7 +46,7 @@ sudo apt-get install nodejs -y
 sudo apt-get install npm -y
 
 sudo npm cache clean -f
-sudo npm install -g n
+sudo npm install -g npm
 sudo n stable
 
 

@@ -150,6 +150,9 @@ URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_curre
 ## Google Earth Pro ##
 URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb"
 
+## Microsoft Teams ##
+URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
+
 ## Skype ##
 URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
