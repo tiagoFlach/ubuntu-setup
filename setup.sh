@@ -374,9 +374,10 @@ sudo apt-get update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_EARTH_PRO"    -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_SKYPE"               -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_CHROME"						-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_EARTH_PRO"						-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MS_TEAMS"				-O teams.deb	-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_SKYPE"								-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb

@@ -6,6 +6,8 @@
 
 # This scrip install de following apps:
 # 	Atom;
+#	Eclipse
+#	Git
 # 	GitKraken;
 # 	NodeJs;
 # 	NPM;
@@ -22,6 +24,12 @@ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ 
 
 sudo apt-get update
 sudo apt-get install atom -y
+
+
+# Eclipse
+# --------------------------------------
+sudo snap install --classic eclipse 
+
 
 ## Git
 # --------------------------------------
