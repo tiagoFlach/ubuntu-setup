@@ -51,6 +51,7 @@ This script automatically installs the following softwares:
 	- Gimp (flatpak)
 	- LibreOffice
 	- Microsoft Teams
+	- Mousai
 	- MuseScore
 	- NewsFlash (flatpak)
 	- OBS Studio
@@ -70,6 +71,7 @@ This script automatically installs the following softwares:
 
 - CLI:
 	- git
+	- htop
 	- neofetch
 	- speedtest
 	- youtube-dl (snap)

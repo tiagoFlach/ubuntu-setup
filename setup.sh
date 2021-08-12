@@ -169,6 +169,7 @@ PROGRAMS_APT=(
 	exfat-utils
 	ffmpeg
 	git
+	htop
 	laptop-mode-tools
 	lsb
 	lsb-core
@@ -277,6 +278,7 @@ PROGRAMS_FLATPAK=(
 	org.gnome.gitlab.somas.Apostrophe
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	de.haeckerfelix.Shortwave
+	io.github.seadve.Mousai
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
