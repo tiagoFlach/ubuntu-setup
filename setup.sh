@@ -279,6 +279,7 @@ PROGRAMS_FLATPAK=(
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	de.haeckerfelix.Shortwave
 	io.github.seadve.Mousai
+	org.gnome.SoundRecorder
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
@@ -409,7 +410,7 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo flatpak install flathub "$program_name" -y
+		flatpak install flathub "$program_name" -y
 	fi
 done
 sudo apt-get install -y --fix-broken --install-recommends

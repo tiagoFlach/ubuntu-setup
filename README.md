@@ -59,6 +59,7 @@ This script automatically installs the following softwares:
 	- Simplenote (snap)
 	- Slack (snap)
 	- Skype
+	- Sound Recorder (flatpak)
 	- Spotify
 	- Stellarium
 	- Stacer
