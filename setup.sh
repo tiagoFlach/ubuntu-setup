@@ -153,6 +153,9 @@ URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-
 ## Microsoft Teams ##
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
 
+## Slack ##
+URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.22.0/prod/x64/slack-desktop-4.22.0-amd64.deb"
+
 ## Skype ##
 URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
@@ -377,10 +380,11 @@ sudo apt-get update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_CHROME"						-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_EARTH_PRO"						-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_MS_TEAMS"				-O teams.deb	-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_SKYPE"								-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_CHROME"	-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb

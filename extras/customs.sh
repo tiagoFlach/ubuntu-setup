@@ -7,7 +7,7 @@ echo "neofetch" >> ~/.bashrc
 sed -i '1ineofetch' ~/.zshrc
 
 ## Aplicativos favoritos ##
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'slack_slack.desktop', 'spotify.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'org.gimp.GIMP.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'slack.desktop', 'spotify.desktop', 'de.haeckerfelix.Shortwave.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop', 'org.gimp.GIMP.desktop']"
 
 ## Apagar tela ##
 gsettings set org.gnome.desktop.session idle-delay 900

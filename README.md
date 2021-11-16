@@ -57,7 +57,7 @@ This script automatically installs the following softwares:
 	- OBS Studio
 	- Shortwave (flatpak)
 	- Simplenote (snap)
-	- Slack (snap)
+	- Slack
 	- Skype
 	- Sound Recorder (flatpak)
 	- Spotify
