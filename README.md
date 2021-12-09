@@ -56,6 +56,7 @@ This script automatically installs the following softwares:
 	- NewsFlash (flatpak)
 	- OBS Studio
 	- Shortwave (flatpak)
+	- Scrcpy (snap)
 	- Simplenote (snap)
 	- Slack
 	- Skype

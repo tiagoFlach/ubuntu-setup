@@ -289,6 +289,7 @@ PROGRAMS_FLATPAK=(
 PROGRAMS_SNAP=(
 	discord
 	# odio
+	scrcpy
 	simplenote
 	# slack --classic
 	telegram-desktop
