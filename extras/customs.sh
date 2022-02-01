@@ -107,6 +107,8 @@ sudo cp -r Vimix-cursors/dist-white/ /usr/share/icons/Vimix-white-cursors
 sudo rm -rf Vimix-cursors
 gsettings set org.gnome.desktop.interface cursor-theme 'Vimix-white-cursors'
 
+wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons/
+
 ## Emojis ##
 mkdir ~/.config/fontconfig
 echo -e '<?xml version="1.0" encoding="UTF-8"?>
