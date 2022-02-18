@@ -42,6 +42,7 @@ Replace `FILE` with the name of the script you want.
 This script automatically installs the following softwares:
 
 - Main:
+	- AnyDesk
 	- Apostrophe (flatpak)
 	- Discord (snap)
 	- Firefox

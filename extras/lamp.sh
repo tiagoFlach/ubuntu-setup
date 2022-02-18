@@ -339,7 +339,6 @@ sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverr
 sudo systemctl start apache2
 
 
-
 # Others configs
 # --------------------------------------
 # Permissões da pasta html

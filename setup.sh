@@ -110,6 +110,10 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 
 # --------------------------------- VARIÁVEIS -------------------------------- #
 # ----- PPAs -----#
+## AnyDesk ##
+URL_ANYDESK_KEY="https://keys.anydesk.com/repos/DEB-GPG-KEY"
+URL_ANYDESK_PPA="http://deb.anydesk.com/"
+
 ## Drivers Nvidia ##
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 
@@ -257,6 +261,7 @@ PROGRAMS_APT=(
 	gparted
 
 	## aplicativos
+	anydesk
 	flatpak
 	inkscape
 	musescore3
@@ -335,6 +340,10 @@ sudo apt-get update -y
 sudo apt-get install -y --fix-broken --install-recommends
 
 ## ----- Adicionando repositórios de terceiros ----- ##
+## AnyDesk ##
+wget -qO - $URL_ANYDESK_KEY | sudo apt-key add -
+echo "deb $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
+
 ## Drivers Nvidia ##
 sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
 
@@ -364,7 +373,7 @@ wget -qO - $URL_SUBLIME_KEY | sudo apt-key add -
 echo "deb $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 ## Speedtest ##
-wget -q -O - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash 
+wget -qO - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash 
 
 ## Spotify ##
 curl -sS $URL_SPOTIFY_KEY | sudo apt-key add - 
