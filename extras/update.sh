@@ -35,8 +35,8 @@ sudo flatpak repair
 echo -e "\n\n${YELLOW}sudo snap refresh ${NC}\n"
 sudo snap refresh
 
-echo -e "\n\n${YELLOW}sudo apt autoclean ${NC}\n"
-sudo apt autoclean
-
 echo -e "\n\n${YELLOW}sudo apt-get autoremove ${NC}\n"
 sudo apt-get autoremove -y
+
+echo -e "\n\n${YELLOW}sudo apt autoclean ${NC}\n"
+sudo apt autoclean
