@@ -87,7 +87,7 @@ This script automatically installs the following softwares:
 	- apt-transport-https
 	- curl
 	- exfat-fuse
-	- exfat-utils
+	- exfatprogs
 	- ffmpeg
 	- laptop-mode-tools
 	- lsb
@@ -165,6 +165,7 @@ Contains scripts for the automatic installation of the following softwares:
 	- Atom
 	- Eclipse
 	- Git
+	- GitHub CLI
 	- GitKraken;
 	- NodeJs;
 	- NPM;

@@ -259,11 +259,11 @@ PROGRAMS_APT=(
 	stellarium
 	sublime-text
 	speedtest
-	synaptic
+	# synaptic
 	timeshift
 	ufw
-	virtualbox
-	virtualbox-dkms
+	# virtualbox
+	# virtualbox-dkms
 )
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
