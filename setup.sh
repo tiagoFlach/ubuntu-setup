@@ -189,21 +189,6 @@ PROGRAMS_APT=(
 	wmctrl
 	zip
 
-	## gstreamer
-	libgstreamer1.0-0
-	gstreamer1.0-plugins-base
-	gstreamer1.0-plugins-good
-	gstreamer1.0-plugins-bad
-	gstreamer1.0-plugins-ugly
-	gstreamer1.0-libav
-	gstreamer1.0-doc
-	gstreamer1.0-tools
-	gstreamer1.0-x
-	gstreamer1.0-alsa
-	gstreamer1.0-gl
-	gstreamer1.0-gtk3
-	gstreamer1.0-qt5
-	gstreamer1.0-pulseaudio
 
 	## fontes
 	fonts-apropal
@@ -255,6 +240,7 @@ PROGRAMS_APT=(
 	gnome-backgrounds
 	gnome-boxes
 	gnome-clocks
+	gnome-maps
 	gnome-software-plugin-flatpak
 	gnome-sushi
 	gnome-tweaks
@@ -267,6 +253,7 @@ PROGRAMS_APT=(
 	musescore3
 	neofetch
 	obs-studio
+	remmina
 	spotify-client
 	stacer
 	stellarium
@@ -288,12 +275,14 @@ PROGRAMS_FLATPAK=(
 	de.haeckerfelix.Shortwave
 	io.github.seadve.Mousai
 	org.gnome.SoundRecorder
+	org.kde.kdenlive
+	com.github.k4zmu2a.spacecadetpinball
+	com.mattjakeman.ExtensionManager
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
 	discord
-	# odio
 	scrcpy
 	simplenote
 	# slack --classic
@@ -311,8 +300,6 @@ PROGRAMS_SNAP=(
 
 # -------------------------------- PRE INSTALL ------------------------------- #
 ## Removendo programas desnecessarios ##
-## Remmina ##
-sudo apt-get purge --auto-remove remmina -y
 ## Thunderbird ##
 sudo apt-get purge --auto-remove thunderbird -y
 ## Vlc ##
@@ -330,7 +317,7 @@ sudo rm /var/cache/apt/archives/lock
 
 # -------------------------------- REQUISITOS -------------------------------- #
 ## Adicionando/Confirmando arquitetura de 32 bits ##
-sudo dpkg --add-architecture i386
+# sudo dpkg --add-architecture i386
 
 ## ----- Atualizando o repositório ----- ##
 sudo add-apt-repository -y universe
@@ -351,7 +338,7 @@ sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
 sudo apt-add-repository "$PPA_GIT" -y
 
 ## Mesa Driver ##
-## sudo apt-add-repository "$PPA_MESA_DRIVER" -y
+# sudo apt-add-repository "$PPA_MESA_DRIVER" -y
 
 ## Inkscape ##
 sudo apt-add-repository "$PPA_INKSCAPE" -y

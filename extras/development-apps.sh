@@ -5,6 +5,7 @@
 # https://github.com/tiagoFlach
 
 # This scrip install de following apps:
+# 	Android Studio;
 # 	Atom;
 #	Eclipse
 #	Git
@@ -15,6 +16,11 @@
 # 	Sublime Text;
 # 	Sublime Merge;
 # 	Visual Studio Code;
+
+
+# Android Studio
+# --------------------------------------
+sudo snap install android-studio --classic
 
 
 # Atom
@@ -28,7 +34,7 @@ sudo apt-get install atom -y
 
 # Eclipse
 # --------------------------------------
-sudo snap install --classic eclipse 
+sudo snap install eclipse --classic
 
 
 ## Git

@@ -2,7 +2,7 @@
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-This is a automatic system setup for [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/).
+This is a automatic system setup for [Ubuntu 22.04 LTS](https://releases.ubuntu.com/22.04/).
 
 
 
@@ -45,23 +45,27 @@ This script automatically installs the following softwares:
 	- AnyDesk
 	- Apostrophe (flatpak)
 	- Discord (snap)
+	- Extension Manager (flatpak)
 	- Firefox
 	- Inkscape
 	- Google Chrome
 	- Google Earth Pro
 	- Gimp (flatpak)
+	- Kdenlive (flatpak)
 	- LibreOffice
 	- Microsoft Teams
-	- Mousai
+	- Mousai (flatpak)
 	- MuseScore
 	- NewsFlash (flatpak)
 	- OBS Studio
-	- Shortwave (flatpak)
+	- Remmina
 	- Scrcpy (snap)
+	- Shortwave (flatpak)
 	- Simplenote (snap)
-	- Slack
 	- Skype
+	- Slack
 	- Sound Recorder (flatpak)
+	- Space Cadet Pinball (flatpak)
 	- Spotify
 	- Stellarium
 	- Stacer
@@ -93,22 +97,6 @@ This script automatically installs the following softwares:
 	- unrar
 	- v4l2loopback-dkms
 	- wnctrl
-
-- Gstreamer:
-	- libgstreamer1.0-0
-	- gstreamer1.0-plugins-base
-	- gstreamer1.0-plugins-good
-	- gstreamer1.0-plugins-bad
-	- gstreamer1.0-plugins-ugly
-	- gstreamer1.0-libav
-	- gstreamer1.0-doc
-	- gstreamer1.0-tools
-	- gstreamer1.0-x
-	- gstreamer1.0-alsa
-	- gstreamer1.0-gl
-	- gstreamer1.0-gtk3
-	- gstreamer1.0-qt5
-	- gstreamer1.0-pulseaudio
 
 - Fonts:
 	- fonts-apropal
@@ -160,6 +148,7 @@ This script automatically installs the following softwares:
 	- gnome-backgrounds
 	- gnome-boxes
 	- gnome-clocks
+	- gnome-maps
 	- gnome-software-plugin-flatpak
 	- gnome-sushi
 	- gnome-tweaks
@@ -172,6 +161,7 @@ Contains scripts for the automatic installation of the following softwares:
 
 - Composer
 - Development Apps
+	- Android Studio
 	- Atom
 	- Eclipse
 	- Git
