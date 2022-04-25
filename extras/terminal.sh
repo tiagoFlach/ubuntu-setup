@@ -27,7 +27,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 # zsh-autosuggestions (plugins)
 
 # Buscador com ctrl+t FZF
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+sudo apt install fzf -y
 
 echo -e "Reinicie a sessão"
 
@@ -53,3 +54,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # ZLE_RPROMPT_INDENT=0
 # p10k configure
+
+# Faz com que o terminal inicie com o comando neofetch #
+echo "neofetch" >> ~/.bashrc
+sed -i '1ineofetch' ~/.zshrc
