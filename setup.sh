@@ -116,7 +116,6 @@ PPAS=(
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
 	ppa:inkscape.dev/stable				# Inkscape
 	ppa:libreoffice/ppa					# LibreOffice
-	ppa:mscore-ubuntu/mscore3-stable	# MuseScore
 	ppa:obsproject/obs-studio			# OBS Studio
 	ppa:stellarium/stellarium-releases	# Stellarium
 )
@@ -126,7 +125,7 @@ URL_ANYDESK_KEY="https://keys.anydesk.com/repos/DEB-GPG-KEY"
 URL_ANYDESK_PPA="http://deb.anydesk.com/"
 
 ## Spotify ##
-URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_0D811D58.gpg"
+URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
 URL_SPOTIFY_PPA="http://repository.spotify.com"
 
 ## Sublime ##
@@ -154,14 +153,13 @@ URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 ## ----- Pré-requisitos ----- ##
-sudo apt install apt-transport-https curl -y
+sudo apt install apt-transport-https curl -y -q
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 
 ## ----- Programas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
 	## Sistema
 	exfat-fuse
-	exfat-utils
 	ffmpeg
 	git
 	htop
@@ -220,7 +218,6 @@ PROGRAMS_APT=(
 	fonts-yanone-kaffeesatz
 	ttf-ancient-fonts
 	ttf-mscorefonts-installer
-	ttf-ubuntu-font-family
 
 	## Gnome
 	chrome-gnome-shell
@@ -238,7 +235,6 @@ PROGRAMS_APT=(
 	anydesk
 	flatpak
 	inkscape
-	musescore3
 	neofetch
 	obs-studio
 	remmina
@@ -265,12 +261,13 @@ PROGRAMS_FLATPAK=(
 	org.kde.kdenlive
 	com.github.k4zmu2a.spacecadetpinball
 	com.mattjakeman.ExtensionManager
-	org.gnome.boxes
+	org.gnome.Boxes
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
 	discord
+	musescore
 	scrcpy
 	simplenote
 	# slack --classic
@@ -319,21 +316,25 @@ for ppa in ${PPAS[@]}; do
 done
 
 ## AnyDesk ##
-wget -qO - $URL_ANYDESK_KEY | sudo gpg --dearmor -o /usr/share/keyrings/anydesk-stable-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
+if [ ! -f "/usr/share/keyrings/anydesk-stable-keyring.gpg" ]; then
+	wget -qO - $URL_ANYDESK_KEY | sudo gpg --dearmor -o /usr/share/keyrings/anydesk-stable-keyring.gpg
+	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
+fi
 
 ## Sublime ##
-wget -qO - $URL_SUBLIME_KEY | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
+	wget -qO - $URL_SUBLIME_KEY | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
+	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+fi
 
 ## Speedtest ##
 wget -qO - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash 
 
 ## Spotify ##
-# curl -sS $URL_SPOTIFY_KEY | sudo apt-key add - 
-# echo "deb $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+if [ ! -f "/usr/share/keyrings/spotify-keyring.gpg" ]; then
+	wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
+	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+fi
 # ---------------------------------------------------------------------------- #
 
 
@@ -364,7 +365,7 @@ for nome_do_programa in ${PROGRAMS_APT[@]}; do
 		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo apt install "$nome_do_programa" -y
+		sudo apt install "$nome_do_programa" -y -q
 	fi
 done
 sudo apt install -y --fix-broken --install-recommends

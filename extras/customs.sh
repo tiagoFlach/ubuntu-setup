@@ -2,7 +2,7 @@
 
 ## ---------------------------------- FONTS --------------------------------- ##
 # Cantarell
-sudo apt install fonts-cantarell -y
+sudo apt install fonts-cantarell -y -q
 
 # Source Code Pro
 URL=https://github.com/adobe-fonts/source-code-pro/releases/latest
@@ -56,23 +56,23 @@ rm -r font-meslo
 # Capitaine Cursors
 git clone https://github.com/keeferrourke/capitaine-cursors.git
 
-sudo apt install inkscape -y
-./capitaine-cursors/build.sh -t dark
-./capitaine-cursors/build.sh -t light
+sudo apt install inkscape -y -q
+
+cd capitaine-cursors
+./build.sh -t dark
+./build.sh -t light
+cd ~
 
 sudo cp -r capitaine-cursors/dist/dark/ /usr/share/icons/Capitaine-cursors-dark
 sudo cp -r capitaine-cursors/dist/light/ /usr/share/icons/Capitaine-cursors-light
 
-rm -rf capitaine-cursors
+sudo rm -rf capitaine-cursors
 
 # Vimix Cursors
 git clone https://github.com/vinceliuice/Vimix-cursors.git
 
 sudo cp -r Vimix-cursors/dist/ /usr/share/icons/Vimix-cursors
 sudo cp -r Vimix-cursors/dist-white/ /usr/share/icons/Vimix-cursors-white
-
-sudo cp -r Vimix-cursors/dist/ /usr/share/icons/Vimix-cursors
-sudo cp -r Vimix-cursors/dist-white/ /usr/share/icons/Vimix-white-cursors
 
 sudo rm -rf Vimix-cursors
 gsettings set org.gnome.desktop.interface cursor-theme 'Vimix-white-cursors'
@@ -93,9 +93,6 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'goo
 ## Apagar tela ##
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 60
-
-## Tema ##
-gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-dark'
 
 ## Extensões desativadas ##
 gsettings set org.gnome.shell disabled-extensions "['ding@rastersoft.com', 'ubuntu-dock@ubuntu.com']"
@@ -128,6 +125,7 @@ gsettings set org.gnome.shell.extensions.ding show-home false
 gsettings set org.gnome.shell.extensions.ding show-trash false
 
 ## Gnome Clocks ##
+sudo apt install gnome-clocks -y -q
 gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>}, {'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Luxembourg', 'ELLX', true, [(0.86597420301561734, 0.10850130765007832)], [(0.86588693655301752, 0.10698868314725239)])>)>}]"
 
 ## Gedit ##
@@ -211,12 +209,19 @@ cp ubuntu-setup/personal/Shortwave.db ~/.var/app/de.haeckerfelix.Shortwave/data/
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+## Fontes ##
 # gsettings set org.gnome.desktop.interface font-name 'Roboto 11'
 gsettings set org.gnome.desktop.interface font-name 'Cantarell Regular 11'
-# gsettings set org.gnome.desktop.interface document-font-name 'Cantarell 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Cantarell Regular 11'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 10'
-gsettings set org.gnome.desktop.interface titlebar-name 'Cantarell Bold 11'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
+
+## Tema ##
+gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
+gsettings set org.gnome.desktop.interface gtk-key-theme 'Default'
+gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-dark'
 
 ## Mutter ##
 gsettings set org.gnome.mutter center-new-windows true

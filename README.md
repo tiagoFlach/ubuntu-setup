@@ -55,7 +55,7 @@ This script automatically installs the following softwares:
 	- LibreOffice
 	- Microsoft Teams
 	- Mousai (flatpak)
-	- MuseScore
+	- MuseScore (snap)
 	- NewsFlash (flatpak)
 	- OBS Studio
 	- Remmina
@@ -87,7 +87,6 @@ This script automatically installs the following softwares:
 	- apt-transport-https
 	- curl
 	- exfat-fuse
-	- exfatprogs
 	- ffmpeg
 	- laptop-mode-tools
 	- lsb
@@ -140,7 +139,6 @@ This script automatically installs the following softwares:
 	- fonts-yanone-kaffeesatz
 	- ttf-ancient-fonts
 	- ttf-mscorefonts-installer
-	- ttf-ubuntu-font-family
 
 - Gnome:
 	- chrome-gnome-shell

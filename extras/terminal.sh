@@ -7,7 +7,7 @@ sudo apt install zsh -y
 chsh -s /bin/zsh
 
 # ---
-sudo apt install curl wget git -y
+sudo apt install curl wget git -y -q
 
 # Definir ZSH como padrão
 sudo usermod --shell $(which zsh) $USER
