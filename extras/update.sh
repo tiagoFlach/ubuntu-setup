@@ -14,13 +14,13 @@ NC='\033[0m'        	# No Color
 
 
 
-echo -e "\n\n${YELLOW}sudo apt-get update ${NC}\n"
-sudo apt-get update && sudo apt list --upgradable
+echo -e "\n\n${YELLOW}sudo apt update ${NC}\n"
+sudo apt update && sudo apt list --upgradable
 
-echo -e "\n\n${YELLOW}sudo apt-get dist-upgrade ${NC}\n"
-sudo apt-get dist-upgrade -y
+echo -e "\n\n${YELLOW}sudo apt dist-upgrade ${NC}\n"
+sudo apt dist-upgrade -y
 
-echo -e "\n\n${YELLOW}sudo apt-get repair ${NC}\n"
+echo -e "\n\n${YELLOW}sudo apt repair ${NC}\n"
 sudo flatpak repair
 
 echo -e "\n\n${YELLOW}sudo flatpak update ${NC}\n"
@@ -35,8 +35,8 @@ sudo flatpak repair
 echo -e "\n\n${YELLOW}sudo snap refresh ${NC}\n"
 sudo snap refresh
 
-echo -e "\n\n${YELLOW}sudo apt-get autoremove ${NC}\n"
-sudo apt-get autoremove -y
+echo -e "\n\n${YELLOW}sudo apt autoremove ${NC}\n"
+sudo apt autoremove -y
 
 echo -e "\n\n${YELLOW}sudo apt autoclean ${NC}\n"
 sudo apt autoclean

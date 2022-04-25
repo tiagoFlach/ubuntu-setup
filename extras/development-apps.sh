@@ -30,11 +30,11 @@ sudo snap install android-studio --classic
 
 # Atom
 # --------------------------------------
-wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/atom-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/atom-keyring.gpg] https://packagecloud.io/AtomEditor/atom/any/ any main" | sudo tee /etc/apt/sources.list.d/atom.list
 
-sudo apt-get update
-sudo apt-get install atom -y
+sudo apt update
+sudo apt install atom -y
 
 
 # Eclipse
@@ -45,7 +45,7 @@ sudo snap install eclipse --classic
 ## Git
 # --------------------------------------
 sudo apt-add-repository ppa:git-core/ppa -y
-sudo apt-get install git -y
+sudo apt install git -y
 git config --global user.email "tiagolucas9830@gmail.com"
 git config --global user.name "Tiago Lucas Flach"
 
@@ -66,12 +66,12 @@ sudo snap install gitkraken --classic
 
 # NodeJs
 # --------------------------------------
-sudo apt-get install nodejs -y
+sudo apt install nodejs -y
 
 
 # NPM
 # --------------------------------------
-sudo apt-get install npm -y
+sudo apt install npm -y
 
 sudo npm cache clean -f
 sudo npm install -g npm
@@ -85,17 +85,16 @@ sudo snap install phpstorm --classic
 
 # Subllime Text
 # --------------------------------------
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt-get install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
-sudo apt-get update
-sudo apt-get install sublime-text -y
+sudo apt update
+sudo apt install sublime-text -y
 
 
 # Sublime Merge
 # --------------------------------------
-sudo apt-get install sublime-merge -y
+sudo apt install sublime-merge -y
 
 
 # Visual Studio Code
@@ -105,7 +104,7 @@ sudo snap install code --classic
 
 # --------------------------------------
 ## FileZilla ##
-# sudo apt-get install filezilla -y
+# sudo apt install filezilla -y
 
 ## Composer ##
-# sudo apt-get install composer -y
+# sudo apt install composer -y

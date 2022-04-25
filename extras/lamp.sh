@@ -13,30 +13,30 @@
 # https://github.com/teddysun/lamp
 
 function update {
-	sudo apt-get update
-	sudo apt-get upgrade -y
-	sudo apt-get autoremove -y
+	sudo apt update
+	sudo apt upgrade -y
+	sudo apt autoremove -y
 }
 
 function clean {
-	sudo apt-get purge --remove build-essential -y
-	sudo apt-get purge --remove expect -y
-	sudo apt-get purge --remove node -y
-	sudo apt-get purge --remove npm -y
-	sudo apt-get autoremove -y
+	sudo apt purge --remove build-essential -y
+	sudo apt purge --remove expect -y
+	sudo apt purge --remove node -y
+	sudo apt purge --remove npm -y
+	sudo apt autoremove -y
 	sudo apt autoclean -y
 
 	update
 }
 
 function lamp_clean {
-	sudo apt-get purge --remove php -y
-	sudo apt-get purge --remove php-mysql -y
-	sudo apt-get purge --remove apache2 -y
-	sudo apt-get purge --remove mysql-server* -y
-	sudo apt-get purge --remove mysql-client* -y
-	sudo apt-get purge --remove phpmyadmin -y
-	sudo apt-get autoremove -y
+	sudo apt purge --remove php -y
+	sudo apt purge --remove php-mysql -y
+	sudo apt purge --remove apache2 -y
+	sudo apt purge --remove mysql-server* -y
+	sudo apt purge --remove mysql-client* -y
+	sudo apt purge --remove phpmyadmin -y
+	sudo apt autoremove -y
 	sudo apt autoclean -y
 
 	update
@@ -71,7 +71,7 @@ PHPINI="${LOCAL/cli/apache2}"
 ## ---------------------------------- ##
 ## ------------- Apache ------------- ##
 ## ---------------------------------- ##
-sudo apt-get install apache2 apache2-utils -y
+sudo apt install apache2 apache2-utils -y
 
 sudo ufw allow in "Apache"
 sudo ufw enable
@@ -81,7 +81,7 @@ sudo ufw enable
 ## ---------------------------------- ##
 ## ------------- MySQL -------------- ##
 ## ---------------------------------- ##
-sudo apt-get install mysql-server mysql-client -y
+sudo apt install mysql-server mysql-client -y
 sudo mysql_secure_installation
 
 ### Answer
@@ -199,24 +199,24 @@ sudo ufw allow mysql
 ## ---------------------------------- ##
 ## -------------- Php --------------- ##
 ## ---------------------------------- ##
-sudo apt-get install software-properties-common -y
+sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php -y
-sudo apt-get update
+sudo apt update
 
 # Php
-sudo apt-get install php -y
+sudo apt install php -y
 
 # Php Apache
-sudo apt-get install libapache2-mod-php -y
+sudo apt install libapache2-mod-php -y
 
 # Php MySQL
-sudo apt-get install php-mysql -y
+sudo apt install php-mysql -y
 
 # Php PhpMyAdmin
-sudo apt-get install php-curl php-gd php-json php-mbstring php-zip -y
+sudo apt install php-curl php-gd php-json php-mbstring php-zip -y
 
 # Php other extensions
-sudo apt-get install php-{cli.common.xdebug.intl.xml.pear.readline.bz2.pear} -y
+sudo apt install php-{cli.common.xdebug.intl.xml.pear.readline.bz2.pear} -y
 
 
 
@@ -228,7 +228,7 @@ UNINSTALL COMPONENT "file://component_validate_password";
 exit
 EOF
 
-sudo apt-get install phpmyadmin -y
+sudo apt install phpmyadmin -y
 
 ### Answer
 # --------------------------------------

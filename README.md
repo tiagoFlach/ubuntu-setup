@@ -146,9 +146,10 @@ This script automatically installs the following softwares:
 	- chrome-gnome-shell
 	- dconf-editor
 	- gnome-backgrounds
-	- gnome-boxes
+	- gnome-boxes (flatpak)
 	- gnome-clocks
 	- gnome-maps
+	- gnome-shell-extensions
 	- gnome-software-plugin-flatpak
 	- gnome-sushi
 	- gnome-tweaks

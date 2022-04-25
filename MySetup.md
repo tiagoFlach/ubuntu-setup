@@ -52,9 +52,9 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- Ubuntu - 100 GB
 
 | Partição		| Tamanho		| Sistema de Arquivos	| Montagem		| Rótulo			|
-|----------	|---------	|------------		|-----------	|-------------	|
+|--------------	|--------------	|----------------------	|--------------	|------------------	|
 | sda1			| 512 MB		| fat32					| /boot/efi		| Boot				|
-| sda2			| 9,8 GB			| NTFS					|				| Data Safe			|
+| sda2			| 9,8 GB		| NTFS					|				| Data Safe			|
 | sda3			| 100 GB		| NTFS					|				| Windows			|
 | sda4			| 8 GB			| linux-swap			|				| Swap				|
 | sda5			| 60 GB			| ext4					| /				| Raiz Ubuntu		|
@@ -66,7 +66,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 	- Ubuntu - 600 GB
 
 | Partição		| Tamanho		| Sistema de Arquivos	| Montagem		| Rótulo			|
-|----------	|---------	|------				|----------	|-------------	|
+|--------------	|--------------	|----------------------	|--------------	|------------------	|
 | sdb1			| 600 GB		| NTFS					| /home			| (E:) Home Ubuntu	|
 | sdb2			| 330 GB		| NTFS					|				| (D:)				|  
 
@@ -167,22 +167,21 @@ Taxa de amostragem de 1000 Hz (1 ms)
 #### Extensões
 
 - [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
+	- Apply Effect to: Activities Screen
+	- Blur Intensity: 10
+	- Activities Background Brightness: 0.75
+	- Panel Background Brightness: 0.8
 - [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
 	- Ocultar o painel durante o coverflow: On
-- [Custom Hot Corners](https://extensions.gnome.org/extension/1362/custom-hot-corners/)
-	- 1: Toggle overview
-	- 2: -
-	- 3: -
-	- 4: Show desktop
-		- Enable in fullscreen mode: Off
-		- Click to activate: Off
-		- Barrier size: 20
-		- Pressure Threshols: 150
-- [Customcorner](https://extensions.gnome.org/extension/1037/customcorner/)
-	- 1: GNOME Default
-	- 2:
-	- 3: Show Apps Grid
-	- 4:
+	- Estilo do ícone do aplicativo: Sobreposição 
+- [Custom Hot Corners - Extended](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/)
+	- Monitor:
+		- Top Left:
+			- Show Activities Overview: Pressure (100)
+		- Bottom Left:
+			- Show Aplications Grid: Pressure (100)	
+		- Bottom Right:
+			- Show Desktop: Pressure (100)
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 	- Posição e Tamanho
 		- Exibir o dock: Monitor primário
@@ -216,17 +215,22 @@ Taxa de amostragem de 1000 Hz (1 ms)
 		- Encolher o dash: On
 		- Customizar a cor do dash: Off
 - [Extension Update Notifier](https://extensions.gnome.org/extension/1166/extension-update-notifier/)
+- [Impatience](https://extensions.gnome.org/extension/277/impatience/)
+	- Speed scaling: 0.75
+- [Lock Keys](https://extensions.gnome.org/extension/36/lock-keys/)
+	- Estilo do indicador: Notificações somente
+	- Notificações: Osd 
 - [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
 - [Transparent Top Panel](https://extensions.gnome.org/extension/2878/transparent-top-panel/)
 - [Transparent Window Moving](https://extensions.gnome.org/extension/1446/transparent-window-moving/)
-	- Opacity: 210
+	- Opacity: 220
 	- Animation time: 0,10
 	- Transparent on moving: Yes
 	- Transparent on resizing: Yes
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 - [WindowOverlay Icons](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
-	- Alinamhento: Centro
-	- Tamanho: 120
+	- Alinhamento: Centro
+	- Tamanho: 100
 	- Opacidade do ícone - foco: 255
 	- Opacidade do ícone - foco: 190
 - Ubuntu

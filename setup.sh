@@ -110,37 +110,24 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 
 # --------------------------------- VARIÁVEIS -------------------------------- #
 # ----- PPAs -----#
+PPAS=(
+	ppa:git-core/ppa					# Git
+	ppa:graphics-drivers/ppa			# Nvidia
+	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
+	ppa:inkscape.dev/stable				# Inkscape
+	ppa:libreoffice/ppa					# LibreOffice
+	ppa:mscore-ubuntu/mscore3-stable	# MuseScore
+	ppa:obsproject/obs-studio			# OBS Studio
+	ppa:stellarium/stellarium-releases	# Stellarium
+)
+
 ## AnyDesk ##
 URL_ANYDESK_KEY="https://keys.anydesk.com/repos/DEB-GPG-KEY"
 URL_ANYDESK_PPA="http://deb.anydesk.com/"
 
-## Drivers Nvidia ##
-PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
-
-## Git ##
-PPA_GIT="ppa:git-core/ppa"
-
-## Mesa Driver ##
-# PPA_MESA_DRIVER="ppa:paulo-miguel-dias/pkppa"
-
-## Inkscape ##
-PPA_INKSCAPE="ppa:inkscape.dev/stable"
-
-## LibreOffice Fresh ##
-PPA_LIBREOFFICE="ppa:libreoffice/ppa"
-
-## MuseScore ##
-PPA_MUSESCORE="ppa:mscore-ubuntu/mscore3-stable"
-
-## OBS Studio ##
-PPA_OBS="ppa:obsproject/obs-studio"
-
 ## Spotify ##
 URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_0D811D58.gpg"
 URL_SPOTIFY_PPA="http://repository.spotify.com"
-
-## Stellarium ##
-PPA_STELLARIUM="ppa:stellarium/stellarium-releases"
 
 ## Sublime ##
 URL_SUBLIME_KEY="https://download.sublimetext.com/sublimehq-pub.gpg"
@@ -167,11 +154,12 @@ URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 ## ----- Pré-requisitos ----- ##
-sudo apt-get install apt-transport-https curl -y
+sudo apt install apt-transport-https curl -y
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 
 ## ----- Programas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
-	## arquivos do sistema
+	## Sistema
 	exfat-fuse
 	exfat-utils
 	ffmpeg
@@ -183,14 +171,14 @@ PROGRAMS_APT=(
 	net-tools
 	rar
 	ubuntu-restricted-extras
+	ufw
 	unrar
 	unzip
 	v4l2loopback-dkms
 	wmctrl
 	zip
 
-
-	## fontes
+	## Fontes
 	fonts-apropal
 	fonts-atarismall
 	fonts-baekmuk
@@ -234,19 +222,19 @@ PROGRAMS_APT=(
 	ttf-mscorefonts-installer
 	ttf-ubuntu-font-family
 
-	## gnome
+	## Gnome
 	chrome-gnome-shell
 	dconf-editor
 	gnome-backgrounds
-	gnome-boxes
 	gnome-clocks
 	gnome-maps
+	gnome-shell-extensions
 	gnome-software-plugin-flatpak
 	gnome-sushi
 	gnome-tweaks
 	gparted
 
-	## aplicativos
+	## Aplicativos
 	anydesk
 	flatpak
 	inkscape
@@ -261,7 +249,6 @@ PROGRAMS_APT=(
 	speedtest
 	# synaptic
 	timeshift
-	ufw
 	# virtualbox
 	# virtualbox-dkms
 )
@@ -278,6 +265,7 @@ PROGRAMS_FLATPAK=(
 	org.kde.kdenlive
 	com.github.k4zmu2a.spacecadetpinball
 	com.mattjakeman.ExtensionManager
+	org.gnome.boxes
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
@@ -301,12 +289,9 @@ PROGRAMS_SNAP=(
 # -------------------------------- PRE INSTALL ------------------------------- #
 ## Removendo programas desnecessarios ##
 ## Thunderbird ##
-sudo apt-get purge --auto-remove thunderbird -y
-## Vlc ##
-sudo apt-get purge --auto-remove vlc -y
+sudo apt purge --auto-remove thunderbird -y
 
-
-## Removendo travas eventuais do apt-get ##
+## Removendo travas eventuais do apt ##
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 # ---------------------------------------------------------------------------- #
@@ -321,50 +306,34 @@ sudo rm /var/cache/apt/archives/lock
 
 ## ----- Atualizando o repositório ----- ##
 sudo add-apt-repository -y universe
-sudo apt-get -y update
-sudo apt-get -y full-upgrade
-sudo apt-get update -y
-sudo apt-get install -y --fix-broken --install-recommends
+sudo apt -y update
+sudo apt -y full-upgrade
+sudo apt update -y
+sudo apt install -y --fix-broken --install-recommends
 
 ## ----- Adicionando repositórios de terceiros ----- ##
+for ppa in ${PPAS[@]}; do
+	if ! grep -q "^deb .*$ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+		sudo apt-add-repository "$ppa" -y
+	fi
+done
+
 ## AnyDesk ##
-wget -qO - $URL_ANYDESK_KEY | sudo apt-key add -
-echo "deb $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
-
-## Drivers Nvidia ##
-sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
-
-## Git ##
-sudo apt-add-repository "$PPA_GIT" -y
-
-## Mesa Driver ##
-# sudo apt-add-repository "$PPA_MESA_DRIVER" -y
-
-## Inkscape ##
-sudo apt-add-repository "$PPA_INKSCAPE" -y
-
-## LibreOffice Fresh ##
-sudo apt-add-repository "$PPA_LIBREOFFICE" -y
-
-## MuseScore ##
-sudo apt-add-repository "$PPA_MUSESCORE" -y
-
-## OBS Studio ##
-sudo apt-add-repository "$PPA_OBS" -y
-
-## Stellarium ##
-sudo apt-add-repository "$PPA_STELLARIUM" -y
+wget -qO - $URL_ANYDESK_KEY | sudo gpg --dearmor -o /usr/share/keyrings/anydesk-stable-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 
 ## Sublime ##
-wget -qO - $URL_SUBLIME_KEY | sudo apt-key add -
-echo "deb $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+wget -qO - $URL_SUBLIME_KEY | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 ## Speedtest ##
 wget -qO - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash 
 
 ## Spotify ##
-curl -sS $URL_SPOTIFY_KEY | sudo apt-key add - 
-echo "deb $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+# curl -sS $URL_SPOTIFY_KEY | sudo apt-key add - 
+# echo "deb $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 # ---------------------------------------------------------------------------- #
 
 
@@ -373,7 +342,7 @@ echo "deb $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/s
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
 ## Atualizando o repositório depois da adição de novos repositórios ##
-sudo apt-get update -y
+sudo apt update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -385,7 +354,7 @@ wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-sudo apt-get install -y --fix-broken --install-recommends
+sudo apt install -y --fix-broken --install-recommends
 
 
 # ----- Instalar programas no apt ----- ##
@@ -395,10 +364,10 @@ for nome_do_programa in ${PROGRAMS_APT[@]}; do
 		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo apt-get install "$nome_do_programa" -y
+		sudo apt install "$nome_do_programa" -y
 	fi
 done
-sudo apt-get install -y --fix-broken --install-recommends
+sudo apt install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Flatpak ---- -##
@@ -414,7 +383,7 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		flatpak install flathub "$program_name" -y
 	fi
 done
-sudo apt-get install -y --fix-broken --install-recommends
+sudo apt install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Snap ----- ##
@@ -429,7 +398,7 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 		sudo snap install "$program_name"
 	fi
 done
-sudo apt-get install -y --fix-broken --install-recommends
+sudo apt install -y --fix-broken --install-recommends
 # ---------------------------------------------------------------------------- #
 
 
@@ -438,7 +407,7 @@ sudo apt-get install -y --fix-broken --install-recommends
 
 # ------------------------------- POST INSTALL ------------------------------- #
 ## Posiveis erros ##
-sudo apt-get install -y --fix-broken --install-recommends
+sudo apt install -y --fix-broken --install-recommends
 
 ## UFW ##
 sudo ufw enable
@@ -451,12 +420,12 @@ sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 
 
 ## ----- Finalização, atualização e limpeza ----- ##
-sudo apt-get update && sudo apt-get dist-upgrade -y
+sudo apt update && sudo apt dist-upgrade -y
 sudo flatpak update -y
 sudo flatpak repair
 sudo snap refresh
 sudo apt autoclean
-sudo apt-get autoremove -y
+sudo apt autoremove -y
 # ---------------------------------------------------------------------------- #
 
 

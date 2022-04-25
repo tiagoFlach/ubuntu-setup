@@ -26,9 +26,9 @@
 --------------------
 	Gnome Tweak Tool
 	1.
-		sudo apt-get install gnome-tweak-tool
+		sudo apt install gnome-tweak-tool
 	3.
-		sudo apt-get install -f
+		sudo apt install -f
 --------------------
 	Chrome
 	1.
@@ -42,9 +42,9 @@
 	2.
 		echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 	3.
-		sudo apt-get update
+		sudo apt update
 	4.
-		sudo apt-get install spotify-client
+		sudo apt install spotify-client
 --------------------
 	Odio
 	1.
@@ -60,23 +60,23 @@
 	2.
 		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 	3.
-		sudo apt-get update
+		sudo apt update
 	4.
-		sudo apt-get install sublime-text
+		sudo apt install sublime-text
 --------------------
 	Gimp
 	1.
 		sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 	2.
-		sudo apt-get update
+		sudo apt update
 	3.
-		sudo apt-get install gimp	
+		sudo apt install gimp	
 --------------------
 	MuseScore
 	1.
 		sudo add-apt-repository ppa:mscore-ubuntu/mscore3-stable
 	2.
-		sudo apt-get update
+		sudo apt update
 	3.
 		sudo apt install musescore3
 --------------------
@@ -100,9 +100,9 @@
 --------------------
 	FileZilla
 	1.
-		sudo apt-get update
+		sudo apt update
 	2.
-		sudo apt-get install filezilla
+		sudo apt install filezilla
 --------------------
 	Oracle VB
 --------------------
@@ -110,9 +110,9 @@
 	1.
 		sudo add-apt-repository ppa:oguzhaninan/stacer -y
 	2.
-		sudo apt-get update
+		sudo apt update
 	3.
-		sudo apt-get install stacer -y
+		sudo apt install stacer -y
 
 
 	1.
@@ -120,15 +120,15 @@
 	2.
 		sudo dpkg -i stacer.deb
 	3.
-		sudo apt-get install -f
+		sudo apt install -f
 --------------------
 	Stellarium
 	1.
 		sudo add-apt-repository ppa:stellarium/stellarium-releases
 	2.
-		sudo apt-get update
+		sudo apt update
 	3.
-		sudo apt-get install stellarium
+		sudo apt install stellarium
 --------------------
 	Git
 	1.
@@ -167,7 +167,7 @@
 	3.
 		sudo dpkg -i wps-office*.deb
 	4.
-		sudo apt-get install -f
+		sudo apt install -f
 	5.
 		sudo apt update
 --------------------
@@ -178,15 +178,15 @@
 --------------------	
 	Synaptic
 	1.
-		sudo apt-get update
+		sudo apt update
 	2.
-		sudo apt-get install synaptic
+		sudo apt install synaptic
 	3.
 		ubuntu-restricted-extras
 --------------------
 	UFW (Firewall)
 	1.
-		sudo apt-get install ufw
+		sudo apt install ufw
 	2.
 		sudo ufw enable
 --------------------
@@ -194,9 +194,9 @@
 	1.
 		sudo add-apt-repository ppa:nilarimogard/webupd8
 	2.
-		sudo apt-get update
+		sudo apt update
 	3.
-		sudo apt-get install rclone-browser
+		sudo apt install rclone-browser
 --------------------
 	SciDAVis
 	1. 
@@ -206,18 +206,18 @@
 	3.
 		sudo apt-key add - < Release.key
 	4.
-		sudo apt-get update
+		sudo apt update
 	5.	
-		sudo apt-get install scidavis
+		sudo apt install scidavis
 --------------------
 	TimeShift
 	1.
 		sudo add-apt-repository -y ppa:teejee2008/ppa
 		xkz1234*fl
 	2.
-		sudo apt-get update
+		sudo apt update
 	3.
-		sudo apt-get install timeshift
+		sudo apt install timeshift
 
 	(https://www.youtube.com/watch?v=tQY5IHOnK9E)
 --------------------
@@ -300,7 +300,7 @@
 --------------------
 	LSB
 	1.
-		sudo apt-get install lsb
+		sudo apt install lsb
 --------------------
 	EPSON L375
 	1.
