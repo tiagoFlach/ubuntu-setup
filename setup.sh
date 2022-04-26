@@ -112,9 +112,9 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 # ----- PPAs -----#
 PPAS=(
 	ppa:git-core/ppa					# Git
-	ppa:graphics-drivers/ppa			# Nvidia
+	# ppa:graphics-drivers/ppa			# Nvidia
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
-	ppa:inkscape.dev/stable				# Inkscape
+	# ppa:inkscape.dev/stable			# Inkscape
 	ppa:libreoffice/ppa					# LibreOffice
 	ppa:obsproject/obs-studio			# OBS Studio
 	ppa:stellarium/stellarium-releases	# Stellarium
@@ -234,7 +234,7 @@ PROGRAMS_APT=(
 	## Aplicativos
 	anydesk
 	flatpak
-	inkscape
+	# inkscape
 	neofetch
 	obs-studio
 	remmina
@@ -269,6 +269,7 @@ PROGRAMS_FLATPAK=(
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
 	discord
+	inkscape
 	musescore
 	scrcpy
 	simplenote
@@ -290,6 +291,8 @@ PROGRAMS_SNAP=(
 ## Removendo programas desnecessarios ##
 ## Thunderbird ##
 sudo apt purge --auto-remove thunderbird -y
+## Yelp ##
+sudo apt purge --auto-remove yelp -y
 
 ## Removendo travas eventuais do apt ##
 sudo rm /var/lib/dpkg/lock-frontend

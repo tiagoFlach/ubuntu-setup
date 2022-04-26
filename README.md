@@ -47,7 +47,7 @@ This script automatically installs the following softwares:
 	- Discord (snap)
 	- Extension Manager (flatpak)
 	- Firefox
-	- Inkscape
+	- Inkscape (snap)
 	- Google Chrome
 	- Google Earth Pro
 	- Gimp (flatpak)

@@ -1,0 +1,47 @@
+{
+    "git.autofetch": true,
+    "[html]": {
+        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+    },
+    "window.menuBarVisibility": "toggle",
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "settingsSync.ignoredExtensions": [
+    ],
+    "terminal.integrated.fontFamily": "'MesloLGS NF'",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "cSpell.language": "en,pt",
+    "cSpell.userWords": [
+		"Flach",
+		"Laravel",
+		"tiago",
+		"Tiago"
+	],
+    "git.confirmSync": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.pythonPath": "python3",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.lineHeight": 22,
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"inline-parameters.enabled": false,
+	"editor.inlineSuggest.enabled": true,
+	"github.copilot.enable": {
+		"*": true,
+		"yaml": false,
+		"plaintext": false,
+		"markdown": true
+	},
+	"editor.bracketPairColorization.enabled": true,
+}
