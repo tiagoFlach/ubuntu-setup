@@ -62,16 +62,16 @@ This script automatically installs the following softwares:
 	- Scrcpy (snap)
 	- Shortwave (flatpak)
 	- Simplenote (snap)
-	- Skype
+	- Skype (snap)
 	- Slack
 	- Sound Recorder (flatpak)
 	- Space Cadet Pinball (flatpak)
-	- Spotify
+	- Spotify (flatpak)
 	- Stellarium
 	- Stacer
 	- Sublime Text
 	- Synaptic
-	- Telegram (snap)
+	- Telegram (flatpak)
 	- TimeShift
 	- VirtualBox
 	- VLC (snap)  

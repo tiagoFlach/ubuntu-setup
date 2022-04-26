@@ -125,8 +125,8 @@ URL_ANYDESK_KEY="https://keys.anydesk.com/repos/DEB-GPG-KEY"
 URL_ANYDESK_PPA="http://deb.anydesk.com/"
 
 ## Spotify ##
-URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
-URL_SPOTIFY_PPA="http://repository.spotify.com"
+# URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
+# URL_SPOTIFY_PPA="http://repository.spotify.com"
 
 ## Sublime ##
 URL_SUBLIME_KEY="https://download.sublimetext.com/sublimehq-pub.gpg"
@@ -147,7 +147,7 @@ URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&pl
 URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.22.0/prod/x64/slack-desktop-4.22.0-amd64.deb"
 
 ## Skype ##
-URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
+# URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
 ## ----- Diretório de Downloads ----- ##
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
@@ -238,7 +238,7 @@ PROGRAMS_APT=(
 	neofetch
 	obs-studio
 	remmina
-	spotify-client
+	# spotify-client
 	stacer
 	stellarium
 	sublime-text
@@ -251,17 +251,19 @@ PROGRAMS_APT=(
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(	
-	org.gimp.GIMP
+	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
-	org.gnome.gitlab.somas.Apostrophe
-	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
+	com.mattjakeman.ExtensionManager
+	com.spotify.Client
 	de.haeckerfelix.Shortwave
 	io.github.seadve.Mousai
+	org.gimp.GIMP
+	org.gnome.Boxes
+	org.gnome.gitlab.somas.Apostrophe
+	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	org.gnome.SoundRecorder
 	org.kde.kdenlive
-	com.github.k4zmu2a.spacecadetpinball
-	com.mattjakeman.ExtensionManager
-	org.gnome.Boxes
+	org.telegram.desktop
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
@@ -271,10 +273,11 @@ PROGRAMS_SNAP=(
 	scrcpy
 	simplenote
 	# slack --classic
-	telegram-desktop
+	# telegram-desktop
 	vlc
 	youtube-dl
 	# spotify
+	skype
 	# wps-office-multilang
 )
 # ---------------------------------------------------------------------------- #
@@ -331,10 +334,10 @@ fi
 wget -qO - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash 
 
 ## Spotify ##
-if [ ! -f "/usr/share/keyrings/spotify-keyring.gpg" ]; then
-	wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
-	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-fi
+# if [ ! -f "/usr/share/keyrings/spotify-keyring.gpg" ]; then
+# 	wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
+# 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+# fi
 # ---------------------------------------------------------------------------- #
 
 
@@ -351,7 +354,7 @@ wget -c "$URL_GOOGLE_CHROME"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
+# wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
