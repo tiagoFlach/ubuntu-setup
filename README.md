@@ -165,10 +165,11 @@ Contains scripts for the automatic installation of the following softwares:
 	- Eclipse
 	- Git
 	- GitHub CLI
-	- GitKraken;
-	- NodeJs;
-	- NPM;
+	- GitKraken
+	- NodeJs
+	- NPM
 	- PhpStorm
+	- Python Pip
 	- Sublime Merge
 	- Sublime Text
 	- Visual Studio Code

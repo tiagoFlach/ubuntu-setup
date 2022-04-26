@@ -14,6 +14,7 @@
 # 	NodeJs;
 # 	NPM;
 # 	PhpStorm;
+# 	Python Pip;
 # 	Sublime Text;
 # 	Sublime Merge;
 # 	Visual Studio Code;
@@ -85,6 +86,11 @@ sudo n stable
 # Php Storm
 # --------------------------------------
 sudo snap install phpstorm --classic
+
+
+# Python Pip
+# --------------------------------------
+sudo apt install python3-pip
 
 
 # Subllime Text
