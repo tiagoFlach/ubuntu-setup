@@ -5,7 +5,6 @@
 This is a automatic system setup for [Ubuntu 22.04 LTS](https://releases.ubuntu.com/22.04/).
 
 
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -47,7 +46,7 @@ This script automatically installs the following softwares:
 	- Discord (snap)
 	- Extension Manager (flatpak)
 	- Firefox
-	- Inkscape (snap)
+	- Inkscape
 	- Google Chrome
 	- Google Earth Pro
 	- Gimp (flatpak)
@@ -151,6 +150,7 @@ This script automatically installs the following softwares:
 	- gnome-software-plugin-flatpak
 	- gnome-sushi
 	- gnome-tweaks
+	- gnome-weather
 	- gparted
 
 

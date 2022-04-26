@@ -166,6 +166,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 
 #### Extensões
 
+- [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 - [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
 	- Apply Effect to: Activities Screen
 	- Blur Intensity: 10
@@ -217,6 +218,7 @@ Taxa de amostragem de 1000 Hz (1 ms)
 - [Extension Update Notifier](https://extensions.gnome.org/extension/1166/extension-update-notifier/)
 - [Impatience](https://extensions.gnome.org/extension/277/impatience/)
 	- Speed scaling: 0.75
+- [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
 - [Lock Keys](https://extensions.gnome.org/extension/36/lock-keys/)
 	- Estilo do indicador: Notificações somente
 	- Notificações: Osd 

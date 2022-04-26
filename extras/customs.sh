@@ -36,7 +36,7 @@ rm -r font-source-code-pro
 # Capitaine Cursors
 git clone https://github.com/keeferrourke/capitaine-cursors.git
 
-sudo snap install inkscape
+sudo apt install inkscape
 
 cd capitaine-cursors
 ./build.sh -t dark
@@ -152,7 +152,15 @@ gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
 ## Mutter ##
 gsettings set org.gnome.mutter center-new-windows true
 
+## Shell ##
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
 ## Wm ##
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'minimize'
 gsettings set org.gnome.desktop.wm.preferences button-layout ':close'
+# ---------------------------------------------------------------------------- #
+
+# Ir para partição que desja ser a /home
+# sudo ln -sr * ~/
+
 # ---------------------------------------------------------------------------- #

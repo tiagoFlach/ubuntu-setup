@@ -124,6 +124,11 @@ sudo usermod --shell $(which zsh) $USER
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # exit
+# alias
+echo "alias ubuntu-update=./ubuntu-setup/extras/update.sh" >> .zshrc
+echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"\n" >> .zshrc
+
+# indent
 echo "ZLE_RPROMPT_INDENT=0" >> .zshrc
 
 # Buscador com ctrl+r FZF
@@ -134,7 +139,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sudo sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/g' .zshrc
 # git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull
-
 
 echo -e " ---------- Reinicie a sessão ---------- "
 systemctl restart gdm

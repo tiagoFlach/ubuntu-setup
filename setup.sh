@@ -114,7 +114,7 @@ PPAS=(
 	ppa:git-core/ppa					# Git
 	# ppa:graphics-drivers/ppa			# Nvidia
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
-	# ppa:inkscape.dev/stable			# Inkscape
+	ppa:inkscape.dev/stable				# Inkscape
 	ppa:libreoffice/ppa					# LibreOffice
 	ppa:obsproject/obs-studio			# OBS Studio
 	ppa:stellarium/stellarium-releases	# Stellarium
@@ -229,12 +229,13 @@ PROGRAMS_APT=(
 	gnome-software-plugin-flatpak
 	gnome-sushi
 	gnome-tweaks
+	gnome-weather
 	gparted
 
 	## Aplicativos
 	anydesk
 	flatpak
-	# inkscape
+	inkscape
 	neofetch
 	obs-studio
 	remmina
@@ -269,7 +270,7 @@ PROGRAMS_FLATPAK=(
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
 	discord
-	inkscape
+	# inkscape
 	musescore
 	scrcpy
 	simplenote
