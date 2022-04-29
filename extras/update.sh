@@ -15,13 +15,10 @@ NC='\033[0m'        	# No Color
 
 
 echo -e "\n\n${YELLOW}sudo apt update ${NC}\n"
-sudo apt update && sudo apt list --upgradable
+sudo apt --fix-missing update && sudo apt list --upgradable
 
 echo -e "\n\n${YELLOW}sudo apt dist-upgrade ${NC}\n"
 sudo apt dist-upgrade -y
-
-echo -e "\n\n${YELLOW}sudo apt repair ${NC}\n"
-sudo flatpak repair
 
 echo -e "\n\n${YELLOW}sudo flatpak update ${NC}\n"
 sudo flatpak update -y

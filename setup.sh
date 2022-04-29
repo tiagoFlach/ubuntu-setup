@@ -144,7 +144,7 @@ URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
 
 ## Slack ##
-URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.22.0/prod/x64/slack-desktop-4.22.0-amd64.deb"
+URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.25.0/prod/x64/slack-desktop-4.25.0-amd64.deb"
 
 ## Skype ##
 # URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
@@ -164,8 +164,12 @@ PROGRAMS_APT=(
 	git
 	htop
 	laptop-mode-tools
+	libavcodec-extra
 	lsb
 	lsb-core
+	gstreamer1.0-libav
+	gstreamer1.0-plugins-bad
+	gstreamer1.0-plugins-ugly
 	net-tools
 	rar
 	ubuntu-restricted-extras

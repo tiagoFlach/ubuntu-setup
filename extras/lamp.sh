@@ -216,7 +216,7 @@ sudo apt install php-mysql -y
 sudo apt install php-curl php-gd php-json php-mbstring php-zip -y
 
 # Php other extensions
-sudo apt install php-{cli.common.xdebug.intl.xml.pear.readline.bz2.pear} -y
+sudo apt install php-cli php-common php-xdebug php-intl php-xml php-pear php-readline php-bz2 php-pear -y
 
 
 
