@@ -63,7 +63,7 @@ wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phi
 
 ## ----------------------------- CUSTOMIZATIONS ----------------------------- ##
 ## Aplicativos favoritos ##
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox_firefox.desktop', 'slack.desktop', 'com.spotify.Client.desktop', 'de.haeckerfelix.Shortwave.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox_firefox.desktop', 'com.slack.Slack.desktop', 'com.spotify.Client.desktop', 'de.haeckerfelix.Shortwave.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop']"
 
 ## Apagar tela ##
 gsettings set org.gnome.desktop.session idle-delay 900

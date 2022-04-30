@@ -144,7 +144,7 @@ URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
 
 ## Slack ##
-URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.25.0/prod/x64/slack-desktop-4.25.0-amd64.deb"
+# URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.25.0/prod/x64/slack-desktop-4.25.0-amd64.deb"
 
 ## Skype ##
 # URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
@@ -259,6 +259,7 @@ PROGRAMS_FLATPAK=(
 	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
 	com.mattjakeman.ExtensionManager
+	com.slack.Slack
 	com.spotify.Client
 	de.haeckerfelix.Shortwave
 	io.github.seadve.Mousai
@@ -361,7 +362,7 @@ mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
+# wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
 # wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
