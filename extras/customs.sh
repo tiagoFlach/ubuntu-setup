@@ -155,6 +155,9 @@ gsettings set org.gnome.mutter center-new-windows true
 ## Shell ##
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
+## Privacy ##
+gsettings set org.gnome.desktop.privacy remember-recent-files false
+
 ## Wm ##
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'minimize'
 gsettings set org.gnome.desktop.wm.preferences button-layout ':close'
