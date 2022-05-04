@@ -26,9 +26,6 @@ sudo flatpak update -y
 echo -e "\n\n${YELLOW}sudo flatpak uninstall --unused ${NC}\n"
 sudo flatpak uninstall --unused -y
 
-echo -e "\n\n${YELLOW}sudo flatpak repair ${NC}\n"
-sudo flatpak repair
-
 echo -e "\n\n${YELLOW}sudo snap refresh ${NC}\n"
 sudo snap refresh
 

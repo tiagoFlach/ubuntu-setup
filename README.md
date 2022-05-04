@@ -73,7 +73,8 @@ This script automatically installs the following softwares:
 	- Telegram (flatpak)
 	- TimeShift
 	- VirtualBox
-	- VLC (snap)  
+	- VLC (snap)
+	- What IP (flatpak)  
 
 - CLI:
 	- git
