@@ -108,6 +108,7 @@ gsettings set org.gnome.gedit.preferences.editor display-right-margin true
 
 ## Gnome System Monitor ##
 gsettings set org.gnome.gnome-system-monitor cpu-colors "[(0, 'rgb(153,193,241)'), (1, 'rgb(143,240,164)'), (2, 'rgb(255,190,111)'), (3, 'rgb(249,240,107)'), (4, 'rgb(53,132,228)'), (5, 'rgb(51,209,122)'), (6, 'rgb(255,120,0)'), (7, 'rgb(246,211,45)'), (8, 'rgb(26,95,180)'), (9, 'rgb(38,162,105)'), (10, 'rgb(198,70,0)'), (11, 'rgb(229,165,10)'), (12, '#aaffc3'), (13, '#469990'), (14, '#000075'), (15, '#e6beff')]"
+gsettings set org.gnome.gnome-system-monitor network-in-bits true
 
 ## Keyboard style ##
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br'), ('xkb', 'us')]"

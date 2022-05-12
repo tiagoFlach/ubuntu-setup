@@ -101,7 +101,6 @@ echo -e "${BOLDBLUE}System: ${NC}$system"
 echo -e "${BOLDBLUE}Architecture: ${NC}$arch"
 echo -e "${BOLDBLUE}Home: ${NC}$HOME"
 echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
-
 # ---------------------------------------------------------------------------- #
 
 
@@ -109,9 +108,11 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 
 
 # --------------------------------- VARIÁVEIS -------------------------------- #
+OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
+OS_RELEASE_VERSION_ID=$(grep "^VERSION_ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
+
 # ----- PPAs -----#
 PPAS=(
-	ppa:git-core/ppa					# Git
 	# ppa:graphics-drivers/ppa			# Nvidia
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
 	ppa:inkscape.dev/stable				# Inkscape
@@ -120,59 +121,64 @@ PPAS=(
 	ppa:stellarium/stellarium-releases	# Stellarium
 )
 
-## AnyDesk ##
-URL_ANYDESK_KEY="https://keys.anydesk.com/repos/DEB-GPG-KEY"
-URL_ANYDESK_PPA="http://deb.anydesk.com/"
+# ----- COPRs -----#
+COPRS=(
+	zeno/scrcpy							# Scrcpy
+)
 
-## Spotify ##
-# URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
-# URL_SPOTIFY_PPA="http://repository.spotify.com"
+## AnyDesk ##
+cat > /etc/yum.repos.d/AnyDesk-Fedora.repo << "EOF" 
+[anydesk]
+name=AnyDesk Fedora - stable
+baseurl=http://rpm.anydesk.com/fedora/$basearch/
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
+EOF
 
 ## Sublime ##
-URL_SUBLIME_KEY="https://download.sublimetext.com/sublimehq-pub.gpg"
-URL_SUBLIME_PPA="https://download.sublimetext.com/"
+URL_SUBLIME_KEY="https://download.sublimetext.com/sublimehq-rpm-pub.gpg"
+URL_SUBLIME_REPO="https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo"
+
+## Skype ##
+URL_SKYPE_REPO="https://repo.skype.com/rpm/stable/skype-stable.repo"
 
 
 # ----- URLs -----#
-## Google Chrome ##
-URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-
 ## Google Earth Pro ##
 URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb"
 
 ## Microsoft Teams ##
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
 
-## Slack ##
-# URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.25.0/prod/x64/slack-desktop-4.25.0-amd64.deb"
-
-## Skype ##
-# URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
 ## ----- Diretório de Downloads ----- ##
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 ## ----- Pré-requisitos ----- ##
-sudo apt install apt-transport-https curl -y -q
+sudo nano /etc/dnf/dnf.conf
+
+
+
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 
-## ----- Programas a serem instalados via apt ----- ##
-PROGRAMS_APT=(
+## ----- Programas a serem instalados via dnf ----- ##
+PROGRAMS_DNF=(
 	## Sistema
 	exfat-fuse
+	dnf-plugins-core
 	ffmpeg
 	git
 	htop
-	laptop-mode-tools
+	ldnfop-mode-tools
 	libavcodec-extra
 	lsb
-	lsb-core
+	redhat-lsb-core
 	gstreamer1.0-libav
 	gstreamer1.0-plugins-bad
 	gstreamer1.0-plugins-ugly
 	net-tools
 	rar
-	ubuntu-restricted-extras
 	ufw
 	unrar
 	unzip
@@ -228,21 +234,34 @@ PROGRAMS_APT=(
 	dconf-editor
 	gnome-backgrounds
 	gnome-clocks
+	gnome-extensions-app
 	gnome-maps
-	gnome-shell-extensions
 	gnome-software-plugin-flatpak
 	gnome-sushi
 	gnome-tweaks
 	gnome-weather
 	gparted
 
+	## Gstreamer
+	gstreamer1-plugins-bad-\* --exclude=gstreamer1-plugins-bad-free-devel
+	gstreamer1-plugins-good-\*
+	gstreamer1-plugins-base
+	gstreamer1-plugin-openh264 
+	gstreamer1-libav 
+
+	## Lame
+	lame\* --exclude=lame-devel
+
 	## Aplicativos
 	anydesk
-	flatpak
+	discord
 	inkscape
+	google-chrome-stable
 	neofetch
 	obs-studio
 	remmina
+	scrcpy
+	# skypeforlinux
 	# spotify-client
 	stacer
 	stellarium
@@ -252,6 +271,8 @@ PROGRAMS_APT=(
 	timeshift
 	# virtualbox
 	# virtualbox-dkms
+	vlc
+	youtube-dl
 )
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
@@ -259,6 +280,8 @@ PROGRAMS_FLATPAK=(
 	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
 	com.mattjakeman.ExtensionManager
+	com.simplenote.Simplenote
+	com.skype.Client
 	com.slack.Slack
 	com.spotify.Client
 	de.haeckerfelix.Shortwave
@@ -269,24 +292,9 @@ PROGRAMS_FLATPAK=(
 	org.gnome.gitlab.somas.Apostrophe
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	org.gnome.SoundRecorder
+	org.musescore.MuseScore
 	org.kde.kdenlive
 	org.telegram.desktop
-)
-
-## ----- Prgramas a serem instalados via Snap ----- ##
-PROGRAMS_SNAP=(
-	discord
-	# inkscape
-	musescore
-	scrcpy
-	simplenote
-	skype
-	# slack --classic
-	# spotify
-	# telegram-desktop
-	vlc
-	youtube-dl
-	# wps-office-multilang
 )
 # ---------------------------------------------------------------------------- #
 
@@ -296,14 +304,8 @@ PROGRAMS_SNAP=(
 
 # -------------------------------- PRE-INSTALL ------------------------------- #
 ## Removendo programas desnecessários ##
-## Thunderbird ##
-sudo apt purge --auto-remove thunderbird -y
-## Yelp ##
-sudo apt purge --auto-remove yelp -y
-
-## Removendo travas eventuais do apt ##
-sudo rm /var/lib/dpkg/lock-frontend
-sudo rm /var/cache/apt/archives/lock
+# Yelp
+sudo dnf remove yelp -y
 # ---------------------------------------------------------------------------- #
 
 
@@ -314,40 +316,28 @@ sudo rm /var/cache/apt/archives/lock
 ## Adicionando/Confirmando arquitetura de 32 bits ##
 # sudo dpkg --add-architecture i386
 
+## Configure DNF for Faster Downloads of Packages ##
+sudo sed -i -e '$afastestmirror=true\ndeltarpm=true\nmax_parellel_downloads=10' /etc/dnf/dnf.conf
+
 ## ----- Atualizando o repositório ----- ##
-sudo add-apt-repository -y universe
-sudo apt -y update
-sudo apt -y full-upgrade
-sudo apt update -y
-sudo apt install -y --fix-broken --install-recommends
+# RPM Fusion Free/Non-Free 
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
 ## ----- Adicionando repositórios de terceiros ----- ##
-for ppa in ${PPAS[@]}; do
-	if ! grep -q "^deb .*$ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-		sudo apt-add-repository "$ppa" -y
-	fi
+for copr in ${COPRS[@]}; do
+	dnf copr enable  "$copr" -y
 done
 
-## AnyDesk ##
-if [ ! -f "/usr/share/keyrings/anydesk-stable-keyring.gpg" ]; then
-	wget -qO - $URL_ANYDESK_KEY | sudo gpg --dearmor -o /usr/share/keyrings/anydesk-stable-keyring.gpg
-	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
-fi
-
 ## Sublime ##
-if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
-	wget -qO - $URL_SUBLIME_KEY | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
-	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-fi
+sudo rpm -v --import $URL_SUBLIME_KEY
+sudo dnf config-manager --add-repo $URL_SUBLIME_REPO
 
-## Speedtest ##
-wget -qO - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash 
+## Skype ##
+# sudo dnf config-manager --add-repo $URL_SKTYPE_REPO
 
-## Spotify ##
-# if [ ! -f "/usr/share/keyrings/spotify-keyring.gpg" ]; then
-# 	wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
-# 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-# fi
+## Speedtest ## 
+curl -s https://install.speedtest.net/app/cli/install.rpm.sh | sudo bash
 # ---------------------------------------------------------------------------- #
 
 
@@ -355,33 +345,30 @@ wget -qO - "https://install.speedtest.net/app/cli/install.deb.sh" | sudo bash
 
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
-## Atualizando o repositório depois da adição de novos repositórios ##
-sudo apt update -y
+# Atualizando o repositório depois da adição de novos repositórios
+sudo dnf update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_CHROME"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
-# wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
-# wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-sudo apt install -y --fix-broken --install-recommends
+sudo dnf install -y --fix-broken --install-recommends
 
 
-# ----- Instalar programas no apt ----- ##
-for nome_do_programa in ${PROGRAMS_APT[@]}; do
+# ----- Instalar programas no dnf ----- ##
+for nome_do_programa in ${PROGRAMS_DNF[@]}; do
 	if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
 		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo apt install "$nome_do_programa" -y -q
+		sudo dnf install "$nome_do_programa" -y -q
 	fi
 done
-sudo apt install -y --fix-broken --install-recommends
+sudo dnf install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Flatpak ---- -##
@@ -397,7 +384,7 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		flatpak install flathub "$program_name" -y
 	fi
 done
-sudo apt install -y --fix-broken --install-recommends
+sudo dnf install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Snap ----- ##
@@ -412,7 +399,7 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 		sudo snap install "$program_name"
 	fi
 done
-sudo apt install -y --fix-broken --install-recommends
+sudo dnf install -y --fix-broken --install-recommends
 # ---------------------------------------------------------------------------- #
 
 
@@ -420,8 +407,34 @@ sudo apt install -y --fix-broken --install-recommends
 
 
 # ------------------------------- POST INSTALL ------------------------------- #
+## Multimídia ##
+sudo dnf group upgrade --with-optional Multimedia -y
+
+# Change Hostname ##
+sudo hostnamectl set-hostname "Falcon-G5"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Posiveis erros ##
-sudo apt install -y --fix-broken --install-recommends
+sudo dnf install -y --fix-broken --install-recommends
+
+
+
+
 
 ## UFW ##
 sudo ufw enable
@@ -430,16 +443,16 @@ sudo ufw enable
 sudo ubuntu-drivers autoinstall
 
 ## Repositorio parceiros canonical ##
-sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
+sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/dnf/sources.list
 
 
 ## ----- Finalização, atualização e limpeza ----- ##
-sudo apt update && sudo apt dist-upgrade -y
+sudo dnf update && sudo dnf dist-upgrade -y
 sudo flatpak update -y
 sudo flatpak repair
 sudo snap refresh
-sudo apt autoclean
-sudo apt autoremove -y
+sudo dnf autoclean
+sudo dnf autoremove -y
 # ---------------------------------------------------------------------------- #
 
 
@@ -447,8 +460,8 @@ sudo apt autoremove -y
 
 
 # -------------------------------- CHECKLIST --------------------------------- #
-echo -e "\nAPT's instalados:"
-for program_name in ${PROGRAMS_APT[@]}; do
+echo -e "\ndnf's instalados:"
+for program_name in ${PROGRAMS_dnf[@]}; do
 	if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
