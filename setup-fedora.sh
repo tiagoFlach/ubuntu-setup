@@ -211,6 +211,7 @@ PROGRAMS_DNF=(
 	fonts-lexi-gulim
 	fonts-lindenhill
 	fonts-lmodern
+	fonts-lyx
 	fonts-millimetre
 	fonts-mplus
 	fonts-nanum
@@ -317,7 +318,7 @@ sudo dnf remove yelp -y
 # sudo dpkg --add-architecture i386
 
 ## Configure DNF for Faster Downloads of Packages ##
-sudo sed -i -e '$afastestmirror=true\ndeltarpm=true\nmax_parellel_downloads=10' /etc/dnf/dnf.conf
+sudo sed -i -e '$a\n# Added for speed:\nfastestmirror=True\ndeltarpm=True\ndefaultyes=True\nmax_parellel_downloads=10' /etc/dnf/dnf.conf
 
 ## ----- Atualizando o repositório ----- ##
 # RPM Fusion Free/Non-Free 
@@ -384,7 +385,6 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		flatpak install flathub "$program_name" -y
 	fi
 done
-sudo dnf install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Snap ----- ##
@@ -399,7 +399,6 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 		sudo snap install "$program_name"
 	fi
 done
-sudo dnf install -y --fix-broken --install-recommends
 # ---------------------------------------------------------------------------- #
 
 
@@ -443,7 +442,7 @@ sudo ufw enable
 sudo ubuntu-drivers autoinstall
 
 ## Repositorio parceiros canonical ##
-sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/dnf/sources.list
+# sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/dnf/sources.list
 
 
 ## ----- Finalização, atualização e limpeza ----- ##
@@ -451,7 +450,6 @@ sudo dnf update && sudo dnf dist-upgrade -y
 sudo flatpak update -y
 sudo flatpak repair
 sudo snap refresh
-sudo dnf autoclean
 sudo dnf autoremove -y
 # ---------------------------------------------------------------------------- #
 
@@ -460,7 +458,7 @@ sudo dnf autoremove -y
 
 
 # -------------------------------- CHECKLIST --------------------------------- #
-echo -e "\ndnf's instalados:"
+echo -e "\nDNF's instalados:"
 for program_name in ${PROGRAMS_dnf[@]}; do
 	if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"

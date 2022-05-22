@@ -122,6 +122,7 @@ This script automatically installs the following softwares:
 	- fonts-lexi-gulim
 	- fonts-lindenhill
 	- fonts-lmodern
+	- fonts-lyx
 	- fonts-millimetre
 	- fonts-mplus
 	- fonts-nanum

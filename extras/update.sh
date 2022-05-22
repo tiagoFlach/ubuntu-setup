@@ -17,27 +17,59 @@ OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 
 
 if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
+	
+	if dpkg -l | grep -q snapd; then
+		SNAP_SUPPORT=true
+	else
+		SNAP_SUPPORT=false
+	fi
+	
+	if dpkg -l | grep -q flatpak; then
+		FLATPAK_SUPPORT=true
+	else
+		FLATPAK_SUPPORT=false
+	fi
+
 	echo -e "\n\n${YELLOW}sudo apt update ${NC}\n"
 	sudo apt --fix-missing update && sudo apt list --upgradable
 
 	echo -e "\n\n${YELLOW}sudo apt dist-upgrade ${NC}\n"
 	sudo apt dist-upgrade -y
 elif [ "$OS_RELEASE_ID" == "fedora" ]; then
+	
+	if rpm -qa | grep -q snapd; then
+		SNAP_SUPPORT=true
+	else
+		SNAP_SUPPORT=false
+	fi
+
+	if rpm -qa | grep -q flatpak; then
+		FLATPAK_SUPPORT=true
+	else
+		FLATPAK_SUPPORT=false
+	fi
+
 	echo -e "\n\n${YELLOW}sudo dnf update ${NC}\n"
 	sudo dnf update -y
 fi
 
-echo -e "\n\n${YELLOW}sudo snap refresh ${NC}\n"
-sudo snap refresh
+if $SNAP_SUPPORT; then
+	echo -e "\n\n${YELLOW}sudo snap refresh ${NC}\n"
+	sudo snap refresh
+fi
 
-echo -e "\n\n${YELLOW}sudo flatpak update ${NC}\n"
-sudo flatpak update -y
+if $FLATPAK_SUPPORT; then
+	echo -e "\n\n${YELLOW}sudo flatpak update ${NC}\n"
+	sudo flatpak update -y
 
-# echo -e "\n\n${YELLOW}sudo flatpak uninstall --unused ${NC}\n"
-# sudo flatpak uninstall --unused -y
+	# echo -e "\n\n${YELLOW}sudo flatpak uninstall --unused ${NC}\n"
+	# sudo flatpak uninstall --unused -y
+fi
 
-echo -e "\n\n${YELLOW}sudo apt autoremove ${NC}\n"
-sudo apt autoremove -y
+if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
+	echo -e "\n\n${YELLOW}sudo apt autoremove ${NC}\n"
+	sudo apt autoremove -y
 
-echo -e "\n\n${YELLOW}sudo apt autoclean ${NC}\n"
-sudo apt autoclean
+	echo -e "\n\n${YELLOW}sudo apt autoclean ${NC}\n"
+	sudo apt autoclean
+fi

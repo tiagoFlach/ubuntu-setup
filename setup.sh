@@ -114,6 +114,7 @@ PPAS=(
 	ppa:git-core/ppa					# Git
 	# ppa:graphics-drivers/ppa			# Nvidia
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
+	ppa:mozillateam/ppa					# Firefox
 	ppa:inkscape.dev/stable				# Inkscape
 	ppa:libreoffice/ppa					# LibreOffice
 	ppa:obsproject/obs-studio			# OBS Studio
@@ -205,6 +206,7 @@ PROGRAMS_APT=(
 	fonts-lexi-gulim
 	fonts-lindenhill
 	fonts-lmodern
+	fonts-lyx
 	fonts-millimetre
 	fonts-mplus
 	fonts-nanum
@@ -238,6 +240,7 @@ PROGRAMS_APT=(
 
 	## Aplicativos
 	anydesk
+	firefox
 	flatpak
 	inkscape
 	neofetch
@@ -296,6 +299,8 @@ PROGRAMS_SNAP=(
 
 # -------------------------------- PRE-INSTALL ------------------------------- #
 ## Removendo programas desnecessários ##
+## Firefox (snap) ##
+sudo snap remove firefox
 ## Thunderbird ##
 sudo apt purge --auto-remove thunderbird -y
 ## Yelp ##
@@ -334,6 +339,14 @@ if [ ! -f "/usr/share/keyrings/anydesk-stable-keyring.gpg" ]; then
 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 fi
 
+## Firefox ##
+# Alter the Firefox package priority to ensure the PPA/deb/apt version of Firefox is preferred.
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+
 ## Sublime ##
 if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
 	wget -qO - $URL_SUBLIME_KEY | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
@@ -368,7 +381,6 @@ wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-sudo apt install -y --fix-broken --install-recommends
 
 
 # ----- Instalar programas no apt ----- ##
@@ -381,6 +393,8 @@ for nome_do_programa in ${PROGRAMS_APT[@]}; do
 		sudo apt install "$nome_do_programa" -y -q
 	fi
 done
+
+# Bug fixes
 sudo apt install -y --fix-broken --install-recommends
 
 
@@ -397,8 +411,6 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		flatpak install flathub "$program_name" -y
 	fi
 done
-sudo apt install -y --fix-broken --install-recommends
-
 
 ## ----- Instalando pacotes Snap ----- ##
 sudo snap refresh
@@ -412,7 +424,6 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 		sudo snap install "$program_name"
 	fi
 done
-sudo apt install -y --fix-broken --install-recommends
 # ---------------------------------------------------------------------------- #
 
 
