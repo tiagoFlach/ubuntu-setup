@@ -62,7 +62,7 @@ for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
 	LINE2+="-"
 done
 
-LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 20.04${BLUE} "
+LINE2+=" ${NC}LINUX PERSONAL - FEDORA 36${BLUE} "
 
 for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
 	LINE2+="-"
@@ -111,16 +111,6 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 OS_RELEASE_VERSION_ID=$(grep "^VERSION_ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 
-# ----- PPAs -----#
-PPAS=(
-	# ppa:graphics-drivers/ppa			# Nvidia
-	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
-	ppa:inkscape.dev/stable				# Inkscape
-	ppa:libreoffice/ppa					# LibreOffice
-	ppa:obsproject/obs-studio			# OBS Studio
-	ppa:stellarium/stellarium-releases	# Stellarium
-)
-
 # ----- COPRs -----#
 COPRS=(
 	zeno/scrcpy							# Scrcpy
@@ -146,7 +136,7 @@ URL_SKYPE_REPO="https://repo.skype.com/rpm/stable/skype-stable.repo"
 
 # ----- URLs -----#
 ## Google Earth Pro ##
-URL_GOOGLE_EARTH_PRO="http://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb"
+URL_GOOGLE_EARTH_PRO="https://dl.google.com/dl/earth/client/current/google-earth-stable_current_x86_64.rpm"
 
 ## Microsoft Teams ##
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
@@ -156,15 +146,12 @@ URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&pl
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 ## ----- Pré-requisitos ----- ##
-sudo nano /etc/dnf/dnf.conf
-
-
-
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 
 ## ----- Programas a serem instalados via dnf ----- ##
 PROGRAMS_DNF=(
 	## Sistema
+	akmod-nvidia
 	exfat-fuse
 	dnf-plugins-core
 	ffmpeg
@@ -174,9 +161,6 @@ PROGRAMS_DNF=(
 	libavcodec-extra
 	lsb
 	redhat-lsb-core
-	gstreamer1.0-libav
-	gstreamer1.0-plugins-bad
-	gstreamer1.0-plugins-ugly
 	net-tools
 	rar
 	ufw
@@ -244,14 +228,14 @@ PROGRAMS_DNF=(
 	gparted
 
 	## Gstreamer
-	gstreamer1-plugins-bad-\* --exclude=gstreamer1-plugins-bad-free-devel
+	gstreamer1-plugins-bad-\*
 	gstreamer1-plugins-good-\*
 	gstreamer1-plugins-base
 	gstreamer1-plugin-openh264 
 	gstreamer1-libav 
 
 	## Lame
-	lame\* --exclude=lame-devel
+	lame\*
 
 	## Aplicativos
 	anydesk
@@ -263,7 +247,6 @@ PROGRAMS_DNF=(
 	remmina
 	scrcpy
 	# skypeforlinux
-	# spotify-client
 	stacer
 	stellarium
 	sublime-text
@@ -281,6 +264,7 @@ PROGRAMS_FLATPAK=(
 	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
 	com.mattjakeman.ExtensionManager
+	com.obsproject.Studio
 	com.simplenote.Simplenote
 	com.skype.Client
 	com.slack.Slack
@@ -314,20 +298,25 @@ sudo dnf remove yelp -y
 
 
 # -------------------------------- REQUISITOS -------------------------------- #
-## Adicionando/Confirmando arquitetura de 32 bits ##
-# sudo dpkg --add-architecture i386
-
 ## Configure DNF for Faster Downloads of Packages ##
-sudo sed -i -e '$a\n# Added for speed:\nfastestmirror=True\ndeltarpm=True\ndefaultyes=True\nmax_parellel_downloads=10' /etc/dnf/dnf.conf
+sudo sed -i -e '$a# Added for speed:\nfastestmirror=True\ndeltarpm=True\ndefaultyes=True\nmax_parellel_downloads=10' /etc/dnf/dnf.conf
 
 ## ----- Atualizando o repositório ----- ##
-# RPM Fusion Free/Non-Free 
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+# RPM Fusion Free/Non-Free
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+
+# AppStream metadata
+sudo dnf groupupdate core
+
+# Multimedia post-install
+sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf groupupdate sound-and-video
+
 
 ## ----- Adicionando repositórios de terceiros ----- ##
 for copr in ${COPRS[@]}; do
-	dnf copr enable  "$copr" -y
+	sudo dnf copr enable "$copr" -y
 done
 
 ## Sublime ##
@@ -355,21 +344,19 @@ wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
-sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-sudo dnf install -y --fix-broken --install-recommends
+sudo dnf install $DIRETORIO_DOWNLOADS/*.rpm
 
 
 # ----- Instalar programas no dnf ----- ##
 for nome_do_programa in ${PROGRAMS_DNF[@]}; do
-	if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
+	if ! rpm -qa | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
 		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo dnf install "$nome_do_programa" -y -q
+		sudo dnf -y -q install "$nome_do_programa"
 	fi
 done
-sudo dnf install -y --fix-broken --install-recommends
 
 
 ## ----- Instalando pacotes Flatpak ---- -##
@@ -385,20 +372,6 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 		flatpak install flathub "$program_name" -y
 	fi
 done
-
-
-## ----- Instalando pacotes Snap ----- ##
-sudo snap refresh
-
-for program_name in ${PROGRAMS_SNAP[@]}; do
-	if ! snap list | grep -q $program_name; then # Só instala se já não estiver instalado
-		echo -e "\n\n${YELLOW}"$LINE1
-		echo -e "	[INSTALANDO] - $program_name ${NC}"
-		echo -e "${YELLOW}"$LINE1"${NC}\n"
-
-		sudo snap install "$program_name"
-	fi
-done
 # ---------------------------------------------------------------------------- #
 
 
@@ -406,51 +379,25 @@ done
 
 
 # ------------------------------- POST INSTALL ------------------------------- #
+# Remove packages
+sudo dnf remove gstreamer1-plugins-bad-free-devel -y
+sudo dnf remove lame-devel -y
+
 ## Multimídia ##
 sudo dnf group upgrade --with-optional Multimedia -y
 
 # Change Hostname ##
 sudo hostnamectl set-hostname "Falcon-G5"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Posiveis erros ##
-sudo dnf install -y --fix-broken --install-recommends
-
-
-
-
-
 ## UFW ##
 sudo ufw enable
 
-## Drivers ##
-sudo ubuntu-drivers autoinstall
-
-## Repositorio parceiros canonical ##
-# sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/dnf/sources.list
-
-
 ## ----- Finalização, atualização e limpeza ----- ##
-sudo dnf update && sudo dnf dist-upgrade -y
+sudo dnf update -y
 sudo flatpak update -y
 sudo flatpak repair
-sudo snap refresh
 sudo dnf autoremove -y
+sudo dnf clean all -y
 # ---------------------------------------------------------------------------- #
 
 
@@ -459,8 +406,8 @@ sudo dnf autoremove -y
 
 # -------------------------------- CHECKLIST --------------------------------- #
 echo -e "\nDNF's instalados:"
-for program_name in ${PROGRAMS_dnf[@]}; do
-	if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
+for program_name in ${PROGRAMS_DNF[@]}; do
+	if rpm -qa | grep -q $program_name; then # Verifica se o programa esta istalado
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
@@ -470,15 +417,6 @@ done
 echo -e "\nFLATPAK's instalados:"
 for program_name in ${PROGRAMS_FLATPAK[@]}; do
 	if flatpak list | grep -q $program_name; then # Verifica se o programa esta istalado
-		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
-	else
-		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
-	fi
-done
-
-echo -e "\nSNAP's instalados:"
-for program_name in ${PROGRAMS_SNAP[@]}; do
-	if snap list | grep -q $program_name; then # Verifica se o programa esta istalado
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
