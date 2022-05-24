@@ -14,6 +14,7 @@
 # 	NodeJs;
 # 	NPM;
 # 	PhpStorm;
+# 	Postman;
 # 	Python Pip;
 # 	Sublime Text;
 # 	Sublime Merge;

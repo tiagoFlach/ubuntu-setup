@@ -173,6 +173,7 @@ Contains scripts for the automatic installation of the following softwares:
 	- NodeJs
 	- NPM
 	- PhpStorm
+	- Postman
 	- Python Pip
 	- Sublime Merge
 	- Sublime Text
