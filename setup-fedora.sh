@@ -152,23 +152,30 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 PROGRAMS_DNF=(
 	## Sistema
 	akmod-nvidia
-	exfat-fuse
+	android-tools 
 	dnf-plugins-core
 	ffmpeg
-	git
-	htop
-	ldnfop-mode-tools
-	libavcodec-extra
+	ffms2-devel 
 	lsb
 	redhat-lsb-core
+	meson 
 	net-tools
 	rar
+	rpmfusion-free-obsolete-packages
+	SDL2-devel
 	ufw
 	unrar
 	unzip
-	v4l2loopback-dkms
 	wmctrl
 	zip
+
+	## CLI
+	git
+	htop
+	neofetch
+	speedtest
+	youtube-dl
+	yt-dlp
 
 	## Fontes
 	fonts-apropal
@@ -200,7 +207,7 @@ PROGRAMS_DNF=(
 	fonts-mplus
 	fonts-nanum
 	fonts-noto-color-emoji
-	fonts-open-sans
+	open-sans-fonts
 	fonts-osifont
 	fonts-oxygen
 	fonts-paratype
@@ -221,11 +228,10 @@ PROGRAMS_DNF=(
 	gnome-clocks
 	gnome-extensions-app
 	gnome-maps
-	gnome-software-plugin-flatpak
-	gnome-sushi
 	gnome-tweaks
 	gnome-weather
 	gparted
+	sushi
 
 	## Gstreamer
 	gstreamer1-plugins-bad-\*
@@ -242,7 +248,6 @@ PROGRAMS_DNF=(
 	discord
 	inkscape
 	google-chrome-stable
-	neofetch
 	obs-studio
 	remmina
 	scrcpy
@@ -250,13 +255,11 @@ PROGRAMS_DNF=(
 	stacer
 	stellarium
 	sublime-text
-	speedtest
 	# synaptic
 	timeshift
 	# virtualbox
 	# virtualbox-dkms
 	vlc
-	youtube-dl
 )
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##

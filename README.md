@@ -73,7 +73,7 @@ This script automatically installs the following softwares:
 	- Telegram (flatpak)
 	- TimeShift
 	- VirtualBox
-	- VLC (snap)
+	- VLC
 	- What IP (flatpak)  
 
 - CLI:
@@ -81,7 +81,8 @@ This script automatically installs the following softwares:
 	- htop
 	- neofetch
 	- speedtest
-	- youtube-dl (snap)
+	- youtube-dl
+	- yt-dlp
 
 - System:
 	- apt-transport-https
@@ -96,6 +97,7 @@ This script automatically installs the following softwares:
 	- unrar
 	- v4l2loopback-dkms
 	- wnctrl
+	- zip
 
 - Fonts:
 	- fonts-apropal

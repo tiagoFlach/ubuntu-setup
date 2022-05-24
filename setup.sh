@@ -62,7 +62,7 @@ for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
 	LINE2+="-"
 done
 
-LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 20.04${BLUE} "
+LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 22.04${BLUE} "
 
 for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
 	LINE2+="-"
@@ -162,10 +162,7 @@ PROGRAMS_APT=(
 	## Sistema
 	exfat-fuse
 	ffmpeg
-	git
-	htop
 	laptop-mode-tools
-	libavcodec-extra
 	lsb
 	lsb-core
 	gstreamer1.0-libav
@@ -180,6 +177,14 @@ PROGRAMS_APT=(
 	v4l2loopback-dkms
 	wmctrl
 	zip
+
+	## CLI
+	git
+	htop
+	neofetch
+	speedtest
+	youtube-dl
+	yt-dlp
 
 	## Fontes
 	fonts-apropal
@@ -243,16 +248,15 @@ PROGRAMS_APT=(
 	firefox
 	flatpak
 	inkscape
-	neofetch
 	obs-studio
 	remmina
 	# spotify-client
 	stacer
 	stellarium
 	sublime-text
-	speedtest
 	# synaptic
 	timeshift
+	vlc
 	# virtualbox
 	# virtualbox-dkms
 )
@@ -287,8 +291,6 @@ PROGRAMS_SNAP=(
 	# slack --classic
 	# spotify
 	# telegram-desktop
-	vlc
-	youtube-dl
 	# wps-office-multilang
 )
 # ---------------------------------------------------------------------------- #
