@@ -62,8 +62,8 @@ if $FLATPAK_SUPPORT; then
 	echo -e "\n\n${YELLOW}sudo flatpak update ${NC}\n"
 	sudo flatpak update -y
 
-	# echo -e "\n\n${YELLOW}sudo flatpak uninstall --unused ${NC}\n"
-	# sudo flatpak uninstall --unused -y
+	echo -e "\n\n${YELLOW}sudo flatpak uninstall --unused ${NC}\n"
+	sudo flatpak uninstall --unused -y
 fi
 
 if [ "$OS_RELEASE_ID" == "ubuntu" ]; then

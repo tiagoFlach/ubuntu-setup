@@ -23,7 +23,7 @@ $ git clone https://github.com/tiagoFlach/ubuntu-setup.git
 On Ubuntu, the following command will run the `setup.sh` script:
 
 ```shell
-$ sudo ./setup.sh
+$ sudo ./setup-ubuntu.sh
 ```
 
 Or you can run an script from the `extras` directory:
