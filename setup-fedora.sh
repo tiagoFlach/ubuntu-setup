@@ -178,19 +178,12 @@ PROGRAMS_DNF=(
 	yt-dlp
 
 	## Fontes
-	fonts-apropal
-	fonts-atarismall
-	fonts-baekmuk
-	fonts-bajaderka
-	fonts-blankenburg
-	fonts-cantarell
-	fonts-comfortaa
-	fonts-dejavu-extra
-	fonts-fanwood
-	fonts-firacode
-	fonts-font-awesome
-	fonts-gamaliel
-	fonts-glasstty
+	adobe-source-sans-pro-fonts
+	baekmuk-*
+	dejavu-fonts-*
+	texlive-lstfiracode
+	fontawesome*
+
 	fonts-hack
 	fonts-hack-ttf
 	fonts-havana
