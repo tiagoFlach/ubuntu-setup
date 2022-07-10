@@ -5,20 +5,21 @@
 # https://github.com/tiagoFlach
 
 # This scrip install de following apps:
-# 	Android Studio;
-# 	Atom;
+# 	Android Studio
+# 	Atom
 #	Eclipse
+#	DBeaver
 #	Git
 #	GitHub CLI
-# 	GitKraken;
-# 	NodeJs;
-# 	NPM;
-# 	PhpStorm;
-# 	Postman;
-# 	Python Pip;
-# 	Sublime Text;
-# 	Sublime Merge;
-# 	Visual Studio Code;
+# 	GitKraken
+# 	NodeJs
+# 	NPM
+# 	PhpStorm
+# 	Postman
+# 	Python Pip
+# 	Sublime Text
+# 	Sublime Merge
+# 	Visual Studio Code
 
 # Android Studio
 # --------------------------------------
@@ -44,6 +45,11 @@ sudo apt install atom -y
 # Eclipse
 # --------------------------------------
 sudo snap install eclipse --classic
+
+
+# Eclipse
+# --------------------------------------
+flatpak install flathub io.dbeaver.DBeaverCommunity
 
 
 ## Git

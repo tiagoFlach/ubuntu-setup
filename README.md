@@ -167,6 +167,7 @@ Contains scripts for the automatic installation of the following softwares:
 	- Android Studio
 	- Atom
 	- Eclipse
+	- DBeaver
 	- Git
 	- GitHub CLI
 	- GitKraken
