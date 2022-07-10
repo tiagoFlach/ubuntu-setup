@@ -47,7 +47,7 @@ sudo apt install atom -y
 sudo snap install eclipse --classic
 
 
-# Eclipse
+# DBeaver
 # --------------------------------------
 flatpak install flathub io.dbeaver.DBeaverCommunity
 
