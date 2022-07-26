@@ -44,7 +44,8 @@ sudo apt install atom -y
 
 # Eclipse
 # --------------------------------------
-sudo snap install eclipse --classic
+# sudo snap install eclipse --classic
+flatpak install flathub org.eclipse.Java
 
 
 # DBeaver
