@@ -323,7 +323,7 @@ sudo dnf config-manager --add-repo $URL_SUBLIME_REPO
 # sudo dnf config-manager --add-repo $URL_SKTYPE_REPO
 
 ## Speedtest ## 
-curl -s https://install.speedtest.net/app/cli/install.rpm.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
 # ---------------------------------------------------------------------------- #
 
 
