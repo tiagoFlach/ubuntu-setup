@@ -12,6 +12,7 @@
 #	Git
 #	GitHub CLI
 # 	GitKraken
+#	InteliJ
 # 	NodeJs
 # 	NPM
 # 	PhpStorm
@@ -76,6 +77,11 @@ sudo apt install gh
 # GitKraken
 # --------------------------------------
 sudo snap install gitkraken --classic
+
+
+# IntelliJ
+# --------------------------------------
+sudo snap install intellij-idea-community --classic
 
 
 # NodeJs
