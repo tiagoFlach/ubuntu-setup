@@ -45,6 +45,7 @@ This script automatically installs the following softwares:
 	- Apostrophe (flatpak)
 	- Discord (snap)
 	- Extension Manager (flatpak)
+	- Eyedropper (flatpak)
 	- Firefox
 	- Inkscape
 	- Google Chrome

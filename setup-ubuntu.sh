@@ -263,6 +263,7 @@ PROGRAMS_APT=(
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(	
+	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
 	com.mattjakeman.ExtensionManager
