@@ -158,24 +158,27 @@
 
 #### Extensões
 
-- [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
-- [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
+- [x] [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
+- [ ] [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
   - Apply Effect to: Activities Screen
   - Blur Intensity: 10
   - Activities Background Brightness: 0.75
   - Panel Background Brightness: 0.8
-- [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
+- [ ] [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
   - Ocultar o painel durante o coverflow: On
   - Estilo do ícone do aplicativo: Sobreposição
-- [Custom Hot Corners - Extended](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/)
+- [x] [Custom Hot Corners - Extended](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/)
   - Monitor:
     - Top Left:
       - Show Activities Overview: Pressure (100)
+      - Enable this trigger in fullscreen mode: Off
     - Bottom Left:
-      - Show Aplications Grid: Pressure (100)  
+      - Show Aplications Grid: Pressure (100)
+      - Enable this trigger in fullscreen mode: Off
     - Bottom Right:
-      - Show Desktop: Pressure (100)
-- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+      - Show Desktop (all monitors): Pressure (100)
+      - Enable this trigger in fullscreen mode: Off
+- [ ] [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
   - Posição e Tamanho
     - Exibir o dock: Monitor primário
     - Mostrar em todos os monitore: On
@@ -207,27 +210,30 @@
     - Usar o tema do sistema: Off
     - Encolher o dash: On
     - Customizar a cor do dash: Off
-- [Extension Update Notifier](https://extensions.gnome.org/extension/1166/extension-update-notifier/)
-- [Impatience](https://extensions.gnome.org/extension/277/impatience/)
+- [ ] [Extension Update Notifier](https://extensions.gnome.org/extension/1166/extension-update-notifier/)
+- [ ] [Impatience](https://extensions.gnome.org/extension/277/impatience/)
   - Speed scaling: 0.75
-- [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
-- [Lock Keys](https://extensions.gnome.org/extension/36/lock-keys/)
+- [x] [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
+- [x] [Lock Keys](https://extensions.gnome.org/extension/36/lock-keys/)
   - Estilo do indicador: Notificações somente
   - Notificações: Osd
-- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
-- [Transparent Top Panel](https://extensions.gnome.org/extension/2878/transparent-top-panel/)
-- [Transparent Window Moving](https://extensions.gnome.org/extension/1446/transparent-window-moving/)
+- [x] [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
+- [x] [Transparent Top Bar (Adjustable transparency)](https://extensions.gnome.org/extension/3960/transparent-top-bar-adjustable-transparency/)
+  - Top Bar Opacity: 35.0
+  - Opaque top bar when a window touches it: On
+- [ ] [Transparent Top Panel](https://extensions.gnome.org/extension/2878/transparent-top-panel/)
+- [x] [Transparent Window Moving](https://extensions.gnome.org/extension/1446/transparent-window-moving/)
   - Opacity: 220
   - Animation time: 0,10
   - Transparent on moving: Yes
   - Transparent on resizing: Yes
-- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
-- [WindowOverlay Icons](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
+- [ ] [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+- [ ] [WindowOverlay Icons](https://extensions.gnome.org/extension/302/windowoverlay-icons/)
   - Alinhamento: Centro
   - Tamanho: 100
   - Opacidade do ícone - foco: 255
   - Opacidade do ícone - foco: 190
 - Ubuntu
-  - [Desktop Icons](https://extensions.gnome.org/extension/1465/desktop-icons/)
-  - [Ubuntu Appindicators](https://extensions.gnome.org/extension/1301/ubuntu-appindicators/) Off
-  - [Ubuntu Dock](https://extensions.gnome.org/extension/1300/ubuntu-dock/) Off
+  - [ ] [Desktop Icons](https://extensions.gnome.org/extension/1465/desktop-icons/)
+  - [x] [Ubuntu Appindicators](https://extensions.gnome.org/extension/1301/ubuntu-appindicators/) Off
+  - [x] [Ubuntu Dock](https://extensions.gnome.org/extension/1300/ubuntu-dock/) Off
