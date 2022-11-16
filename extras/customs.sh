@@ -63,14 +63,14 @@ wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phi
 
 ## ----------------------------- CUSTOMIZATIONS ----------------------------- ##
 ## Aplicativos favoritos ##
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'com.slack.Slack.desktop', 'com.spotify.Client.desktop', 'de.haeckerfelix.Shortwave.desktop', 'simplenote_simplenote.desktop', 'sublime_text.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'com.slack.Slack.desktop', 'com.spotify.Client.desktop', 'de.haeckerfelix.Shortwave.desktop']"
 
 ## Apagar tela ##
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 60
 
 ## Extensões desativadas ##
-gsettings set org.gnome.shell disabled-extensions "['ding@rastersoft.com', 'ubuntu-dock@ubuntu.com']"
+gsettings set org.gnome.shell disabled-extensions "['ding@rastersoft.com']"
 
 ## ----- Customização das extensões ----- ##
 ## Dash to dock ##
@@ -93,7 +93,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme false
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 38
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
 
 ## Desktop Icons ##
 gsettings set org.gnome.shell.extensions.ding show-home false
@@ -167,7 +167,21 @@ gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'min
 gsettings set org.gnome.desktop.wm.preferences button-layout ':close'
 # ---------------------------------------------------------------------------- #
 
+# gnome-disks
+# 499E061F2C2CE759 -> Editar opções de montagem -> padrão de selção do usuario: Off
+#
+# rm /Downloads /Documents /Music /Pictures /Videos
+#
 # Ir para partição que desja ser a /home
 # sudo ln -sr * ~/
+#
+# ~/.config/user-dirs.dirs
+# xdg-user-dirs-update --set DOCUMENTS ~/Documentos
+# xdg-user-dirs-update --set DOWNLOAD ~/Downloads
+# xdg-user-dirs-update --set MUSIC ~/Música
+# xdg-user-dirs-update --set PICTURES ~/Imagens
+# xdg-user-dirs-update --set VIDEOS ~/Vídeos
+# xdg-user-dirs-update --set DESKTOP ~/Área\ de\ Trabalho
+# xdg-user-dirs-update
 
 # ---------------------------------------------------------------------------- #

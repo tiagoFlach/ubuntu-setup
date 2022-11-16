@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt install php-cli unzip
+sudo apt install php-cli unzip -y
 
 cd ~
 curl -sS https://getcomposer.org/installer -o composer-setup.php
