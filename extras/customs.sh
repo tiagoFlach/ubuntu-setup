@@ -147,6 +147,9 @@ gsettings set org.gnome.desktop.interface document-font-name 'Cantarell Regular 
 gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 10'
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
 
+## Cursor ##
+gsettings set org.gnome.desktop.interface cursor-theme 'phinger-cursors-light'
+
 ## Tema ##
 # gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
 # gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
