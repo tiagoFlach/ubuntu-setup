@@ -61,7 +61,7 @@ MYSQL_USER_PASSWORD="senha123*A"
 MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
 
 PHPMYADMIN_PASSWORD="@SuperSenhaPhpMyAdmin*099"
-PHPMYADMIN_CONFIG="/etc/phpmyadmin/config.ini.php"
+PHPMYADMIN_CONFIG="/etc/phpmyadmin/config.inc.php"
 
 LOCAL="$(php --ini | grep "Loaded Configuration File" | cut -d" " -f12)"
 PHPINI="${LOCAL/cli/apache2}"
@@ -370,7 +370,7 @@ sudo sed -i 's/memory_limit = 128M/memory_limit = 256M/' $PHPINI
 sudo sed -i 's/max_execution_time = 30/max_execution_time = 120/' $PHPINI
 
 # PhpMyAdmin
-# sed "/^$cfg['SaveDir'].*/a $cfg['ExecTimeLimit'] = 0;" test.txt
+sudo sed -i '/SaveDir/a $cfg['\''ExecTimeLimit'\''] = 0;' $PHPMYADMIN_CONFIG
 
 # Apache 
 sudo sed -i ':a;N;$!ba;s/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride None\n	Require all granted\n<\/Directory>/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride All\n	Require all granted\n<\/Directory>/g' /etc/apache2/apache2.conf
