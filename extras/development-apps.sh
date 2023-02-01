@@ -103,6 +103,11 @@ sudo n stable
 sudo snap install phpstorm --classic
 
 
+# Postman
+# --------------------------------------
+flatpak install flathub com.getpostman.Postman
+
+
 # Python Pip
 # --------------------------------------
 sudo apt install python3-pip
