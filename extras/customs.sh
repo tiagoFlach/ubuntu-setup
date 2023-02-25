@@ -28,9 +28,18 @@ unzip SourceCodePro -d "font-source-code-pro"
 sudo mv "font-source-code-pro/$FILE/TTF/" /usr/share/fonts/truetype/source-code-pro
 # .local/share/fonts/
 
-rm -r SourceCodePro
-rm -r font-source-code-pro
+rm -r SourceCodePro font-source-code-pro
 
+# Urbani
+wget -c "https://fontshub.pro/f-files/5efba4c2280d03543bf3dc17/font.zip" -O "Urbani" 
+unzip Urbani -d "urbani"
+sudo mkdir -p /usr/share/fonts/truetype/urbani
+sudo mv urbani/*.ttf /usr/share/fonts/truetype/urbani
+
+rm -r Urbani urbani
+
+# Atualizar Cache
+sudo fc-cache -f
 
 ## --------------------------------- CURSORS -------------------------------- ##
 # Capitaine Cursors
