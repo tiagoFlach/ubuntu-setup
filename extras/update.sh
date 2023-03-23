@@ -30,6 +30,10 @@ if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
 		FLATPAK_SUPPORT=false
 	fi
 
+	while sudo fuser /var/lib/apt/lists/lock > /dev/null 2>&1 ; do
+		sleep 1
+	done
+
 	echo -e "\n\n${YELLOW}sudo apt update ${NC}\n"
 	sudo apt --fix-missing update && sudo apt list --upgradable
 
