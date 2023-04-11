@@ -39,6 +39,9 @@ if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
 
 	echo -e "\n\n${YELLOW}sudo apt dist-upgrade ${NC}\n"
 	sudo apt dist-upgrade -y
+	
+	echo -e "\n\n${YELLOW}sudo ubuntu-drivers autoinstall ${NC}\n"
+	sudo ubuntu-drivers autoinstall
 elif [ "$OS_RELEASE_ID" == "fedora" ]; then
 	
 	if rpm -qa | grep -q snapd; then
