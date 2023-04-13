@@ -268,9 +268,10 @@ PROGRAMS_FLATPAK=(
 	com.spotify.Client
 	de.haeckerfelix.Shortwave
 	io.github.seadve.Mousai
+	org.gabmus.whatip
 	org.gimp.GIMP
 	org.gnome.Boxes
-	org.gabmus.whatip
+	org.gnome.Loupe
 	org.gnome.gitlab.somas.Apostrophe
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	org.gnome.SoundRecorder

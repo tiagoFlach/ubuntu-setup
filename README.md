@@ -49,6 +49,7 @@ This script automatically installs the following softwares:
   - Gimp (flatpak)
   - Kdenlive (flatpak)
   - LibreOffice
+  - Loupe (flatpak)
   - Microsoft Teams
   - Mousai (flatpak)
   - MuseScore (snap)
