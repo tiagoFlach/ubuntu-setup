@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<opml version="1.0">
+    <head>
+        <title>Tiago Lucas subscriptions in feedly Cloud</title>
+    </head>
+    <body>
+        <outline text="Dev" title="Dev">
+            <outline type="rss" text="Blog Awesome" title="Blog Awesome" xmlUrl="https://blog.fontawesome.com/feed/" htmlUrl="https://blog.fontawesome.com/"/>
+            <outline type="rss" text="Flutterando" title="Flutterando" xmlUrl="https://blog.flutterando.com.br/feed" htmlUrl="https://blog.flutterando.com.br?source=rss----9e2d508b5ab---4"/>
+            <outline type="rss" text="Bootstrap Blog" title="Bootstrap Blog" xmlUrl="https://blog.getbootstrap.com/feed" htmlUrl="https://blog.getbootstrap.com/"/>
+            <outline type="rss" text="CSS-Tricks" title="CSS-Tricks" xmlUrl="https://css-tricks.com/feed/" htmlUrl="https://css-tricks.com"/>
+            <outline type="rss" text="VS Code" title="VS Code" xmlUrl="https://code.visualstudio.com/feed.xml" htmlUrl="https://code.visualstudio.com/"/>
+            <outline type="rss" text="Laravel News" title="Laravel News" xmlUrl="https://feed.laravel-news.com/" htmlUrl="https://laravel-news.com"/>
+            <outline type="rss" text="Tailwind CSS Blog" title="Tailwind CSS Blog" xmlUrl="https://tailwindcss.com/feeds/feed.xml" htmlUrl="https://tailwindcss.com/blog"/>
+            <outline type="rss" text="Ubuntu Blog" title="Ubuntu Blog" xmlUrl="https://ubuntu.com/blog/feed" htmlUrl="https://ubuntu.com//blog/feed"/>
+            <outline type="rss" text="The GitHub Blog" title="The GitHub Blog" xmlUrl="https://github.blog/feed/" htmlUrl="https://github.blog/"/>
+            <outline type="rss" text="Tailwind Blog" title="Tailwind Blog" xmlUrl="https://blog.tailwindcss.com/feed.xml" htmlUrl="https://blog.tailwindcss.com"/>
+        </outline>
+        <outline text="Tech" title="Tech">
+            <outline type="rss" text="Diolinux" title="Diolinux" xmlUrl="https://diolinux.com.br/feed" htmlUrl="https://diolinux.com.br"/>
+            <outline type="rss" text="It's FOSS" title="It's FOSS" xmlUrl="https://feeds.feedburner.com/ItsFoss" htmlUrl="https://itsfoss.com/"/>
+            <outline type="rss" text="SempreUPdate" title="SempreUPdate" xmlUrl="https://sempreupdate.com.br/feed/" htmlUrl="https://sempreupdate.com.br/"/>
+            <outline type="rss" text="9to5Linux" title="9to5Linux" xmlUrl="https://9to5linux.com/feed" htmlUrl="https://9to5linux.com/"/>
+            <outline type="rss" text="OMG! Ubuntu" title="OMG! Ubuntu" xmlUrl="https://www.omgubuntu.co.uk/feed" htmlUrl="https://www.omgubuntu.co.uk/"/>
+        </outline>
+        <outline text="GNOME" title="GNOME">
+            <outline type="rss" text="GNOME GTK Development Blog" title="GNOME GTK Development Blog" xmlUrl="https://blog.gtk.org/feed/" htmlUrl="https://blog.gtk.org"/>
+            <outline type="rss" text="GNOME Initiatives" title="GNOME Initiatives" xmlUrl="https://gitlab.gnome.org/GNOME/Initiatives.atom" htmlUrl="https://gitlab.gnome.org/GNOME/Initiatives"/>
+            <outline type="rss" text="GNOME Shell &amp; Mutter" title="GNOME Shell &amp; Mutter" xmlUrl="https://blogs.gnome.org/shell-dev/feed/" htmlUrl="https://blogs.gnome.org/shell-dev"/>
+            <outline type="rss" text="This Week in GNOME" title="This Week in GNOME" xmlUrl="https://thisweek.gnome.org/index.xml" htmlUrl="https://thisweek.gnome.org/"/>
+            <outline type="rss" text="GNOME Felix Häcker" title="GNOME Felix Häcker" xmlUrl="https://blogs.gnome.org/haeckerfelix/feed/" htmlUrl="https://blogs.gnome.org/haeckerfelix"/>
+            <outline type="rss" text="GNOME Release Notes" title="GNOME Release Notes" xmlUrl="https://release.gnome.org/feed.xml" htmlUrl="https://release.gnome.org/"/>
+            <outline type="rss" text="GNOME" title="GNOME" xmlUrl="https://www.gnome.org/feed/" htmlUrl="https://www.gnome.org"/>
+            <outline type="rss" text="GNOME Georges Stavracas" title="GNOME Georges Stavracas" xmlUrl="https://feaneron.com/feed/" htmlUrl="https://feaneron.com"/>
+            <outline type="rss" text="settings-mockups:master commits" title="settings-mockups:master commits" xmlUrl="https://gitlab.gnome.org/Teams/Design/settings-mockups/-/commits/master?format=atom" htmlUrl="https://gitlab.gnome.org/Teams/Design/settings-mockups/-/commits/master"/>
+            <outline type="rss" text="GNOME os-mockups" title="GNOME os-mockups" xmlUrl="https://gitlab.gnome.org/Teams/Design/os-mockups/-/commits/master?format=atom" htmlUrl="https://gitlab.gnome.org/Teams/Design/os-mockups/-/commits/master"/>
+            <outline type="rss" text="GIMP" title="GIMP" xmlUrl="https://www.gimp.org/feeds/rss.xml" htmlUrl="https://www.gimp.org/"/>
+            <outline type="rss" text="app-mockups:master commits" title="app-mockups:master commits" xmlUrl="https://gitlab.gnome.org/Teams/Design/app-mockups/-/commits/master?format=atom" htmlUrl="https://gitlab.gnome.org/Teams/Design/app-mockups/-/commits/master"/>
+        </outline>
+    </body>
+</opml>

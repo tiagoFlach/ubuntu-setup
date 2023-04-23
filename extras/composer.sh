@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sudo apt update
 sudo apt install php-cli unzip -y

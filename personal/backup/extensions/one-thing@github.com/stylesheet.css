@@ -1,0 +1,17 @@
+.one-thing-panel-text {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 110%;
+}
+
+.one-thing-input {
+  font-size: 120%;
+  width: 360px;
+  min-width: 360px;
+}
+
+.one-thing-help-text {
+  color: #447799;
+  /*a color that looks OK on dark or light background and hopefully easier to
+      read than the default "disabled" grey color*/
+}

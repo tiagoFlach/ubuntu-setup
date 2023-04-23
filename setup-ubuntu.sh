@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Script created for personal use.
 # author: Tiago Lucas Flach
@@ -270,6 +270,7 @@ PROGRAMS_FLATPAK=(
 	com.slack.Slack
 	com.spotify.Client
 	de.haeckerfelix.Shortwave
+	io.github.nate_xyz.Paleta 
 	io.github.seadve.Mousai
 	org.gabmus.whatip
 	org.gimp.GIMP
@@ -278,6 +279,7 @@ PROGRAMS_FLATPAK=(
 	org.gnome.gitlab.somas.Apostrophe
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	org.gnome.SoundRecorder
+	org.nickvision.tubeconverter
 	org.kde.kdenlive
 	org.telegram.desktop
 )
@@ -358,7 +360,7 @@ if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
 fi
 
 ## Speedtest ##
-sudo apt-get install curl
+sudo apt install curl
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 
 ## Spotify ##

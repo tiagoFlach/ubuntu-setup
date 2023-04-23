@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<schemalist>
+  <schema id='org.gnome.shell.extensions.custom-hot-corners-extended.corner'>
+    <key name='action' type='s'>
+      <default>'disabled'</default>
+    </key>
+    <key name='command' type='s'>
+      <default>''</default>
+    </key>
+    <key name='ctrl' type='b'>
+      <default>false</default>
+    </key>
+    <key name='fullscreen' type='b'>
+      <default>true</default>
+    </key>
+    <key name='barrier-size-h' type='i'>
+      <default>1</default>
+    </key>
+    <key name='barrier-size-v' type='i'>
+      <default>1</default>
+    </key>
+    <key name='pressure-threshold' type='i'>
+      <default>100</default>
+    </key>
+    <key name='workspace-index' type='i'>
+      <default>1</default>
+    </key>
+    <key name='h-expand' type='b'>
+      <default>false</default>
+    </key>
+    <key name='v-expand' type='b'>
+      <default>false</default>
+    </key>
+  </schema>
+
+  <schema path='/org/gnome/shell/extensions/custom-hot-corners-extended/' id='org.gnome.shell.extensions.custom-hot-corners-extended'>
+    <child  name='corner' schema='org.gnome.shell.extensions.custom-hot-corners-extended.corner'/>
+  </schema>
+
+  <schema path= '/org/gnome/shell/extensions/custom-hot-corners-extended/misc/' id='org.gnome.shell.extensions.custom-hot-corners-extended.misc'>
+    <key name='panel-menu-enable' type='b'>
+      <default>true</default>
+    </key>
+    <key name='show-osd-monitor-indexes' type='b'>
+      <default>false</default>
+    </key>
+    <key name='buttons-trigger-on-press' type='b'>
+      <default>false</default>
+    </key>
+    <key name='watch-corners' type='b'>
+      <default>true</default>
+    </key>
+    <key name='hot-corners-enabled' type='b'>
+      <default>true</default>
+    </key>
+    <key name='hot-corners-require-shift' type='b'>
+      <default>false</default>
+    </key>
+    <key name='corners-visible' type='b'>
+      <default>false</default>
+    </key>
+    <key name='win-switch-wrap' type='b'>
+      <default>true</default>
+    </key>
+    <key name='win-switch-skip-minimized' type='b'>
+      <default>false</default>
+    </key>
+    <key name='win-switch-stable-sequence' type='b'>
+      <default>false</default>
+    </key>
+    <key name='win-thumbnail-scale' type='i'>
+      <default>15</default>
+    </key>
+    <key name='action-event-delay' type='i'>
+      <default>100</default>
+    </key>
+    <key name='ripple-animation' type='b'>
+      <default>true</default>
+    </key>
+    <key name='barrier-fallback' type='b'>
+      <default>false</default>
+    </key>
+    <key name='custom-menu-1' type='as'>
+      <default>[]</default>
+    </key>
+    <key name='custom-menu-2' type='as'>
+      <default>[]</default>
+    </key>
+    <key name='custom-menu-3' type='as'>
+      <default>[]</default>
+    </key>
+    <key name='custom-menu-4' type='as'>
+      <default>[]</default>
+    </key>
+    <key name='supported-active-extensions' type='as'>
+      <default>[]</default>
+    </key>
+    <key name='keyboard-shortcuts' type='as'>
+      <default>[]</default>
+    </key>
+    <key name='internal-flags' type='as'>
+      <default>[]</default>
+    </key>
+    <key name='custom-tint-color' type='s'>
+      <default>'rgb(255,255,0)'</default>
+    </key>
+  </schema>
+</schemalist>

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 WWW="/var/www/html"
 

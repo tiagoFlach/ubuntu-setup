@@ -55,6 +55,7 @@ This script automatically installs the following softwares:
   - MuseScore (snap)
   - NewsFlash (flatpak)
   - OBS Studio
+  - Paleta (flatpak)
   - Remmina
   - Scrcpy (snap)
   - Shortwave (flatpak)
@@ -70,6 +71,7 @@ This script automatically installs the following softwares:
   - Synaptic
   - Telegram (flatpak)
   - TimeShift
+  - Tube Converter (flatpak)
   - VirtualBox
   - VLC
   - What IP (flatpak)  
