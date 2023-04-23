@@ -39,6 +39,7 @@ This script automatically installs the following softwares:
 - Main:
   - AnyDesk
   - Apostrophe (flatpak)
+  - Cpu-X
   - Discord (snap)
   - Extension Manager (flatpak)
   - Eyedropper (flatpak)

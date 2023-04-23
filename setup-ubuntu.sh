@@ -245,6 +245,7 @@ PROGRAMS_APT=(
 
 	## Aplicativos
 	anydesk
+	cpu-x
 	firefox
 	flatpak
 	inkscape
