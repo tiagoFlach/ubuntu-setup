@@ -40,6 +40,7 @@ This script automatically installs the following softwares:
   - AnyDesk
   - Apostrophe (flatpak)
   - Cpu-X
+  - Decoder (flatpak)
   - Discord (snap)
   - Extension Manager (flatpak)
   - Eyedropper (flatpak)
@@ -68,7 +69,6 @@ This script automatically installs the following softwares:
   - Spotify (flatpak)
   - Stellarium
   - Stacer
-  - Sublime Text
   - Synaptic
   - Telegram (flatpak)
   - TimeShift
@@ -82,7 +82,6 @@ This script automatically installs the following softwares:
   - htop
   - neofetch
   - speedtest
-  - youtube-dl
   - yt-dlp
 
 - System:
@@ -92,7 +91,6 @@ This script automatically installs the following softwares:
   - ffmpeg
   - laptop-mode-tools
   - lsb
-  - lsb-core
   - net-tools
   - ubuntu-restricted-extras
   - unrar
@@ -153,7 +151,6 @@ This script automatically installs the following softwares:
   - gnome-maps
   - gnome-shell-extensions
   - gnome-software-plugin-flatpak
-  - gnome-sushi
   - gnome-tweaks
   - gnome-weather
   - gparted

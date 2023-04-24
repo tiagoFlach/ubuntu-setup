@@ -9,6 +9,7 @@
 # 	Atom
 #	Eclipse
 #	DBeaver
+# 	Filezilla
 #	Git
 #	GitHub CLI
 # 	GitKraken
@@ -22,128 +23,213 @@
 # 	Sublime Merge
 # 	Visual Studio Code
 
-# Android Studio
-# --------------------------------------
-sudo apt install curl -y -q
+APPS=(
+	"android-studio"
+	"atom"
+	"eclipse"
+	"dbeaver"
+	"filezilla"
+	"git"
+	"gh"
+	"gitkraken"
+	"intellij"
+	"nodejs"
+	"npm"
+	"phpstorm"
+	"postman"
+	"python3-pip"
+	"sublime-text"
+	"sublime-merge"
+	"code"
+)
+APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
+
+
+if ! which curl >/dev/null; then
+	sudo apt install curl -y -q
+fi
 
 
 # Android Studio
 # --------------------------------------
-sudo snap install android-studio --classic
+android_studio() {
+	sudo snap install android-studio --classic -y
+}
 
 
 # Atom
 # --------------------------------------
-if [ ! -f "/usr/share/keyrings/atom-keyring.gpg" ]; then
-	wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/atom-keyring.gpg
-	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/atom-keyring.gpg] https://packagecloud.io/AtomEditor/atom/any/ any main" | sudo tee /etc/apt/sources.list.d/atom.list
-fi
+atom() {
+	if [ ! -f "/usr/share/keyrings/atom-keyring.gpg" ]; then
+		wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/atom-keyring.gpg
+		echo "deb [arch=amd64 signed-by=/usr/share/keyrings/atom-keyring.gpg] https://packagecloud.io/AtomEditor/atom/any/ any main" | sudo tee /etc/apt/sources.list.d/atom.list
+	fi
 
-sudo apt update
-sudo apt install atom -y
+	sudo apt update
+	sudo apt install atom -y
+}
 
 
 # Eclipse
 # --------------------------------------
-# sudo snap install eclipse --classic
-flatpak install flathub org.eclipse.Java
+eclipse() {
+	# sudo snap install eclipse --classic
+	flatpak install flathub org.eclipse.Java -y
+}
 
 
 # DBeaver
 # --------------------------------------
-flatpak install flathub io.dbeaver.DBeaverCommunity
+dbeaver() {
+	flatpak install flathub io.dbeaver.DBeaverCommunity
+}
 
 
 ## Git
 # --------------------------------------
-sudo apt-add-repository ppa:git-core/ppa -y
-sudo apt install git -y
-git config --global user.email "tiagolucas9830@gmail.com"
-git config --global user.name "Tiago Lucas Flach"
+git() {
+	sudo apt-add-repository ppa:git-core/ppa -y
+	sudo apt install git -y
+	git config --global user.email "tiagolucas9830@gmail.com"
+	git config --global user.name "Tiago Lucas Flach"
+}
 
 
 ## GitHub CLI
 # --------------------------------------
-if [ ! -f "/usr/share/keyrings/githubcli-archive-keyring.gpg" ]; then
-	curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-	sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-fi
+gh() {
+	if [ ! -f "/usr/share/keyrings/githubcli-archive-keyring.gpg" ]; then
+		curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+		sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+		echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+	fi
 
-sudo apt update
-sudo apt install gh
+	sudo apt update
+	sudo apt install gh -y
+}
 
 
 # GitKraken
 # --------------------------------------
-sudo snap install gitkraken --classic
+gitkraken() {
+	sudo snap install gitkraken --classic -y
+}
 
 
 # IntelliJ
 # --------------------------------------
-sudo snap install intellij-idea-community --classic
+intellij() {
+	sudo snap install intellij-idea-community --classic -y
+}
 
 
 # NodeJs
 # --------------------------------------
-sudo apt install nodejs -y
+nodejs() {
+	sudo apt install nodejs -y
+}
 
 
 # NPM
 # --------------------------------------
-sudo apt install npm -y
+npm() {
+	sudo apt install npm -y
 
-sudo npm cache clean -f
-sudo npm install -g npm
-sudo n stable
+	sudo npm cache clean -f
+	sudo npm install -g npm
+	sudo n stable
+}
 
 
-# Php Storm
+# PhpStorm
 # --------------------------------------
-sudo snap install phpstorm --classic
+phpstorm() {
+	sudo snap install phpstorm --classic -y
+}
 
 
 # Postman
 # --------------------------------------
-flatpak install flathub com.getpostman.Postman
+postman() {
+	flatpak install flathub com.getpostman.Postman -y
+}
 
 
 # Python Pip
 # --------------------------------------
-sudo apt install python3-pip
+python_pyp() {
+	sudo apt install python3-pip -y
+}
 
 
 # Subllime Text
 # --------------------------------------
-if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
-	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-fi
+sublime_text() {
+	if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
+		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
+		echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+	fi
 
-sudo apt update
-sudo apt install sublime-text -y
+	sudo apt update
+	sudo apt install sublime-text -y
+}
 
 
 # Sublime Merge
 # --------------------------------------
-sudo apt install sublime-merge -y
+sublime_merge() {
+	sudo apt install sublime-merge -y
+}
 
 
 # Visual Studio Code
 # --------------------------------------
-sudo apt install wget gpg apt-transport-https -y
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
+code() {
+	sudo apt install wget gpg apt-transport-https -y
+	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+	sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+	sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+	rm -f packages.microsoft.gpg
 
-sudo apt install code -y
-# sudo snap install code --classic
+	sudo apt install code -y
+	# sudo snap install code --classic
+}
 
 
+# FileZilla
 # --------------------------------------
-## FileZilla ##
-# sudo apt install filezilla -y
+filezilla() {
+	sudo apt install filezilla -y
+}
 
 ## Composer ##
 # sudo apt install composer -y
+
+# Define colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+BOLDBLUE='\033[1;34m'
+NC='\033[0m'        # No Color
+
+if ! which curl >/dev/null; then
+	sudo mkdir -p /etc/apt/keyrings
+	curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+	echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+	sudo apt update && sudo apt install gum
+fi
+
+select_apps() {
+	gum choose --no-limit --height ${#APPS[@]} ${APPS}
+}
+
+echo "Selecione quais aplicativos deseja instalar:"
+SELECTED=$(select_apps)
+
+# Install selected apps
+# --------------------------------------
+for app in ${SELECTED[@]}; do
+	echo -e "\n\n${YELLOW}	[INSTALANDO] - $app ${NC}\n\n"
+	$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')
+done

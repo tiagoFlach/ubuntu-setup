@@ -115,7 +115,7 @@ PPAS=(
 	# ppa:graphics-drivers/ppa			# Nvidia
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
 	ppa:mozillateam/ppa					# Firefox
-	ppa:inkscape.dev/stable				# Inkscape
+	# ppa:inkscape.dev/stable				# Inkscape
 	ppa:libreoffice/ppa					# LibreOffice
 	ppa:obsproject/obs-studio			# OBS Studio
 	ppa:stellarium/stellarium-releases	# Stellarium
@@ -128,10 +128,6 @@ URL_ANYDESK_PPA="http://deb.anydesk.com/"
 ## Spotify ##
 # URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
 # URL_SPOTIFY_PPA="http://repository.spotify.com"
-
-## Sublime ##
-URL_SUBLIME_KEY="https://download.sublimetext.com/sublimehq-pub.gpg"
-URL_SUBLIME_PPA="https://download.sublimetext.com/"
 
 
 # ----- URLs -----#
@@ -164,7 +160,6 @@ PROGRAMS_APT=(
 	ffmpeg
 	laptop-mode-tools
 	lsb
-	lsb-core
 	gstreamer1.0-libav
 	gstreamer1.0-plugins-bad
 	gstreamer1.0-plugins-ugly
@@ -183,7 +178,6 @@ PROGRAMS_APT=(
 	htop
 	neofetch
 	speedtest
-	youtube-dl
 	yt-dlp
 
 	## Fontes
@@ -238,7 +232,6 @@ PROGRAMS_APT=(
 	gnome-maps
 	gnome-shell-extensions
 	gnome-software-plugin-flatpak
-	gnome-sushi
 	gnome-tweaks
 	gnome-weather
 	gparted
@@ -248,13 +241,12 @@ PROGRAMS_APT=(
 	cpu-x
 	firefox
 	flatpak
-	inkscape
+	# inkscape
 	obs-studio
 	remmina
 	# spotify-client
 	stacer
 	stellarium
-	sublime-text
 	# synaptic
 	timeshift
 	vlc
@@ -264,6 +256,7 @@ PROGRAMS_APT=(
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(	
+	com.belmoussaoui.Decoder
 	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
@@ -288,7 +281,7 @@ PROGRAMS_FLATPAK=(
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
 	discord
-	# inkscape
+	inkscape
 	musescore
 	scrcpy
 	simplenote
@@ -353,12 +346,6 @@ Package: *
 Pin: release o=LP-PPA-mozillateam
 Pin-Priority: 1001
 ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
-
-## Sublime ##
-if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
-	wget -qO - $URL_SUBLIME_KEY | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
-	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] $URL_SUBLIME_PPA apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-fi
 
 ## Speedtest ##
 sudo apt install curl
@@ -450,6 +437,10 @@ sudo ubuntu-drivers autoinstall
 
 ## Repositorio parceiros canonical ##
 sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
+
+## Anidesk ##
+sudo systemctl stop anydesk
+sudo systemctl disable anydesk.service
 
 
 ## ----- Finalização, atualização e limpeza ----- ##

@@ -45,7 +45,7 @@ sudo fc-cache -f
 # Capitaine Cursors
 git clone https://github.com/keeferrourke/capitaine-cursors.git
 
-sudo apt install inkscape
+sudo snap install inkscape
 
 cd capitaine-cursors
 ./build.sh -t dark

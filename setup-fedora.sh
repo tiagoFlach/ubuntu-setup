@@ -126,10 +126,6 @@ repo_gpgcheck=1
 gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
 
-## Sublime ##
-URL_SUBLIME_KEY="https://download.sublimetext.com/sublimehq-rpm-pub.gpg"
-URL_SUBLIME_REPO="https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo"
-
 ## Skype ##
 URL_SKYPE_REPO="https://repo.skype.com/rpm/stable/skype-stable.repo"
 
@@ -174,7 +170,6 @@ PROGRAMS_DNF=(
 	htop
 	neofetch
 	speedtest
-	youtube-dl
 	yt-dlp
 
 	## Fontes
@@ -183,6 +178,7 @@ PROGRAMS_DNF=(
 	dejavu-fonts-*
 	texlive-lstfiracode
 	fontawesome*
+	fira-code-fonts
 
 	fonts-hack
 	fonts-hack-ttf
@@ -224,7 +220,6 @@ PROGRAMS_DNF=(
 	gnome-tweaks
 	gnome-weather
 	gparted
-	sushi
 
 	## Gstreamer
 	gstreamer1-plugins-bad-\*
@@ -247,7 +242,6 @@ PROGRAMS_DNF=(
 	# skypeforlinux
 	stacer
 	stellarium
-	sublime-text
 	# synaptic
 	timeshift
 	# virtualbox
@@ -257,6 +251,7 @@ PROGRAMS_DNF=(
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(
+	com.belmoussaoui.Decoder
 	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
@@ -316,10 +311,6 @@ sudo dnf groupupdate sound-and-video
 for copr in ${COPRS[@]}; do
 	sudo dnf copr enable "$copr" -y
 done
-
-## Sublime ##
-sudo rpm -v --import $URL_SUBLIME_KEY
-sudo dnf config-manager --add-repo $URL_SUBLIME_REPO
 
 ## Skype ##
 # sudo dnf config-manager --add-repo $URL_SKTYPE_REPO
