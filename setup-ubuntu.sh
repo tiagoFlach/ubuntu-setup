@@ -163,6 +163,10 @@ PROGRAMS_APT=(
 	gstreamer1.0-libav
 	gstreamer1.0-plugins-bad
 	gstreamer1.0-plugins-ugly
+	libgstreamer1.0-dev 
+	libgstreamer-plugins-bad1.0-dev 
+	libgstreamer-plugins-base1.0-dev 
+	libgstreamer-plugins-good1.0-dev
 	net-tools
 	rar
 	ubuntu-restricted-extras

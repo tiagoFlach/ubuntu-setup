@@ -77,6 +77,7 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'goo
 ## Apagar tela ##
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 60
+gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
 
 ## Extensões desativadas ##
 gsettings set org.gnome.shell disabled-extensions "['ding@rastersoft.com']"
@@ -102,7 +103,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme false
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 44
 
 ## Desktop Icons ##
 gsettings set org.gnome.shell.extensions.ding show-home false
@@ -127,14 +128,6 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br'), ('xkb', '
 
 ## Nautilus ##
 dconf write /org/gtk/settings/file-chooser/sort-directories-first true
-
-## Shortwave ##
-mkdir -p ~/.var/app/de.haeckerfelix.Shortwave/data/Shortwave
-cp ~/ubuntu-setup/personal/Shortwave.db ~/.var/app/de.haeckerfelix.Shortwave/data/Shortwave/
-
-## VS CODE ##
-mkdir -p ~/.config/Code/User/
-cp ~/ubuntu-setup/personal/settings.json ~/.config/Code/User/
 
 ## OpenWeather ##
 # gsettings set org.gnome.shell.extensions.openweather city '-29.372474,-51.494908>Barão>-1 && -30.0324999,-51.2303767>Porto Alegre>-1'

@@ -16,7 +16,6 @@ unzip Meslo -d "font-meslo"
 sudo mv "font-meslo/" /usr/share/fonts/truetype/meslo
 
 rm -r Meslo
-rm -r font-meslo
 # sudo wget -P /usr/share/fonts/truetype/meslolgs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
 # sudo wget -P /usr/share/fonts/truetype/meslolgs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 # sudo wget -P /usr/share/fonts/truetype/meslolgs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
