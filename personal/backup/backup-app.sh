@@ -27,6 +27,7 @@ elif [ "$1" = "restore" ]; then
 
 	# Profile picture
 	sudo cp -f $backupPath/tiago /var/lib/AccountsService/icons/
+	sudo sed -i 's/\(Icon=\).*/\1\/var\/lib\/AccountsService\/icons\/tiago/' /var/lib/AccountsService/users/tiago
 
 	# Shortwave
 	# mkdir -p ~/.var/app/de.haeckerfelix.Shortwave/data/Shortwave
@@ -34,10 +35,6 @@ elif [ "$1" = "restore" ]; then
 
 	# Extensions
 	cp -f -r $backupPath/extensions ~/.local/share/gnome-shell/
-
-	## VS CODE ##
-	# mkdir -p ~/.config/Code/User/
-	# cp ~/ubuntu-setup/personal/settings.json ~/.config/Code/User/
 
 	echo "Restauração concluída com sucesso."
 else

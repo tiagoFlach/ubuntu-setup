@@ -127,7 +127,8 @@ sudo sed -i 's/<\/policymap>/  <policy domain="coder" rights="read | write" patt
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br'), ('xkb', 'us')]"
 
 ## Nautilus ##
-dconf write /org/gtk/settings/file-chooser/sort-directories-first true
+gsettings set org.gtk.settings.file-chooser sort-directories-first true
+gsettings set org.gnome.nautilus.list-view use-tree-view true
 
 ## OpenWeather ##
 # gsettings set org.gnome.shell.extensions.openweather city '-29.372474,-51.494908>Barão>-1 && -30.0324999,-51.2303767>Porto Alegre>-1'
