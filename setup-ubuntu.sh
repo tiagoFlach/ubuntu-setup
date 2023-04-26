@@ -114,7 +114,7 @@ PPAS=(
 	ppa:git-core/ppa					# Git
 	# ppa:graphics-drivers/ppa			# Nvidia
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
-	ppa:mozillateam/ppa					# Firefox
+	# ppa:mozillateam/ppa					# Firefox
 	# ppa:inkscape.dev/stable				# Inkscape
 	ppa:libreoffice/ppa					# LibreOffice
 	ppa:obsproject/obs-studio			# OBS Studio
@@ -251,7 +251,7 @@ PROGRAMS_APT=(
 	## Aplicativos
 	anydesk
 	cpu-x
-	firefox
+	# firefox
 	flatpak
 	# inkscape
 	obs-studio
@@ -312,7 +312,7 @@ PROGRAMS_SNAP=(
 # -------------------------------- PRE-INSTALL ------------------------------- #
 ## Removendo programas desnecessários ##
 ## Firefox (snap) ##
-sudo snap remove firefox
+# sudo snap remove firefox
 ## Thunderbird ##
 sudo apt purge --auto-remove thunderbird -y
 ## Yelp ##
@@ -353,11 +353,11 @@ fi
 
 ## Firefox ##
 # Alter the Firefox package priority to ensure the PPA/deb/apt version of Firefox is preferred.
-echo '
-Package: *
-Pin: release o=LP-PPA-mozillateam
-Pin-Priority: 1001
-' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+# echo '
+# Package: *
+# Pin: release o=LP-PPA-mozillateam
+# Pin-Priority: 1001
+# ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
 
 ## Speedtest ##
 sudo apt install curl

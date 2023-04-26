@@ -72,7 +72,8 @@ wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phi
 
 ## ----------------------------- CUSTOMIZATIONS ----------------------------- ##
 ## Aplicativos favoritos ##
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'com.slack.Slack.desktop', 'com.spotify.Client.desktop', 'de.haeckerfelix.Shortwave.desktop']"
+# gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'com.slack.Slack.desktop', 'com.spotify.Client.desktop', 'de.haeckerfelix.Shortwave.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox_firefox.desktop', 'com.slack.Slack.desktop', 'com.spotify.Client.desktop', 'de.haeckerfelix.Shortwave.desktop']"
 
 ## Apagar tela ##
 gsettings set org.gnome.desktop.session idle-delay 900
@@ -129,14 +130,6 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br'), ('xkb', '
 ## Nautilus ##
 gsettings set org.gtk.settings.file-chooser sort-directories-first true
 gsettings set org.gnome.nautilus.list-view use-tree-view true
-
-## OpenWeather ##
-# gsettings set org.gnome.shell.extensions.openweather city '-29.372474,-51.494908>Barão>-1 && -30.0324999,-51.2303767>Porto Alegre>-1'
-# gsettings set org.gnome.shell.extensions.openweather center-forecast true
-# gsettings set org.gnome.shell.extensions.openweather menu-alignment 50
-# gsettings set org.gnome.shell.extensions.openweather pressure-unit 'Pa'
-# gsettings set org.gnome.shell.extensions.openweather unit 'celsius'
-# gsettings set org.gnome.shell.extensions.openweather wind-speed-unit 'm/s'
 
 ## Interface ##
 gsettings set org.gnome.desktop.interface clock-show-weekday true
