@@ -20,6 +20,14 @@ extensions2=(
     "transparentbar"
 )
 
+removeExtendions=(
+    "native-window-placement@gnome-shell-extensions.gcampax.github.com"
+    "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
+    "window-list@gnome-shell-extensions.gcampax.github.com"
+    "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
+    "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+)
+
 if [ "$1" = "backup" ]; then
     # Backup
     # ----------
@@ -40,6 +48,14 @@ elif [ "$1" = "restore" ]; then
 
     for extension in ${extensions2[@]}; do
         dconf load /com/ftpix/$extension/ < $path/$extension.dconf
+    done
+
+    ## Extensões desativadas
+    gsettings set org.gnome.shell disabled-extensions "['ding@rastersoft.com']"
+
+    ## Remover Extensões
+    for extension in ${removeExtendions[@]}; do
+        sudo rm -r /usr/share/gnome-shell/extensions/$extension  
     done
 
 elif [ "$1" = "reset" ]; then
