@@ -20,6 +20,9 @@ if [ "$1" = "backup" ]; then
 	# Extensions
 	cp -f -r ~/.local/share/gnome-shell/extensions $backupPath/
 
+	# Desktop app folders
+	dconf dump /org/gnome/desktop/app-folders/ > $backupPath/app-folders.dconf
+
 	echo "Backup concluído com sucesso."
 elif [ "$1" = "restore" ]; then
 	# Restore
@@ -36,7 +39,23 @@ elif [ "$1" = "restore" ]; then
 	# Extensions
 	cp -f -r $backupPath/extensions ~/.local/share/gnome-shell/
 
+	# Desktop app folders
+	dconf load /org/gnome/desktop/app-folders/ < $backupPath/app-folders.dconf
+
 	echo "Restauração concluída com sucesso."
+elif [ "$1" = "reset" ]; then
+	# Reset
+	# ----------
+
+	# Profile picture
+	# Shortwave
+	# Extensions
+
+	# Desktop app folders
+	dconf reset /org/gnome/desktop/app-folders/
+
+	echo "Reset concluído com sucesso."
+
 else
 	echo "Opção inválida. Por favor, informe o parâmetro 'backup' ou 'restaurar'."
 	exit 1
