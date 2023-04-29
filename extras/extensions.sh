@@ -5,7 +5,7 @@ if [ $# -lt 1 ]; then
 	exit 1
 fi
 
-path=$(dirname "$(readlink -f "$0")")
+path=$(dirname "$(dirname "$(readlink -f "$0")")")/personal/backup
 
 extensions=(
     "alphabetical-app-grid"

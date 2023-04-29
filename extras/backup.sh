@@ -1,9 +1,9 @@
 #!/bin/bash
 
-backupPath=$(dirname "$(readlink -f "$0")")
+backupPath=$(dirname "$(dirname "$(readlink -f "$0")")")/personal/backup
 
 if [ $# -lt 1 ]; then
-	echo "Por favor, informe o parâmetro 'backup' ou 'restore'"
+	echo "Por favor, informe o parâmetro 'backup', 'restore' ou 'reset'"
 	exit 1
 fi
 
@@ -23,6 +23,9 @@ if [ "$1" = "backup" ]; then
 	# Desktop app folders
 	dconf dump /org/gnome/desktop/app-folders/ > $backupPath/app-folders.dconf
 
+	# System connections
+	sudo cp -f -p /etc/NetworkManager/system-connections/* $backupPath/system-connections/
+
 	echo "Backup concluído com sucesso."
 elif [ "$1" = "restore" ]; then
 	# Restore
@@ -41,6 +44,9 @@ elif [ "$1" = "restore" ]; then
 
 	# Desktop app folders
 	dconf load /org/gnome/desktop/app-folders/ < $backupPath/app-folders.dconf
+
+	# System connections
+	sudo cp -f -p $backupPath/system-connections/* /etc/NetworkManager/system-connections/
 
 	echo "Restauração concluída com sucesso."
 elif [ "$1" = "reset" ]; then

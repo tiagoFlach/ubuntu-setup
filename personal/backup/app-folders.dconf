@@ -1,0 +1,34 @@
+[/]
+folder-children=['Utilities', 'YaST', 'f8001087-8e4e-4730-87cb-9cc7e81e0380', '283104e9-a6cb-465e-81fd-959efbd8cb7a', '86402d7e-a436-4306-9bd8-c19cadd913b3', 'acf78375-13c0-42e2-ac7c-e26f1ac30d9a', '600fdd6b-bbaf-411e-a054-8101bc86cbc3']
+
+[folders/283104e9-a6cb-465e-81fd-959efbd8cb7a]
+apps=['org.gnome.Mahjongg.desktop', 'org.gnome.Mines.desktop', 'sol.desktop', 'com.github.k4zmu2a.spacecadetpinball.desktop', 'org.gnome.Sudoku.desktop']
+name='Jogos'
+
+[folders/600fdd6b-bbaf-411e-a054-8101bc86cbc3]
+apps=['cpu-x.desktop', 'software-properties-drivers.desktop', 'ca.desrt.dconf-editor.desktop', 'org.gnome.PowerStats.desktop', 'htop.desktop', 'laptop-mode-tools.desktop', 'org.gabmus.whatip.desktop']
+name='System'
+translate=false
+
+[folders/86402d7e-a436-4306-9bd8-c19cadd913b3]
+apps=['android-studio_android-studio.desktop', 'atom.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'org.eclipse.Java.desktop', 'gitkraken_gitkraken.desktop', 'intellij-idea-community_intellij-idea-community.desktop', 'phpstorm_phpstorm.desktop', 'com.getpostman.Postman.desktop', 'sublime_merge.desktop', 'sublime_text.desktop', 'code.desktop']
+name='Desenvolvimento'
+
+[folders/Utilities]
+apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'nm-connection-editor.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.seahorse.Application.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[folders/acf78375-13c0-42e2-ac7c-e26f1ac30d9a]
+apps=['org.gnome.SoundRecorder.desktop', 'inkscape_inkscape.desktop', 'org.kde.kdenlive.desktop', 'io.github.seadve.Mousai.desktop', 'musescore_musescore.desktop', 'com.obsproject.Studio.desktop', 'org.gimp.GIMP.desktop', 'vlc.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.gnome.Totem.desktop']
+name='Multimídia'
+
+[folders/f8001087-8e4e-4730-87cb-9cc7e81e0380]
+apps=['libreoffice-startcenter.desktop', 'libreoffice-calc.desktop', 'libreoffice-draw.desktop', 'libreoffice-impress.desktop', 'libreoffice-math.desktop', 'libreoffice-writer.desktop']
+name='Escritório'
