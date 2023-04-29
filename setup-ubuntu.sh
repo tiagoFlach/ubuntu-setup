@@ -269,6 +269,7 @@ PROGRAMS_APT=(
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(	
 	com.belmoussaoui.Decoder
+	com.discordapp.Discord
 	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
 	com.gitlab.newsflash
@@ -292,7 +293,6 @@ PROGRAMS_FLATPAK=(
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
 PROGRAMS_SNAP=(
-	discord
 	inkscape
 	musescore
 	scrcpy

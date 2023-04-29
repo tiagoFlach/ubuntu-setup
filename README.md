@@ -41,7 +41,7 @@ This script automatically installs the following softwares:
   - Apostrophe (flatpak)
   - Cpu-X
   - Decoder (flatpak)
-  - Discord (snap)
+  - Discord (flatpak)
   - Extension Manager (flatpak)
   - Eyedropper (flatpak)
   - Firefox
