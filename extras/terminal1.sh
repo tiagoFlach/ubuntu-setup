@@ -141,4 +141,4 @@ sudo sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"
 # git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull
 
 echo -e " ---------- Reinicie a sessão ---------- "
-systemctl restart gdm
+# systemctl restart gdm
