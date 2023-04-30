@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Script inicial
+installation() {
+    ./extras/terminal1.sh
+}
+
+# Segundo script
+configuration() {
+    gnome-terminal -- bash ./extras/terminal2.sh
+}
+
+# Personalizaçoes
+customs() {
+}
+
 # Verifique se o zsh está instalado
 if ! command -v zsh &> /dev/null
 then
@@ -18,18 +32,3 @@ else
     # Remova o script da lista de programas iniciados com o sistema
     sudo update-rc.d -f terminal.sh remove
 fi
-
-
-# Script inicial
-installation() {
-    ./extras/terminal1.sh
-}
-
-# Segundo script
-configuration() {
-    gnome-terminal -- bash ./extras/terminal2.sh
-}
-
-# Personalizaçoes
-customs() {
-}
