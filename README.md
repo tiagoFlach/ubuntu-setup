@@ -49,7 +49,7 @@ This script automatically installs the following softwares:
   - Google Chrome
   - Google Earth Pro
   - Gimp (flatpak)
-  - Kdenlive (flatpak)
+  <!-- - Kdenlive (flatpak) -->
   - LibreOffice
   - Loupe (flatpak)
   - Microsoft Teams

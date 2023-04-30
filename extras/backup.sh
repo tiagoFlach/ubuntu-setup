@@ -25,6 +25,7 @@ if [ "$1" = "backup" ]; then
 
 	# System connections
 	sudo cp -f -p /etc/NetworkManager/system-connections/* $backupPath/system-connections/
+	chmod 665 $backupPath/system-connections/*
 
 	echo "Backup concluído com sucesso."
 elif [ "$1" = "restore" ]; then
@@ -47,6 +48,8 @@ elif [ "$1" = "restore" ]; then
 
 	# System connections
 	sudo cp -f -p $backupPath/system-connections/* /etc/NetworkManager/system-connections/
+	sudo chown root:root /etc/NetworkManager/system-connections/*
+	sudo chmod 600 /etc/NetworkManager/system-connections/*
 
 	echo "Restauração concluída com sucesso."
 elif [ "$1" = "reset" ]; then

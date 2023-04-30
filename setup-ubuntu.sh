@@ -287,7 +287,7 @@ PROGRAMS_FLATPAK=(
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	org.gnome.SoundRecorder
 	org.nickvision.tubeconverter
-	org.kde.kdenlive
+	# org.kde.kdenlive
 	org.telegram.desktop
 )
 
