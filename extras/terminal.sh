@@ -10,9 +10,9 @@ configuration() {
     gnome-terminal -- bash ./extras/terminal2.sh
 }
 
-# Personalizaçoes
-customs() {
-}
+# # Personalizaçoes
+# customs() {
+# }
 
 # Verifique se o zsh está instalado
 if ! command -v zsh &> /dev/null
