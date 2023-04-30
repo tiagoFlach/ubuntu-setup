@@ -7,7 +7,7 @@ then
     
     # Adicione o script para ser executado na inicialização
     sudo cp ./extras/terminal.sh /etc/init.d/
-    sudo update-rc.d script.sh defaults
+    sudo update-rc.d terminal.sh defaults
     
     # Reinicie o computador
     # sudo reboot
@@ -16,7 +16,7 @@ else
     configuration
     
     # Remova o script da lista de programas iniciados com o sistema
-    sudo update-rc.d -f script.sh remove
+    sudo update-rc.d -f terminal.sh remove
 fi
 
 

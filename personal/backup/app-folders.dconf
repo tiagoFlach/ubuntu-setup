@@ -6,7 +6,7 @@ apps=['org.gnome.Mahjongg.desktop', 'org.gnome.Mines.desktop', 'sol.desktop', 'c
 name='Jogos'
 
 [folders/600fdd6b-bbaf-411e-a054-8101bc86cbc3]
-apps=['cpu-x.desktop', 'software-properties-drivers.desktop', 'ca.desrt.dconf-editor.desktop', 'org.gnome.PowerStats.desktop', 'htop.desktop', 'laptop-mode-tools.desktop', 'org.gabmus.whatip.desktop']
+apps=['cpu-x.desktop', 'software-properties-drivers.desktop', 'ca.desrt.dconf-editor.desktop', 'org.gnome.PowerStats.desktop', 'gparted.desktop', 'htop.desktop', 'laptop-mode-tools.desktop', 'nvidia-settings.desktop', 'software-properties-gtk.desktop', 'gnome-session-properties.desktop', 'org.gabmus.whatip.desktop']
 name='System'
 translate=false
 
@@ -15,8 +15,9 @@ apps=['android-studio_android-studio.desktop', 'atom.desktop', 'io.dbeaver.DBeav
 name='Desenvolvimento'
 
 [folders/Utilities]
-apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'nm-connection-editor.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.seahorse.Application.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
+apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'nm-connection-editor.desktop', 'usb-creator-gtk.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'simple-scan.desktop', 'org.gnome.seahorse.Application.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
 categories=['X-GNOME-Utilities']
+excluded-apps=['software-properties-gtk.desktop', 'software-properties-gtk.desktop']
 name='X-GNOME-Utilities.directory'
 translate=true
 
@@ -26,7 +27,7 @@ name='suse-yast.directory'
 translate=true
 
 [folders/acf78375-13c0-42e2-ac7c-e26f1ac30d9a]
-apps=['org.gnome.SoundRecorder.desktop', 'inkscape_inkscape.desktop', 'org.kde.kdenlive.desktop', 'io.github.seadve.Mousai.desktop', 'musescore_musescore.desktop', 'com.obsproject.Studio.desktop', 'org.gimp.GIMP.desktop', 'vlc.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.gnome.Totem.desktop']
+apps=['org.gnome.SoundRecorder.desktop', 'inkscape_inkscape.desktop', 'io.github.seadve.Mousai.desktop', 'musescore_musescore.desktop', 'com.obsproject.Studio.desktop', 'org.gimp.GIMP.desktop', 'vlc.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.nickvision.tubeconverter.desktop', 'org.kde.kdenlive.desktop', 'org.gnome.Totem.desktop']
 name='Multimídia'
 
 [folders/f8001087-8e4e-4730-87cb-9cc7e81e0380]

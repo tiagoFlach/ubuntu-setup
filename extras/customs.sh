@@ -78,6 +78,9 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'goo
 ## Aplicativos padrão
 # xdg-mime default org.gnome.Loupe.desktop image/*
 
+# Hidden ImageMagick
+sudo sh -c 'echo "\nHidden=true" >> /usr/share/applications/display-im6.q16.desktop'
+
 ## Apagar tela
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 60
