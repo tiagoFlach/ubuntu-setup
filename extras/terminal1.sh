@@ -122,6 +122,8 @@ sudo usermod --shell $(which zsh) $USER
 ## Oh My Zsh
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
+# ------------------------------------------------------------------------------
+
 # alias
 echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >> .zshrc
 echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >> .bash_aliases

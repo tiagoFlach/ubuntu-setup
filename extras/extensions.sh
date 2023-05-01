@@ -5,10 +5,11 @@ if [ $# -lt 1 ]; then
 	exit 1
 fi
 
-path=$(dirname "$(dirname "$(readlink -f "$0")")")/personal/backup
+path=$(dirname "$(dirname "$(readlink -f "$0")")")/personal/backup/extensions
 
 extensions=(
     "alphabetical-app-grid"
+    "app-hider"
     "custom-hot-corners-extended"
     "dash-to-dock"
     "lockkeys"
