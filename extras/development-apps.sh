@@ -7,8 +7,10 @@
 # This scrip install de following apps:
 # 	Android Studio
 # 	Atom
+# 	Composer
 #	Eclipse
 #	DBeaver
+# 	Docker
 # 	Filezilla
 #	Git
 #	GitHub CLI
@@ -26,8 +28,10 @@
 APPS=(
 	"android-studio"
 	"atom"
+	"composer"
 	"eclipse"
 	"dbeaver"
+	"docker"
 	"filezilla"
 	"git"
 	"gh"
@@ -70,6 +74,13 @@ atom() {
 }
 
 
+# Composer
+# --------------------------------------
+composer() {
+	sudo apt install composer -y
+}
+
+
 # Eclipse
 # --------------------------------------
 eclipse() {
@@ -85,7 +96,22 @@ dbeaver() {
 }
 
 
-## Git
+# Docker
+# --------------------------------------
+docker() {
+	# Prerequisite packages
+	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	# Then add the GPG key for the official Docker repository to your system:
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+	# Add the Docker repository to APT sources:
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	sudo apt update
+	apt-cache policy docker-ce
+	sudo apt install docker-ce
+}
+
+
+# Git
 # --------------------------------------
 git() {
 	sudo apt-add-repository ppa:git-core/ppa -y
@@ -95,7 +121,7 @@ git() {
 }
 
 
-## GitHub CLI
+# GitHub CLI
 # --------------------------------------
 gh() {
 	if [ ! -f "/usr/share/keyrings/githubcli-archive-keyring.gpg" ]; then
@@ -157,7 +183,7 @@ postman() {
 
 # Python Pip
 # --------------------------------------
-python_pyp() {
+python_pip() {
 	sudo apt install python3-pip -y
 }
 
@@ -202,8 +228,7 @@ filezilla() {
 	sudo apt install filezilla -y
 }
 
-## Composer ##
-# sudo apt install composer -y
+
 
 # Define colors
 RED='\033[0;31m'

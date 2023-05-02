@@ -178,6 +178,7 @@ PROGRAMS_APT=(
 	net-tools
 	rar
 	ubuntu-restricted-extras
+	# ubnuntu-wallpapers
 	ufw
 	unrar
 	unzip
