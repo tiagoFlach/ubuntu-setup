@@ -391,22 +391,19 @@ wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 
 
-# ----- Instalar programas no apt ----- ##
-for nome_do_programa in ${PROGRAMS_APT[@]}; do
-	if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
+# ----- Instalando pacote via Apt ----- ##
+for program_name in ${PROGRAMS_APT[@]}; do
+	if ! dpkg -l | grep -q $program_name; then # Só instala se já não estiver instalado
 		echo -e "\n\n${YELLOW}"$LINE1
-		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
+		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		sudo apt install "$nome_do_programa" -y -q
+		sudo apt install "$program_name" -y -q
 	fi
 done
 
-# Bug fixes
-sudo apt install -y --fix-broken --install-recommends
 
-
-## ----- Instalando pacotes Flatpak ---- -##
+## ----- Instalando pacotes via Flatpak ---- -##
 sudo flatpak update -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
@@ -420,7 +417,8 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 	fi
 done
 
-## ----- Instalando pacotes Snap ----- ##
+
+## ----- Instalando pacotes via Snap ----- ##
 sudo snap refresh
 
 for program_name in ${PROGRAMS_SNAP[@]}; do
@@ -454,6 +452,9 @@ sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 ## Anidesk ##
 sudo systemctl stop anydesk
 sudo systemctl disable anydesk.service
+
+## Spotify ##
+flatpak permission-set notifications notification com.spotify.Client no
 
 
 ## ----- Finalização, atualização e limpeza ----- ##
