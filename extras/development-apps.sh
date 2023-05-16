@@ -108,6 +108,10 @@ docker() {
 	sudo apt update
 	apt-cache policy docker-ce
 	sudo apt install docker-ce -y
+
+	# Post-installation steps for Linux
+	sudo groupadd docker
+	sudo usermod -aG docker $USER
 }
 
 
