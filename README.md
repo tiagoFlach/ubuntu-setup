@@ -197,7 +197,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 
-- Email: tiagolucas9830@gmail.com
+- Email: <tiagolucas9830@gmail.com>
 - GitHub: [@tiagoFlach](https://github.com/tiagoFlach)
 - Instagram: [@flachtiago](https://instagram.com/flachtiago)
 - LinkedIn: [Tiago Lucas Flach](https://linkedin.com/in/tiago-lucas-flach-585033121/)
