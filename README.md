@@ -184,7 +184,6 @@ Contains scripts for the automatic installation of the following softwares:
   - PHP MyAdmin
 - Laravel
 - Popcorn Time
-- WPS Office
 
 ## Contributing
 

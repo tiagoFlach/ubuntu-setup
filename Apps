@@ -158,19 +158,6 @@
 	6.
 		sudo apt install skypeforlinux
 --------------------
-	WPS Office
-	(http://wps-community.org/download.html)
-	1.
-		wget http://kdl.cc.ksosoft.com/wps-community/download/6757/wps-office_10.1.0.6757_amd64.deb -O wps-office.deb
-	2.
-		wget http://kdl.cc.ksosoft.com/wps-community/download/8372/wps-office_11.1.0.8372_amd64.deb -O web-office-fonts.deb
-	3.
-		sudo dpkg -i wps-office*.deb
-	4.
-		sudo apt install -f
-	5.
-		sudo apt update
---------------------
 	Rambox
 --------------------
 	Franz

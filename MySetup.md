@@ -135,8 +135,7 @@
   - Telegram
   - VLC
   - VirtualBox
-  - Visual Studio
-  - ~~WPS Office~~
+  - Visual Studio Code
 
 ---
 

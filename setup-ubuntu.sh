@@ -302,7 +302,6 @@ PROGRAMS_SNAP=(
 	# slack --classic
 	# spotify
 	# telegram-desktop
-	# wps-office-multilang
 )
 # ---------------------------------------------------------------------------- #
 
