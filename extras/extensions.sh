@@ -51,10 +51,10 @@ elif [ "$1" = "restore" ]; then
         dconf load /com/ftpix/$extension/ < $path/$extension.dconf
     done
 
-    ## Extensões desativadas
+    # Extensões desativadas
     gsettings set org.gnome.shell disabled-extensions "['ding@rastersoft.com']"
 
-    ## Remover Extensões
+    # Remover Extensões
     for extension in ${removeExtendions[@]}; do
         sudo rm -r /usr/share/gnome-shell/extensions/$extension  
     done
@@ -75,7 +75,7 @@ else
 	exit 1
 fi
 
-## OpenWeather ##
+# OpenWeather
 # gsettings set org.gnome.shell.extensions.openweather city '-29.372474,-51.494908>Barão>-1 && -30.0324999,-51.2303767>Porto Alegre>-1'
 # gsettings set org.gnome.shell.extensions.openweather center-forecast true
 # gsettings set org.gnome.shell.extensions.openweather menu-alignment 50

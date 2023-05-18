@@ -84,7 +84,7 @@ sudo ufw enable
 sudo apt install mysql-server mysql-client -y
 sudo mysql_secure_installation
 
-### Answer
+## Answer
 # --------------------------------------
 
 #
@@ -99,7 +99,7 @@ sudo mysql_secure_installation
 #
 # Press y|Y for Yes, any other key for No:
 #
-### y
+## y
 
 # --------------------------------------
 
@@ -111,7 +111,7 @@ sudo mysql_secure_installation
 #
 # Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG:
 #
-### 1
+## 1
 
 # --------------------------------------
 
@@ -119,20 +119,20 @@ sudo mysql_secure_installation
 #
 # New password:
 #
-### $MYSQL_ROOT_PASSWORD
+## $MYSQL_ROOT_PASSWORD
 
 # --------------------------------------
 
 # Re-enter new password:
 #
-### $MYSQL_ROOT_PASSWORD
+## $MYSQL_ROOT_PASSWORD
 
 # --------------------------------------
 
 # Estimated strength of the password: 100
 # Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) :
 #
-### y
+## y
 
 # --------------------------------------
 
@@ -145,7 +145,7 @@ sudo mysql_secure_installation
 #
 # Remove anonymous users? (Press y|Y for Yes, any other key for No) :
 #
-### y
+## y
 
 # --------------------------------------
 
@@ -155,7 +155,7 @@ sudo mysql_secure_installation
 #
 # Disallow root login remotely? (Press y|Y for Yes, any other key for No) :
 #
-### y
+## y
 
 # --------------------------------------
 
@@ -166,7 +166,7 @@ sudo mysql_secure_installation
 #
 # Remove test database and access to it? (Press y|Y for Yes, any other key for No) :
 #
-### y
+## y
 
 # --------------------------------------
 
@@ -181,7 +181,7 @@ sudo mysql_secure_installation
 #
 # Reload privilege tables now? (Press y|Y for Yes, any other key for No) :
 #
-### y
+## y
 
 # --------------------------------------
 
@@ -230,7 +230,7 @@ EOF
 
 sudo apt install phpmyadmin -y
 
-### Answer
+## Answer
 # --------------------------------------
 
 #     ┌─────────────────┤ Configurando phpmyadmin ├──────────────────┐
@@ -247,8 +247,8 @@ sudo apt install phpmyadmin -y
 #     │                                                              │
 #     └──────────────────────────────────────────────────────────────┘
 #
-### [*] apache2
-### <Ok>
+## [*] apache2
+## <Ok>
 
 # --------------------------------------
 
@@ -272,7 +272,7 @@ sudo apt install phpmyadmin -y
 # │                                                                     │
 # └─────────────────────────────────────────────────────────────────────┘
 #
-### <Sim>
+## <Sim>
 
 # --------------------------------------
 
@@ -289,8 +289,8 @@ sudo apt install phpmyadmin -y
 #   │                                                                  │
 #   └──────────────────────────────────────────────────────────────────┘
 #
-### $PHPMYADMIN_PASSWORD
-### <Ok>
+## $PHPMYADMIN_PASSWORD
+## <Ok>
 
 # --------------------------------------
 
@@ -305,8 +305,8 @@ sudo apt install phpmyadmin -y
 #                  │                                    │
 #                  └────────────────────────────────────┘
 #
-### $PHPMYADMIN_PASSWORD
-### <Ok>
+## $PHPMYADMIN_PASSWORD
+## <Ok>
 
 # --------------------------------------
 
@@ -354,7 +354,7 @@ echo "<?php phpinfo(); ?>" | tee /var/www/html/phpinfo.php
 echo "file:///var/www/html html" | sudo tee ~/.config/gtk-3.0/bookmarks
 
 # Display_errors = on
-## PHPINI = /etc/php/7.4/apache2/php.ini
+# PHPINI = /etc/php/7.4/apache2/php.ini
 sudo sed -i 's/display_errors = Off/display_errors = On/' $PHPINI
 
 # Upload_max_filesize = 64M
@@ -385,7 +385,7 @@ status
 
 # --------------------------------------
 
-## Theme ##
+# Theme
 # https://www.phpmyadmin.net/themes/
 #
 # cd /usr/share/phpmyadmin/themes/

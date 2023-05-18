@@ -22,7 +22,7 @@ rm -r Meslo
 # sudo wget -P /usr/share/fonts/truetype/meslolgs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
 
 
-## Gnome Terminal ##
+# Gnome Terminal
 dconfdir=/org/gnome/terminal/legacy/profiles:
 
 get_profile_uuid() {
@@ -119,7 +119,7 @@ sudo apt install curl wget git neofetch fonts-powerline -y -q
 chsh -s $(which zsh)
 sudo usermod --shell $(which zsh) $USER
 
-## Oh My Zsh
+# Oh My Zsh
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # ------------------------------------------------------------------------------

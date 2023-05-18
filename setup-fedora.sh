@@ -18,7 +18,7 @@ BLUE='\033[0;34m'
 BOLDBLUE='\033[1;34m'
 NC='\033[0m'        # No Color
 
-## Informações do sistema ##
+# Informações do sistema
 system="`lsb_release -sd`"
 machine="`uname -m`"
 
@@ -116,7 +116,7 @@ COPRS=(
 	zeno/scrcpy							# Scrcpy
 )
 
-## AnyDesk ##
+# AnyDesk
 cat > /etc/yum.repos.d/AnyDesk-Fedora.repo << "EOF" 
 [anydesk]
 name=AnyDesk Fedora - stable
@@ -126,15 +126,15 @@ repo_gpgcheck=1
 gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
 
-## Skype ##
+# Skype
 URL_SKYPE_REPO="https://repo.skype.com/rpm/stable/skype-stable.repo"
 
 
 # ----- URLs -----#
-## Google Earth Pro ##
+# Google Earth Pro
 URL_GOOGLE_EARTH_PRO="https://dl.google.com/dl/earth/client/current/google-earth-stable_current_x86_64.rpm"
 
-## Microsoft Teams ##
+# Microsoft Teams
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
 
 
@@ -146,7 +146,7 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 
 ## ----- Programas a serem instalados via dnf ----- ##
 PROGRAMS_DNF=(
-	## Sistema
+	# Sistema
 	akmod-nvidia
 	android-tools 
 	dnf-plugins-core
@@ -165,14 +165,14 @@ PROGRAMS_DNF=(
 	wmctrl
 	zip
 
-	## CLI
+	# CLI
 	git
 	htop
 	neofetch
 	speedtest
 	yt-dlp
 
-	## Fontes
+	# Fontes
 	adobe-source-sans-pro-fonts
 	baekmuk-*
 	dejavu-fonts-*
@@ -210,7 +210,7 @@ PROGRAMS_DNF=(
 	ttf-ancient-fonts
 	ttf-mscorefonts-installer
 
-	## Gnome
+	# Gnome
 	chrome-gnome-shell
 	dconf-editor
 	gnome-backgrounds
@@ -221,17 +221,17 @@ PROGRAMS_DNF=(
 	gnome-weather
 	gparted
 
-	## Gstreamer
+	# Gstreamer
 	gstreamer1-plugins-bad-\*
 	gstreamer1-plugins-good-\*
 	gstreamer1-plugins-base
 	gstreamer1-plugin-openh264 
 	gstreamer1-libav 
 
-	## Lame
+	# Lame
 	lame\*
 
-	## Aplicativos
+	# Aplicativos
 	anydesk
 	discord
 	inkscape
@@ -282,7 +282,7 @@ PROGRAMS_FLATPAK=(
 
 
 # -------------------------------- PRE-INSTALL ------------------------------- #
-## Removendo programas desnecessários ##
+# Removendo programas desnecessários
 # Yelp
 sudo dnf remove yelp -y
 # ---------------------------------------------------------------------------- #
@@ -292,7 +292,7 @@ sudo dnf remove yelp -y
 
 
 # -------------------------------- REQUISITOS -------------------------------- #
-## Configure DNF for Faster Downloads of Packages ##
+# Configure DNF for Faster Downloads of Packages
 sudo sed -i -e '$a# Added for speed:\nfastestmirror=True\ndeltarpm=True\ndefaultyes=True\nmax_parellel_downloads=10' /etc/dnf/dnf.conf
 
 ## ----- Atualizando o repositório ----- ##
@@ -313,10 +313,10 @@ for copr in ${COPRS[@]}; do
 	sudo dnf copr enable "$copr" -y
 done
 
-## Skype ##
+# Skype
 # sudo dnf config-manager --add-repo $URL_SKTYPE_REPO
 
-## Speedtest ## 
+# Speedtest 
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
 # ---------------------------------------------------------------------------- #
 
@@ -333,7 +333,7 @@ mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
 
-## Instalando pacotes .deb baixados na sessão anterior ##
+# Instalando pacotes .deb baixados na sessão anterior
 sudo dnf install $DIRETORIO_DOWNLOADS/*.rpm
 
 
@@ -373,13 +373,13 @@ done
 sudo dnf remove gstreamer1-plugins-bad-free-devel -y
 sudo dnf remove lame-devel -y
 
-## Multimídia ##
+# Multimídia
 sudo dnf group upgrade --with-optional Multimedia -y
 
-# Change Hostname ##
+# Change Hostname
 sudo hostnamectl set-hostname "Falcon-G5"
 
-## UFW ##
+# UFW
 sudo ufw enable
 
 ## ----- Finalização, atualização e limpeza ----- ##

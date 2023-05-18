@@ -18,7 +18,7 @@ BLUE='\033[0;34m'
 BOLDBLUE='\033[1;34m'
 NC='\033[0m'        # No Color
 
-## Informações do sistema ##
+# Informações do sistema
 system="`lsb_release -sd`"
 machine="`uname -m`"
 
@@ -121,29 +121,29 @@ PPAS=(
 	ppa:stellarium/stellarium-releases	# Stellarium
 )
 
-## AnyDesk ##
+# AnyDesk
 URL_ANYDESK_KEY="https://keys.anydesk.com/repos/DEB-GPG-KEY"
 URL_ANYDESK_PPA="http://deb.anydesk.com/"
 
-## Spotify ##
+# Spotify
 # URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
 # URL_SPOTIFY_PPA="http://repository.spotify.com"
 
 
 # ----- URLs -----#
-## Google Chrome ##
+# Google Chrome
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
-## Google Earth Pro ##
+# Google Earth Pro
 URL_GOOGLE_EARTH_PRO="https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb"
 
-## Microsoft Teams ##
+# Microsoft Teams
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
 
-## Slack ##
+# Slack
 # URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.25.0/prod/x64/slack-desktop-4.25.0-amd64.deb"
 
-## Skype ##
+# Skype
 # URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
 ## ----- Diretório de Downloads ----- ##
@@ -155,7 +155,7 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 
 ## ----- Programas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
-	## Sistema
+	# Sistema
 	exfat-fuse
 	ffmpeg
 	laptop-mode-tools
@@ -186,14 +186,14 @@ PROGRAMS_APT=(
 	wmctrl
 	zip
 
-	## CLI
+	# CLI
 	git
 	htop
 	neofetch
 	speedtest
 	yt-dlp
 
-	## Fontes
+	# Fontes
 	fonts-apropal
 	fonts-atarismall
 	fonts-baekmuk
@@ -237,7 +237,7 @@ PROGRAMS_APT=(
 	ttf-ancient-fonts
 	ttf-mscorefonts-installer
 
-	## Gnome
+	# Gnome
 	chrome-gnome-shell
 	dconf-editor
 	gnome-backgrounds
@@ -249,7 +249,7 @@ PROGRAMS_APT=(
 	gnome-weather
 	gparted
 
-	## Aplicativos
+	# Aplicativos
 	anydesk
 	cpu-x
 	# firefox
@@ -310,15 +310,15 @@ PROGRAMS_SNAP=(
 
 
 # -------------------------------- PRE-INSTALL ------------------------------- #
-## Removendo programas desnecessários ##
-## Firefox (snap) ##
+# Removendo programas desnecessários
+# Firefox (snap)
 # sudo snap remove firefox
-## Thunderbird ##
+# Thunderbird
 sudo apt purge --auto-remove thunderbird -y
-## Yelp ##
+# Yelp
 sudo apt purge --auto-remove yelp -y
 
-## Removendo travas eventuais do apt ##
+# Removendo travas eventuais do apt
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 # ---------------------------------------------------------------------------- #
@@ -328,7 +328,7 @@ sudo rm /var/cache/apt/archives/lock
 
 
 # -------------------------------- REQUISITOS -------------------------------- #
-## Adicionando/Confirmando arquitetura de 32 bits ##
+# Adicionando/Confirmando arquitetura de 32 bits
 # sudo dpkg --add-architecture i386
 
 ## ----- Atualizando o repositório ----- ##
@@ -345,13 +345,13 @@ for ppa in ${PPAS[@]}; do
 	fi
 done
 
-## AnyDesk ##
+# AnyDesk
 if [ ! -f "/usr/share/keyrings/anydesk-stable-keyring.gpg" ]; then
 	wget -qO - $URL_ANYDESK_KEY | sudo gpg --dearmor -o /usr/share/keyrings/anydesk-stable-keyring.gpg
 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 fi
 
-## Firefox ##
+# Firefox
 # Alter the Firefox package priority to ensure the PPA/deb/apt version of Firefox is preferred.
 # echo '
 # Package: *
@@ -359,11 +359,11 @@ fi
 # Pin-Priority: 1001
 # ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
 
-## Speedtest ##
+# Speedtest
 sudo apt install curl
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 
-## Spotify ##
+# Spotify
 # if [ ! -f "/usr/share/keyrings/spotify-keyring.gpg" ]; then
 # 	wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
 # 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -375,7 +375,7 @@ curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.
 
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
-## Atualizando o repositório depois da adição de novos repositórios ##
+# Atualizando o repositório depois da adição de novos repositórios
 sudo apt update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
@@ -386,7 +386,7 @@ wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
 # wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
 # wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
-## Instalando pacotes .deb baixados na sessão anterior ##
+# Instalando pacotes .deb baixados na sessão anterior
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 
 
@@ -436,23 +436,26 @@ done
 
 
 # ------------------------------- POST INSTALL ------------------------------- #
-## Posiveis erros ##
+# Posiveis erros
 sudo apt install -y --fix-broken --install-recommends
 
-## UFW ##
+# UFW
 sudo ufw enable
 
-## Drivers ##
+# Drivers
 sudo ubuntu-drivers autoinstall
 
-## Repositorio parceiros canonical ##
+# Repositorio parceiros canonical
 sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 
-## Anidesk ##
+# Anidesk
 sudo systemctl stop anydesk
 sudo systemctl disable anydesk.service
 
-## Spotify ##
+# Shortwave
+flatpak permission-set notifications notification de.haeckerfelix.Shortwave no
+
+# Spotify
 flatpak permission-set notifications notification com.spotify.Client no
 
 
