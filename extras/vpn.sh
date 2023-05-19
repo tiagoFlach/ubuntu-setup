@@ -6,3 +6,7 @@ sudo nmcli connection import type openvpn file ~/Documentos/Madesa/Acesso\ Remot
 # User
 sudo nmcli connection modify t.flach@mds.local_ssl_vpn_config connection.id t.flach@mds
 sudo nmcli connection modify t.flach@mds +vpn.data "username=t.flach"
+
+# Configs
+sudo nmcli connection modify t.flach@mds connection.permissions user:$USER
+sudo nmcli connection modify t.flach@mds ipv4.never-default true
