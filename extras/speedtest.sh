@@ -1,3 +1,4 @@
+#!/bin/bash
 # wget -qO - https://packagecloud.io/ookla/speedtest-cli/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
 # curl -fsSL https://packagecloud.io/ookla/speedtest-cli/gpgkey | sudo gpg --dearmor -o /etc/apt/keyrings
 
