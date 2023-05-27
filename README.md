@@ -92,6 +92,7 @@ This script automatically installs the following softwares:
   - laptop-mode-tools
   - lsb
   - net-tools
+  - nautilus-image-converter
   - ubuntu-restricted-extras
   - unrar
   - v4l2loopback-dkms

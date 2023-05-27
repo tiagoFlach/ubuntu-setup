@@ -156,6 +156,7 @@ PROGRAMS_DNF=(
 	redhat-lsb-core
 	meson 
 	net-tools
+	nautilus-image-converter
 	rar
 	rpmfusion-free-obsolete-packages
 	SDL2-devel

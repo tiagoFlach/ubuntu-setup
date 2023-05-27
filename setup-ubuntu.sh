@@ -175,6 +175,7 @@ PROGRAMS_APT=(
 	gstreamer1.0-gtk3 
 	gstreamer1.0-qt5 
 	gstreamer1.0-pulseaudio
+	nautilus-image-converter
 	net-tools
 	rar
 	ubuntu-restricted-extras
