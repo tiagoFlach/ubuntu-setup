@@ -170,6 +170,7 @@ Contains scripts for the automatic installation of the following softwares:
   - GitHub CLI
   - GitKraken
   - IntelliJ
+  - Insomnia
   - NodeJs
   - NPM
   - PhpStorm

@@ -16,6 +16,7 @@
 #	GitHub CLI
 # 	GitKraken
 #	InteliJ
+#	Insomnia
 # 	NodeJs
 # 	NPM
 # 	PhpStorm
@@ -37,6 +38,7 @@ APPS=(
 	"gh"
 	"gitkraken"
 	"intellij"
+	"insomnia"
 	"nodejs"
 	"npm"
 	"phpstorm"
@@ -150,6 +152,13 @@ gitkraken() {
 # --------------------------------------
 intellij() {
 	sudo snap install intellij-idea-community --classic -y
+}
+
+
+# Insomnia
+# --------------------------------------
+insomnia() {
+	flatpak install flathub rest.insomnia.Insomnia -y
 }
 
 

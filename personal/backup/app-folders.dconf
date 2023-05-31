@@ -6,16 +6,16 @@ apps=['org.gnome.Mahjongg.desktop', 'org.gnome.Mines.desktop', 'sol.desktop', 'c
 name='Jogos'
 
 [folders/600fdd6b-bbaf-411e-a054-8101bc86cbc3]
-apps=['cpu-x.desktop', 'software-properties-drivers.desktop', 'ca.desrt.dconf-editor.desktop', 'org.gnome.PowerStats.desktop', 'gparted.desktop', 'htop.desktop', 'laptop-mode-tools.desktop', 'nvidia-settings.desktop', 'software-properties-gtk.desktop', 'gnome-session-properties.desktop', 'org.gabmus.whatip.desktop']
+apps=['cpu-x.desktop', 'software-properties-drivers.desktop', 'ca.desrt.dconf-editor.desktop', 'org.gnome.PowerStats.desktop', 'gparted.desktop', 'htop.desktop', 'laptop-mode-tools.desktop', 'nvidia-settings.desktop', 'software-properties-gtk.desktop', 'gnome-session-properties.desktop', 'gnome-language-selector.desktop', 'org.gabmus.whatip.desktop']
 name='System'
 translate=false
 
 [folders/86402d7e-a436-4306-9bd8-c19cadd913b3]
-apps=['android-studio_android-studio.desktop', 'atom.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'org.eclipse.Java.desktop', 'gitkraken_gitkraken.desktop', 'intellij-idea-community_intellij-idea-community.desktop', 'phpstorm_phpstorm.desktop', 'com.getpostman.Postman.desktop', 'sublime_merge.desktop', 'sublime_text.desktop', 'code.desktop']
+apps=['android-studio_android-studio.desktop', 'atom.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'org.eclipse.Java.desktop', 'gitkraken_gitkraken.desktop', 'rest.insomnia.Insomnia.desktop', 'intellij-idea-community_intellij-idea-community.desktop', 'phpstorm_phpstorm.desktop', 'com.getpostman.Postman.desktop', 'sublime_merge.desktop', 'sublime_text.desktop', 'code.desktop']
 name='Desenvolvimento'
 
 [folders/Utilities]
-apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'nm-connection-editor.desktop', 'usb-creator-gtk.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'simple-scan.desktop', 'org.gnome.seahorse.Application.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
+apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'nm-connection-editor.desktop', 'usb-creator-gtk.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'gnome-system-monitor.desktop', 'simple-scan.desktop', 'org.gnome.seahorse.Application.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
 categories=['X-GNOME-Utilities']
 excluded-apps=['software-properties-gtk.desktop', 'software-properties-gtk.desktop']
 name='X-GNOME-Utilities.directory'

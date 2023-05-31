@@ -25,11 +25,11 @@ if [ "$1" = "backup" ]; then
 
 	# System connections
 	sudo cp -f -p /etc/NetworkManager/system-connections/* $backupPath/system-connections/
-	chmod 665 $backupPath/system-connections/*
+	sudo chmod 665 $backupPath/system-connections/*
 
 	# Remmina
+	mkdir -p $backupPath/remmina
 	sudo cp -r ~/.local/share/remmina/* $backupPath/remmina/
-
 
 	echo "Backup concluído com sucesso."
 elif [ "$1" = "restore" ]; then
@@ -56,7 +56,8 @@ elif [ "$1" = "restore" ]; then
 	sudo chmod 600 /etc/NetworkManager/system-connections/*
 
 	# Remmina
-	sudo cp -r $backupPath/remmina/* ~/.local/share/remmina/
+	mkdir -p ~/.local/share/remmina
+	sudo cp -r -p $backupPath/remmina/* ~/.local/share/remmina/
 
 	echo "Restauração concluída com sucesso."
 elif [ "$1" = "reset" ]; then
