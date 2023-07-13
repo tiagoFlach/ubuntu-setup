@@ -17,6 +17,7 @@
 # 	GitKraken
 #	InteliJ
 #	Insomnia
+#	MySQL Workbench
 # 	NodeJs
 # 	NPM
 # 	PhpStorm
@@ -39,6 +40,7 @@ APPS=(
 	"gitkraken"
 	"intellij"
 	"insomnia"
+	"mysql-workbench"
 	"nodejs"
 	"npm"
 	"phpstorm"
@@ -161,6 +163,12 @@ insomnia() {
 	flatpak install flathub rest.insomnia.Insomnia -y
 }
 
+
+# Mysql Workbench
+# --------------------------------------
+mysql_workbench() {
+	sudo snap install mysql-workbench-community -y
+}
 
 # NodeJs
 # --------------------------------------

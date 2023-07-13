@@ -171,6 +171,7 @@ Contains scripts for the automatic installation of the following softwares:
   - GitKraken
   - IntelliJ
   - Insomnia
+  - MySQL Workbench
   - NodeJs
   - NPM
   - PhpStorm
