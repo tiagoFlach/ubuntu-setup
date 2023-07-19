@@ -167,7 +167,9 @@ PROGRAMS_DNF=(
 	zip
 
 	# CLI
+	cmatrix
 	git
+	btop
 	htop
 	neofetch
 	speedtest
