@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Dependencias PHP
 sudo apt install php-common -y
 sudo apt install php-bcmath -y

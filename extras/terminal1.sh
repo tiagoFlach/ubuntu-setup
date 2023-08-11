@@ -21,18 +21,16 @@ rm -r Meslo
 # sudo wget -P /usr/share/fonts/truetype/meslolgs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 # sudo wget -P /usr/share/fonts/truetype/meslolgs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
 
-
 # Gnome Terminal
 dconfdir=/org/gnome/terminal/legacy/profiles:
 
 get_profile_uuid() {
     # Print the UUID linked to the profile name sent in parameter
-    local profile_ids=($(dconf list $dconfdir/ | grep ^: |\
-                        sed 's/\///g' | sed 's/://g'))
+    local profile_ids=($(dconf list $dconfdir/ | grep ^: |
+        sed 's/\///g' | sed 's/://g'))
     local profile_name="$1"
     for i in ${!profile_ids[*]}; do
-        if [[ "$(dconf read $dconfdir/:${profile_ids[i]}/visible-name)" == \
-            "'$profile_name'" ]]; then
+        if [[ "$(dconf read $dconfdir/:${profile_ids[i]}/visible-name)" == "'$profile_name'" ]]; then
             echo "${profile_ids[i]}"
             return 0
         fi
@@ -40,14 +38,14 @@ get_profile_uuid() {
 }
 
 create_new_profile() {
-    local profile_ids=($(dconf list $dconfdir/ | grep ^: |\
-                        sed 's/\///g' | sed 's/://g'))
+    local profile_ids=($(dconf list $dconfdir/ | grep ^: |
+        sed 's/\///g' | sed 's/://g'))
     local profile_name="$1"
     local profile_ids_old="$(dconf read "$dconfdir"/list | tr -d "]")"
     local profile_id="$(uuidgen)"
 
-    [ -z "$profile_ids_old" ] && local profile_ids_old="["  # if there's no `list` key
-    [ ${#profile_ids[@]} -gt 0 ] && local delimiter=,  # if the list is empty
+    [ -z "$profile_ids_old" ] && local profile_ids_old="[" # if there's no `list` key
+    [ ${#profile_ids[@]} -gt 0 ] && local delimiter=,      # if the list is empty
     dconf write $dconfdir/list \
         "${profile_ids_old}${delimiter} '$profile_id']"
     dconf write "$dconfdir/:$profile_id"/visible-name "'$profile_name'"
@@ -125,13 +123,13 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 # ------------------------------------------------------------------------------
 
 # alias
-echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >> .zshrc
-echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >> .bash_aliases
-echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >> .zshrc
-echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >> .bash_aliases
+echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >>.zshrc
+echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >>.bash_aliases
+echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >>.zshrc
+echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >>.bash_aliases
 
 # indent
-echo "ZLE_RPROMPT_INDENT=0" >> .zshrc
+echo "ZLE_RPROMPT_INDENT=0" >>.zshrc
 
 # Buscador com ctrl+r FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install

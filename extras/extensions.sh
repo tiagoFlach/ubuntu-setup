@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-	echo "Por favor, informe o parâmetro 'backup', 'restore' ou 'reset'"
-	exit 1
+    echo "Por favor, informe o parâmetro 'backup', 'restore' ou 'reset'"
+    exit 1
 fi
 
 path=$(dirname "$(dirname "$(readlink -f "$0")")")/personal/backup/extensions
@@ -33,22 +33,22 @@ if [ "$1" = "backup" ]; then
     # Backup
     # ----------
     for extension in ${extensions[@]}; do
-        dconf dump /org/gnome/shell/extensions/$extension/ > $path/$extension.dconf
+        dconf dump /org/gnome/shell/extensions/$extension/ >$path/$extension.dconf
     done
 
     for extension in ${extensions2[@]}; do
-        dconf dump /com/ftpix/$extension/ > $path/$extension.dconf
+        dconf dump /com/ftpix/$extension/ >$path/$extension.dconf
     done
 
 elif [ "$1" = "restore" ]; then
-	# Restore
-	# ----------
+    # Restore
+    # ----------
     for extension in ${extensions[@]}; do
-        dconf load /org/gnome/shell/extensions/$extension/ < $path/$extension.dconf
+        dconf load /org/gnome/shell/extensions/$extension/ <$path/$extension.dconf
     done
 
     for extension in ${extensions2[@]}; do
-        dconf load /com/ftpix/$extension/ < $path/$extension.dconf
+        dconf load /com/ftpix/$extension/ <$path/$extension.dconf
     done
 
     # Extensões desativadas
@@ -56,7 +56,7 @@ elif [ "$1" = "restore" ]; then
 
     # Remover Extensões
     for extension in ${removeExtendions[@]}; do
-        sudo rm -r /usr/share/gnome-shell/extensions/$extension  
+        sudo rm -r /usr/share/gnome-shell/extensions/$extension
     done
 
 elif [ "$1" = "reset" ]; then
@@ -71,8 +71,8 @@ elif [ "$1" = "reset" ]; then
     done
 
 else
-	echo "Opção inválida. Por favor, informe o parâmetro 'backup' ou 'restaurar'."
-	exit 1
+    echo "Opção inválida. Por favor, informe o parâmetro 'backup' ou 'restaurar'."
+    exit 1
 fi
 
 # OpenWeather

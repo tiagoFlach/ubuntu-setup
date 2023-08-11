@@ -25,9 +25,6 @@ PHPINI="$(locate -l 1 php.ini)"
 
 # --------------------------------------
 
-
-
-
 # Securing PhpMyAdmin
 # --------------------------------------
 sudo systemctl stop apache2
@@ -37,15 +34,10 @@ sudo systemctl start apache2
 update
 status
 
-
-
-
 # --------------------------------------
 #sudo mysqladmin -u root password $MYSQL_ROOT_PASSWORD
 
-
 #sudo mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
-
 
 # Working
 # --------------------------------------
@@ -62,7 +54,6 @@ status
 #sudo mysql -u root -e "UPDATE mysql.user SET Password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User='root'"
 
 #sudo mysql -u root -e "SET PASSWORD FOR root@localhost = PASSWORD('$MYSQL_ROOT_PASSWORD');FLUSH PRIVILEGES;"
-
 
 #sudo mysql -u root -B -N -e "SHOW STATUS LIKE 'Uptime'"
 #sudo mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "SELECT User, Authentication_string, Plugin FROM mysql.user"

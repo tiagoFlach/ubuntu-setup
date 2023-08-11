@@ -5,10 +5,6 @@
 # https://github.com/tiagoFlach
 # Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
-
-
-
-
 # ------------------------------- CONFIGURAÇÕES ------------------------------ #
 # Define colors
 RED='\033[0;31m'
@@ -16,24 +12,23 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 BOLDBLUE='\033[1;34m'
-NC='\033[0m'        # No Color
+NC='\033[0m' # No Color
 
 # Informações do sistema
-system="`lsb_release -sd`"
-machine="`uname -m`"
+system="$(lsb_release -sd)"
+machine="$(uname -m)"
 
 arch="amd64"
 arch2="x64"
 arch3="64"
-if [ "$machine" != "x86_64" ]
-then
+if [ "$machine" != "x86_64" ]; then
 	arch="i386"
 	arch2="ia32"
 	arch3="32"
 fi
 
 ## ---------- Tela Inicial ---------- ##
-COLS="`tput cols`"
+COLS="$(tput cols)"
 SPACES1="	"
 SPACES2="		"
 SPACES3="			"
@@ -48,7 +43,7 @@ LINE8=""
 
 # ----------
 
-for (( i = 0; i < $COLS; i++ )); do
+for ((i = 0; i < $COLS; i++)); do
 	LINE1+="-"
 done
 echo -e "${BLUE}"$LINE1
@@ -58,13 +53,13 @@ echo $LINE1
 # 29
 # 31
 
-for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
 done
 
 LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 22.04${BLUE} "
 
-for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
 done
 echo -e "${SPACES1}"$LINE2
@@ -77,20 +72,20 @@ echo $LINE1
 # 25
 # 27
 
-for (( i = 0; i < ((($COLS - 27)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 16); i++)); do
 	LINE3+="-"
 done
 
 LINE3+=" ${NC}Author: Tiago Lucas Flach${BLUE} "
 
-for (( i = 0; i < ((($COLS - 27)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 16); i++)); do
 	LINE3+="-"
 done
 echo -e "${SPACES2}"$LINE3
 
 # ----------
 
-for (( i = 0; i < ($COLS - 48); i++ )); do
+for ((i = 0; i < ($COLS - 48); i++)); do
 	LINE4+="-"
 done
 echo -e "${SPACES3}"$LINE4"${NC}\n"
@@ -104,21 +99,17 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # --------------------------------- VARIÁVEIS -------------------------------- #
 # ----- PPAs -----#
 PPAS=(
-	ppa:git-core/ppa					# Git
+	ppa:git-core/ppa # Git
 	# ppa:graphics-drivers/ppa			# Nvidia
 	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
 	# ppa:mozillateam/ppa					# Firefox
 	# ppa:inkscape.dev/stable				# Inkscape
-	ppa:libreoffice/ppa					# LibreOffice
-	ppa:obsproject/obs-studio			# OBS Studio
-	ppa:stellarium/stellarium-releases	# Stellarium
+	ppa:libreoffice/ppa                # LibreOffice
+	ppa:obsproject/obs-studio          # OBS Studio
+	ppa:stellarium/stellarium-releases # Stellarium
 )
 
 # AnyDesk
@@ -128,7 +119,6 @@ URL_ANYDESK_PPA="http://deb.anydesk.com/"
 # Spotify
 # URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
 # URL_SPOTIFY_PPA="http://repository.spotify.com"
-
 
 # ----- URLs -----#
 # Google Chrome
@@ -161,19 +151,19 @@ PROGRAMS_APT=(
 	laptop-mode-tools
 	lsb
 	libgstreamer1.0-dev
-	libgstreamer-plugins-base1.0-dev 
-	libgstreamer-plugins-bad1.0-dev 
-	gstreamer1.0-plugins-base 
-	gstreamer1.0-plugins-good 
-	gstreamer1.0-plugins-bad 
-	gstreamer1.0-plugins-ugly 
-	gstreamer1.0-libav 
-	gstreamer1.0-tools 
-	gstreamer1.0-x 
-	gstreamer1.0-alsa 
+	libgstreamer-plugins-base1.0-dev
+	libgstreamer-plugins-bad1.0-dev
+	gstreamer1.0-plugins-base
+	gstreamer1.0-plugins-good
+	gstreamer1.0-plugins-bad
+	gstreamer1.0-plugins-ugly
+	gstreamer1.0-libav
+	gstreamer1.0-tools
+	gstreamer1.0-x
+	gstreamer1.0-alsa
 	gstreamer1.0-gl
-	gstreamer1.0-gtk3 
-	gstreamer1.0-qt5 
+	gstreamer1.0-gtk3
+	gstreamer1.0-qt5
 	gstreamer1.0-pulseaudio
 	nautilus-image-converter
 	net-tools
@@ -271,17 +261,17 @@ PROGRAMS_APT=(
 )
 
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
-PROGRAMS_FLATPAK=(	
+PROGRAMS_FLATPAK=(
 	com.belmoussaoui.Decoder
 	com.discordapp.Discord
 	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
-	com.gitlab.newsflash
+	io.gitlab.news_flash.NewsFlash
 	com.mattjakeman.ExtensionManager
 	com.slack.Slack
 	com.spotify.Client
 	de.haeckerfelix.Shortwave
-	io.github.nate_xyz.Paleta 
+	io.github.nate_xyz.Paleta
 	io.github.seadve.Mousai
 	org.gabmus.whatip
 	org.gimp.GIMP
@@ -308,10 +298,6 @@ PROGRAMS_SNAP=(
 )
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # -------------------------------- PRE-INSTALL ------------------------------- #
 # Removendo programas desnecessários
 # Firefox (snap)
@@ -325,10 +311,6 @@ sudo apt purge --auto-remove yelp -y
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 # ---------------------------------------------------------------------------- #
-
-
-
-
 
 # -------------------------------- REQUISITOS -------------------------------- #
 # Adicionando/Confirmando arquitetura de 32 bits
@@ -373,25 +355,20 @@ curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.
 # fi
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # --------------------------------- EXECUÇÃO --------------------------------- #
 # Atualizando o repositório depois da adição de novos repositórios
 sudo apt update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_CHROME"	-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_CHROME" -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_EARTH_PRO" -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MS_TEAMS" -P "$DIRETORIO_DOWNLOADS"
 # wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
 # wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
 # Instalando pacotes .deb baixados na sessão anterior
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-
 
 # ----- Instalando pacote via Apt ----- ##
 for program_name in ${PROGRAMS_APT[@]}; do
@@ -403,7 +380,6 @@ for program_name in ${PROGRAMS_APT[@]}; do
 		sudo apt install "$program_name" -y -q
 	fi
 done
-
 
 ## ----- Instalando pacotes via Flatpak ---- -##
 sudo flatpak update -y
@@ -419,7 +395,6 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 	fi
 done
 
-
 ## ----- Instalando pacotes via Snap ----- ##
 sudo snap refresh
 
@@ -433,10 +408,6 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 	fi
 done
 # ---------------------------------------------------------------------------- #
-
-
-
-
 
 # ------------------------------- POST INSTALL ------------------------------- #
 # Posiveis erros
@@ -461,7 +432,6 @@ flatpak permission-set notifications notification de.haeckerfelix.Shortwave no
 # Spotify
 flatpak permission-set notifications notification com.spotify.Client no
 
-
 ## ----- Finalização, atualização e limpeza ----- ##
 sudo apt update && sudo apt dist-upgrade -y
 sudo flatpak update -y
@@ -470,10 +440,6 @@ sudo snap refresh
 sudo apt autoclean
 sudo apt autoremove -y
 # ---------------------------------------------------------------------------- #
-
-
-
-
 
 # -------------------------------- CHECKLIST --------------------------------- #
 echo -e "\nAPT's instalados:"
@@ -504,10 +470,6 @@ for program_name in ${PROGRAMS_SNAP[@]}; do
 done
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # ---------------------------------- FOOTER ---------------------------------- #
 
 echo -e "\n\n"
@@ -516,13 +478,13 @@ echo -e "${SPACES3}${BLUE}"$LINE4
 # ----------
 # 7
 # 9
-for (( i = 0; i < ((($COLS - 9)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 9) / 2) - 16); i++)); do
 	LINE5+="-"
 done
 
 LINE5+=" ${NC}THE END${BLUE} "
 
-for (( i = 0; i < ((($COLS - 9)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 9) / 2) - 16); i++)); do
 	LINE5+="-"
 done
 
@@ -531,13 +493,13 @@ echo -e "${SPACES2}"$LINE5
 # ----------
 # 39
 # 41
-for (( i = 0; i < ((($COLS - 41)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 41) / 2) - 8); i++)); do
 	LINE6+="-"
 done
 
 LINE6+=" ${NC}It is recommended to restart the system${BLUE} "
 
-for (( i = 0; i < ((($COLS - 41)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 41) / 2) - 8); i++)); do
 	LINE6+="-"
 done
 
@@ -551,13 +513,13 @@ echo -e "${BLUE}"$LINE1
 # 25
 # 27
 
-for (( i = 0; i < ((($COLS - 27)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 8); i++)); do
 	LINE7+="-"
 done
 
 LINE7+=" Author: Tiago Lucas Flach "
 
-for (( i = 0; i < ((($COLS - 27)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 8); i++)); do
 	LINE7+="-"
 done
 echo -e "${SPACES1}"$LINE7
@@ -566,13 +528,13 @@ echo -e "${SPACES1}"$LINE7
 # 11
 # 13
 
-for (( i = 0; i < ((($COLS - 13)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 13) / 2) - 16); i++)); do
 	LINE8+="-"
 done
 
 LINE8+=" @flachtiago "
 
-for (( i = 0; i < ((($COLS - 13)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 13) / 2) - 16); i++)); do
 	LINE8+="-"
 done
 echo -e "${SPACES2}"$LINE8

@@ -4,7 +4,6 @@
 # author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
 
-
 # Update
 sudo apt update
 
@@ -20,7 +19,7 @@ sudo unzip -C popcorntime.zip -d /opt/popcorntime/
 # Removemos o arquivo baixado
 sudo rm popcorntime.zip
 
-# Agora vamos deixar tudo organizado 
+# Agora vamos deixar tudo organizado
 # Precisamos criar um atalho na sua distribuição Linux, não se preocupe, vai funcionar em qualquer distribuição Linux:
 sudo ln -sf /opt/popcorntime/Popcorn-Time /usr/bin/Popcorn-Time
 

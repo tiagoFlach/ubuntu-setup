@@ -52,7 +52,6 @@ function status {
 
 update
 
-
 # Variables
 # --------------------------------------
 MYSQL_USER_NAME="admin"
@@ -66,8 +65,6 @@ PHPMYADMIN_CONFIG="/etc/phpmyadmin/config.inc.php"
 LOCAL="$(php --ini | grep "Loaded Configuration File" | cut -d" " -f12)"
 PHPINI="${LOCAL/cli/apache2}"
 
-
-
 ## ---------------------------------- ##
 ## ------------- Apache ------------- ##
 ## ---------------------------------- ##
@@ -75,8 +72,6 @@ sudo apt install apache2 apache2-utils -y
 
 sudo ufw allow in "Apache"
 sudo ufw enable
-
-
 
 ## ---------------------------------- ##
 ## ------------- MySQL -------------- ##
@@ -194,8 +189,6 @@ sudo mysql_secure_installation
 sudo ufw enable
 sudo ufw allow mysql
 
-
-
 ## ---------------------------------- ##
 ## -------------- Php --------------- ##
 ## ---------------------------------- ##
@@ -217,8 +210,6 @@ sudo apt install php-curl php-gd php-json php-mbstring php-zip -y
 
 # Php other extensions
 sudo apt install php-cli php-common php-xdebug php-intl php-xml php-pear php-readline php-bz2 php-pear -y
-
-
 
 ## ---------------------------------- ##
 ## ---------- PHP MyAdmin ----------- ##
@@ -318,8 +309,6 @@ EOF
 sudo phpenmod mbstring
 sudo systemctl restart apache2 mysql
 
-
-
 # MySQL config
 # --------------------------------------
 sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
@@ -331,14 +320,11 @@ FLUSH PRIVILEGES;
 exit
 EOF
 
-
-
 # Securing PhpMyAdmin
 # --------------------------------------
 sudo systemctl stop apache2
 sudo sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    AllowOverride All/g' /etc/apache2/conf-available/phpmyadmin.conf
 sudo systemctl start apache2
-
 
 # Others configs
 # --------------------------------------
@@ -372,7 +358,7 @@ sudo sed -i 's/max_execution_time = 30/max_execution_time = 120/' $PHPINI
 # PhpMyAdmin
 sudo sed -i '/SaveDir/a $cfg['\''ExecTimeLimit'\''] = 0;' $PHPMYADMIN_CONFIG
 
-# Apache 
+# Apache
 sudo sed -i ':a;N;$!ba;s/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride None\n	Require all granted\n<\/Directory>/<Directory \/var\/www\/>\n	Options Indexes FollowSymLinks\n	AllowOverride All\n	Require all granted\n<\/Directory>/g' /etc/apache2/apache2.conf
 
 # Mod_rewrite

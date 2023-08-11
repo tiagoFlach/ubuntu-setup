@@ -11,11 +11,9 @@ apt_config_url="https://packagecloud.io/install/repositories/ookla/speedtest-cli
 apt_source_path="/etc/apt/sources.list.d/ookla_speedtest-cli.list"
 apt_keyrings_dir="/etc/apt/keyrings"
 
-
 if [ ! -d "$apt_keyrings_dir" ]; then
     mkdir -p "$apt_keyrings_dir"
 fi
-
 
 gpg_keyring_path="$apt_keyrings_dir/ookla_speedtest-cli-archive-keyring.gpg"
 gpg_key_path_old="/etc/apt/trusted.gpg.d/ookla_speedtest-cli.gpg"

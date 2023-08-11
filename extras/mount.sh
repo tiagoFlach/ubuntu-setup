@@ -7,9 +7,8 @@
 # sudo mount -a
 # sudo systemctl daemon-reload
 
-
 # rm -r ~/Desktop ~/Downloads ~/Documents ~/Music ~/Pictures ~/Videos
-rm -r ~/Área\ de\ trabalho ~/Downloads ~/Documentos ~/Músicas ~/Imagens ~/Vídeos 
+rm -r ~/Área\ de\ trabalho ~/Downloads ~/Documentos ~/Músicas ~/Imagens ~/Vídeos
 cd /mnt/499E061F2C2CE759/tiago
 sudo ln -sr * ~/
 
@@ -20,7 +19,6 @@ xdg-user-dirs-update --set PICTURES ~/Imagens
 xdg-user-dirs-update --set VIDEOS ~/Vídeos
 xdg-user-dirs-update --set DESKTOP ~/Área\ de\ Trabalho
 xdg-user-dirs-update
-
 
 # ---------------------------------------------------------------------------- #
 

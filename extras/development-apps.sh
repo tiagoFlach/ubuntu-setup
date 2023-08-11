@@ -52,18 +52,15 @@ APPS=(
 )
 APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
 
-
 if ! which curl >/dev/null; then
 	sudo apt install curl -y -q
 fi
-
 
 # Android Studio
 # --------------------------------------
 android_studio() {
 	sudo snap install android-studio --classic -y
 }
-
 
 # Atom
 # --------------------------------------
@@ -77,13 +74,11 @@ atom() {
 	sudo apt install atom -y
 }
 
-
 # Composer
 # --------------------------------------
 composer() {
 	sudo apt install composer -y
 }
-
 
 # Eclipse
 # --------------------------------------
@@ -92,13 +87,11 @@ eclipse() {
 	flatpak install flathub org.eclipse.Java -y
 }
 
-
 # DBeaver
 # --------------------------------------
 dbeaver() {
 	flatpak install flathub io.dbeaver.DBeaverCommunity
 }
-
 
 # Docker
 # --------------------------------------
@@ -108,7 +101,7 @@ docker() {
 	# Then add the GPG key for the official Docker repository to your system:
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 	# Add the Docker repository to APT sources:
-	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 	sudo apt update
 	apt-cache policy docker-ce
 	sudo apt install docker-ce -y
@@ -117,7 +110,6 @@ docker() {
 	sudo groupadd docker
 	sudo usermod -aG docker $USER
 }
-
 
 # Git
 # --------------------------------------
@@ -128,20 +120,18 @@ git() {
 	git config --global user.name "Tiago Lucas Flach"
 }
 
-
 # GitHub CLI
 # --------------------------------------
 gh() {
 	if [ ! -f "/usr/share/keyrings/githubcli-archive-keyring.gpg" ]; then
 		curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 		sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-		echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+		echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
 	fi
 
 	sudo apt update
 	sudo apt install gh -y
 }
-
 
 # GitKraken
 # --------------------------------------
@@ -149,20 +139,17 @@ gitkraken() {
 	sudo snap install gitkraken --classic -y
 }
 
-
 # IntelliJ
 # --------------------------------------
 intellij() {
 	sudo snap install intellij-idea-community --classic -y
 }
 
-
 # Insomnia
 # --------------------------------------
 insomnia() {
 	flatpak install flathub rest.insomnia.Insomnia -y
 }
-
 
 # Mysql Workbench
 # --------------------------------------
@@ -176,7 +163,6 @@ nodejs() {
 	sudo apt install nodejs -y
 }
 
-
 # NPM
 # --------------------------------------
 npm() {
@@ -187,13 +173,11 @@ npm() {
 	sudo n stable
 }
 
-
 # PhpStorm
 # --------------------------------------
 phpstorm() {
 	sudo snap install phpstorm --classic -y
 }
-
 
 # Postman
 # --------------------------------------
@@ -201,13 +185,11 @@ postman() {
 	flatpak install flathub com.getpostman.Postman -y
 }
 
-
 # Python Pip
 # --------------------------------------
 python_pip() {
 	sudo apt install python3-pip -y
 }
-
 
 # Subllime Text
 # --------------------------------------
@@ -221,19 +203,17 @@ sublime_text() {
 	sudo apt install sublime-text -y
 }
 
-
 # Sublime Merge
 # --------------------------------------
 sublime_merge() {
 	sudo apt install sublime-merge -y
 }
 
-
 # Visual Studio Code
 # --------------------------------------
 code() {
 	sudo apt install wget gpg apt-transport-https -y
-	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
 	sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 	sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 	rm -f packages.microsoft.gpg
@@ -242,14 +222,11 @@ code() {
 	# sudo snap install code --classic
 }
 
-
 # FileZilla
 # --------------------------------------
 filezilla() {
 	sudo apt install filezilla -y
 }
-
-
 
 # Define colors
 RED='\033[0;31m'
@@ -257,7 +234,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 BOLDBLUE='\033[1;34m'
-NC='\033[0m'        # No Color
+NC='\033[0m' # No Color
 
 if ! which curl >/dev/null; then
 	sudo mkdir -p /etc/apt/keyrings

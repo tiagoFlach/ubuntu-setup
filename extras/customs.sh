@@ -10,7 +10,7 @@ BASE=https://github.com/adobe-fonts/source-code-pro/releases/tag/
 BASE_NOVA=https://github.com/adobe-fonts/source-code-pro/archive/refs/tags/
 URL_REDIRECIONADA=$(curl -Ls -o /dev/null -w %{url_effective} $URL)
 
-URL_FINAL="${URL_REDIRECIONADA/$BASE/$BASE_NOVA}" 
+URL_FINAL="${URL_REDIRECIONADA/$BASE/$BASE_NOVA}"
 FILE="source-code-pro-${URL_FINAL/$BASE_NOVA/}"
 FILE="${FILE/\//-}"
 FILE="${FILE/\//-}"
@@ -31,7 +31,7 @@ sudo mv "font-source-code-pro/$FILE/TTF/" /usr/share/fonts/truetype/source-code-
 rm -r SourceCodePro font-source-code-pro
 
 # Urbani
-wget -c "https://fontshub.pro/f-files/5efba4c2280d03543bf3dc17/font.zip" -O "Urbani" 
+wget -c "https://fontshub.pro/f-files/5efba4c2280d03543bf3dc17/font.zip" -O "Urbani"
 unzip Urbani -d "urbani"
 sudo mkdir -p /usr/share/fonts/truetype/urbani
 sudo mv urbani/*.ttf /usr/share/fonts/truetype/urbani
@@ -68,7 +68,6 @@ gsettings set org.gnome.desktop.interface cursor-theme 'Vimix-white-cursors'
 
 # Phinger Cursors
 wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons/
-
 
 ## ----------------------------- CUSTOMIZATIONS ----------------------------- ##
 # Aplicativos favoritos

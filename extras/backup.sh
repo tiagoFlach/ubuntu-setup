@@ -21,7 +21,7 @@ if [ "$1" = "backup" ]; then
 	cp -f -r ~/.local/share/gnome-shell/extensions/* $backupPath/extensions
 
 	# Desktop app folders
-	dconf dump /org/gnome/desktop/app-folders/ > $backupPath/app-folders.dconf
+	dconf dump /org/gnome/desktop/app-folders/ >$backupPath/app-folders.dconf
 
 	# System connections
 	sudo cp -f -p /etc/NetworkManager/system-connections/* $backupPath/system-connections/
@@ -48,7 +48,7 @@ elif [ "$1" = "restore" ]; then
 	cp -f -r $backupPath/extensions ~/.local/share/gnome-shell/
 
 	# Desktop app folders
-	dconf load /org/gnome/desktop/app-folders/ < $backupPath/app-folders.dconf
+	dconf load /org/gnome/desktop/app-folders/ <$backupPath/app-folders.dconf
 
 	# System connections
 	sudo cp -f -p $backupPath/system-connections/* /etc/NetworkManager/system-connections/

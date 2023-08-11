@@ -5,10 +5,6 @@
 # https://github.com/tiagoFlach
 # Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
-
-
-
-
 # ------------------------------- CONFIGURAÇÕES ------------------------------ #
 # Define colors
 RED='\033[0;31m'
@@ -16,24 +12,23 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 BOLDBLUE='\033[1;34m'
-NC='\033[0m'        # No Color
+NC='\033[0m' # No Color
 
 # Informações do sistema
-system="`lsb_release -sd`"
-machine="`uname -m`"
+system="$(lsb_release -sd)"
+machine="$(uname -m)"
 
 arch="amd64"
 arch2="x64"
 arch3="64"
-if [ "$machine" != "x86_64" ]
-then
+if [ "$machine" != "x86_64" ]; then
 	arch="i386"
 	arch2="ia32"
 	arch3="32"
 fi
 
 ## ---------- Tela Inicial ---------- ##
-COLS="`tput cols`"
+COLS="$(tput cols)"
 SPACES1="	"
 SPACES2="		"
 SPACES3="			"
@@ -48,7 +43,7 @@ LINE8=""
 
 # ----------
 
-for (( i = 0; i < $COLS; i++ )); do
+for ((i = 0; i < $COLS; i++)); do
 	LINE1+="-"
 done
 echo -e "${BLUE}"$LINE1
@@ -58,13 +53,13 @@ echo $LINE1
 # 29
 # 31
 
-for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
 done
 
 LINE2+=" ${NC}LINUX PERSONAL - FEDORA 36${BLUE} "
 
-for (( i = 0; i < ((($COLS - 31)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
 done
 echo -e "${SPACES1}"$LINE2
@@ -77,20 +72,20 @@ echo $LINE1
 # 25
 # 27
 
-for (( i = 0; i < ((($COLS - 27)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 16); i++)); do
 	LINE3+="-"
 done
 
 LINE3+=" ${NC}Author: Tiago Lucas Flach${BLUE} "
 
-for (( i = 0; i < ((($COLS - 27)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 16); i++)); do
 	LINE3+="-"
 done
 echo -e "${SPACES2}"$LINE3
 
 # ----------
 
-for (( i = 0; i < ($COLS - 48); i++ )); do
+for ((i = 0; i < ($COLS - 48); i++)); do
 	LINE4+="-"
 done
 echo -e "${SPACES3}"$LINE4"${NC}\n"
@@ -103,21 +98,17 @@ echo -e "${BOLDBLUE}Home: ${NC}$HOME"
 echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # --------------------------------- VARIÁVEIS -------------------------------- #
 OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 OS_RELEASE_VERSION_ID=$(grep "^VERSION_ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 
 # ----- COPRs -----#
 COPRS=(
-	zeno/scrcpy							# Scrcpy
+	zeno/scrcpy # Scrcpy
 )
 
 # AnyDesk
-cat > /etc/yum.repos.d/AnyDesk-Fedora.repo << "EOF" 
+cat >/etc/yum.repos.d/AnyDesk-Fedora.repo <<"EOF"
 [anydesk]
 name=AnyDesk Fedora - stable
 baseurl=http://rpm.anydesk.com/fedora/$basearch/
@@ -129,14 +120,12 @@ EOF
 # Skype
 URL_SKYPE_REPO="https://repo.skype.com/rpm/stable/skype-stable.repo"
 
-
 # ----- URLs -----#
 # Google Earth Pro
 URL_GOOGLE_EARTH_PRO="https://dl.google.com/dl/earth/client/current/google-earth-stable_current_x86_64.rpm"
 
 # Microsoft Teams
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
-
 
 ## ----- Diretório de Downloads ----- ##
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
@@ -148,13 +137,13 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 PROGRAMS_DNF=(
 	# Sistema
 	akmod-nvidia
-	android-tools 
+	android-tools
 	dnf-plugins-core
 	ffmpeg
-	ffms2-devel 
+	ffms2-devel
 	lsb
 	redhat-lsb-core
-	meson 
+	meson
 	net-tools
 	nautilus-image-converter
 	rar
@@ -228,8 +217,8 @@ PROGRAMS_DNF=(
 	gstreamer1-plugins-bad-\*
 	gstreamer1-plugins-good-\*
 	gstreamer1-plugins-base
-	gstreamer1-plugin-openh264 
-	gstreamer1-libav 
+	gstreamer1-plugin-openh264
+	gstreamer1-libav
 
 	# Lame
 	lame\*
@@ -258,7 +247,7 @@ PROGRAMS_FLATPAK=(
 	com.discordapp.Discord
 	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
-	com.gitlab.newsflash
+	io.gitlab.news_flash.NewsFlash
 	com.mattjakeman.ExtensionManager
 	com.obsproject.Studio
 	com.simplenote.Simplenote
@@ -280,19 +269,11 @@ PROGRAMS_FLATPAK=(
 )
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # -------------------------------- PRE-INSTALL ------------------------------- #
 # Removendo programas desnecessários
 # Yelp
 sudo dnf remove yelp -y
 # ---------------------------------------------------------------------------- #
-
-
-
-
 
 # -------------------------------- REQUISITOS -------------------------------- #
 # Configure DNF for Faster Downloads of Packages
@@ -310,7 +291,6 @@ sudo dnf groupupdate core
 sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 sudo dnf groupupdate sound-and-video
 
-
 ## ----- Adicionando repositórios de terceiros ----- ##
 for copr in ${COPRS[@]}; do
 	sudo dnf copr enable "$copr" -y
@@ -319,13 +299,9 @@ done
 # Skype
 # sudo dnf config-manager --add-repo $URL_SKTYPE_REPO
 
-# Speedtest 
+# Speedtest
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
 # ---------------------------------------------------------------------------- #
-
-
-
-
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
 # Atualizando o repositório depois da adição de novos repositórios
@@ -333,12 +309,11 @@ sudo dnf update -y
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_EARTH_PRO"	-P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_MS_TEAMS"			-P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_EARTH_PRO" -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MS_TEAMS" -P "$DIRETORIO_DOWNLOADS"
 
 # Instalando pacotes .deb baixados na sessão anterior
 sudo dnf install $DIRETORIO_DOWNLOADS/*.rpm
-
 
 # ----- Instalar programas no dnf ----- ##
 for nome_do_programa in ${PROGRAMS_DNF[@]}; do
@@ -350,7 +325,6 @@ for nome_do_programa in ${PROGRAMS_DNF[@]}; do
 		sudo dnf -y -q install "$nome_do_programa"
 	fi
 done
-
 
 ## ----- Instalando pacotes Flatpak ---- -##
 sudo flatpak update -y
@@ -366,10 +340,6 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 	fi
 done
 # ---------------------------------------------------------------------------- #
-
-
-
-
 
 # ------------------------------- POST INSTALL ------------------------------- #
 # Remove packages
@@ -393,10 +363,6 @@ sudo dnf autoremove -y
 sudo dnf clean all -y
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # -------------------------------- CHECKLIST --------------------------------- #
 echo -e "\nDNF's instalados:"
 for program_name in ${PROGRAMS_DNF[@]}; do
@@ -417,10 +383,6 @@ for program_name in ${PROGRAMS_FLATPAK[@]}; do
 done
 # ---------------------------------------------------------------------------- #
 
-
-
-
-
 # ---------------------------------- FOOTER ---------------------------------- #
 
 echo -e "\n\n"
@@ -429,13 +391,13 @@ echo -e "${SPACES3}${BLUE}"$LINE4
 # ----------
 # 7
 # 9
-for (( i = 0; i < ((($COLS - 9)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 9) / 2) - 16); i++)); do
 	LINE5+="-"
 done
 
 LINE5+=" ${NC}THE END${BLUE} "
 
-for (( i = 0; i < ((($COLS - 9)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 9) / 2) - 16); i++)); do
 	LINE5+="-"
 done
 
@@ -444,13 +406,13 @@ echo -e "${SPACES2}"$LINE5
 # ----------
 # 39
 # 41
-for (( i = 0; i < ((($COLS - 41)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 41) / 2) - 8); i++)); do
 	LINE6+="-"
 done
 
 LINE6+=" ${NC}It is recommended to restart the system${BLUE} "
 
-for (( i = 0; i < ((($COLS - 41)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 41) / 2) - 8); i++)); do
 	LINE6+="-"
 done
 
@@ -464,13 +426,13 @@ echo -e "${BLUE}"$LINE1
 # 25
 # 27
 
-for (( i = 0; i < ((($COLS - 27)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 8); i++)); do
 	LINE7+="-"
 done
 
 LINE7+=" Author: Tiago Lucas Flach "
 
-for (( i = 0; i < ((($COLS - 27)/2)-8); i++ )); do
+for ((i = 0; i < ((($COLS - 27) / 2) - 8); i++)); do
 	LINE7+="-"
 done
 echo -e "${SPACES1}"$LINE7
@@ -479,13 +441,13 @@ echo -e "${SPACES1}"$LINE7
 # 11
 # 13
 
-for (( i = 0; i < ((($COLS - 13)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 13) / 2) - 16); i++)); do
 	LINE8+="-"
 done
 
 LINE8+=" @flachtiago "
 
-for (( i = 0; i < ((($COLS - 13)/2)-16); i++ )); do
+for ((i = 0; i < ((($COLS - 13) / 2) - 16); i++)); do
 	LINE8+="-"
 done
 echo -e "${SPACES2}"$LINE8
