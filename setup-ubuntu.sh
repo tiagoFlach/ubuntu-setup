@@ -3,6 +3,7 @@
 # Script created for personal use.
 # author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
+# last update: 2023-10-18
 # Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
 # ------------------------------- CONFIGURAÇÕES ------------------------------ #
@@ -103,10 +104,7 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 # ----- PPAs -----#
 PPAS=(
 	ppa:git-core/ppa # Git
-	# ppa:graphics-drivers/ppa			# Nvidia
-	# ppa:paulo-miguel-dias/pkppa		# mesa-driver
-	# ppa:mozillateam/ppa					# Firefox
-	# ppa:inkscape.dev/stable				# Inkscape
+	# ppa:graphics-drivers/ppa		   # Nvidia
 	ppa:libreoffice/ppa                # LibreOffice
 	ppa:obsproject/obs-studio          # OBS Studio
 	ppa:stellarium/stellarium-releases # Stellarium
@@ -115,10 +113,6 @@ PPAS=(
 # AnyDesk
 URL_ANYDESK_KEY="https://keys.anydesk.com/repos/DEB-GPG-KEY"
 URL_ANYDESK_PPA="http://deb.anydesk.com/"
-
-# Spotify
-# URL_SPOTIFY_KEY="https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg"
-# URL_SPOTIFY_PPA="http://repository.spotify.com"
 
 # ----- URLs -----#
 # Google Chrome
@@ -129,12 +123,6 @@ URL_GOOGLE_EARTH_PRO="https://dl.google.com/dl/earth/client/current/google-earth
 
 # Microsoft Teams
 URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"
-
-# Slack
-# URL_SLACK="https://downloads.slack-edge.com/releases/linux/4.25.0/prod/x64/slack-desktop-4.25.0-amd64.deb"
-
-# Skype
-# URL_SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 
 ## ----- Diretório de Downloads ----- ##
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
@@ -169,7 +157,7 @@ PROGRAMS_APT=(
 	net-tools
 	rar
 	ubuntu-restricted-extras
-	# ubnuntu-wallpapers
+	ubuntu-wallpapers
 	ufw
 	unrar
 	unzip
@@ -245,12 +233,10 @@ PROGRAMS_APT=(
 	# Aplicativos
 	anydesk
 	cpu-x
-	# firefox
 	flatpak
 	# inkscape
 	obs-studio
 	remmina
-	# spotify-client
 	stacer
 	stellarium
 	# synaptic
@@ -263,26 +249,33 @@ PROGRAMS_APT=(
 ## ----- Prgramas a serem instalados via Flatpak ----- ##
 PROGRAMS_FLATPAK=(
 	com.belmoussaoui.Decoder
+	com.bitwarden.desktop
 	com.discordapp.Discord
 	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
-	io.gitlab.news_flash.NewsFlash
 	com.mattjakeman.ExtensionManager
 	com.slack.Slack
 	com.spotify.Client
+	com.vixalien.decibels
+	de.haeckerfelix.Fragments
 	de.haeckerfelix.Shortwave
 	io.github.nate_xyz.Paleta
+	io.github.nokse22.inspector
 	io.github.seadve.Mousai
+	io.gitlab.news_flash.NewsFlash
+	io.gitlab.theevilskeleton.Upscaler
 	org.gabmus.whatip
 	org.gimp.GIMP
 	org.gnome.Boxes
 	org.gnome.Loupe
-	org.gnome.gitlab.somas.Apostrophe
-	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
+	org.gnome.Snapshot
 	org.gnome.SoundRecorder
+	org.gnome.Totem
+	org.gnome.gitlab.somas.Apostrophe
 	org.nickvision.tubeconverter
 	# org.kde.kdenlive
 	org.telegram.desktop
+	page.codeberg.Imaginer.Imaginer
 )
 
 ## ----- Prgramas a serem instalados via Snap ----- ##
@@ -292,18 +285,11 @@ PROGRAMS_SNAP=(
 	scrcpy
 	simplenote
 	skype
-	# slack --classic
-	# spotify
-	# telegram-desktop
 )
 # ---------------------------------------------------------------------------- #
 
 # -------------------------------- PRE-INSTALL ------------------------------- #
 # Removendo programas desnecessários
-# Firefox (snap)
-# sudo snap remove firefox
-# Thunderbird
-sudo apt purge --auto-remove thunderbird -y
 # Yelp
 sudo apt purge --auto-remove yelp -y
 
@@ -336,23 +322,10 @@ if [ ! -f "/usr/share/keyrings/anydesk-stable-keyring.gpg" ]; then
 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 fi
 
-# Firefox
-# Alter the Firefox package priority to ensure the PPA/deb/apt version of Firefox is preferred.
-# echo '
-# Package: *
-# Pin: release o=LP-PPA-mozillateam
-# Pin-Priority: 1001
-# ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
-
 # Speedtest
 sudo apt install curl
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 
-# Spotify
-# if [ ! -f "/usr/share/keyrings/spotify-keyring.gpg" ]; then
-# 	wget -qO - $URL_SPOTIFY_KEY | sudo gpg --dearmor -o /usr/share/keyrings/spotify-keyring.gpg
-# 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/spotify-keyring.gpg] $URL_SPOTIFY_PPA stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-# fi
 # ---------------------------------------------------------------------------- #
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
@@ -364,8 +337,6 @@ mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME" -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_EARTH_PRO" -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MS_TEAMS" -P "$DIRETORIO_DOWNLOADS"
-# wget -c "$URL_SLACK"			-P "$DIRETORIO_DOWNLOADS"
-# wget -c "$URL_SKYPE"			-P "$DIRETORIO_DOWNLOADS"
 
 # Instalando pacotes .deb baixados na sessão anterior
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb

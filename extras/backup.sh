@@ -31,6 +31,20 @@ if [ "$1" = "backup" ]; then
 	mkdir -p $backupPath/remmina
 	sudo cp -r ~/.local/share/remmina/* $backupPath/remmina/
 
+	# Apps
+	# ----------
+	date=$(date +"%Y-%m-%d")
+	os=$(lsb_release -r | awk '{print $2}')
+
+	# deb
+	dpkg-query -W -f='${Package}\n' | sort >"$backupPath/apps/deb_${os}_$date.txt"
+
+	# flatpak
+	flatpak list --app --columns=application >"$backupPath/apps/flatpak_${os}_$date.txt"
+
+	# snap
+	snap list | awk 'NR>1 {print $1}' >"$backupPath/apps/snap_${os}_$date.txt"
+
 	echo "Backup concluído com sucesso."
 elif [ "$1" = "restore" ]; then
 	# Restore

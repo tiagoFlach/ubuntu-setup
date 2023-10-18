@@ -2,7 +2,7 @@
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-This is a automatic system setup for [Ubuntu 22.04 LTS](https://releases.ubuntu.com/22.04/).
+This is a automatic system setup for [Ubuntu 23.10](https://releases.ubuntu.com/23.10/).
 
 ## Getting Started
 
@@ -37,15 +37,20 @@ Replace `FILE` with the name of the script you want.
 This script automatically installs the following softwares:
 
 - Main:
+
   - AnyDesk
   - Apostrophe (flatpak)
+  - Bitwarden (flatpak)
   - Cpu-X
   - Decoder (flatpak)
+  - Decibels (flatpak)
   - Discord (flatpak)
   - Extension Manager (flatpak)
   - Eyedropper (flatpak)
   - Firefox
+  - Fragments (flatpak)
   - Inkscape
+  - Inspector (flatpak)
   - Google Chrome
   - Google Earth Pro
   - Gimp (flatpak)
@@ -73,11 +78,13 @@ This script automatically installs the following softwares:
   - Telegram (flatpak)
   - TimeShift
   - Tube Converter (flatpak)
+  - Upscaler (flatpak)
   - VirtualBox
   - VLC
-  - What IP (flatpak)  
+  - What IP (flatpak)
 
 - CLI:
+
   - git
   - htop
   - neofetch
@@ -85,6 +92,7 @@ This script automatically installs the following softwares:
   - yt-dlp
 
 - System:
+
   - apt-transport-https
   - curl
   - exfat-fuse
@@ -100,6 +108,7 @@ This script automatically installs the following softwares:
   - zip
 
 - Fonts:
+
   - fonts-apropal
   - fonts-atarismall
   - fonts-baekmuk
