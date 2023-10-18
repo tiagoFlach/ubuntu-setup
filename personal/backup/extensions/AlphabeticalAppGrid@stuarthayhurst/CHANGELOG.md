@@ -1,6 +1,22 @@
 ## Changelog:
 
-### v29 - `2023-03-16`
+### v32: - `2023-08-16`
+**This release will be the final release to support pre-45 versions of GNOME**
+ - Updated Taiwanese translations (#81)
+ - Added GitHub sponsor link to metadata
+
+### v31: - `2023-06-27`
+ - Use correct property to make GtkSeparator unselectable
+ - Use GtkBox as parent element, instead of GtkGrid
+ - General code cleanup
+ - Build system optimisation
+
+### v30: - `2023-06-10`
+ - Added Czech translation - [Amereyeu](https://github.com/Amereyeu) (#79)
+ - Added donation information to metadata
+ - Updated build system output
+
+### v29: - `2023-03-16`
  - Fixed warnings about accessing `St.Button` after disposal
  - Fix app grid not being correctly ordered when opened in some cases (#63, #65)
  - Added Portuguese translation - [Vinicius](https://github.com/vinaooo) (#78)

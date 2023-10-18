@@ -1,5 +1,9 @@
 [/]
-folder-children=['Utilities', 'YaST', 'f8001087-8e4e-4730-87cb-9cc7e81e0380', '283104e9-a6cb-465e-81fd-959efbd8cb7a', '86402d7e-a436-4306-9bd8-c19cadd913b3', 'acf78375-13c0-42e2-ac7c-e26f1ac30d9a', '600fdd6b-bbaf-411e-a054-8101bc86cbc3']
+folder-children=['Utilities', 'YaST', 'f8001087-8e4e-4730-87cb-9cc7e81e0380', '283104e9-a6cb-465e-81fd-959efbd8cb7a', '86402d7e-a436-4306-9bd8-c19cadd913b3', 'acf78375-13c0-42e2-ac7c-e26f1ac30d9a', '600fdd6b-bbaf-411e-a054-8101bc86cbc3', '06520821-1fde-4063-bc6c-325707978381']
+
+[folders/06520821-1fde-4063-bc6c-325707978381]
+apps=['com.brave.Browser.desktop', 'com.github.micahflee.torbrowser-launcher.desktop', 'com.github.micahflee.torbrowser-launcher.settings.desktop']
+name='Internet'
 
 [folders/283104e9-a6cb-465e-81fd-959efbd8cb7a]
 apps=['org.gnome.Mahjongg.desktop', 'org.gnome.Mines.desktop', 'sol.desktop', 'com.github.k4zmu2a.spacecadetpinball.desktop', 'org.gnome.Sudoku.desktop']
@@ -11,7 +15,7 @@ name='System'
 translate=false
 
 [folders/86402d7e-a436-4306-9bd8-c19cadd913b3]
-apps=['android-studio_android-studio.desktop', 'atom.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'org.eclipse.Java.desktop', 'gitkraken_gitkraken.desktop', 'rest.insomnia.Insomnia.desktop', 'intellij-idea-community_intellij-idea-community.desktop', 'phpstorm_phpstorm.desktop', 'com.getpostman.Postman.desktop', 'sublime_merge.desktop', 'sublime_text.desktop', 'code.desktop']
+apps=['atom.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'org.eclipse.Java.desktop', 'gitkraken_gitkraken.desktop', 'rest.insomnia.Insomnia.desktop', 'intellij-idea-community_intellij-idea-community.desktop', 'phpstorm_phpstorm.desktop', 'com.getpostman.Postman.desktop', 'sublime_merge.desktop', 'sublime_text.desktop', 'android-studio_android-studio.desktop', 'code.desktop']
 name='Desenvolvimento'
 
 [folders/Utilities]
@@ -27,7 +31,7 @@ name='suse-yast.directory'
 translate=true
 
 [folders/acf78375-13c0-42e2-ac7c-e26f1ac30d9a]
-apps=['org.gnome.SoundRecorder.desktop', 'inkscape_inkscape.desktop', 'io.github.seadve.Mousai.desktop', 'musescore_musescore.desktop', 'com.obsproject.Studio.desktop', 'org.gimp.GIMP.desktop', 'vlc.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.nickvision.tubeconverter.desktop', 'org.kde.kdenlive.desktop', 'org.gnome.Totem.desktop']
+apps=['org.gnome.SoundRecorder.desktop', 'inkscape_inkscape.desktop', 'io.github.seadve.Mousai.desktop', 'musescore_musescore.desktop', 'com.obsproject.Studio.desktop', 'org.nickvision.tubeconverter.desktop', 'org.gimp.GIMP.desktop', 'vlc.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.kde.kdenlive.desktop', 'org.gnome.Totem.desktop']
 name='Multimídia'
 
 [folders/f8001087-8e4e-4730-87cb-9cc7e81e0380]

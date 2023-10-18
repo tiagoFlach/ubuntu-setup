@@ -26,6 +26,7 @@ class Extension {
     constructor() {
         this._actorSignalIds = null;
         this._windowSignalIds = null;
+        this._delayedTimeoutId = null;
         this.transparencyChangeDebounce = null;
         this.darkFullScreenChangeDebounce = null;
     }
@@ -56,8 +57,9 @@ class Extension {
             global.window_group.connect('actor-removed', this._onWindowActorRemoved.bind(this))
         ]);
 
+        //Use a delayed version of _updateTransparent to let the shell catch up
         this._actorSignalIds.set(global.window_manager, [
-            global.window_manager.connect('switch-workspace', this._updateTransparent.bind(this))
+            global.window_manager.connect('switch-workspace', this._updateTransparentDelayed.bind(this))
         ]);
 
         this._updateTransparent();
@@ -69,7 +71,7 @@ class Extension {
             this.settingChangeDebounce = setTimeout(() => {
                 const oldTransparency = this._currentTransparency;
                 this._currentTransparency = this._settings.get_int('transparency');
-                Main.panel.remove_style_class_name('transparent-top-bar--transparent-' + oldTransparency);
+                Main.panel.remove_style_class_name('transparent-top-bar-' + oldTransparency);
                 this._updateTransparent();
             }, 250);
             return;
@@ -79,7 +81,7 @@ class Extension {
             this._darkFullScreen = shellVersion >= 40 ? this._settings.get_boolean('dark-full-screen') : true;
             clearTimeout(this.darkFullScreenChangeDebounce);
             this.darkFullScreenChangeDebounce = setTimeout(() => {
-                Main.panel.remove_style_class_name('transparent-top-bar--transparent-' + this._currentTransparency);
+                Main.panel.remove_style_class_name('transparent-top-bar-' + this._currentTransparency);
                 this._updateTransparent();
             }, 250);
             return;
@@ -96,6 +98,11 @@ class Extension {
         }
         this._actorSignalIds = null;
         this._windowSignalIds = null;
+
+        if (this._delayedTimeoutId != null) {
+            GLib.Source.remove(this._delayedTimeoutId);
+        }
+        this._delayedTimeoutId = null;
 
         this._setTransparent(false);
         this._settings = null;
@@ -114,6 +121,14 @@ class Extension {
         }
         this._windowSignalIds.delete(metaWindowActor);
         this._updateTransparent();
+    }
+
+    _updateTransparentDelayed() {
+        this._delayedTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+            this._updateTransparent();
+            this._delayedTimeoutId = null;
+            return GLib.SOURCE_REMOVE;
+        });
     }
 
     _updateTransparent() {
@@ -157,13 +172,11 @@ class Extension {
     _setTransparent(transparent) {
         const transparency = this._settings.get_int("transparency");
         if (transparent) {
-            Main.panel.remove_style_class_name('transparent-top-bar--solid');
-            Main.panel.add_style_class_name('transparent-top-bar--transparent');
-            Main.panel.add_style_class_name('transparent-top-bar--transparent-' + transparency);
+            Main.panel.add_style_class_name('transparent-top-bar');
+            Main.panel.add_style_class_name('transparent-top-bar-' + transparency);
         } else {
-            Main.panel.add_style_class_name('transparent-top-bar--solid');
-            Main.panel.remove_style_class_name('transparent-top-bar--transparent');
-            Main.panel.remove_style_class_name('transparent-top-bar--transparent-' + transparency);
+            Main.panel.remove_style_class_name('transparent-top-bar');
+            Main.panel.remove_style_class_name('transparent-top-bar-' + transparency);
         }
     }
 

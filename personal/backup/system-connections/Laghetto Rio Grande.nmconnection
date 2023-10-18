@@ -1,0 +1,23 @@
+[connection]
+id=Laghetto Rio Grande
+uuid=bdd976b9-d69a-4a46-99dc-aa8573be6318
+type=wifi
+interface-name=wlp61s0
+
+[wifi]
+mode=infrastructure
+ssid=Laghetto Rio Grande
+
+[wifi-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=hotelriogrande
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]
