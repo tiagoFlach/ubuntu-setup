@@ -223,9 +223,11 @@ PROGRAMS_APT=(
 	dconf-editor
 	gnome-backgrounds
 	gnome-clocks
+	gnome-firmware
 	gnome-maps
 	gnome-shell-extensions
 	gnome-software-plugin-flatpak
+	gnome-sushi
 	gnome-tweaks
 	gnome-weather
 	gparted
@@ -267,6 +269,7 @@ PROGRAMS_FLATPAK=(
 	org.gabmus.whatip
 	org.gimp.GIMP
 	org.gnome.Boxes
+	org.gnome.Calendar
 	org.gnome.Loupe
 	org.gnome.Snapshot
 	org.gnome.SoundRecorder
