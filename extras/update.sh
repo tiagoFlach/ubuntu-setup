@@ -28,7 +28,7 @@ if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
 	echo -e "\n\n${YELLOW}sudo apt dist-upgrade ${NC}\n"
 	sudo apt dist-upgrade -y
 
-	upgradable_packages=$(apt list --upgradable 2>/dev/null | grep -v "Listing...")
+	upgradable_packages=$(apt list --upgradable 2>/dev/null | grep -v "Listing..." | grep -v "Listagem...")
 	if [[ -n $upgradable_packages ]]; then
 		packages=$(echo "$upgradable_packages" | cut -d'/' -f1)
 

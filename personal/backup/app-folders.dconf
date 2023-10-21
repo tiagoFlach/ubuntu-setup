@@ -6,7 +6,7 @@ apps=['com.brave.Browser.desktop', 'com.github.micahflee.torbrowser-launcher.des
 name='Internet'
 
 [folders/283104e9-a6cb-465e-81fd-959efbd8cb7a]
-apps=['org.gnome.Mahjongg.desktop', 'org.gnome.Mines.desktop', 'sol.desktop', 'com.github.k4zmu2a.spacecadetpinball.desktop', 'org.gnome.Sudoku.desktop']
+apps=['com.github.k4zmu2a.spacecadetpinball.desktop', 'org.gnome.Mahjongg.desktop', 'org.gnome.Mines.desktop', 'sol.desktop', 'org.gnome.Sudoku.desktop']
 name='Jogos'
 
 [folders/600fdd6b-bbaf-411e-a054-8101bc86cbc3]
@@ -18,8 +18,13 @@ translate=false
 apps=['atom.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'org.eclipse.Java.desktop', 'gitkraken_gitkraken.desktop', 'rest.insomnia.Insomnia.desktop', 'intellij-idea-community_intellij-idea-community.desktop', 'phpstorm_phpstorm.desktop', 'com.getpostman.Postman.desktop', 'sublime_merge.desktop', 'sublime_text.desktop', 'android-studio_android-studio.desktop', 'code.desktop']
 name='Desenvolvimento'
 
+[folders/Pardus]
+categories=['X-Pardus-Apps']
+name='X-Pardus-Apps.directory'
+translate=true
+
 [folders/Utilities]
-apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'nm-connection-editor.desktop', 'usb-creator-gtk.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'gnome-system-monitor.desktop', 'simple-scan.desktop', 'org.gnome.seahorse.Application.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
+apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'nm-connection-editor.desktop', 'org.gnome.DiskUtility.desktop', 'gnome-system-monitor.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.DejaDup.desktop', 'usb-creator-gtk.desktop', 'org.gnome.FileRoller.desktop', 'simple-scan.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
 categories=['X-GNOME-Utilities']
 excluded-apps=['software-properties-gtk.desktop', 'software-properties-gtk.desktop']
 name='X-GNOME-Utilities.directory'

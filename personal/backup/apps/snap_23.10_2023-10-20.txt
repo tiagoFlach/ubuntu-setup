@@ -1,0 +1,17 @@
+bare
+core
+core18
+core22
+firefox
+firmware-updater
+gnome-3-28-1804
+gnome-42-2204
+gtk-common-themes
+inkscape
+musescore
+scrcpy
+simplenote
+skype
+snap-store
+snapd
+snapd-desktop-integration

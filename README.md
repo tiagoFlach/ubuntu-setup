@@ -61,7 +61,7 @@ This script automatically installs the following softwares:
   - Mousai (flatpak)
   - MuseScore (snap)
   - NewsFlash (flatpak)
-  - OBS Studio
+  - OBS Studio (flatpak)
   - Paleta (flatpak)
   - Remmina
   - Scrcpy (snap)

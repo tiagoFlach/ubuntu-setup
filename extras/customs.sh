@@ -80,6 +80,11 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'goo
 # Hidden ImageMagick
 sudo sh -c 'echo "\nHidden=true" >> /usr/share/applications/display-im6.q16.desktop'
 
+# Hidden Folders
+echo "snap" >>~/.hidden
+echo "Público" >>~/.hidden
+echo "Modelos" >>~/.hidden
+
 # Apagar tela
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 60
@@ -93,6 +98,8 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-
 gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'cycle-windows'
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DEFAULT'
 gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
+gsettings set org.gnome.shell.extensions.dash-to-dock isolate-monitors true
+gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true
 
 # version LEFT
 # gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
@@ -106,14 +113,16 @@ gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme false
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 44
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 48
 
 # Desktop Icons
 gsettings set org.gnome.shell.extensions.ding show-home false
 gsettings set org.gnome.shell.extensions.ding show-trash false
 
+# Sound
+gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
+
 # Gnome Clocks
-sudo apt install gnome-clocks -y -q
 gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>}, {'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Luxembourg', 'ELLX', true, [(0.86597420301561734, 0.10850130765007832)], [(0.86588693655301752, 0.10698868314725239)])>)>}]"
 
 # Gedit
@@ -122,6 +131,8 @@ gsettings set org.gnome.gedit.preferences.editor display-right-margin true
 # Text editor
 gsettings set org.gnome.TextEditor show-line-numbers true
 gsettings set org.gnome.TextEditor restore-session false
+gsettings set org.gnome.TextEditor show-right-margin true
+gsettings set org.gnome.TextEditor show-map true
 
 # Gnome System Monitor
 gsettings set org.gnome.gnome-system-monitor cpu-colors "[(0, 'rgb(153,193,241)'), (1, 'rgb(143,240,164)'), (2, 'rgb(255,190,111)'), (3, 'rgb(249,240,107)'), (4, 'rgb(53,132,228)'), (5, 'rgb(51,209,122)'), (6, 'rgb(255,120,0)'), (7, 'rgb(246,211,45)'), (8, 'rgb(26,95,180)'), (9, 'rgb(38,162,105)'), (10, 'rgb(198,70,0)'), (11, 'rgb(229,165,10)'), (12, '#aaffc3'), (13, '#469990'), (14, '#000075'), (15, '#e6beff')]"

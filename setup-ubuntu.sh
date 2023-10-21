@@ -106,7 +106,6 @@ PPAS=(
 	ppa:git-core/ppa # Git
 	# ppa:graphics-drivers/ppa		   # Nvidia
 	ppa:libreoffice/ppa                # LibreOffice
-	ppa:obsproject/obs-studio          # OBS Studio
 	ppa:stellarium/stellarium-releases # Stellarium
 )
 
@@ -128,6 +127,7 @@ URL_MS_TEAMS="https://teams.microsoft.com/downloads/desktopurl?env=production&pl
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 ## ----- Pré-requisitos ----- ##
+sudo echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.d/99-swappiness.conf
 sudo apt install apt-transport-https curl -y -q
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 
@@ -235,7 +235,6 @@ PROGRAMS_APT=(
 	cpu-x
 	flatpak
 	# inkscape
-	obs-studio
 	remmina
 	stacer
 	stellarium
@@ -254,6 +253,7 @@ PROGRAMS_FLATPAK=(
 	com.github.finefindus.eyedropper
 	com.github.k4zmu2a.spacecadetpinball
 	com.mattjakeman.ExtensionManager
+	com.obsproject.Studio
 	com.slack.Slack
 	com.spotify.Client
 	com.vixalien.decibels

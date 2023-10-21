@@ -3,9 +3,25 @@
 backupPath=$(dirname "$(dirname "$(readlink -f "$0")")")/personal/backup
 
 if [ $# -lt 1 ]; then
-	echo "Por favor, informe o parâmetro 'backup', 'restore' ou 'reset'"
+	echo "Por favor, informe o parâmetro 'backup', 'restore', 'apps-list' ou 'reset'"
 	exit 1
 fi
+
+apps() {
+	# Apps
+	# ----------
+	date=$(date +"%Y-%m-%d")
+	os=$(lsb_release -r | awk '{print $2}')
+
+	# deb
+	dpkg-query -W -f='${Package}\n' | sort >"$backupPath/apps/deb_${os}_$date.txt"
+
+	# flatpak
+	flatpak list --app --columns=application >"$backupPath/apps/flatpak_${os}_$date.txt"
+
+	# snap
+	snap list | awk 'NR>1 {print $1}' >"$backupPath/apps/snap_${os}_$date.txt"
+}
 
 if [ "$1" = "backup" ]; then
 	# Backup
@@ -31,19 +47,7 @@ if [ "$1" = "backup" ]; then
 	mkdir -p $backupPath/remmina
 	sudo cp -r ~/.local/share/remmina/* $backupPath/remmina/
 
-	# Apps
-	# ----------
-	date=$(date +"%Y-%m-%d")
-	os=$(lsb_release -r | awk '{print $2}')
-
-	# deb
-	dpkg-query -W -f='${Package}\n' | sort >"$backupPath/apps/deb_${os}_$date.txt"
-
-	# flatpak
-	flatpak list --app --columns=application >"$backupPath/apps/flatpak_${os}_$date.txt"
-
-	# snap
-	snap list | awk 'NR>1 {print $1}' >"$backupPath/apps/snap_${os}_$date.txt"
+	apps
 
 	echo "Backup concluído com sucesso."
 elif [ "$1" = "restore" ]; then
@@ -51,15 +55,15 @@ elif [ "$1" = "restore" ]; then
 	# ----------
 
 	# Profile picture
-	sudo cp -f $backupPath/tiago /var/lib/AccountsService/icons/
-	sudo sed -i 's/\(Icon=\).*/\1\/var\/lib\/AccountsService\/icons\/tiago/' /var/lib/AccountsService/users/tiago
+	# sudo cp -f $backupPath/tiago /var/lib/AccountsService/icons/
+	# sudo sed -i 's/\(Icon=\).*/\1\/var\/lib\/AccountsService\/icons\/tiago/' /var/lib/AccountsService/users/tiago
 
 	# Shortwave
 	# mkdir -p ~/.var/app/de.haeckerfelix.Shortwave/data/Shortwave
 	cp -f $backupPath/Shortwave.db ~/.var/app/de.haeckerfelix.Shortwave/data/Shortwave/
 
 	# Extensions
-	cp -f -r $backupPath/extensions ~/.local/share/gnome-shell/
+	# cp -f -r $backupPath/extensions ~/.local/share/gnome-shell/
 
 	# Desktop app folders
 	dconf load /org/gnome/desktop/app-folders/ <$backupPath/app-folders.dconf
@@ -74,6 +78,11 @@ elif [ "$1" = "restore" ]; then
 	sudo cp -r -p $backupPath/remmina/* ~/.local/share/remmina/
 
 	echo "Restauração concluída com sucesso."
+elif [ "$1" = "apps-list" ]; then
+	# Apps list
+	# ----------
+
+	apps
 elif [ "$1" = "reset" ]; then
 	# Reset
 	# ----------
