@@ -42,6 +42,7 @@ This script automatically installs the following softwares:
   - Apostrophe (flatpak)
   - Bitwarden (flatpak)
   - Cpu-X
+  - Collision (flatpak)
   - Decoder (flatpak)
   - Decibels (flatpak)
   - Discord (flatpak)
@@ -80,7 +81,7 @@ This script automatically installs the following softwares:
   - Tube Converter (flatpak)
   - Upscaler (flatpak)
   - VirtualBox
-  - VLC
+  - VLC (flatpak)
   - What IP (flatpak)
 
 - CLI:
@@ -180,10 +181,13 @@ Contains scripts for the automatic installation of the following softwares:
   - GitKraken
   - IntelliJ
   - Insomnia
+  - Meson
   - MySQL Workbench
+  - Nija
   - NodeJs
   - NPM
   - PhpStorm
+  - Poedit
   - Postman
   - Python Pip
   - Sublime Merge
@@ -193,7 +197,7 @@ Contains scripts for the automatic installation of the following softwares:
   - Apache
   - MySql
   - PHP
-  - PHP MyAdmin
+  - phpMyAdmin
 - Laravel
 - Popcorn Time
 

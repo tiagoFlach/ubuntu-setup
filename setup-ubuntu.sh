@@ -237,12 +237,14 @@ PROGRAMS_APT=(
 	cpu-x
 	flatpak
 	# inkscape
+	libreoffice
 	remmina
+	shotwell
 	stacer
 	stellarium
 	# synaptic
 	timeshift
-	vlc
+	# vlc
 	# virtualbox
 	# virtualbox-dkms
 )
@@ -261,6 +263,7 @@ PROGRAMS_FLATPAK=(
 	com.vixalien.decibels
 	de.haeckerfelix.Fragments
 	de.haeckerfelix.Shortwave
+	dev.geopjr.Collision
 	io.github.nate_xyz.Paleta
 	io.github.nokse22.inspector
 	io.github.seadve.Mousai
@@ -275,9 +278,10 @@ PROGRAMS_FLATPAK=(
 	org.gnome.SoundRecorder
 	org.gnome.Totem
 	org.gnome.gitlab.somas.Apostrophe
-	org.nickvision.tubeconverter
 	# org.kde.kdenlive
+	org.nickvision.tubeconverter
 	org.telegram.desktop
+	org.videolan.VLC
 	page.codeberg.Imaginer.Imaginer
 )
 

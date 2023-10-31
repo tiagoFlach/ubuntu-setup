@@ -17,14 +17,18 @@
 # 	GitKraken
 #	InteliJ
 #	Insomnia
+# 	Meson
 #	MySQL Workbench
+#	Ninja
 # 	NodeJs
 # 	NPM
 # 	PhpStorm
+# 	Poedit
 # 	Postman
 # 	Python Pip
 # 	Sublime Text
 # 	Sublime Merge
+# 	Vala
 # 	Visual Studio Code
 
 APPS=(
@@ -40,14 +44,18 @@ APPS=(
 	"gitkraken"
 	"intellij"
 	"insomnia"
+	"meson"
 	"mysql-workbench"
+	"ninja"
 	"nodejs"
 	"npm"
 	"phpstorm"
+	"poedit"
 	"postman"
 	"python3-pip"
 	"sublime-text"
 	"sublime-merge"
+	"vala"
 	"code"
 )
 APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
@@ -151,10 +159,22 @@ insomnia() {
 	flatpak install flathub rest.insomnia.Insomnia -y
 }
 
+# Meson
+# --------------------------------------
+meson() {
+	sudo apt install meson -y
+}
+
 # Mysql Workbench
 # --------------------------------------
 mysql_workbench() {
 	sudo snap install mysql-workbench-community -y
+}
+
+# Ninja
+# --------------------------------------
+ninja() {
+	sudo apt install ninja-build -y
 }
 
 # NodeJs
@@ -177,6 +197,12 @@ npm() {
 # --------------------------------------
 phpstorm() {
 	sudo snap install phpstorm --classic -y
+}
+
+# Poedit
+# --------------------------------------
+poedit() {
+	flatpak install flathub net.poedit.Poedit -y
 }
 
 # Postman
@@ -209,11 +235,17 @@ sublime_merge() {
 	sudo apt install sublime-merge -y
 }
 
+# Vala
+# --------------------------------------
+vala() {
+	sudo apt install valac -y
+}
+
 # Visual Studio Code
 # --------------------------------------
 code() {
 	sudo apt-get install wget gpg apt-transport-https -y
-	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
 	sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 	sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 	rm -f packages.microsoft.gpg

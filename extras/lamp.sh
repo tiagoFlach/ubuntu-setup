@@ -45,7 +45,9 @@ function lamp_clean {
 function status {
 	sudo ufw status
 	sudo systemctl restart apache2 mysql
+	# sudo systemctl restart apache2 mariadb
 	sudo systemctl --no-pager status apache2 mysql
+	# sudo systemctl --no-pager status apache2 mariadb
 }
 
 # --------------------------------------
@@ -78,6 +80,12 @@ sudo ufw enable
 ## ---------------------------------- ##
 sudo apt install mysql-server mysql-client -y
 sudo mysql_secure_installation
+
+## ---------------------------------- ##
+## ------------ MariaDB ------------- ##
+## ---------------------------------- ##
+# sudo apt install mariadb-server
+# sudo mysql_secure_installation
 
 ## Answer
 # --------------------------------------
