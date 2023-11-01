@@ -104,6 +104,8 @@ This script automatically installs the following softwares:
   - nautilus-image-converter
   - ubuntu-restricted-extras
   - unrar
+  - unzip
+  - usb-creator-gtk
   - v4l2loopback-dkms
   - wnctrl
   - zip

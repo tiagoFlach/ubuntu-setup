@@ -161,6 +161,7 @@ PROGRAMS_APT=(
 	ufw
 	unrar
 	unzip
+	usb-creator-gtk
 	v4l2loopback-dkms
 	wmctrl
 	zip
