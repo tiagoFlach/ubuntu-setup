@@ -265,6 +265,7 @@ PROGRAMS_FLATPAK=(
 	de.haeckerfelix.Fragments
 	de.haeckerfelix.Shortwave
 	dev.geopjr.Collision
+	io.github.celluloid_player.Celluloid
 	io.github.nate_xyz.Paleta
 	io.github.nokse22.inspector
 	io.github.seadve.Mousai

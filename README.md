@@ -41,8 +41,9 @@ This script automatically installs the following softwares:
   - AnyDesk
   - Apostrophe (flatpak)
   - Bitwarden (flatpak)
-  - Cpu-X
+  - Celluloid (flatpak)
   - Collision (flatpak)
+  - Cpu-X
   - Decoder (flatpak)
   - Decibels (flatpak)
   - Discord (flatpak)
