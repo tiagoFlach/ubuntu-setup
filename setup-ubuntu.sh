@@ -259,6 +259,7 @@ PROGRAMS_FLATPAK=(
 	com.github.k4zmu2a.spacecadetpinball
 	com.mattjakeman.ExtensionManager
 	com.obsproject.Studio
+	# com.skype.Client
 	com.slack.Slack
 	com.spotify.Client
 	com.vixalien.decibels
@@ -293,7 +294,7 @@ PROGRAMS_SNAP=(
 	musescore
 	scrcpy
 	simplenote
-	skype
+	# skype
 )
 # ---------------------------------------------------------------------------- #
 

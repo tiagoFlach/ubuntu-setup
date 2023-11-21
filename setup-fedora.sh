@@ -231,7 +231,6 @@ PROGRAMS_DNF=(
 	obs-studio
 	remmina
 	scrcpy
-	# skypeforlinux
 	stacer
 	stellarium
 	# synaptic
