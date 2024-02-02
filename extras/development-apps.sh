@@ -12,6 +12,7 @@
 #	DBeaver
 # 	Docker
 # 	Filezilla
+# 	Flutter
 #	Git
 #	GitHub CLI
 # 	GitKraken
@@ -39,6 +40,7 @@ APPS=(
 	"dbeaver"
 	"docker"
 	"filezilla"
+	"flutter"
 	"git"
 	"gh"
 	"gitkraken"
@@ -67,7 +69,17 @@ fi
 # Android Studio
 # --------------------------------------
 android_studio() {
-	sudo snap install android-studio --classic -y
+	sudo snap install android-studio --classic
+
+	echo '# Ract Native config' >>~/.bashrc
+	echo 'export ANDROID_HOME=$HOME/Android/Sdk' >>~/.bashrc
+	echo 'export PATH=$PATH:$ANDROID_HOME/emulator' >>~/.bashrc
+	echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >>~/.bashrc
+
+	echo '# Ract Native config' >>~/.zshrc
+	echo 'export ANDROID_HOME=$HOME/Android/Sdk' >>~/.zshrc
+	echo 'export PATH=$PATH:$ANDROID_HOME/emulator' >>~/.zshrc
+	echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >>~/.zshrc
 }
 
 # Atom
@@ -119,6 +131,13 @@ docker() {
 	sudo usermod -aG docker $USER
 }
 
+# Flutter
+# --------------------------------------
+flutter() {
+	sudo snap install flutter --classic
+	flutter doctor
+}
+
 # Git
 # --------------------------------------
 git() {
@@ -144,13 +163,13 @@ gh() {
 # GitKraken
 # --------------------------------------
 gitkraken() {
-	sudo snap install gitkraken --classic -y
+	sudo snap install gitkraken --classic
 }
 
 # IntelliJ
 # --------------------------------------
 intellij() {
-	sudo snap install intellij-idea-community --classic -y
+	sudo snap install intellij-idea-community --classic
 }
 
 # Insomnia
@@ -168,7 +187,7 @@ meson() {
 # Mysql Workbench
 # --------------------------------------
 mysql_workbench() {
-	sudo snap install mysql-workbench-community -y
+	sudo snap install mysql-workbench-community
 }
 
 # Ninja
@@ -196,7 +215,7 @@ npm() {
 # PhpStorm
 # --------------------------------------
 phpstorm() {
-	sudo snap install phpstorm --classic -y
+	sudo snap install phpstorm --classic
 }
 
 # Poedit
@@ -259,6 +278,8 @@ code() {
 filezilla() {
 	sudo apt install filezilla -y
 }
+
+# ------------------------------------------------------------------------------
 
 # Define colors
 RED='\033[0;31m'
