@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install php-cli unzip -y
+sudo apt install php-cli sqlite3 unzip -y
 
 cd ~
 curl -sS https://getcomposer.org/installer -o composer-setup.php
