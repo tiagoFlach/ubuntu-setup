@@ -49,6 +49,12 @@ fi
 if $SNAP_SUPPORT; then
 	echo -e "\n\n${YELLOW}sudo snap refresh ${NC}\n"
 	sudo snap refresh
+
+	# Removes old revisions of snaps
+	snap list --all | awk '/disabled/{print $1, $3}' |
+		while read snapname revision; do
+			sudo snap remove "$snapname" --revision="$revision"
+		done
 fi
 
 if $FLATPAK_SUPPORT; then
