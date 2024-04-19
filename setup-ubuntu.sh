@@ -262,7 +262,7 @@ PROGRAMS_FLATPAK=(
 	# com.skype.Client
 	com.slack.Slack
 	com.spotify.Client
-	com.vixalien.decibels
+	org.gnome.Decibels
 	de.haeckerfelix.Fragments
 	de.haeckerfelix.Shortwave
 	dev.geopjr.Collision
