@@ -125,9 +125,6 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
 # Gnome Clocks
 gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>}, {'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Luxembourg', 'ELLX', true, [(0.86597420301561734, 0.10850130765007832)], [(0.86588693655301752, 0.10698868314725239)])>)>}]"
 
-# Gedit
-gsettings set org.gnome.gedit.preferences.editor display-right-margin true
-
 # Text editor
 gsettings set org.gnome.TextEditor show-line-numbers true
 gsettings set org.gnome.TextEditor restore-session false
@@ -181,7 +178,15 @@ gsettings set org.gnome.shell.extensions.tiling-assistant enable-tiling-popup tr
 
 # Privacy
 gsettings set org.gnome.desktop.privacy remember-recent-files false
+gsettings set org.gnome.system.location enabled true
 
 # Wm
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'minimize'
 gsettings set org.gnome.desktop.wm.preferences button-layout ':close'
+
+## ----------------------------- CUSTOMIZATIONS ----------------------------- ##
+
+# Git
+if ! which git >/dev/null; then
+    sudo apt install git -y -q
+fi

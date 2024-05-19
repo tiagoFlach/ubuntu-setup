@@ -229,7 +229,7 @@ PROGRAMS_DNF=(
 	inkscape
 	google-chrome-stable
 	obs-studio
-	remmina
+	# remmina
 	scrcpy
 	stacer
 	stellarium
@@ -262,8 +262,9 @@ PROGRAMS_FLATPAK=(
 	org.gnome.gitlab.somas.Apostrophe
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	org.gnome.SoundRecorder
-	org.musescore.MuseScore
 	# org.kde.kdenlive
+	org.musescore.MuseScore
+	org.remmina.Remmina
 	org.telegram.desktop
 )
 # ---------------------------------------------------------------------------- #
@@ -365,7 +366,8 @@ sudo dnf clean all -y
 # -------------------------------- CHECKLIST --------------------------------- #
 echo -e "\nDNF's instalados:"
 for program_name in ${PROGRAMS_DNF[@]}; do
-	if rpm -qa | grep -q $program_name; then # Verifica se o programa esta istalado
+	# Verifica se o programa esta istalado
+	if rpm -qa | grep -q $program_name; then
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
@@ -374,7 +376,8 @@ done
 
 echo -e "\nFLATPAK's instalados:"
 for program_name in ${PROGRAMS_FLATPAK[@]}; do
-	if flatpak list | grep -q $program_name; then # Verifica se o programa esta istalado
+	# Verifica se o programa esta istalado
+	if flatpak list | grep -q $program_name; then
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"

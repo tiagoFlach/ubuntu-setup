@@ -1,16 +1,18 @@
 #!/bin/bash
 
-# sudo mount /dev/sda3 /mnt/499E061F2C2CE759
+# Montar partição
+sudo mkdir -p /mnt/499E061F2C2CE759
+sudo mount /dev/sda3 /mnt/499E061F2C2CE759
 
-# sudo echo "/dev/disk/by-uuid/499E061F2C2CE759 /mnt/499E061F2C2CE759 auto nosuid,nodev,nofail,x-gvfs-show 0 0" >> /etc/fstab
+sudo sh -c 'echo "/dev/disk/by-uuid/499E061F2C2CE759 /mnt/499E061F2C2CE759 auto nosuid,nodev,nofail,x-gvfs-show 0 0" >> /etc/fstab'
 
-# sudo mount -a
-# sudo systemctl daemon-reload
+sudo mount -a
+sudo systemctl daemon-reload
 
 # rm -r ~/Desktop ~/Downloads ~/Documents ~/Music ~/Pictures ~/Videos
 # rm -r ~/Área\ de\ trabalho ~/Downloads ~/Documentos ~/Músicas ~/Imagens ~/Vídeos
-exit
-rm -r ~/Downloads ~/Documentos ~/Músicas ~/Imagens ~/Vídeos
+# exit
+rm -rf ~/Downloads ~/Documentos ~/Músicas ~/Imagens ~/Vídeos
 cd /mnt/499E061F2C2CE759/tiago
 sudo ln -sr * ~/
 

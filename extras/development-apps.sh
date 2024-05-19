@@ -7,6 +7,7 @@
 # This scrip install de following apps:
 # 	Android Studio
 # 	Atom
+# 	CodeBlocks
 # 	Composer
 #	Eclipse
 #	DBeaver
@@ -35,6 +36,7 @@
 APPS=(
 	"android-studio"
 	"atom"
+	"codeblocks"
 	"composer"
 	"eclipse"
 	"dbeaver"
@@ -61,10 +63,6 @@ APPS=(
 	"code"
 )
 APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
-
-if ! which curl >/dev/null; then
-	sudo apt install curl -y -q
-fi
 
 # Android Studio
 # --------------------------------------
@@ -94,6 +92,12 @@ atom() {
 	sudo apt install atom -y
 }
 
+# CodeBlocks
+# --------------------------------------
+codeblocks() {
+	sudo apt install codeblocks -y
+}
+
 # Composer
 # --------------------------------------
 composer() {
@@ -110,7 +114,7 @@ eclipse() {
 # DBeaver
 # --------------------------------------
 dbeaver() {
-	flatpak install flathub io.dbeaver.DBeaverCommunity
+	flatpak install flathub io.dbeaver.DBeaverCommunity -y
 }
 
 # Docker
@@ -118,8 +122,10 @@ dbeaver() {
 docker() {
 	# Prerequisite packages
 	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
 	# Then add the GPG key for the official Docker repository to your system:
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg -y
+
 	# Add the Docker repository to APT sources:
 	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 	sudo apt update
@@ -141,10 +147,7 @@ flutter() {
 # Git
 # --------------------------------------
 git() {
-	sudo apt-add-repository ppa:git-core/ppa -y
 	sudo apt install git -y
-	git config --global user.email "tiagolucas9830@gmail.com"
-	git config --global user.name "Tiago Lucas Flach"
 }
 
 # GitHub CLI
@@ -269,7 +272,8 @@ code() {
 	sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 	rm -f packages.microsoft.gpg
 
-	sudo apt update && sudo apt install code -y
+	sudo apt update
+	sudo apt install code -y
 	# sudo snap install code --classic
 }
 
@@ -277,6 +281,28 @@ code() {
 # --------------------------------------
 filezilla() {
 	sudo apt install filezilla -y
+}
+
+# ------------------------------------------------------------------------------
+
+addToFolder($APP) {
+	path_name="Desenvolvimento"
+
+	# Adicionar à pasta
+	# https://askubuntu.com/questions/1091972/how-do-i-create-app-folders-in-the-gnome-application-menu
+
+	# Listar pastas
+	folders=$(gsettings get org.gnome.desktop.app-folders folder-children)
+
+	# Verificar se a pasta desejada existe
+	if [[ $folders != *"$path_name"* ]]; then
+		# Criar pasta
+		# Adicionar à pasta
+		gsettings set org.gnome.desktop.app-folders folder-children "['$app', 'Utilities']"
+	fi
+
+
+	gsettings get org.gnome.desktop.app-folders folder-children
 }
 
 # ------------------------------------------------------------------------------
@@ -289,11 +315,19 @@ BLUE='\033[0;34m'
 BOLDBLUE='\033[1;34m'
 NC='\033[0m' # No Color
 
+# Curl
 if ! which curl >/dev/null; then
+	sudo apt install curl -y -q
+fi
+
+# Gum
+if ! which gum >/dev/null; then
 	sudo mkdir -p /etc/apt/keyrings
 	curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
 	echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
-	sudo apt update && sudo apt install gum
+
+	sudo apt update
+	sudo apt install gum
 fi
 
 select_apps() {
@@ -308,4 +342,9 @@ SELECTED=$(select_apps)
 for app in ${SELECTED[@]}; do
 	echo -e "\n\n${YELLOW}	[INSTALANDO] - $app ${NC}\n\n"
 	$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')
+
+	# Adicionar à pasta
+	addToFolder()
+
+	# https://askubuntu.com/questions/1091972/how-do-i-create-app-folders-in-the-gnome-application-menu
 done

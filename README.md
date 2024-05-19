@@ -2,7 +2,7 @@
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-This is a automatic system setup for [Ubuntu 23.10](https://releases.ubuntu.com/23.10/).
+This is a automatic system setup for [Ubuntu 24.04](https://releases.ubuntu.com/24.04/).
 
 ## Getting Started
 
@@ -65,7 +65,7 @@ This script automatically installs the following softwares:
   - NewsFlash (flatpak)
   - OBS Studio (flatpak)
   - Paleta (flatpak)
-  - Remmina
+  - Remmina (flatpak)
   - Scrcpy (snap)
   - Shortwave (flatpak)
   - Simplenote (snap)
@@ -90,7 +90,7 @@ This script automatically installs the following softwares:
   - git
   - htop
   - neofetch
-  - speedtest
+  - speedtest-cli
   - yt-dlp
 
 - System:

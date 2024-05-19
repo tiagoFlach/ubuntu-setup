@@ -58,7 +58,7 @@ for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
 done
 
-LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 22.04${BLUE} "
+LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 24.04${BLUE} "
 
 for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
@@ -103,10 +103,8 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 # --------------------------------- VARIÁVEIS -------------------------------- #
 # ----- PPAs -----#
 PPAS=(
-	ppa:git-core/ppa # Git
-	# ppa:graphics-drivers/ppa		   # Nvidia
-	ppa:libreoffice/ppa                # LibreOffice
-	ppa:stellarium/stellarium-releases # Stellarium
+	ppa:graphics-drivers/ppa # Nvidia
+	ppa:libreoffice/ppa      # LibreOffice
 )
 
 # AnyDesk
@@ -134,6 +132,7 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 ## ----- Programas a serem instalados via apt ----- ##
 PROGRAMS_APT=(
 	# Sistema
+	etherwake
 	exfat-fuse
 	ffmpeg
 	laptop-mode-tools
@@ -155,6 +154,7 @@ PROGRAMS_APT=(
 	gstreamer1.0-pulseaudio
 	nautilus-image-converter
 	net-tools
+	nmap
 	rar
 	ubuntu-restricted-extras
 	ubuntu-wallpapers
@@ -172,7 +172,7 @@ PROGRAMS_APT=(
 	btop
 	htop
 	neofetch
-	speedtest
+	speedtest-cli
 	yt-dlp
 
 	# Fontes
@@ -232,6 +232,7 @@ PROGRAMS_APT=(
 	gnome-tweaks
 	gnome-weather
 	gparted
+	totem
 
 	# Aplicativos
 	anydesk
@@ -239,7 +240,7 @@ PROGRAMS_APT=(
 	flatpak
 	# inkscape
 	libreoffice
-	remmina
+	# remmina
 	shotwell
 	stacer
 	stellarium
@@ -279,10 +280,10 @@ PROGRAMS_FLATPAK=(
 	org.gnome.Loupe
 	org.gnome.Snapshot
 	org.gnome.SoundRecorder
-	org.gnome.Totem
 	org.gnome.gitlab.somas.Apostrophe
 	# org.kde.kdenlive
 	org.nickvision.tubeconverter
+	org.remmina.Remmina
 	org.telegram.desktop
 	org.videolan.VLC
 	page.codeberg.Imaginer.Imaginer
@@ -332,10 +333,6 @@ if [ ! -f "/usr/share/keyrings/anydesk-stable-keyring.gpg" ]; then
 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/anydesk-stable-keyring.gpg] $URL_ANYDESK_PPA all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 fi
 
-# Speedtest
-sudo apt install curl
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-
 # ---------------------------------------------------------------------------- #
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
@@ -353,7 +350,8 @@ sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 
 # ----- Instalando pacote via Apt ----- ##
 for program_name in ${PROGRAMS_APT[@]}; do
-	if ! dpkg -l | grep -q $program_name; then # Só instala se já não estiver instalado
+	# Só instala se já não estiver instalado
+	if ! dpkg -l | grep -q $program_name; then
 		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
@@ -367,7 +365,8 @@ sudo flatpak update -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 for program_name in ${PROGRAMS_FLATPAK[@]}; do
-	if ! flatpak list | grep -q $program_name; then # Só instala se já não estiver instalado
+	# Só instala se já não estiver instalado
+	if ! flatpak list | grep -q $program_name; then
 		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
@@ -380,7 +379,8 @@ done
 sudo snap refresh
 
 for program_name in ${PROGRAMS_SNAP[@]}; do
-	if ! snap list | grep -q $program_name; then # Só instala se já não estiver instalado
+	# Só instala se já não estiver instalado
+	if ! snap list | grep -q $program_name; then
 		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[INSTALANDO] - $program_name ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
@@ -425,7 +425,8 @@ sudo apt autoremove -y
 # -------------------------------- CHECKLIST --------------------------------- #
 echo -e "\nAPT's instalados:"
 for program_name in ${PROGRAMS_APT[@]}; do
-	if dpkg -l | grep -q $program_name; then # Verifica se o programa esta istalado
+	# Verifica se o programa esta istalado
+	if dpkg -l | grep -q $program_name; then
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
@@ -434,7 +435,8 @@ done
 
 echo -e "\nFLATPAK's instalados:"
 for program_name in ${PROGRAMS_FLATPAK[@]}; do
-	if flatpak list | grep -q $program_name; then # Verifica se o programa esta istalado
+	# Verifica se o programa esta istalado
+	if flatpak list | grep -q $program_name; then
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
@@ -443,7 +445,8 @@ done
 
 echo -e "\nSNAP's instalados:"
 for program_name in ${PROGRAMS_SNAP[@]}; do
-	if snap list | grep -q $program_name; then # Verifica se o programa esta istalado
+	# Verifica se o programa esta istalado
+	if snap list | grep -q $program_name; then
 		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
 	else
 		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
