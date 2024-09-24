@@ -119,6 +119,7 @@ This script automatically installs the following softwares:
   - fonts-bajaderka
   - fonts-blankenburg
   - fonts-cantarell
+  - fonts-cascadia-code
   - fonts-comfortaa
   - fonts-dejavu-extra
   - fonts-fanwood
@@ -129,6 +130,8 @@ This script automatically installs the following softwares:
   - fonts-hack
   - fonts-hack-ttf
   - fonts-havana
+  - fonts-inter
+  - fonts-inter-variable
   - fonts-junicode
   - fonts-lato
   - fonts-league-spartan
@@ -162,7 +165,9 @@ This script automatically installs the following softwares:
   - gnome-backgrounds
   - gnome-boxes (flatpak)
   - gnome-clocks
-  - gnome-maps
+  - gnome-epub-thumbnailer
+  - gnome-firmware
+  - gnome-maps (flatpak)
   - gnome-shell-extensions
   - gnome-software-plugin-flatpak
   - gnome-tweaks
@@ -186,7 +191,7 @@ Contains scripts for the automatic installation of the following softwares:
   - Insomnia
   - Meson
   - MySQL Workbench
-  - Nija
+  - Ninja
   - NodeJs
   - NPM
   - PhpStorm
@@ -196,6 +201,7 @@ Contains scripts for the automatic installation of the following softwares:
   - Sublime Merge
   - Sublime Text
   - Visual Studio Code
+  - Zed
 - Lamp
   - Apache
   - MySql

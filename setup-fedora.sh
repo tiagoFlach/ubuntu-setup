@@ -167,6 +167,7 @@ PROGRAMS_DNF=(
 	# Fontes
 	adobe-source-sans-pro-fonts
 	baekmuk-*
+	cascadia-code-fonts
 	dejavu-fonts-*
 	texlive-lstfiracode
 	fontawesome*
@@ -207,8 +208,9 @@ PROGRAMS_DNF=(
 	dconf-editor
 	gnome-backgrounds
 	gnome-clocks
+	gnome-epub-thumbnailer
 	gnome-extensions-app
-	gnome-maps
+	gnome-firmware
 	gnome-tweaks
 	gnome-weather
 	gparted
@@ -259,6 +261,7 @@ PROGRAMS_FLATPAK=(
 	org.gimp.GIMP
 	org.gnome.Boxes
 	org.gnome.Loupe
+	org.gnome.Maps
 	org.gnome.gitlab.somas.Apostrophe
 	org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
 	org.gnome.SoundRecorder

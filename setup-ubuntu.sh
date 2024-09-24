@@ -136,10 +136,11 @@ PROGRAMS_APT=(
 	exfat-fuse
 	ffmpeg
 	laptop-mode-tools
-	lsb
+	libfuse2t64
 	libgstreamer1.0-dev
 	libgstreamer-plugins-base1.0-dev
 	libgstreamer-plugins-bad1.0-dev
+	lsb
 	gstreamer1.0-plugins-base
 	gstreamer1.0-plugins-good
 	gstreamer1.0-plugins-bad
@@ -182,6 +183,7 @@ PROGRAMS_APT=(
 	fonts-bajaderka
 	fonts-blankenburg
 	fonts-cantarell
+	fonts-cascadia-code
 	fonts-comfortaa
 	fonts-dejavu-extra
 	fonts-fanwood
@@ -192,6 +194,8 @@ PROGRAMS_APT=(
 	fonts-hack
 	fonts-hack-ttf
 	fonts-havana
+	fonts-inter
+	fonts-inter-variable
 	fonts-junicode
 	fonts-lato
 	fonts-league-spartan
@@ -224,15 +228,15 @@ PROGRAMS_APT=(
 	dconf-editor
 	gnome-backgrounds
 	gnome-clocks
+	gnome-epub-thumbnailer
+	gnome-extensions-app
 	gnome-firmware
-	gnome-maps
 	gnome-shell-extensions
 	gnome-software-plugin-flatpak
 	gnome-sushi
 	gnome-tweaks
 	gnome-weather
 	gparted
-	totem
 
 	# Aplicativos
 	anydesk
@@ -278,6 +282,7 @@ PROGRAMS_FLATPAK=(
 	org.gnome.Boxes
 	org.gnome.Calendar
 	org.gnome.Loupe
+	org.gnome.Maps
 	org.gnome.Snapshot
 	org.gnome.SoundRecorder
 	org.gnome.gitlab.somas.Apostrophe
@@ -302,7 +307,7 @@ PROGRAMS_SNAP=(
 # -------------------------------- PRE-INSTALL ------------------------------- #
 # Removendo programas desnecessários
 # Yelp
-sudo apt purge --auto-remove yelp -y
+sudo apt purge --auto-remove yelp remmina -y
 
 # Removendo travas eventuais do apt
 sudo rm /var/lib/dpkg/lock-frontend

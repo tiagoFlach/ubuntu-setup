@@ -32,6 +32,7 @@
 # 	Sublime Merge
 # 	Vala
 # 	Visual Studio Code
+# 	Zed
 
 APPS=(
 	"android-studio"
@@ -61,6 +62,7 @@ APPS=(
 	"sublime-merge"
 	"vala"
 	"code"
+	"zed"
 )
 APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
 
@@ -281,6 +283,12 @@ code() {
 # --------------------------------------
 filezilla() {
 	sudo apt install filezilla -y
+}
+
+# Zed
+# --------------------------------------
+zed() {
+	curl https://zed.dev/install.sh | sh
 }
 
 # ------------------------------------------------------------------------------
