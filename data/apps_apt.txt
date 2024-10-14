@@ -1,0 +1,106 @@
+# Sistema
+etherwake
+exfat-fuse
+ffmpeg
+laptop-mode-tools
+libfuse2t64
+lsb
+nautilus-image-converter
+net-tools
+nmap
+rar
+ubuntu-restricted-extras
+ubuntu-wallpapers
+ufw
+unrar
+unzip
+usb-creator-gtk
+v4l2loopback-dkms
+wmctrl
+zip
+
+# CLI
+cmatrix
+git
+btop
+fastfetch
+htop
+neofetch
+speedtest-cli
+yt-dlp
+
+# Fontes
+fonts-apropal
+fonts-atarismall
+fonts-baekmuk
+fonts-bajaderka
+fonts-blankenburg
+fonts-cantarell
+fonts-cascadia-code
+fonts-comfortaa
+fonts-dejavu-extra
+fonts-fanwood
+fonts-firacode
+fonts-font-awesome
+fonts-gamaliel
+fonts-glasstty
+fonts-hack
+fonts-hack-ttf
+fonts-havana
+fonts-inter
+fonts-inter-variable
+fonts-junicode
+fonts-lato
+fonts-league-spartan
+fonts-lemonada
+fonts-le-murmure
+fonts-lexi-gulim
+fonts-lindenhill
+fonts-lmodern
+fonts-lyx
+fonts-millimetre
+fonts-mplus
+fonts-nanum
+fonts-noto-color-emoji
+fonts-open-sans
+fonts-osifont
+fonts-oxygen
+fonts-paratype
+fonts-prociono
+fonts-roboto
+fonts-roboto-slab
+fonts-tomsontalks
+fonts-ubuntu-console
+fonts-vollkorn
+fonts-yanone-kaffeesatz
+ttf-ancient-fonts
+ttf-mscorefonts-installer
+
+# Gnome
+dconf-editor
+gnome-backgrounds
+gnome-clocks
+gnome-epub-thumbnailer
+gnome-firmware
+gnome-shell-extensions
+gnome-software-plugin-flatpak
+gnome-sushi
+gnome-tweaks
+gnome-weather
+gparted
+
+# Aplicativos
+anydesk
+cpu-x
+flatpak
+# inkscape
+libreoffice
+# remmina
+shotwell
+stacer
+stellarium
+# synaptic
+timeshift
+# vlc
+# virtualbox
+# virtualbox-dkms

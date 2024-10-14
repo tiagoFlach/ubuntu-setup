@@ -88,7 +88,7 @@ echo "Modelos" >>~/.hidden
 # Apagar tela
 gsettings set org.gnome.desktop.session idle-delay 900
 gsettings set org.gnome.desktop.screensaver lock-delay 60
-gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
+# gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
 
 ## ----- Customização das extensões ----- ##
 # Dash to dock
@@ -121,6 +121,7 @@ gsettings set org.gnome.shell.extensions.ding show-trash false
 
 # Sound
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
+gsettings set org.gnome.shell.ubuntu startup-sound ''
 
 # Gnome Clocks
 gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>}, {'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Luxembourg', 'ELLX', true, [(0.86597420301561734, 0.10850130765007832)], [(0.86588693655301752, 0.10698868314725239)])>)>}]"
@@ -144,6 +145,9 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br'), ('xkb', '
 # Nautilus
 gsettings set org.gtk.settings.file-chooser sort-directories-first true
 gsettings set org.gnome.nautilus.list-view use-tree-view true
+gsettings set org.gnome.nautilus.icon-view default-zoom-level 'medium'
+gsettings set org.gnome.nautilus.window-state initial-size '(1120, 700)'
+gsettings set org.gnome.nautilus.window-state initial-size-file-chooser '(1120, 700)'
 
 # Interface
 gsettings set org.gnome.desktop.interface clock-show-weekday true
@@ -186,7 +190,16 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ':close'
 
 ## ----------------------------- CUSTOMIZATIONS ----------------------------- ##
 
+# Alias
+echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >>.bash_aliases
+
 # Git
 if ! which git >/dev/null; then
     sudo apt install git -y -q
 fi
+
+# Shortwave
+flatpak permission-set notifications notification de.haeckerfelix.Shortwave no
+
+# Spotify
+flatpak permission-set notifications notification com.spotify.Client no

@@ -1,0 +1,2 @@
+ppa:graphics-drivers/ppa # Nvidia
+# ppa:libreoffice/ppa      # LibreOffice

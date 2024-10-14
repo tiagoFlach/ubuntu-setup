@@ -1,0 +1,5 @@
+inkscape
+musescore
+scrcpy
+simplenote
+# skype

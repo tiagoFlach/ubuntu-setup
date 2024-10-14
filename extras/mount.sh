@@ -16,31 +16,10 @@ rm -rf ~/Downloads ~/Documentos ~/Músicas ~/Imagens ~/Vídeos
 cd /mnt/499E061F2C2CE759/tiago
 sudo ln -sr * ~/
 
-xdg-user-dirs-update --set DOCUMENTS ~/Documentos
-xdg-user-dirs-update --set DOWNLOAD ~/Downloads
-xdg-user-dirs-update --set MUSIC ~/Músicas
-xdg-user-dirs-update --set PICTURES ~/Imagens
-xdg-user-dirs-update --set VIDEOS ~/Vídeos
-# xdg-user-dirs-update --set DESKTOP ~/Área\ de\ Trabalho
-xdg-user-dirs-update
-
-# ---------------------------------------------------------------------------- #
-
-# gnome-disks
-# 499E061F2C2CE759 -> Editar opções de montagem -> padrão de selção do usuario: Off
-#
-# rm /Downloads /Documents /Music /Pictures /Videos
-#
-# Ir para partição que desja ser a /home
-# sudo ln -sr * ~/
-#
-# ~/.config/user-dirs.dirs
 # xdg-user-dirs-update --set DOCUMENTS ~/Documentos
 # xdg-user-dirs-update --set DOWNLOAD ~/Downloads
-# xdg-user-dirs-update --set MUSIC ~/Música
+# xdg-user-dirs-update --set MUSIC ~/Músicas
 # xdg-user-dirs-update --set PICTURES ~/Imagens
 # xdg-user-dirs-update --set VIDEOS ~/Vídeos
 # xdg-user-dirs-update --set DESKTOP ~/Área\ de\ Trabalho
-# xdg-user-dirs-update
-
-# ---------------------------------------------------------------------------- #
+xdg-user-dirs-update

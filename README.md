@@ -2,7 +2,7 @@
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-This is a automatic system setup for [Ubuntu 24.04](https://releases.ubuntu.com/24.04/).
+This is a automatic system setup for [Ubuntu 24.10](https://releases.ubuntu.com/24.10/).
 
 ## Getting Started
 
@@ -38,7 +38,7 @@ This script automatically installs the following softwares:
 
 - Main:
 
-  - AnyDesk
+  - AnyDesk (flapak)
   - Apostrophe (flatpak)
   - Bitwarden (flatpak)
   - Celluloid (flatpak)

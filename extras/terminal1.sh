@@ -123,10 +123,10 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 # ------------------------------------------------------------------------------
 
 # alias
-echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >>.zshrc
-echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >>.bash_aliases
-echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >>.zshrc
-echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >>.bash_aliases
+echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >>~/.zshrc
+echo "alias ubuntu-update=\"~/./ubuntu-setup/extras/update.sh\"" >>~/.bash_aliases
+echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >>~/.zshrc
+echo "alias p10k-update=\"git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull\"" >>~/.bash_aliases
 
 # indent
 echo "ZLE_RPROMPT_INDENT=0" >>.zshrc
