@@ -35,8 +35,8 @@ if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
 		sudo apt install $packages -y
 	fi
 
-	echo -e "\n\n${YELLOW}sudo ubuntu-drivers autoinstall ${NC}\n"
-	sudo ubuntu-drivers autoinstall
+	# echo -e "\n\n${YELLOW}sudo ubuntu-drivers autoinstall ${NC}\n"
+	# sudo ubuntu-drivers autoinstall
 elif [ "$OS_RELEASE_ID" == "fedora" ]; then
 
 	SNAP_SUPPORT=$(rpm -qa | grep -q snapd)

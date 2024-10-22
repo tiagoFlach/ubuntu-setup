@@ -68,7 +68,7 @@ APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
 
 # Android Studio
 # --------------------------------------
-android_studio() {
+function android_studio {
 	sudo snap install android-studio --classic
 
 	echo '# Ract Native config' >>~/.bashrc
@@ -84,7 +84,7 @@ android_studio() {
 
 # Atom
 # --------------------------------------
-atom() {
+function atom {
 	if [ ! -f "/usr/share/keyrings/atom-keyring.gpg" ]; then
 		wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/atom-keyring.gpg
 		echo "deb [arch=amd64 signed-by=/usr/share/keyrings/atom-keyring.gpg] https://packagecloud.io/AtomEditor/atom/any/ any main" | sudo tee /etc/apt/sources.list.d/atom.list
@@ -96,65 +96,72 @@ atom() {
 
 # CodeBlocks
 # --------------------------------------
-codeblocks() {
+function codeblocks {
 	sudo apt install codeblocks -y
 }
 
 # Composer
 # --------------------------------------
-composer() {
+function composer {
 	sudo apt install composer -y
 }
 
 # Eclipse
 # --------------------------------------
-eclipse() {
+function eclipse {
 	# sudo snap install eclipse --classic
 	flatpak install flathub org.eclipse.Java -y
 }
 
 # DBeaver
 # --------------------------------------
-dbeaver() {
+function dbeaver {
 	flatpak install flathub io.dbeaver.DBeaverCommunity -y
 }
 
 # Docker
 # --------------------------------------
-docker() {
-	# Prerequisite packages
-	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+function docker {
+	# Run the following command to uninstall all conflicting packages
+	for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do
+		sudo apt-get remove $pkg
+	done
 
-	# Then add the GPG key for the official Docker repository to your system:
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg -y
+	# Add Docker's official GPG key:
+	sudo apt-get update
+	sudo apt-get install ca-certificates curl
+	sudo install -m 0755 -d /etc/apt/keyrings
+	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+	sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-	# Add the Docker repository to APT sources:
-	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
-	sudo apt update
-	apt-cache policy docker-ce
-	sudo apt install docker-ce -y
+	# Add the repository to Apt sources:
+	echo \
+		"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ 
+		$(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
+		sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+	sudo apt-get update
 
 	# Post-installation steps for Linux
-	sudo groupadd docker
-	sudo usermod -aG docker $USER
+	# sudo groupadd docker
+	# sudo usermod -aG docker $USER
 }
 
 # Flutter
 # --------------------------------------
-flutter() {
+function flutter {
 	sudo snap install flutter --classic
 	flutter doctor
 }
 
 # Git
 # --------------------------------------
-git() {
+function git {
 	sudo apt install git -y
 }
 
 # GitHub CLI
 # --------------------------------------
-gh() {
+function gh {
 	if [ ! -f "/usr/share/keyrings/githubcli-archive-keyring.gpg" ]; then
 		curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 		sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
@@ -167,49 +174,49 @@ gh() {
 
 # GitKraken
 # --------------------------------------
-gitkraken() {
+function gitkraken {
 	sudo snap install gitkraken --classic
 }
 
 # IntelliJ
 # --------------------------------------
-intellij() {
+function intellij {
 	sudo snap install intellij-idea-community --classic
 }
 
 # Insomnia
 # --------------------------------------
-insomnia() {
+function insomnia {
 	flatpak install flathub rest.insomnia.Insomnia -y
 }
 
 # Meson
 # --------------------------------------
-meson() {
+function meson {
 	sudo apt install meson -y
 }
 
 # Mysql Workbench
 # --------------------------------------
-mysql_workbench() {
+function mysql_workbench {
 	sudo snap install mysql-workbench-community
 }
 
 # Ninja
 # --------------------------------------
-ninja() {
+function ninja {
 	sudo apt install ninja-build -y
 }
 
 # NodeJs
 # --------------------------------------
-nodejs() {
+function nodejs {
 	sudo apt install nodejs -y
 }
 
 # NPM
 # --------------------------------------
-npm() {
+function npm {
 	sudo apt install npm -y
 
 	sudo npm cache clean -f
@@ -219,31 +226,31 @@ npm() {
 
 # PhpStorm
 # --------------------------------------
-phpstorm() {
+function phpstorm {
 	sudo snap install phpstorm --classic
 }
 
 # Poedit
 # --------------------------------------
-poedit() {
+function poedit {
 	flatpak install flathub net.poedit.Poedit -y
 }
 
 # Postman
 # --------------------------------------
-postman() {
+function postman {
 	flatpak install flathub com.getpostman.Postman -y
 }
 
 # Python Pip
 # --------------------------------------
-python_pip() {
+function python_pip {
 	sudo apt install python3-pip -y
 }
 
 # Subllime Text
 # --------------------------------------
-sublime_text() {
+function sublime_text {
 	if [ ! -f "/usr/share/keyrings/sublimetext-keyring.gpg" ]; then
 		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/sublimetext-keyring.gpg
 		echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sublimetext-keyring.gpg] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -255,19 +262,19 @@ sublime_text() {
 
 # Sublime Merge
 # --------------------------------------
-sublime_merge() {
+function sublime_merge {
 	sudo apt install sublime-merge -y
 }
 
 # Vala
 # --------------------------------------
-vala() {
+function vala {
 	sudo apt install valac -y
 }
 
 # Visual Studio Code
 # --------------------------------------
-code() {
+function code {
 	sudo apt-get install wget gpg apt-transport-https -y
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
 	sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
@@ -281,20 +288,20 @@ code() {
 
 # FileZilla
 # --------------------------------------
-filezilla() {
+function filezilla {
 	sudo apt install filezilla -y
 }
 
 # Zed
 # --------------------------------------
-zed() {
+function zed {
 	curl https://zed.dev/install.sh | sh
 }
 
 # ------------------------------------------------------------------------------
-
-addToFolder($APP) {
+function addToFolder {
 	path_name="Desenvolvimento"
+	app=$1
 
 	# Adicionar à pasta
 	# https://askubuntu.com/questions/1091972/how-do-i-create-app-folders-in-the-gnome-application-menu
@@ -309,10 +316,8 @@ addToFolder($APP) {
 		gsettings set org.gnome.desktop.app-folders folder-children "['$app', 'Utilities']"
 	fi
 
-
 	gsettings get org.gnome.desktop.app-folders folder-children
 }
-
 # ------------------------------------------------------------------------------
 
 # Define colors
@@ -338,7 +343,7 @@ if ! which gum >/dev/null; then
 	sudo apt install gum
 fi
 
-select_apps() {
+function select_apps {
 	gum choose --no-limit --height ${#APPS[@]} ${APPS}
 }
 
@@ -351,8 +356,10 @@ for app in ${SELECTED[@]}; do
 	echo -e "\n\n${YELLOW}	[INSTALANDO] - $app ${NC}\n\n"
 	$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')
 
+	desktop_icon=$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')
+
 	# Adicionar à pasta
-	addToFolder()
+	addToFolder $desktop_icon
 
 	# https://askubuntu.com/questions/1091972/how-do-i-create-app-folders-in-the-gnome-application-menu
 done
