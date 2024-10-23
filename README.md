@@ -74,8 +74,9 @@ This script automatically installs the following softwares:
   - Sound Recorder (flatpak)
   - Space Cadet Pinball (flatpak)
   - Spotify (flatpak)
-  - Stellarium
   - Stacer
+  - Stellarium
+  - Stremio
   - Synaptic
   - Telegram (flatpak)
   - TimeShift

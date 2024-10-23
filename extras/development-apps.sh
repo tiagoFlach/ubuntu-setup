@@ -142,8 +142,8 @@ function docker {
 	sudo apt-get update
 
 	# Post-installation steps for Linux
-	# sudo groupadd docker
-	# sudo usermod -aG docker $USER
+	sudo groupadd docker
+	sudo usermod -aG docker $USER
 }
 
 # Flutter

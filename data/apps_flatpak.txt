@@ -6,6 +6,7 @@ com.github.finefindus.eyedropper
 com.github.k4zmu2a.spacecadetpinball
 com.mattjakeman.ExtensionManager
 com.obsproject.Studio
+com.stremio.Stremio
 # com.skype.Client
 com.slack.Slack
 com.spotify.Client
