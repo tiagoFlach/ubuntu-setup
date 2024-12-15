@@ -28,6 +28,7 @@ org.gnome.Calendar
 org.gnome.Decibels
 org.gnome.Loupe
 org.gnome.Maps
+org.gnome.Papers
 org.gnome.Showtime
 org.gnome.Snapshot
 org.gnome.SoundRecorder

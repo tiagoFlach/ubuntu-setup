@@ -65,6 +65,7 @@ This script automatically installs the following softwares:
   - NewsFlash (flatpak)
   - OBS Studio (flatpak)
   - Paleta (flatpak)
+  - Papers (flatpak)
   - Remmina (flatpak)
   - Scrcpy (snap)
   - Shortwave (flatpak)
