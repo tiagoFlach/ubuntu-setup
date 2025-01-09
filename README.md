@@ -37,7 +37,6 @@ Replace `FILE` with the name of the script you want.
 This script automatically installs the following softwares:
 
 - Main:
-
   - AnyDesk (flapak)
   - Apostrophe (flatpak)
   - Bitwarden (flatpak)
@@ -88,7 +87,6 @@ This script automatically installs the following softwares:
   - What IP (flatpak)
 
 - CLI:
-
   - git
   - htop
   - neofetch
@@ -96,7 +94,6 @@ This script automatically installs the following softwares:
   - yt-dlp
 
 - System:
-
   - apt-transport-https
   - curl
   - exfat-fuse
@@ -114,7 +111,6 @@ This script automatically installs the following softwares:
   - zip
 
 - Fonts:
-
   - fonts-apropal
   - fonts-atarismall
   - fonts-baekmuk
@@ -164,6 +160,7 @@ This script automatically installs the following softwares:
 - Gnome:
   - chrome-gnome-shell
   - dconf-editor
+  - file-roller
   - gnome-backgrounds
   - gnome-boxes (flatpak)
   - gnome-clocks

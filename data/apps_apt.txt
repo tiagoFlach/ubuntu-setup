@@ -78,6 +78,7 @@ ttf-mscorefonts-installer
 
 # Gnome
 dconf-editor
+file-roller
 gnome-backgrounds
 gnome-clocks
 gnome-epub-thumbnailer
