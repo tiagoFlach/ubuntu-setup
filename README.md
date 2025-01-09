@@ -172,6 +172,8 @@ This script automatically installs the following softwares:
   - gnome-tweaks
   - gnome-weather
   - gparted
+  - language-pack-gnome-en
+  - language-pack-gnome-pt
 
 ## Extras
 

@@ -89,6 +89,8 @@ gnome-sushi
 gnome-tweaks
 gnome-weather
 gparted
+language-pack-gnome-en
+language-pack-gnome-pt
 
 # Aplicativos
 anydesk
