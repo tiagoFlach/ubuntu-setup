@@ -33,6 +33,7 @@ org.gnome.Showtime
 org.gnome.Snapshot
 org.gnome.SoundRecorder
 org.gnome.gitlab.somas.Apostrophe
+org.gnome.gitlab.YaLTeR.Identity
 # org.kde.kdenlive
 org.nickvision.tubeconverter
 org.remmina.Remmina

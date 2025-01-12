@@ -50,6 +50,7 @@ This script automatically installs the following softwares:
   - Eyedropper (flatpak)
   - Firefox
   - Fragments (flatpak)
+  - Identity (flatpak)
   - Inkscape
   - Inspector (flatpak)
   - Google Chrome
