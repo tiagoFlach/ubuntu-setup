@@ -1,4 +1,5 @@
 # Sistema
+arp-tools
 etherwake
 exfat-fuse
 ffmpeg
@@ -8,6 +9,7 @@ lsb
 nautilus-image-converter
 net-tools
 nmap
+nbtscan
 rar
 ubuntu-restricted-extras
 ubuntu-wallpapers
