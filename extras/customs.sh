@@ -156,10 +156,13 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 
 # Fontes
 # gsettings set org.gnome.desktop.interface font-name 'Roboto 11'
-gsettings set org.gnome.desktop.interface font-name 'Cantarell Regular 11'
+# gsettings set org.gnome.desktop.interface font-name 'Cantarell Regular 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Cantarell Regular 11'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 10'
+# gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 10'
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
+
+gsettings set org.gnome.desktop.interface font-name "Adwaita Sans 11"
+gsettings set org.gnome.desktop.interface monospace-font-name "Adwaita Mono 11"
 
 # Cursor
 gsettings set org.gnome.desktop.interface cursor-theme 'phinger-cursors-light'
