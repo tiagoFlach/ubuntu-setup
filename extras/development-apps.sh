@@ -25,6 +25,7 @@
 # 	NodeJs
 # 	NPM
 # 	PhpStorm
+# 	Pnpm
 # 	Poedit
 # 	Postman
 # 	Python Pip
@@ -55,6 +56,7 @@ APPS=(
 	"nodejs"
 	"npm"
 	"phpstorm"
+	"pnpm"
 	"poedit"
 	"postman"
 	"python3-pip"
@@ -230,6 +232,12 @@ function npm {
 # --------------------------------------
 function phpstorm {
 	sudo snap install phpstorm --classic
+}
+
+# PNPM
+# --------------------------------------
+function pnpm {
+	wget -qO- https://get.pnpm.io/install.sh | sh -
 }
 
 # Poedit
