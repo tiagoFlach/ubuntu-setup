@@ -144,20 +144,6 @@
 --------------------
 	Okular
 --------------------
-	Skype
-	1.
-		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skype-stable.list
-	2.
-		wget https://repo.skype.com/data/SKYPE-GPG-KEY
-	3.
-		sudo apt-key add SKYPE-GPG-KEY
-	4.
-		sudo apt install apt-transport-https
-	5.
-		sudo apt update
-	6.
-		sudo apt install skypeforlinux
---------------------
 	Rambox
 --------------------
 	Franz

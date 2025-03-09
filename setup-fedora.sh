@@ -117,9 +117,6 @@ repo_gpgcheck=1
 gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
 
-# Skype
-URL_SKYPE_REPO="https://repo.skype.com/rpm/stable/skype-stable.repo"
-
 # ----- URLs -----#
 # Google Earth Pro
 URL_GOOGLE_EARTH_PRO="https://dl.google.com/dl/earth/client/current/google-earth-stable_current_x86_64.rpm"
@@ -252,7 +249,6 @@ PROGRAMS_FLATPAK=(
 	com.mattjakeman.ExtensionManager
 	com.obsproject.Studio
 	com.simplenote.Simplenote
-	com.skype.Client
 	com.slack.Slack
 	com.spotify.Client
 	de.haeckerfelix.Shortwave
@@ -298,9 +294,6 @@ sudo dnf groupupdate sound-and-video
 for copr in ${COPRS[@]}; do
 	sudo dnf copr enable "$copr" -y
 done
-
-# Skype
-# sudo dnf config-manager --add-repo $URL_SKTYPE_REPO
 
 # Speedtest
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash

@@ -70,7 +70,6 @@ This script automatically installs the following softwares:
   - Scrcpy (snap)
   - Shortwave (flatpak)
   - Simplenote (snap)
-  - Skype (flatpak)
   - Slack (flatpak)
   - Sound Recorder (flatpak)
   - Space Cadet Pinball (flatpak)
