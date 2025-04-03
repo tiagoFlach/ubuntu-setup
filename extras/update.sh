@@ -13,6 +13,12 @@ NC='\033[0m' # No Color
 
 OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 
+# Define o arquivo de controle
+FLATPAK_CONTROL_FILE="$HOME/.flatpak_repair_last_run"
+
+# Obtém a data atual no formato YYYY-WW (ano-semana)
+CURRENT_WEEK=$(date +%Y-%V)
+
 if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
 
 	SNAP_SUPPORT=$(dpkg -l | grep -q snapd)
@@ -63,6 +69,21 @@ if $FLATPAK_SUPPORT; then
 
 	echo -e "\n\n${YELLOW}sudo flatpak uninstall --unused ${NC}\n"
 	sudo flatpak uninstall --unused -y
+
+	# Garante que o arquivo de controle exista
+	if [[ ! -f "$FLATPAK_CONTROL_FILE" ]]; then
+		echo "" >"$FLATPAK_CONTROL_FILE"
+	fi
+
+	# Lê a última execução
+	LAST_RUN=$(cat "$FLATPAK_CONTROL_FILE")
+
+	# Se a última execução for diferente da semana atual, executa o comando
+	if [[ "$LAST_RUN" != "$CURRENT_WEEK" ]]; then
+		echo -e "\n\n${YELLOW}sudo flatpak repair ${NC}\n"
+		sudo flatpak repair
+		echo "$CURRENT_WEEK" >"$FLATPAK_CONTROL_FILE"
+	fi
 fi
 
 if [ "$OS_RELEASE_ID" == "ubuntu" ]; then

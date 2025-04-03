@@ -11,11 +11,13 @@ com.slack.Slack
 com.spotify.Client
 de.haeckerfelix.Fragments
 de.haeckerfelix.Shortwave
+de.k_bo.Televido
 dev.geopjr.Collision
 io.github.celluloid_player.Celluloid
 io.github.nate_xyz.Paleta
 io.github.nokse22.inspector
 io.github.seadve.Mousai
+io.github.revisto.drum-machine
 io.gitlab.news_flash.NewsFlash
 io.gitlab.theevilskeleton.Upscaler
 io.missioncenter.MissionCenter
@@ -24,11 +26,13 @@ org.gabmus.whatip
 org.gimp.GIMP
 org.gnome.Boxes
 org.gnome.Calendar
+org.gnome.Connections
 org.gnome.Decibels
 org.gnome.Loupe
 org.gnome.Maps
 org.gnome.Papers
 org.gnome.Showtime
+org.gnome.SimpleScan
 org.gnome.Snapshot
 org.gnome.SoundRecorder
 org.gnome.gitlab.somas.Apostrophe
@@ -38,3 +42,4 @@ org.nickvision.tubeconverter
 org.remmina.Remmina
 org.telegram.desktop
 org.videolan.VLC
+page.codeberg.Imaginer.Imaginer 

@@ -40,17 +40,21 @@ This script automatically installs the following softwares:
   - AnyDesk (flapak)
   - Apostrophe (flatpak)
   - Bitwarden (flatpak)
+  - Calendar (flatpak)
   - Celluloid (flatpak)
   - Collision (flatpak)
+  - Connections (flatpak)
   - Cpu-X
-  - Decoder (flatpak)
   - Decibels (flatpak)
+  - Decoder (flatpak)
   - Discord (flatpak)
+  - Drum Machine (flatpak)
   - Extension Manager (flatpak)
   - Eyedropper (flatpak)
   - Firefox
   - Fragments (flatpak)
   - Identity (flatpak)
+  - Imaginer (flatpak)
   - Inkscape
   - Inspector (flatpak)
   - Google Chrome
@@ -70,6 +74,7 @@ This script automatically installs the following softwares:
   - Scrcpy (snap)
   - Shortwave (flatpak)
   - Simplenote (snap)
+  - Simplescan (flatpak)
   - Slack (flatpak)
   - Sound Recorder (flatpak)
   - Space Cadet Pinball (flatpak)
@@ -79,6 +84,7 @@ This script automatically installs the following softwares:
   - Stremio
   - Synaptic
   - Telegram (flatpak)
+  - Televido (flatpak)
   - TimeShift
   - Tube Converter (flatpak)
   - Upscaler (flatpak)

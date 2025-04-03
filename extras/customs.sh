@@ -153,15 +153,17 @@ gsettings set org.gnome.nautilus.window-state initial-size-file-chooser '(1120, 
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface show-battery-percentage true
+gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale'
 
 # Fontes
 # gsettings set org.gnome.desktop.interface font-name 'Roboto 11'
 # gsettings set org.gnome.desktop.interface font-name 'Cantarell Regular 11'
-gsettings set org.gnome.desktop.interface document-font-name 'Cantarell Regular 11'
+# gsettings set org.gnome.desktop.interface document-font-name 'Cantarell Regular 11'
 # gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 10'
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
 
 gsettings set org.gnome.desktop.interface font-name "Adwaita Sans 11"
+gsettings set org.gnome.desktop.interface document-font-name "Adwaita Sans 11"
 gsettings set org.gnome.desktop.interface monospace-font-name "Adwaita Mono 11"
 
 # Cursor
