@@ -13,6 +13,7 @@ de.haeckerfelix.Fragments
 de.haeckerfelix.Shortwave
 de.k_bo.Televido
 dev.geopjr.Collision
+io.gitlab.adhami3310.Impression
 io.github.celluloid_player.Celluloid
 io.github.nate_xyz.Paleta
 io.github.nokse22.inspector

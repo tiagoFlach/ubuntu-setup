@@ -55,6 +55,7 @@ This script automatically installs the following softwares:
   - Fragments (flatpak)
   - Identity (flatpak)
   - Imaginer (flatpak)
+  - Impression (flatpak)
   - Inkscape
   - Inspector (flatpak)
   - Google Chrome
