@@ -6,13 +6,8 @@
 # Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
 # ------------------------------- CONFIGURAÇÕES ------------------------------ #
-# Define colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-BOLDBLUE='\033[1;34m'
-NC='\033[0m' # No Color
+source "${BASH_SOURCE%/*}/../core/colors.sh"
+source "${BASH_SOURCE%/*}/../core/messages/installing_text.sh"
 
 # Informações do sistema
 system="$(lsb_release -sd)"
@@ -57,7 +52,7 @@ for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
 done
 
-LINE2+=" ${NC}LINUX PERSONAL - FEDORA 36${BLUE} "
+LINE2+=" ${NC}LINUX PERSONAL - FEDORA 42${BLUE} "
 
 for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
@@ -96,9 +91,23 @@ echo -e "${BOLDBLUE}System: ${NC}$system"
 echo -e "${BOLDBLUE}Architecture: ${NC}$arch"
 echo -e "${BOLDBLUE}Home: ${NC}$HOME"
 echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
+
+# ---------------------------------------------------------------------------- #
+# -------------------------------- CONSTANTES -------------------------------- #
+# ---------------------------------------------------------------------------- #
+PPAS=$(grep -v '^#' "data/apps_ppa.txt")
+APPS_APT=$(grep -v '^#' "data/apps_apt.txt")
+APPS_FLATPAK=$(grep -v '^#' "data/apps_flatpak.txt")
+APPS_SNAP=$(grep -v '^#' "data/apps_snap.txt")
+APPS_DOWNLOADS=$(grep -v '^#' "data/apps_downloads.txt")
+
+## ----- Diretório de Downloads ----- ##
+DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
+
+# ---------------------------------------------------------------------------- #
+# --------------------------------- VARIÁVEIS -------------------------------- #
 # ---------------------------------------------------------------------------- #
 
-# --------------------------------- VARIÁVEIS -------------------------------- #
 OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 OS_RELEASE_VERSION_ID=$(grep "^VERSION_ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 
@@ -191,14 +200,22 @@ PROGRAMS_DNF=(
 	fonts-oxygen
 	fonts-paratype
 	fonts-prociono
-	fonts-roboto
-	fonts-roboto-slab
 	fonts-tomsontalks
-	fonts-ubuntu-console
 	fonts-vollkorn
 	fonts-yanone-kaffeesatz
 	ttf-ancient-fonts
 	ttf-mscorefonts-installer
+	rsms-inter-fonts
+	google-noto-sans-fonts
+	google-noto-serif-fonts
+	google-noto-mono-fonts
+	google-roboto-fonts
+	gnu-free*-fonts
+	unifont-fonts
+	dejavu-sans-fonts
+	dejavu-serif-fonts
+	dejavu-sans-mono-fonts
+	gdouros-symbola-fonts
 
 	# Gnome
 	chrome-gnome-shell
@@ -301,7 +318,7 @@ curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.
 
 # --------------------------------- EXECUÇÃO --------------------------------- #
 # Atualizando o repositório depois da adição de novos repositórios
-sudo dnf update -y
+sudo dnf update -y --refresh
 
 ## ----- Download e instalaçao de programas externos ----- ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -312,13 +329,11 @@ wget -c "$URL_MS_TEAMS" -P "$DIRETORIO_DOWNLOADS"
 sudo dnf install $DIRETORIO_DOWNLOADS/*.rpm
 
 # ----- Instalar programas no dnf ----- ##
-for nome_do_programa in ${PROGRAMS_DNF[@]}; do
-	if ! rpm -qa | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
-		echo -e "\n\n${YELLOW}"$LINE1
-		echo -e "	[INSTALANDO] - $nome_do_programa ${NC}"
-		echo -e "${YELLOW}"$LINE1"${NC}\n"
+for app in ${PROGRAMS_DNF[@]}; do
+	if ! rpm -qa | grep -q $app; then # Só instala se já não estiver instalado
+		installing_text "$app"
 
-		sudo dnf -y -q install "$nome_do_programa"
+		sudo dnf -y -q install "$app"
 	fi
 done
 
@@ -326,13 +341,11 @@ done
 sudo flatpak update -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-for program_name in ${PROGRAMS_FLATPAK[@]}; do
-	if ! flatpak list | grep -q $program_name; then # Só instala se já não estiver instalado
-		echo -e "\n\n${YELLOW}"$LINE1
-		echo -e "	[INSTALANDO] - $program_name ${NC}"
-		echo -e "${YELLOW}"$LINE1"${NC}\n"
+for app in ${PROGRAMS_FLATPAK[@]}; do
+	if ! flatpak list | grep -q $app; then # Só instala se já não estiver instalado
+		installing_text "$app"
 
-		flatpak install flathub "$program_name" -y
+		flatpak install flathub "$app" -y
 	fi
 done
 # ---------------------------------------------------------------------------- #
@@ -364,9 +377,9 @@ echo -e "\nDNF's instalados:"
 for program_name in ${PROGRAMS_DNF[@]}; do
 	# Verifica se o programa esta istalado
 	if rpm -qa | grep -q $program_name; then
-		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+		echo -e "	${GREEN}INSTALADO: $program_name ${NC}"
 	else
-		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+		echo -e "	${RED}FALHOU: $program_name ${NC}"
 	fi
 done
 
@@ -374,9 +387,9 @@ echo -e "\nFLATPAK's instalados:"
 for program_name in ${PROGRAMS_FLATPAK[@]}; do
 	# Verifica se o programa esta istalado
 	if flatpak list | grep -q $program_name; then
-		echo -e "	${GREEN}[INSTALADO] - $program_name ${NC}"
+		echo -e "	${GREEN}INSTALADO: $program_name ${NC}"
 	else
-		echo -e "	${RED}[FALHOU] - $program_name ${NC}"
+		echo -e "	${RED}FALHOU: $program_name ${NC}"
 	fi
 done
 # ---------------------------------------------------------------------------- #

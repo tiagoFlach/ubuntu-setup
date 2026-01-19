@@ -3,13 +3,7 @@
 # author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
 
-# Define colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-BOLDBLUE='\033[1;34m'
-NC='\033[0m' # No Color
+source "${BASH_SOURCE%/*}/../core/colors.sh"
 
 OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
 
@@ -48,8 +42,8 @@ elif [ "$OS_RELEASE_ID" == "fedora" ]; then
 	SNAP_SUPPORT=$(rpm -qa | grep -q snapd)
 	FLATPAK_SUPPORT=$(rpm -qa | grep -q flatpak)
 
-	echo -e "\n\n${YELLOW}sudo dnf update ${NC}\n"
-	sudo dnf update -y
+	echo -e "\n\n${YELLOW}sudo dnf upgrade ${NC}\n"
+	sudo dnf upgrade -y --refresh
 fi
 
 if $SNAP_SUPPORT; then
@@ -58,7 +52,7 @@ if $SNAP_SUPPORT; then
 
 	# Removes old revisions of snaps
 	snap list --all | awk '/disabled/{print $1, $3}' |
-		while read snapname revision; do
+		while read $snapname revision; do
 			sudo snap remove "$snapname" --revision="$revision"
 		done
 fi

@@ -1,0 +1,11 @@
+# Gnome
+dconf-editor
+gnome-backgrounds
+gnome-clocks
+gnome-calendar
+gnome-extensions-app
+gnome-sound-recorder
+gnome-tweaks
+gnome-weather
+showtime
+simple-scan

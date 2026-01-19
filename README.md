@@ -189,6 +189,7 @@ Contains scripts for the automatic installation of the following softwares:
 - Composer
 - Development Apps
   - Android Studio
+  - Antigravity
   - Atom
   - Eclipse
   - DBeaver

@@ -35,53 +35,120 @@
 # 	Visual Studio Code
 # 	Zed
 
-APPS=(
-	"android-studio"
-	"atom"
-	"codeblocks"
-	"composer"
-	"eclipse"
-	"dbeaver"
-	"docker"
-	"filezilla"
-	"flutter"
-	"git"
-	"gh"
-	"gitkraken"
-	"intellij"
-	"insomnia"
-	"meson"
-	"mysql-workbench"
-	"ninja"
-	"nodejs"
-	"npm"
-	"phpstorm"
-	"pnpm"
-	"poedit"
-	"postman"
-	"python3-pip"
-	"sublime-text"
-	"sublime-merge"
-	"vala"
-	"code"
-	"zed"
-)
-APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
+source "${BASH_SOURCE%/*}/../core/colors.sh"
+
+# Mapeamento: aplicativo | método | pacote_flatpak | pacote_apt | pacote_dnf
+declare -A apps
+
+apps["android-studio"]="android_studio"
+apps["atom"]="pkg|atom"
+apps["codeblocks"]="pkg|codeblocks"
+apps["composer"]="pkg|composer"
+apps["eclipse"]="flatpak|org.eclipse.Java"
+apps["dbeaver"]="flatpak|io.dbeaver.DBeaverCommunity"
+apps["git"]="pkg|git"
+apps["insomnia"]="flatpak|rest.insomnia.Insomnia"
+apps["meson"]="pkg|meson"
+
+# APPS=(
+# 	"android-studio"
+# 	"antigravity"
+# 	"atom"
+# 	"codeblocks"
+# 	"composer"
+# 	"eclipse"
+# 	"dbeaver"
+# 	"docker"
+# 	"filezilla"
+# 	"flutter"
+# 	"git"
+# 	"gh"
+# 	"gitkraken"
+# 	"intellij"
+# 	"insomnia"
+# 	"meson"
+# 	"mysql-workbench"
+# 	"ninja"
+# 	"nodejs"
+# 	"npm"
+# 	"phpstorm"
+# 	"pnpm"
+# 	"poedit"
+# 	"postman"
+# 	"python3-pip"
+# 	"sublime-text"
+# 	"sublime-merge"
+# 	"vala"
+# 	"code"
+# 	"zed"
+# )
+# APPS=$(echo ${APPS[@]} | tr ' ' '\n' | sort | tr '\n' ' ')
+
+# Detectar a distribuição
+if [ -f /etc/os-release ]; then
+	. /etc/os-release
+	distro=$ID
+else
+	echo "Não foi possível detectar a distribuição."
+	exit 1
+fi
+
+# Função para instalar pacotes
+install_package() {
+	package=$1
+	if [[ "$distro" == "ubuntu" || "$distro" == "debian" ]]; then
+		sudo apt install -y "$package"
+	elif [[ "$distro" == "fedora" ]]; then
+		sudo dnf install -y "$package"
+	else
+		echo "Distribuição não suportada: $distro"
+		exit 1
+	fi
+}
 
 # Android Studio
 # --------------------------------------
 function android_studio {
 	sudo snap install android-studio --classic
 
-	echo '# Ract Native config' >>~/.bashrc
+	echo '# React Native config' >>~/.bashrc
 	echo 'export ANDROID_HOME=$HOME/Android/Sdk' >>~/.bashrc
 	echo 'export PATH=$PATH:$ANDROID_HOME/emulator' >>~/.bashrc
 	echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >>~/.bashrc
 
-	echo '# Ract Native config' >>~/.zshrc
+	echo '# React Native config' >>~/.zshrc
 	echo 'export ANDROID_HOME=$HOME/Android/Sdk' >>~/.zshrc
 	echo 'export PATH=$PATH:$ANDROID_HOME/emulator' >>~/.zshrc
 	echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >>~/.zshrc
+}
+
+# Antigravity
+# --------------------------------------
+function antigravity {
+	if [[ "$distro" == "ubuntu" || "$distro" == "debian" ]]; then
+		sudo mkdir -p /etc/apt/keyrings
+		curl -fsSL https://us-central1-apt.pkg.dev/doc/repo-signing-key.gpg | \
+			sudo gpg --dearmor --yes -o /etc/apt/keyrings/antigravity-repo-key.gpg
+		echo "deb [signed-by=/etc/apt/keyrings/antigravity-repo-key.gpg] https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/ antigravity-debian main" | \
+			sudo tee /etc/apt/sources.list.d/antigravity.list > /dev/null
+
+		sudo apt update
+		sudo apt install antigravity
+	elif [[ "$distro" == "fedora" ]]; then
+		sudo tee /etc/yum.repos.d/antigravity.repo << EOL
+[antigravity-rpm]
+name=Antigravity RPM Repository
+baseurl=https://us-central1-yum.pkg.dev/projects/antigravity-auto-updater-dev/antigravity-rpm
+enabled=1
+gpgcheck=0
+EOL
+
+		sudo dnf makecache
+		sudo dnf install antigravity -y
+	else
+		echo "Distribuição não suportada: $distro"
+		exit 1
+	fi
 }
 
 # Atom
@@ -94,31 +161,6 @@ function atom {
 
 	sudo apt update
 	sudo apt install atom -y
-}
-
-# CodeBlocks
-# --------------------------------------
-function codeblocks {
-	sudo apt install codeblocks -y
-}
-
-# Composer
-# --------------------------------------
-function composer {
-	sudo apt install composer -y
-}
-
-# Eclipse
-# --------------------------------------
-function eclipse {
-	# sudo snap install eclipse --classic
-	flatpak install flathub org.eclipse.Java -y
-}
-
-# DBeaver
-# --------------------------------------
-function dbeaver {
-	flatpak install flathub io.dbeaver.DBeaverCommunity -y
 }
 
 # Docker
@@ -157,12 +199,6 @@ function flutter {
 	flutter doctor
 }
 
-# Git
-# --------------------------------------
-function git {
-	sudo apt install git -y
-}
-
 # GitHub CLI
 # --------------------------------------
 function gh {
@@ -186,18 +222,6 @@ function gitkraken {
 # --------------------------------------
 function intellij {
 	sudo snap install intellij-idea-community --classic
-}
-
-# Insomnia
-# --------------------------------------
-function insomnia {
-	flatpak install flathub rest.insomnia.Insomnia -y
-}
-
-# Meson
-# --------------------------------------
-function meson {
-	sudo apt install meson -y
 }
 
 # Mysql Workbench
@@ -330,14 +354,6 @@ function addToFolder {
 }
 # ------------------------------------------------------------------------------
 
-# Define colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-BOLDBLUE='\033[1;34m'
-NC='\033[0m' # No Color
-
 # Curl
 if ! which curl >/dev/null; then
 	sudo apt install curl -y -q
@@ -363,7 +379,7 @@ SELECTED=$(select_apps)
 # Install selected apps
 # --------------------------------------
 for app in ${SELECTED[@]}; do
-	echo -e "\n\n${YELLOW}	[INSTALANDO] - $app ${NC}\n\n"
+	echo -e "\n\n${YELLOW}	INSTALANDO: $app ${NC}\n\n"
 	$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')
 
 	desktop_icon=$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')

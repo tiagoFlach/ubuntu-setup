@@ -26,15 +26,9 @@ page.codeberg.Imaginer.Imaginer
 org.gabmus.whatip
 org.gimp.GIMP
 org.gnome.Boxes
-org.gnome.Calendar
 org.gnome.Connections
 org.gnome.Decibels
-org.gnome.Loupe
-org.gnome.Maps
 org.gnome.Papers
-org.gnome.Showtime
-org.gnome.SimpleScan
-org.gnome.Snapshot
 org.gnome.SoundRecorder
 org.gnome.gitlab.somas.Apostrophe
 org.gnome.gitlab.YaLTeR.Identity
@@ -43,4 +37,4 @@ org.nickvision.tubeconverter
 org.remmina.Remmina
 org.telegram.desktop
 org.videolan.VLC
-page.codeberg.Imaginer.Imaginer 
+page.codeberg.Imaginer.Imaginer

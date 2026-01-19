@@ -7,13 +7,7 @@
 # Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
 # ------------------------------- CONFIGURAÇÕES ------------------------------ #
-# Define colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-BOLDBLUE='\033[1;34m'
-NC='\033[0m' # No Color
+source "${BASH_SOURCE%/*}/../core/colors.sh"
 
 # Informações do sistema
 system="$(lsb_release -sd)"
@@ -103,7 +97,6 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 # ---------------------------------------------------------------------------- #
 PPAS=$(grep -v '^#' "data/apps_ppa.txt")
 APPS_APT=$(grep -v '^#' "data/apps_apt.txt")
-APPS_FLATPAK=$(grep -v '^#' "data/apps_flatpak.txt")
 APPS_SNAP=$(grep -v '^#' "data/apps_snap.txt")
 APPS_DOWNLOADS=$(grep -v '^#' "data/apps_downloads.txt")
 
@@ -152,51 +145,27 @@ function install_apt {
 	sudo apt update && sudo apt upgrade -y
 	for app in ${APPS_APT[@]}; do
 		if dpkg -l | grep -q $app; then
-			echo -e "\n\n${YELLOW}"$LINE1
-			echo -e "	[INSTALANDO] - $app ${NC}"
-			echo -e "${YELLOW}"$LINE1"${NC}\n"
+			installing_text "$app"
 
 			sudo apt-get install -y "$app" -y -q
-		else
-			echo "$app já está instalado!"
 		fi
 	done
 	sudo apt update && sudo apt upgrade -y
 }
 
-## ----- Prgramas a serem instalados via Flatpak ----- ##
+## ----- Programas a serem instalados via Flatpak ----- ##
 function install_flatpak {
-	# Install flathub support
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	flatpak update -y
-
-	for app in ${APPS_FLATPAK[@]}; do
-		if ! flatpak list | grep -q $app; then
-			echo -e "\n\n${YELLOW}"$LINE1
-			echo -e "	[INSTALANDO] - $app ${NC}"
-			echo -e "${YELLOW}"$LINE1"${NC}\n"
-
-			flatpak install flathub "$app" -y
-		else
-			echo "$app já está instalado!"
-		fi
-	done
-	flatpak update -y
-	flatpak repair
+	source ./core/install_flatpak.sh
 }
 
-## ----- Prgramas a serem instalados via Snap ----- ##
+## ----- Programas a serem instalados via Snap ----- ##
 function install_snap {
 	sudo snap refresh
 	for app in ${APPS_SNAP[@]}; do
 		if ! snap list | grep -q $app; then
-			echo -e "\n\n${YELLOW}"$LINE1
-			echo -e "	[INSTALANDO] - $app ${NC}"
-			echo -e "${YELLOW}"$LINE1"${NC}\n"
+			installing_text "$app"
 
 			sudo snap install "$app"
-		else
-			echo "$app já está instalado!"
 		fi
 	done
 	sudo snap refresh
@@ -210,9 +179,9 @@ function checklist {
 	for app in ${APPS_APT[@]}; do
 		# Verifica se o programa esta istalado
 		if dpkg -l | grep -q $app; then
-			echo -e "	${GREEN}[INSTALADO] - $app ${NC}"
+			echo -e "	${GREEN}INSTALADO: $app ${NC}"
 		else
-			echo -e "	${RED}[FALHOU] - $app ${NC}"
+			echo -e "	${RED}FALHOU: $app ${NC}"
 		fi
 	done
 
@@ -220,9 +189,9 @@ function checklist {
 	for app in ${APPS_FLATPAK[@]}; do
 		# Verifica se o programa esta istalado
 		if flatpak list | grep -q $app; then
-			echo -e "	${GREEN}[INSTALADO] - $app ${NC}"
+			echo -e "	${GREEN}INSTALADO: $app ${NC}"
 		else
-			echo -e "	${RED}[FALHOU] - $app ${NC}"
+			echo -e "	${RED}FALHOU: $app ${NC}"
 		fi
 	done
 
@@ -230,9 +199,9 @@ function checklist {
 	for app in ${APPS_SNAP[@]}; do
 		# Verifica se o programa esta istalado
 		if snap list | grep -q $app; then
-			echo -e "	${GREEN}[INSTALADO] - $app ${NC}"
+			echo -e "	${GREEN}INSTALADO: $app ${NC}"
 		else
-			echo -e "	${RED}[FALHOU] - $app ${NC}"
+			echo -e "	${RED}FALHOU: $app ${NC}"
 		fi
 	done
 }
