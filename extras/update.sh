@@ -1,11 +1,28 @@
 #!/bin/bash
+# File: extras/update.sh
+# Author: Tiago Lucas Flach
 
 # author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
 
-source "${BASH_SOURCE%/*}/../core/colors.sh"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$SCRIPT_DIR/core/colors.sh"
 
-OS_RELEASE_ID=$(grep "^ID=" /etc/os-release | cut -d '=' -f 2- | sed 's|"||g')
+if [[ ! -r /etc/os-release ]]; then
+	echo "Não foi possível detectar a distribuição Linux."
+	exit 1
+fi
+. /etc/os-release
+OS_RELEASE_ID="${ID:-}"
+if [[ "$OS_RELEASE_ID" != "ubuntu" && "$OS_RELEASE_ID" != "fedora" ]]; then
+	echo "Distribuição não suportada: ${PRETTY_NAME:-$OS_RELEASE_ID}."
+	exit 1
+fi
+
+SNAP_SUPPORT=false
+FLATPAK_SUPPORT=false
+command -v snap >/dev/null 2>&1 && SNAP_SUPPORT=true
+command -v flatpak >/dev/null 2>&1 && FLATPAK_SUPPORT=true
 
 # Define o arquivo de controle
 FLATPAK_CONTROL_FILE="$HOME/.flatpak_repair_last_run"
@@ -15,9 +32,6 @@ CURRENT_WEEK=$(date +%Y-%V)
 
 if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
 
-	SNAP_SUPPORT=$(dpkg -l | grep -q snapd)
-	FLATPAK_SUPPORT=$(dpkg -l | grep -q flatpak)
-
 	while sudo fuser /var/lib/apt/lists/lock >/dev/null 2>&1; do
 		sleep 1
 	done
@@ -25,22 +39,12 @@ if [ "$OS_RELEASE_ID" == "ubuntu" ]; then
 	echo -e "\n\n${YELLOW}sudo apt update ${NC}\n"
 	sudo apt update --fix-missing && sudo apt list --upgradable
 
-	echo -e "\n\n${YELLOW}sudo apt dist-upgrade ${NC}\n"
-	sudo apt dist-upgrade -y
-
-	upgradable_packages=$(apt list --upgradable 2>/dev/null | grep -v "Listing..." | grep -v "Listagem...")
-	if [[ -n $upgradable_packages ]]; then
-		packages=$(echo "$upgradable_packages" | cut -d'/' -f1)
-
-		sudo apt install $packages -y
-	fi
+	echo -e "\n\n${YELLOW}sudo apt full-upgrade ${NC}\n"
+	sudo apt full-upgrade -y
 
 	# echo -e "\n\n${YELLOW}sudo ubuntu-drivers autoinstall ${NC}\n"
 	# sudo ubuntu-drivers autoinstall
 elif [ "$OS_RELEASE_ID" == "fedora" ]; then
-
-	SNAP_SUPPORT=$(rpm -qa | grep -q snapd)
-	FLATPAK_SUPPORT=$(rpm -qa | grep -q flatpak)
 
 	echo -e "\n\n${YELLOW}sudo dnf upgrade ${NC}\n"
 	sudo dnf upgrade -y --refresh
@@ -52,17 +56,17 @@ if $SNAP_SUPPORT; then
 
 	# Removes old revisions of snaps
 	snap list --all | awk '/disabled/{print $1, $3}' |
-		while read $snapname revision; do
+		while read -r snapname revision; do
 			sudo snap remove "$snapname" --revision="$revision"
 		done
 fi
 
 if $FLATPAK_SUPPORT; then
-	echo -e "\n\n${YELLOW}sudo flatpak update ${NC}\n"
-	sudo flatpak update -y
+	echo -e "\n\n${YELLOW}flatpak update ${NC}\n"
+	flatpak update -y
 
-	echo -e "\n\n${YELLOW}sudo flatpak uninstall --unused ${NC}\n"
-	sudo flatpak uninstall --unused -y
+	echo -e "\n\n${YELLOW}flatpak uninstall --unused ${NC}\n"
+	flatpak uninstall --unused -y
 
 	# Garante que o arquivo de controle exista
 	if [[ ! -f "$FLATPAK_CONTROL_FILE" ]]; then
@@ -74,8 +78,8 @@ if $FLATPAK_SUPPORT; then
 
 	# Se a última execução for diferente da semana atual, executa o comando
 	if [[ "$LAST_RUN" != "$CURRENT_WEEK" ]]; then
-		echo -e "\n\n${YELLOW}sudo flatpak repair ${NC}\n"
-		sudo flatpak repair
+		echo -e "\n\n${YELLOW}flatpak repair ${NC}\n"
+		flatpak repair
 		echo "$CURRENT_WEEK" >"$FLATPAK_CONTROL_FILE"
 	fi
 fi

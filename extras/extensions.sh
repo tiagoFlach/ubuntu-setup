@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: extras/extensions.sh
+# Author: Tiago Lucas Flach
 
 if [ $# -lt 1 ]; then
     echo "Por favor, informe o parâmetro 'backup', 'restore' ou 'reset'"

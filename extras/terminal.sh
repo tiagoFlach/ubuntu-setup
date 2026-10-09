@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: extras/terminal.sh
+# Author: Tiago Lucas Flach
 
 # Script inicial
 installation() {

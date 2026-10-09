@@ -1,4 +1,9 @@
 #!/bin/bash
+# File: extras/composer.sh
+# Author: Tiago Lucas Flach
+
+source "$(dirname -- "${BASH_SOURCE[0]}")/../core/os.sh"
+require_distro ubuntu || exit 1
 
 sudo apt update
 sudo apt install php-cli sqlite3 unzip -y

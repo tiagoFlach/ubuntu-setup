@@ -1,4 +1,9 @@
 #!/bin/bash
+# File: extras/terminal1.sh
+# Author: Tiago Lucas Flach
+
+source "$(dirname -- "${BASH_SOURCE[0]}")/../core/os.sh"
+require_distro ubuntu || exit 1
 
 ## ----------------------- PERSONALIZAÇÃO DE TERMINAL ----------------------- ##
 sudo apt install curl -y -q
@@ -111,7 +116,7 @@ sudo apt install zsh -y
 # sudo dpkg-reconfigure dash
 
 # ---
-sudo apt install curl wget git neofetch fonts-powerline -y -q
+sudo apt install curl wget git fastfetch fonts-powerline -y -q
 
 # Definir ZSH como padrão
 chsh -s $(which zsh)

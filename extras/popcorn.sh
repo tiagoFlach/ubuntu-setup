@@ -1,8 +1,13 @@
 #!/bin/bash
+# File: extras/popcorn.sh
+# Author: Tiago Lucas Flach
 
 # Script created for personal use.
 # author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
+
+source "$(dirname -- "${BASH_SOURCE[0]}")/../core/os.sh"
+require_distro ubuntu || exit 1
 
 # Update
 sudo apt update

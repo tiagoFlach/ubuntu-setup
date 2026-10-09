@@ -1,4 +1,9 @@
 #!/bin/bash
+# File: extras/customs.sh
+# Author: Tiago Lucas Flach
+
+source "$(dirname -- "${BASH_SOURCE[0]}")/../core/os.sh"
+require_distro ubuntu || exit 1
 
 ## ---------------------------------- FONTS --------------------------------- ##
 # Cantarell

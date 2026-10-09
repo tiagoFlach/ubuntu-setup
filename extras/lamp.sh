@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: extras/lamp.sh
+# Author: Tiago Lucas Flach
 
 ## -------------------------------------------------------------------------- ##
 ## ------------------------------ LAMP UBUNTU ------------------------------- ##
@@ -11,6 +13,9 @@
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-20-04
 
 # https://github.com/teddysun/lamp
+
+source "$(dirname -- "${BASH_SOURCE[0]}")/../core/os.sh"
+require_distro ubuntu || exit 1
 
 function update {
 	sudo apt update
@@ -56,12 +61,20 @@ update
 
 # Variables
 # --------------------------------------
-MYSQL_USER_NAME="admin"
-MYSQL_USER_PASSWORD="senha123*A"
-
-MYSQL_ROOT_PASSWORD="@SuperSenhaRoot*098"
-
-PHPMYADMIN_PASSWORD="@SuperSenhaPhpMyAdmin*099"
+read -r -p "Usuário MySQL da aplicação [admin]: " MYSQL_USER_NAME
+MYSQL_USER_NAME="${MYSQL_USER_NAME:-admin}"
+if [[ ! "$MYSQL_USER_NAME" =~ ^[A-Za-z0-9_]+$ ]]; then
+	echo "O nome de usuário MySQL só pode conter letras, números e underscore."
+	exit 1
+fi
+read -r -s -p "Senha do usuário MySQL (sem aspas ou barra invertida): " MYSQL_USER_PASSWORD
+printf '\n'
+read -r -s -p "Confirme a senha: " MYSQL_USER_PASSWORD_CONFIRM
+printf '\n'
+if [[ -z "$MYSQL_USER_PASSWORD" || "$MYSQL_USER_PASSWORD" != "$MYSQL_USER_PASSWORD_CONFIRM" || ! "$MYSQL_USER_PASSWORD" =~ ^[A-Za-z0-9!@#%_+=.,:-]+$ ]]; then
+	echo "Senha vazia, diferente da confirmação ou contém caracteres não aceitos."
+	exit 1
+fi
 PHPMYADMIN_CONFIG="/etc/phpmyadmin/config.inc.php"
 
 LOCAL="$(php --ini | grep "Loaded Configuration File" | cut -d" " -f12)"
@@ -122,13 +135,13 @@ sudo mysql_secure_installation
 #
 # New password:
 #
-## $MYSQL_ROOT_PASSWORD
+## senha escolhida na configuração interativa
 
 # --------------------------------------
 
 # Re-enter new password:
 #
-## $MYSQL_ROOT_PASSWORD
+## repetir a senha escolhida
 
 # --------------------------------------
 
@@ -288,7 +301,7 @@ sudo apt install phpmyadmin -y
 #   │                                                                  │
 #   └──────────────────────────────────────────────────────────────────┘
 #
-## $PHPMYADMIN_PASSWORD
+## deixar em branco gera uma senha aleatória
 ## <Ok>
 
 # --------------------------------------
@@ -304,7 +317,7 @@ sudo apt install phpmyadmin -y
 #                  │                                    │
 #                  └────────────────────────────────────┘
 #
-## $PHPMYADMIN_PASSWORD
+## confirmar a senha gerada
 ## <Ok>
 
 # --------------------------------------
@@ -319,14 +332,13 @@ sudo systemctl restart apache2 mysql
 
 # MySQL config
 # --------------------------------------
-sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
-
-sudo mysql --user=root --password=$MYSQL_ROOT_PASSWORD <<EOF
+sudo mysql <<EOF
 CREATE USER '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
 GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER_NAME'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit
 EOF
+unset MYSQL_USER_PASSWORD MYSQL_USER_PASSWORD_CONFIRM
 
 # Securing PhpMyAdmin
 # --------------------------------------

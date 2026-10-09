@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: extras/profile.sh
+# Author: Tiago Lucas Flach
 
 backupPath=$(dirname "$(dirname "$(readlink -f "$0")")")/personal/backup
 

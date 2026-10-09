@@ -1,4 +1,9 @@
 #!/bin/bash
+# File: extras/laravel.sh
+# Author: Tiago Lucas Flach
+
+source "$(dirname -- "${BASH_SOURCE[0]}")/../core/os.sh"
+require_distro ubuntu || exit 1
 
 # Dependencias PHP
 sudo apt install php-common -y

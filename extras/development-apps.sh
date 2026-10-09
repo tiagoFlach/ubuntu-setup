@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: extras/development-apps.sh
+# Author: Tiago Lucas Flach
 
 # Script created for personal use.
 # author: Tiago Lucas Flach
@@ -37,11 +39,10 @@
 
 source "${BASH_SOURCE%/*}/../core/colors.sh"
 
-# Mapeamento: aplicativo | método | pacote_flatpak | pacote_apt | pacote_dnf
+# Mapeamento: aplicativo | método | identificador do pacote
 declare -A apps
 
-apps["android-studio"]="android_studio"
-apps["atom"]="pkg|atom"
+apps["android-studio"]="flatpak|com.google.AndroidStudio"
 apps["codeblocks"]="pkg|codeblocks"
 apps["composer"]="pkg|composer"
 apps["eclipse"]="flatpak|org.eclipse.Java"
@@ -49,6 +50,7 @@ apps["dbeaver"]="flatpak|io.dbeaver.DBeaverCommunity"
 apps["git"]="pkg|git"
 apps["insomnia"]="flatpak|rest.insomnia.Insomnia"
 apps["meson"]="pkg|meson"
+mapfile -t APPS < <(printf '%s\n' "${!apps[@]}" | sort)
 
 # APPS=(
 # 	"android-studio"
@@ -355,37 +357,47 @@ function addToFolder {
 # ------------------------------------------------------------------------------
 
 # Curl
-if ! which curl >/dev/null; then
-	sudo apt install curl -y -q
+if ! command -v curl >/dev/null; then
+	install_package curl
 fi
 
 # Gum
-if ! which gum >/dev/null; then
-	sudo mkdir -p /etc/apt/keyrings
-	curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
-	echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+if ! command -v gum >/dev/null; then
+	if [[ "$distro" == "ubuntu" || "$distro" == "debian" ]]; then
+		sudo mkdir -p /etc/apt/keyrings
+		curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+		echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+		sudo apt update
+		sudo apt install -y gum
+	else
+		install_package gum
+	fi
+fi
 
-	sudo apt update
-	sudo apt install gum
+if ! command -v gum >/dev/null; then
+	echo "Não foi possível instalar gum para abrir o seletor de aplicativos."
+	exit 1
 fi
 
 function select_apps {
-	gum choose --no-limit --height ${#APPS[@]} ${APPS}
+	gum choose --no-limit --height "${#APPS[@]}" "${APPS[@]}"
 }
 
 echo "Selecione quais aplicativos deseja instalar:"
-SELECTED=$(select_apps)
+mapfile -t SELECTED < <(select_apps)
 
 # Install selected apps
 # --------------------------------------
-for app in ${SELECTED[@]}; do
+for app in "${SELECTED[@]}"; do
 	echo -e "\n\n${YELLOW}	INSTALANDO: $app ${NC}\n\n"
-	$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')
+	install_spec="${apps[$app]}"
+	install_method="${install_spec%%|*}"
+	package="${install_spec#*|}"
+	if [[ "$install_method" == "flatpak" ]]; then
+		flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+		flatpak install flathub -y "$package"
+	else
+		install_package "$package"
+	fi
 
-	desktop_icon=$(echo $app | sed 's/-/_/g' | tr '[:upper:]' '[:lower:]')
-
-	# Adicionar à pasta
-	addToFolder $desktop_icon
-
-	# https://askubuntu.com/questions/1091972/how-do-i-create-app-folders-in-the-gnome-application-menu
 done
