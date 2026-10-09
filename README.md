@@ -1,8 +1,12 @@
-# Ubuntu Setup
+<!-- File: README.md -->
+<!-- Author: Tiago Lucas Flach -->
+# Linux Setup: Ubuntu and Fedora
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-This is a automatic system setup for [Ubuntu 24.10](https://releases.ubuntu.com/24.10/).
+This repository contains separate post-installation scripts for Ubuntu and Fedora. The current releases are [Ubuntu 26.10](https://releases.ubuntu.com/26.10/) and [Fedora 44](https://fedoraproject.org/workstation/download/); [Ubuntu 26.04 LTS](https://releases.ubuntu.com/26.04/) is also supported and is the long-term-support option.
+
+These are post-installation scripts: they update packages within the installed release but do not perform a distribution release upgrade. The configured third-party desktop packages target amd64/x86_64.
 
 ## Getting Started
 
@@ -18,16 +22,22 @@ git clone https://github.com/tiagoFlach/ubuntu-setup.git
 
 ### Usage
 
-On Ubuntu, the following command will run the `setup.sh` script:
+Run the matching entrypoint as your normal desktop user. The scripts request administrative privileges with `sudo` when needed; do not launch them with `sudo`.
 
 ```shell
-sudo ./setup-ubuntu.sh
+./setup-ubuntu.sh
 ```
 
-Or you can run an script from the `extras` directory:
+On Fedora Workstation, run:
 
 ```shell
-sudo ./extras/FILE.sh
+./setup-fedora.sh
+```
+
+The main entrypoints are distribution-specific: Ubuntu uses APT and Snap, while Fedora uses DNF; both use Flatpak. Each script checks the detected distribution before making system changes. Extras are task-specific and may only support one distribution. Run them as your normal user:
+
+```shell
+bash ./extras/FILE.sh
 ```
 
 Replace `FILE` with the name of the script you want.
@@ -37,7 +47,7 @@ Replace `FILE` with the name of the script you want.
 This script automatically installs the following softwares:
 
 - Main:
-  - AnyDesk (flapak)
+  - AnyDesk (native package)
   - Apostrophe (flatpak)
   - Bitwarden (flatpak)
   - Calendar (flatpak)
@@ -63,8 +73,6 @@ This script automatically installs the following softwares:
   - Gimp (flatpak)
   <!-- - Kdenlive (flatpak) -->
   - LibreOffice
-  - Loupe (flatpak)
-  - Microsoft Teams
   - Mousai (flatpak)
   - MuseScore (snap)
   - NewsFlash (flatpak)
@@ -96,7 +104,7 @@ This script automatically installs the following softwares:
 - CLI:
   - git
   - htop
-  - neofetch
+  - fastfetch
   - speedtest-cli
   - yt-dlp
 
@@ -114,7 +122,7 @@ This script automatically installs the following softwares:
   - unzip
   - usb-creator-gtk
   - v4l2loopback-dkms
-  - wnctrl
+  - wmctrl
   - zip
 
 - Fonts:
