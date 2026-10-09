@@ -1,2 +1,4 @@
+# File: data/apps_ppa.txt
+# Author: Tiago Lucas Flach
 ppa:graphics-drivers/ppa # Nvidia
 # ppa:libreoffice/ppa      # LibreOffice

@@ -1,3 +1,5 @@
+# File: data/apps_apt.txt
+# Author: Tiago Lucas Flach
 # Sistema
 arp-tools
 etherwake
@@ -27,7 +29,6 @@ git
 btop
 fastfetch
 htop
-neofetch
 speedtest-cli
 yt-dlp
 

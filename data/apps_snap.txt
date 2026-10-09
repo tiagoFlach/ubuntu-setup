@@ -1,3 +1,5 @@
+# File: data/apps_snap.txt
+# Author: Tiago Lucas Flach
 inkscape
 musescore
 scrcpy

@@ -1,29 +1,44 @@
 #!/bin/bash
+# File: setup-ubuntu.sh
+# Author: Tiago Lucas Flach
 
 # Script created for personal use.
 # author: Tiago Lucas Flach
 # https://github.com/tiagoFlach
-# last update: 2023-10-18
+# last update: 2026-10-08
 # Scripts - https://plus.diolinux.com.br/t/compartilhe-seus-scripts-de-pos-instalacao/7452
 
 # ------------------------------- CONFIGURAÇÕES ------------------------------ #
-source "${BASH_SOURCE%/*}/../core/colors.sh"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR" || exit 1
 
-# Informações do sistema
-system="$(lsb_release -sd)"
-machine="$(uname -m)"
-
-arch="amd64"
-arch2="x64"
-arch3="64"
-if [ "$machine" != "x86_64" ]; then
-	arch="i386"
-	arch2="ia32"
-	arch3="32"
+if (( EUID == 0 )); then
+	echo "Execute este script como seu usuário normal, sem sudo."
+	exit 1
 fi
 
+if [[ ! -r /etc/os-release ]]; then
+	echo "Não foi possível detectar a distribuição Linux."
+	exit 1
+fi
+. /etc/os-release
+if [[ "$ID" != "ubuntu" ]]; then
+	echo "Este instalador é exclusivo para Ubuntu (detectado: ${PRETTY_NAME:-$ID})."
+	exit 1
+fi
+if [[ "$(dpkg --print-architecture)" != "amd64" ]]; then
+	echo "Este instalador e os pacotes de terceiros configurados exigem amd64."
+	exit 1
+fi
+
+source "$SCRIPT_DIR/core/colors.sh"
+
+# Informações do sistema
+system="${PRETTY_NAME:-Ubuntu}"
+arch="$(dpkg --print-architecture)"
+
 ## ---------- Tela Inicial ---------- ##
-COLS="$(tput cols)"
+COLS="$(tput cols 2>/dev/null || echo 80)"
 SPACES1="	"
 SPACES2="		"
 SPACES3="			"
@@ -52,7 +67,7 @@ for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
 done
 
-LINE2+=" ${NC}LINUX PERSONAL - UBUNTU 24.10${BLUE} "
+LINE2+=" ${NC}LINUX PERSONAL - UBUNTU ${VERSION_ID:-}${BLUE} "
 
 for ((i = 0; i < ((($COLS - 31) / 2) - 8); i++)); do
 	LINE2+="-"
@@ -95,73 +110,69 @@ echo -e "${BOLDBLUE}User: ${NC}$USER\n\n"
 # ---------------------------------------------------------------------------- #
 # -------------------------------- CONSTANTES -------------------------------- #
 # ---------------------------------------------------------------------------- #
-PPAS=$(grep -v '^#' "data/apps_ppa.txt")
-APPS_APT=$(grep -v '^#' "data/apps_apt.txt")
-APPS_SNAP=$(grep -v '^#' "data/apps_snap.txt")
-APPS_DOWNLOADS=$(grep -v '^#' "data/apps_downloads.txt")
+mapfile -t PPAS < <(sed -E 's/[[:space:]]+#.*$//; /^[[:space:]]*(#|$)/d' "$SCRIPT_DIR/data/apps_ppa.txt")
+mapfile -t APPS_APT < <(sed -E 's/[[:space:]]+#.*$//; /^[[:space:]]*(#|$)/d' "$SCRIPT_DIR/data/apps_apt.txt")
+mapfile -t APPS_SNAP < <(sed -E 's/[[:space:]]+#.*$//; /^[[:space:]]*(#|$)/d' "$SCRIPT_DIR/data/apps_snap.txt")
+mapfile -t APPS_DOWNLOADS < <(sed -E 's/[[:space:]]+#.*$//; /^[[:space:]]*(#|$)/d' "$SCRIPT_DIR/data/apps_url.txt")
 
 ## ----- Diretório de Downloads ----- ##
-DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
+DIRETORIO_DOWNLOADS="$HOME/Downloads/programas/ubuntu-setup"
 
 # ---------------------------------------------------------------------------- #
 # --------------------------------- VARIÁVEIS -------------------------------- #
 # ---------------------------------------------------------------------------- #
 
 ## ----- Pré-requisitos ----- ##
-sudo apt install apt-transport-https curl -y -q
+sudo apt update && sudo apt full-upgrade -y
+sudo apt install apt-transport-https curl wget -y -q
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 
 ## ----- Programas a serem instalados via ppa ----- ##
 function install_ppa {
-	for ppa in ${PPAS[@]}; do
-		if ! grep -q "^deb .*$ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-			sudo apt-add-repository "$ppa" -y
-		fi
+	for ppa in "${PPAS[@]}"; do
+		[[ -z "$ppa" ]] && continue
+		sudo apt-add-repository "$ppa" -y
 	done
 }
 
 function install_downloads {
-	mkdir "$DIRETORIO_DOWNLOADS"
+	mkdir -p "$DIRETORIO_DOWNLOADS"
 
-	for app in ${APPS_DOWNLOADS[@]}; do
+	for app in "${APPS_DOWNLOADS[@]}"; do
+		[[ -z "$app" ]] && continue
 		echo -e "\n\n${YELLOW}"$LINE1
 		echo -e "	[BAIXANDO] - $app ${NC}"
 		echo -e "${YELLOW}"$LINE1"${NC}\n"
 
-		wget -c "$app" -P "$DIRETORIO_DOWNLOADS"
+		wget --continue --content-disposition "$app" -P "$DIRETORIO_DOWNLOADS"
 	done
 
-	# Instalando pacotes .deb baixados
-	sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-
-	# Remove o diretorio
-	sudo rm -rf "$DIRETORIO_DOWNLOADS"
-
-	sudo apt update && sudo apt upgrade -y
+	shopt -s nullglob
+	local deb_files=("$DIRETORIO_DOWNLOADS"/*.deb)
+	shopt -u nullglob
+	if (( ${#deb_files[@]} > 0 )); then
+		sudo apt install -y "${deb_files[@]}"
+	fi
 }
 
 ## ----- Programas a serem instalados via apt ----- ##
 function install_apt {
-	sudo apt update && sudo apt upgrade -y
-	for app in ${APPS_APT[@]}; do
-		if dpkg -l | grep -q $app; then
-			installing_text "$app"
-
-			sudo apt-get install -y "$app" -y -q
-		fi
-	done
-	sudo apt update && sudo apt upgrade -y
+	source "$SCRIPT_DIR/core/install_apt.sh"
 }
 
 ## ----- Programas a serem instalados via Flatpak ----- ##
 function install_flatpak {
-	source ./core/install_flatpak.sh
+	source "$SCRIPT_DIR/core/install_flatpak.sh"
 }
 
 ## ----- Programas a serem instalados via Snap ----- ##
 function install_snap {
+	if ! command -v snap >/dev/null 2>&1; then
+		echo "Snap não está disponível; pulando pacotes Snap."
+		return
+	fi
 	sudo snap refresh
-	for app in ${APPS_SNAP[@]}; do
+	for app in "${APPS_SNAP[@]}"; do
 		if ! snap list | grep -q $app; then
 			installing_text "$app"
 
@@ -176,9 +187,8 @@ function install_snap {
 # ---------------------------------------------------------------------------- #
 function checklist {
 	echo -e "\nAPT's instalados:"
-	for app in ${APPS_APT[@]}; do
-		# Verifica se o programa esta istalado
-		if dpkg -l | grep -q $app; then
+	for app in "${APPS_APT[@]}"; do
+		if dpkg-query -W -f='${db:Status-Status}' "$app" 2>/dev/null | grep -qx 'installed'; then
 			echo -e "	${GREEN}INSTALADO: $app ${NC}"
 		else
 			echo -e "	${RED}FALHOU: $app ${NC}"
@@ -186,9 +196,8 @@ function checklist {
 	done
 
 	echo -e "\nFLATPAK's instalados:"
-	for app in ${APPS_FLATPAK[@]}; do
-		# Verifica se o programa esta istalado
-		if flatpak list | grep -q $app; then
+	for app in "${APPS_FLATPAK[@]}"; do
+		if command -v flatpak >/dev/null 2>&1 && flatpak info "$app" >/dev/null 2>&1; then
 			echo -e "	${GREEN}INSTALADO: $app ${NC}"
 		else
 			echo -e "	${RED}FALHOU: $app ${NC}"
@@ -196,9 +205,8 @@ function checklist {
 	done
 
 	echo -e "\nSNAP's instalados:"
-	for app in ${APPS_SNAP[@]}; do
-		# Verifica se o programa esta istalado
-		if snap list | grep -q $app; then
+	for app in "${APPS_SNAP[@]}"; do
+		if command -v snap >/dev/null 2>&1 && snap list "$app" >/dev/null 2>&1; then
 			echo -e "	${GREEN}INSTALADO: $app ${NC}"
 		else
 			echo -e "	${RED}FALHOU: $app ${NC}"
@@ -223,10 +231,6 @@ sudo apt purge --auto-remove yelp -y
 # sudo dpkg --add-architecture i386
 
 ## ----- Atualizando o repositório ----- ##
-sudo apt -y update
-sudo apt -y full-upgrade
-sudo apt update -y
-
 # ---------------------------------------------------------------------------- #
 # --------------------------------- EXECUÇÃO --------------------------------- #
 # ---------------------------------------------------------------------------- #
@@ -244,10 +248,10 @@ install_snap
 # ------------------------------- POST INSTALL ------------------------------- #
 # ---------------------------------------------------------------------------- #
 # Posiveis erros
-sudo apt install -y --fix-broken --install-recommends
+sudo apt-get install -f -y
 
 # UFW
-sudo ufw enable
+sudo ufw --force enable
 
 # Drivers
 # sudo ubuntu-drivers autoinstall
@@ -256,7 +260,7 @@ sudo ufw enable
 # sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 
 ## ----- Finalização, atualização e limpeza ----- ##
-sudo apt update && sudo apt dist-upgrade -y
+sudo apt update && sudo apt full-upgrade -y
 sudo apt autoclean
 sudo apt autoremove -y
 

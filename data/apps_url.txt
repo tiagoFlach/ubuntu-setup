@@ -1,3 +1,4 @@
+# File: data/apps_url.txt
+# Author: Tiago Lucas Flach
 https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb   # Google Chrome
 https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb # Google Earth Pro
-https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb  # Microsoft Teams
