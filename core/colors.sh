@@ -1,3 +1,5 @@
+# File: core/colors.sh
+# Author: Tiago Lucas Flach
 # Define colors
 BLUE='\033[0;34m'
 BOLDBLUE='\033[1;34m'

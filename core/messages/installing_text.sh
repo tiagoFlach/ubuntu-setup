@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: core/messages/installing_text.sh
+# Author: Tiago Lucas Flach
 
 source "${BASH_SOURCE%/*}/../colors.sh"
 source "${BASH_SOURCE%/*}/../components.sh"

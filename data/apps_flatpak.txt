@@ -1,4 +1,5 @@
-com.anydesk.Anydesk
+# File: data/apps_flatpak.txt
+# Author: Tiago Lucas Flach
 com.belmoussaoui.Decoder
 com.bitwarden.desktop
 com.discordapp.Discord
@@ -37,4 +38,3 @@ org.nickvision.tubeconverter
 org.remmina.Remmina
 org.telegram.desktop
 org.videolan.VLC
-page.codeberg.Imaginer.Imaginer
