@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: core/install_dnf.sh
+# Author: Tiago Lucas Flach
 
 source "${BASH_SOURCE%/*}/messages/installing_text.sh"
 source "${BASH_SOURCE%/*}/messages/updating_text.sh"

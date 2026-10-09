@@ -1,3 +1,5 @@
+# File: data/apps_dnf.txt
+# Author: Tiago Lucas Flach
 # Gnome
 dconf-editor
 gnome-backgrounds
