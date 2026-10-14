@@ -45,6 +45,7 @@ declare -A apps
 apps["android-studio"]="flatpak|com.google.AndroidStudio"
 apps["codeblocks"]="pkg|codeblocks"
 apps["composer"]="pkg|composer"
+apps["docker"]="function|docker"
 apps["eclipse"]="flatpak|org.eclipse.Java"
 apps["dbeaver"]="flatpak|io.dbeaver.DBeaverCommunity"
 apps["git"]="pkg|git"
@@ -168,30 +169,35 @@ function atom {
 # Docker
 # --------------------------------------
 function docker {
-	# Run the following command to uninstall all conflicting packages
-	for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do
-		sudo apt-get remove $pkg
-	done
+	if [[ "$distro" == "ubuntu" || "$distro" == "debian" ]]; then
+		for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do
+			sudo apt-get remove -y "$pkg"
+		done
 
-	# Add Docker's official GPG key:
-	sudo apt-get update
-	sudo apt-get install ca-certificates curl
-	sudo install -m 0755 -d /etc/apt/keyrings
-	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-	sudo chmod a+r /etc/apt/keyrings/docker.asc
+		sudo apt-get update
+		sudo apt-get install -y ca-certificates curl
+		sudo install -m 0755 -d /etc/apt/keyrings
+		sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+		sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-	# Add the repository to Apt sources:
-	echo \
-		"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+		echo \
+			"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   		$(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" |
-		sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
-	sudo apt-get update
+			sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+		sudo apt-get update
+		sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	elif [[ "$distro" == "fedora" ]]; then
+		sudo dnf install -y dnf-plugins-core
+		sudo curl -fsSL https://download.docker.com/linux/fedora/docker-ce.repo -o /etc/yum.repos.d/docker-ce.repo
+		sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	else
+		echo "Distribuição não suportada: $distro"
+		return 1
+	fi
 
-	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-
-	# Post-installation steps for Linux
-	sudo groupadd docker
-	sudo usermod -aG docker $USER
+	sudo groupadd -f docker
+	sudo usermod -aG docker "$USER"
+	sudo systemctl enable --now docker
 }
 
 # Flutter
@@ -389,6 +395,12 @@ mapfile -t SELECTED < <(select_apps)
 # Install selected apps
 # --------------------------------------
 for app in "${SELECTED[@]}"; do
+	[[ -n "$app" ]] || continue
+	if [[ -z "${apps[$app]+x}" ]]; then
+		echo "Aplicativo não reconhecido: $app" >&2
+		continue
+	fi
+
 	echo -e "\n\n${YELLOW}	INSTALANDO: $app ${NC}\n\n"
 	install_spec="${apps[$app]}"
 	install_method="${install_spec%%|*}"
@@ -396,6 +408,8 @@ for app in "${SELECTED[@]}"; do
 	if [[ "$install_method" == "flatpak" ]]; then
 		flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 		flatpak install flathub -y "$package"
+	elif [[ "$install_method" == "function" ]]; then
+		"$package"
 	else
 		install_package "$package"
 	fi
